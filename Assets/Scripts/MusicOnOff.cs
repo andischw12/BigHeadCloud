@@ -1,0 +1,56 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+public class MusicOnOff : MonoBehaviour
+{
+    public Sprite[] MusicSprites;
+    static bool MusicOn = true;
+    private void Start()
+    {
+        // check on start of scene
+        if (MusicOn) 
+        {
+            TurnMusicOn();
+        }
+        else 
+        {
+            TurnMusicOff();
+        }
+    }
+    public void MusicButton()
+    {
+        if (MusicOn)
+        {
+            TurnMusicOff();
+        }
+        else
+        {
+            TurnMusicOn();
+        }
+    }
+    void TurnMusicOn() 
+    {
+        if (!Application.isEditor)
+        {
+          //  GetJSData.soundHagim81(1);
+
+        }
+        AudioListener.volume = 1f;
+        GetComponent<Image>().sprite = MusicSprites[0];
+        MusicOn = true;
+        
+    }
+    void TurnMusicOff()
+    {
+        if (!Application.isEditor)
+        {
+           // GetJSData.soundHagim81(0);
+
+        }
+        AudioListener.volume = 0f;
+        GetComponent<Image>().sprite = MusicSprites[1];
+        MusicOn = false;
+    }
+}
