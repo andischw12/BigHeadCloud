@@ -34,7 +34,7 @@ public class MainMenuManager : MonoBehaviour
         FindObjectOfType<KidAvatarSelector>().SetSignOff(0);
         FindObjectOfType<Animator>().applyRootMotion = false;
         UpdateStatistics();
-        if (CalculationsManager.instance.PostGame)
+        if (CalculationsManager.instance.PostGame) // if its after a game open in shop
             FindObjectOfType<MainPanelManager>().PanelAnim(2);
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Camera>().targetTexture = UserFace;
     }
