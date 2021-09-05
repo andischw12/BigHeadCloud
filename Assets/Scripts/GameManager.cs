@@ -181,7 +181,6 @@ public class GameManager : MonoBehaviour
         thisComputerPlayer.myhelperManager.MakeAllHelpersNotUsed();
         thisComputerPlayer.myhelperManager.MakeHelpersInteract();
         thisComputerPlayer.myhelperManager.CheckAllHelpersAmmount();
-        //Assignment.instance.TechMassage.text = "...רבחתמ";
         thisComputerPlayer.myPhotonPlayer.SetReadyToStartTimer();
         yield return new WaitUntil(() => otherPlayer.myPhotonPlayer.ReadyToStartTimer);
         player1.myPhotonPlayer.ReadyToStartTimer = false;
