@@ -286,7 +286,11 @@ public class GameManager : MonoBehaviour
         if (winner != null)
         {
             if (thisComputerPlayer == winner)
+            {
                 CalculationsManager.instance.AmIWinner = true;
+                //saveWinnersJS(thisComputerPlayer._myName,otherPlayer._myName);
+            }
+
 
             Cameras.instance.SelectCamera(winner);
             winner.WinGame();
