@@ -59,13 +59,15 @@ mergeInto(LibraryManager.library, {
         return buffer;
     },
 
-        winnerSave: function(winner,loser) {
+        saveWinnersJS: function(winner,loser) {
+            var winnerToSent = Pointer_stringify(winner);
+            var loserToSent = Pointer_stringify(loser);
 		$.ajax({
             type: "POST",
             cache: false,
             //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             url: "https://meirkids.co.il/asp/BigHeadWinGames.asp",
-            data: "FirstName=BigHeadWinners&LastName=AAA&Phone=080808&Address=AAA&Email=AAA@AAA.AAA&Winner="+winner+"&Loser="+loser,
+            data: "FirstName=BigHeadWinners&LastName=AAA&Phone=080808&Address=AAA&Email=AAA@AAA.AAA&Winner="+winnerToSent+"&Loser="+loserToSent,
             success: function (value) {
 			
 			}

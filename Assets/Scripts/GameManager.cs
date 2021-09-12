@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -13,6 +14,9 @@ using Febucci.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [DllImport("__Internal")]
+    public static extern void saveWinnersJS(string Winner, string Loser);
+
     public static GameManager instance;
     [Header("GameObject holders")]
     [SerializeField] protected HostCharachter host;
@@ -273,6 +277,8 @@ public class GameManager : MonoBehaviour
             GameProcess.instance.LoadQuestion();
     }
 
+   
+
     private IEnumerator GameOver(Player winner)
     {
         isGameOver = true;
@@ -288,7 +294,16 @@ public class GameManager : MonoBehaviour
             if (thisComputerPlayer == winner)
             {
                 CalculationsManager.instance.AmIWinner = true;
-                //saveWinnersJS(thisComputerPlayer._myName,otherPlayer._myName);
+        #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
+                saveWinnersJS(thisComputerPlayer._myName,otherPlayer._myName);
+        #endif
+            
+            }
+            else if (PhotonRoom.FindObjectOfType<PhotonRoom>().IsSinglePlayer)
+            {
+                #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
+                                saveWinnersJS(otherPlayer._myName, thisComputerPlayer._myName);
+                #endif
             }
 
 
