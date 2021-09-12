@@ -9,12 +9,16 @@ public class MusicOnOff : MonoBehaviour
     static bool MusicOn = true;
     private void Start()
     {
+        int soundOn = 0;
+        if (PlayerPrefs.GetInt("BigHeadSound") != null)
+            soundOn = PlayerPrefs.GetInt("BigHeadSound");
+        
         // check on start of scene
-        if (MusicOn) 
+        if (MusicOn && soundOn!=0) 
         {
             TurnMusicOn();
         }
-        else 
+        else
         {
             TurnMusicOff();
         }
@@ -40,7 +44,7 @@ public class MusicOnOff : MonoBehaviour
         AudioListener.volume = 1f;
         GetComponent<Image>().sprite = MusicSprites[0];
         MusicOn = true;
-        
+        PlayerPrefs.SetInt("BigHeadSound", 1);
     }
     void TurnMusicOff()
     {
@@ -52,5 +56,7 @@ public class MusicOnOff : MonoBehaviour
         AudioListener.volume = 0f;
         GetComponent<Image>().sprite = MusicSprites[1];
         MusicOn = false;
+        PlayerPrefs.SetInt("BigHeadSound", 0);
+
     }
 }

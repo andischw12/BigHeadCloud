@@ -58,4 +58,18 @@ mergeInto(LibraryManager.library, {
         stringToUTF8(userName, buffer, bufferSize);
         return buffer;
     },
+
+        winnerSave: function(winner,loser) {
+		$.ajax({
+            type: "POST",
+            cache: false,
+            //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            url: "https://meirkids.co.il/asp/BigHeadWinGames.asp",
+            data: "FirstName=BigHeadWinners&LastName=AAA&Phone=080808&Address=AAA&Email=AAA@AAA.AAA&Winner="+winner+"&Loser="+loser,
+            success: function (value) {
+			
+			}
+        })
+
+    },
 })

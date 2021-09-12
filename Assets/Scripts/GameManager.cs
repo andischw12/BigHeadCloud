@@ -181,7 +181,6 @@ public class GameManager : MonoBehaviour
         thisComputerPlayer.myhelperManager.MakeAllHelpersNotUsed();
         thisComputerPlayer.myhelperManager.MakeHelpersInteract();
         thisComputerPlayer.myhelperManager.CheckAllHelpersAmmount();
-        //Assignment.instance.TechMassage.text = "...רבחתמ";
         thisComputerPlayer.myPhotonPlayer.SetReadyToStartTimer();
         yield return new WaitUntil(() => otherPlayer.myPhotonPlayer.ReadyToStartTimer);
         player1.myPhotonPlayer.ReadyToStartTimer = false;
@@ -287,7 +286,11 @@ public class GameManager : MonoBehaviour
         if (winner != null)
         {
             if (thisComputerPlayer == winner)
+            {
                 CalculationsManager.instance.AmIWinner = true;
+                //saveWinnersJS(thisComputerPlayer._myName,otherPlayer._myName);
+            }
+
 
             Cameras.instance.SelectCamera(winner);
             winner.WinGame();
