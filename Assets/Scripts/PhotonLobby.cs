@@ -18,7 +18,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     public GameObject Buttons;
    // public GameObject FriendBattleButton;
     //public GameObject cancelButton;
-    public GameObject ConnectingText;
+    public GameObject ConnectingGM;
     [SerializeField] TMP_InputField roomNumCode;
     public bool PlayWithFriendMode { get; set; }
     
@@ -90,7 +90,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
         connectedToMaster = true;
         Buttons.SetActive(true);
-        ConnectingText.SetActive(false);
+        ConnectingGM.SetActive(false);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
