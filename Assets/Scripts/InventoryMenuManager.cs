@@ -64,18 +64,19 @@ public class InventoryMenuManager : MonoBehaviour
     }
 
 
-    public void OnPanelChange(int newPanel) 
+    public void OnPanelChange(int newPanel, string panelName) 
     {
-        if (gameObject.GetComponentInParent<CanvasGroup>().alpha == 1)
+        if (gameObject.GetComponentInParent<CanvasGroup>().alpha == 1 )
         {
-            if (newPanel == 3)
+            if (newPanel == 3 && panelName == "Inventory")
             {
                 FindObjectOfType<KidAvatarSelector>().GetSignateGM().SetActive(true);
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().ResetTrigger("SignOff");
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Sign");
+                Debug.Log("i am working");
 
             }
-            else if (newPanel < 3)
+            else  
             {
                 print("signoff");
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("SignOff");

@@ -112,7 +112,11 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         else 
         {
             WaitingTimeIsOver = false;
-            StartCoroutine(Waiting(10));
+            if(!FindObjectOfType<PhotonLobby>().PlayWithFriendMode)// only if in random
+            {
+                StartCoroutine(Waiting(10));
+            }
+                
             while (PhotonNetwork.CurrentRoom.PlayerCount !=2 && !WaitingTimeIsOver)
                 yield return null;
             if (PhotonNetwork.CurrentRoom.PlayerCount == 2)
@@ -143,6 +147,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     IEnumerator Waiting(float time)
     {
+        Debug.Log("i am Waiting");
         yield return new WaitForSecondsRealtime(time);
         WaitingTimeIsOver = true;
     }

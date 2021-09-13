@@ -43,7 +43,7 @@ namespace Michsky.UI.Zone
         string panelFadeOut = "Panel Out";
         string buttonFadeIn = "Hover to Pressed";
         string buttonFadeOut = "Pressed to Normal";
-
+        [SerializeField] string PanelName;
 
         private void Awake()
         {
@@ -66,6 +66,7 @@ namespace Michsky.UI.Zone
                 title = titleObject.transform.Find("Text").GetComponent<TextMeshProUGUI>();
                 titleHelper = titleObject.transform.Find("Helper").GetComponent<TextMeshProUGUI>();
             }
+            PanelName = gameObject.name;
         }
 
         public void OpenFirstTab()
@@ -110,17 +111,15 @@ namespace Michsky.UI.Zone
                     title.text = titles[currentPanelIndex];
                 }
 
+                
                 currentButton = buttons[currentButtonlIndex];
-
                 currentButtonlIndex = newPanel;
                 nextButton = buttons[currentButtonlIndex];
-
                 currentButtonAnimator = currentButton.GetComponent<Animator>();
                 nextButtonAnimator = nextButton.GetComponent<Animator>();
-
                 currentButtonAnimator.Play(buttonFadeOut);
                 nextButtonAnimator.Play(buttonFadeIn);
-                FindObjectOfType<InventoryMenuManager>().OnPanelChange(newPanel);
+                FindObjectOfType<InventoryMenuManager>().OnPanelChange(newPanel,PanelName);
 
             }
 
