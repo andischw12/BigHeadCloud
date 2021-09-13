@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(15);
         if (Assignment.instance.VSCanvas.activeInHierarchy) 
         {
-            PlayerPrefs.SetInt("AutoConnectAndSearch", 1);
+            PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
             Destroy(PhotonRoom.room.gameObject);
             PhotonNetwork.Disconnect();
             while (PhotonNetwork.IsConnected)

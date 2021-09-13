@@ -10804,7 +10804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557058448742913172, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: dynamicResolutionSystem
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2785330350772332361, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -25827,7 +25827,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114404788801422510}
   m_TextViewport: {fileID: 224903611092372816}
   m_TextComponent: {fileID: 114439918871417484}
-  m_Placeholder: {fileID: 0}
+  m_Placeholder: {fileID: 114404788801422510}
   m_VerticalScrollbar: {fileID: 0}
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}

@@ -152,7 +152,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         WaitingTimeIsOver = true;
     }
 
-    public IEnumerator Safety(float time)
+    public IEnumerator SafetyFromRandomButtonClick(float time)
     {
         yield return new WaitForSecondsRealtime(time);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
@@ -164,6 +164,22 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         {
          
             FindObjectOfType<PhotonLobby>().OnCanelButtonClicked(1);
+        }
+    }
+
+
+    public IEnumerator SafetyFromPlayWithFriendSlave(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+        {
+            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תוינש המכ דועב בוש הסנ .תרשה לע בר סמוע";
+        }
+        yield return new WaitForSecondsRealtime(4f);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+        {
+
+            FindObjectOfType<PhotonLobby>().OnCanelButtonClicked(0);
         }
     }
 

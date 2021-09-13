@@ -71,9 +71,16 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         while (PhotonNetwork.IsConnected)
             yield return null;
         PhotonNetwork.ConnectUsingSettings();
-        StartCoroutine(Waiting(10f));
+        ConnectingGM.SetActive(true);
+        StartCoroutine(ConnectToPhotonHelperWaiting(10f));
+        //check fps
+        float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
+        Debug.Log("FPS is: " + CurrentFps);
+        if (CurrentFps < 25)
+            FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = true;
+        
     }
-    IEnumerator Waiting(float time)
+    IEnumerator ConnectToPhotonHelperWaiting(float time)
     {
         yield return new WaitForSecondsRealtime(time);
         if (!connectedToMaster)
@@ -117,9 +124,11 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     public void OnPlayWithFriendSlaveClick()
     {
+        StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(18f));
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " רדחל ףרטצמ";
-        PhotonNetwork.JoinRoom(roomNumCode.text);
+        if (roomNumCode.text != "") 
+            PhotonNetwork.JoinRoom(roomNumCode.text);
         Debug.Log(roomNumCode.text);
     }
 
@@ -153,7 +162,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         // RandomBattleButton.SetActive(false);
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
         PhotonNetwork.JoinRandomRoom();
-        StartCoroutine(FindObjectOfType<PhotonRoom>().Safety(18f));
+        StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
