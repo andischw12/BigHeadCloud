@@ -74,4 +74,8 @@ mergeInto(LibraryManager.library, {
         })
 
     },
+
+    pushWinnersJS: function(){
+        localStorage.setItem("pushWinners",1);
+    },
 })

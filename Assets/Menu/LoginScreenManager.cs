@@ -38,7 +38,11 @@ public class LoginScreenManager : MonoBehaviour
 
     void Start()
     {
-         
+        //ishay
+#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
+        GameManager.pushWinnersJS();
+#endif
+
         AddPlayerButton.onClick.AddListener(AddKidUserButton);
         EnterNameNextButton.onClick.AddListener(EnterNameNextClick);
         PrevAvatarButton.onClick.AddListener(ChangeAvatarColorEffect);

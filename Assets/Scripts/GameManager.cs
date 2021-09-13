@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     [DllImport("__Internal")]
     public static extern void saveWinnersJS(string Winner, string Loser);
 
+    [DllImport("__Internal")]
+    public static extern void pushWinnersJS();
+
+
     public static GameManager instance;
     [Header("GameObject holders")]
     [SerializeField] protected HostCharachter host;
@@ -295,14 +299,16 @@ public class GameManager : MonoBehaviour
             {
                 CalculationsManager.instance.AmIWinner = true;
         #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
-                saveWinnersJS(thisComputerPlayer._myName,otherPlayer._myName);
+                saveWinnersJS(thisComputerPlayer._myName.Replace(" ",";"),otherPlayer._myName.Replace(" ", ";"));
+                pushWinnersJS();
         #endif
-            
+
             }
             else if (PhotonRoom.FindObjectOfType<PhotonRoom>().IsSinglePlayer)
             {
                 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
-                                saveWinnersJS(otherPlayer._myName, thisComputerPlayer._myName);
+                saveWinnersJS(otherPlayer._myName.Replace(" ", ";"), thisComputerPlayer._myName.Replace(" ", ";"));
+                pushWinnersJS();
                 #endif
             }
 
