@@ -124,12 +124,14 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     public void OnPlayWithFriendSlaveClick()
     {
-        StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(18f));
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " רדחל ףרטצמ";
-        if (roomNumCode.text != "") 
+        if (roomNumCode.text != "")
+        {
+            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(18f));
+            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
+            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " רדחל ףרטצמ";
             PhotonNetwork.JoinRoom(roomNumCode.text);
-        Debug.Log(roomNumCode.text);
+            Debug.Log(roomNumCode.text);
+        }
     }
 
     public void OnRandomBattleButtonClicked()
@@ -176,7 +178,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     void CreateRoom()
     {
         Debug.Log("trying to create a new room");
-        int randomRoomName = Random.Range(0, 10000);
+        int randomRoomName = Random.Range(1000, 10000);
         Debug.Log("your code is:" + randomRoomName);
         RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
         PhotonNetwork.CreateRoom(randomRoomName.ToString(), roomOps);
