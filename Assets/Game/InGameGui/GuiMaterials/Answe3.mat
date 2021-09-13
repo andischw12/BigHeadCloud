@@ -118,7 +118,7 @@ Material:
     - _AddColorFade: 1
     - _AddHueBrightness: 2
     - _AddHueContrast: 1
-    - _AddHueFade: 0
+    - _AddHueFade: 0.6
     - _AddHueSaturation: 1
     - _AddHueSpeed: 3
     - _AlphaTintFade: 1
@@ -296,7 +296,7 @@ Material:
     - _RainbowNoiseFactor: 0.2
     - _RainbowSaturation: 1
     - _RainbowSpeed: 0.4
-    - _RecolorFade: 0
+    - _RecolorFade: 1
     - _RectHeight: 100
     - _RectWidth: 100
     - _Saturation: 1

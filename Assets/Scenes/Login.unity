@@ -10624,7 +10624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 912821014161925374, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 912821014161925374, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: m_SortingOrder
@@ -10788,7 +10788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557058448742913172, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: ShowHideUI
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2557058448742913172, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: dpiDecrease
@@ -10804,7 +10804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557058448742913172, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: dynamicResolutionSystem
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2785330350772332361, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: m_AnchorMax.y
