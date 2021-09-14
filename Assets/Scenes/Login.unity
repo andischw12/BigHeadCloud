@@ -10624,7 +10624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 912821014161925374, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 912821014161925374, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: m_SortingOrder
@@ -10788,7 +10788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557058448742913172, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: ShowHideUI
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2557058448742913172, guid: edb0ac6f832f62943b71824bae16daa4, type: 3}
       propertyPath: dpiDecrease

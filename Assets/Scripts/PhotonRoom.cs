@@ -173,7 +173,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         yield return new WaitForSecondsRealtime(time);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תוינש המכ דועב בוש הסנ .תרשה לע בר סמוע";
+            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = ".תינש וסנ .לשכנ רוביחה";
         }
         yield return new WaitForSecondsRealtime(4f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
