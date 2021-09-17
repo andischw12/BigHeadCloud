@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EnviormentList {Bereshit,ShmotVaikra,BamidbarDvarim,Tanak,Avot,Mada,Tarbut,Israel,RoshHashana,Kippur,Random = 100 }
+public enum EnviormentList {Bereshit,ShmotVaikra,BamidbarDvarim,Tanak,Avot,Mada,Tarbut,Israel,RoshHashana,Kippur,Sukkot,Random = 100 }
 
 public class EnviormentsManager : MonoBehaviour
 {

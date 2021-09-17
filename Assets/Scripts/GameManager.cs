@@ -447,6 +447,12 @@ public class GameManager : MonoBehaviour
             GetComponent<QuizManager>().LoadQuestionList(9);
         }
 
+        if (chosen == EnviormentList.Sukkot.GetHashCode())
+        {
+            Assignment.instance.QuizSubjectText.text = "תוכוס";
+            GetComponent<QuizManager>().LoadQuestionList(9);
+        }
+
 
 
 
