@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Player thisComputerPlayer;
     [SerializeField] public Player otherPlayer;
     [SerializeField] GameObject Cover;
-    [SerializeField] EnviormentList enviorment;
+    [SerializeField] public EnviormentList enviorment;
     [SerializeField] public GameObject VsCanvas;
     [SerializeField] GameObject PostGameGM;
      
@@ -58,10 +58,12 @@ public class GameManager : MonoBehaviour
     }
     private IEnumerator AssignmentMethod()
     {
+       
         Assignment.instance.VSCanvas.SetActive(true);
         StartCoroutine(Saftey());
         Assignment.instance.VSCanvas.transform.GetChild(2).gameObject.SetActive(true);
         Assignment.instance.VSCanvas.transform.GetChild(3).gameObject.SetActive(false);
+        enviorment = PhotonRoom.room.enviorment;
         yield return new WaitUntil(() => player1 != null && player2 != null);
         yield return new WaitUntil(() => EnviormentIsReady());
         StartCoroutine(VsScreen());
@@ -92,6 +94,7 @@ public class GameManager : MonoBehaviour
         CalculationsManager.instance.LastGameTimePerQuestion = timePerQuestion;
         CalculationsManager.instance.LastGameTotalNumOfQuestions = totalNumOfQuestions;
         CalculationsManager.instance.LastGamePointsPerQuestion = PointsPerQuestion;
+      
        // Assignment.instance.TechMassage.text = "רבוחמ";
         //
     }

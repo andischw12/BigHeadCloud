@@ -20,6 +20,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     bool WaitingTimeIsOver;
     bool _isSinglePlayer = false;
     public bool flag;
+    public EnviormentList enviorment;
     public bool CancelButtonClicked { get; set;}
     public bool IsSinglePlayer{get{ return _isSinglePlayer;}}
 
@@ -166,7 +167,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
             FindObjectOfType<PhotonLobby>().OnCanelButtonClicked(1);
         }
     }
-
+ 
 
     public IEnumerator SafetyFromPlayWithFriendSlave(float time)
     {
