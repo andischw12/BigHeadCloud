@@ -184,6 +184,12 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         }
     }
 
+    public void SelecetSubject(int i) 
+    {
+        enviorment = (EnviormentList)i;
+
+    }
+
 
 }
 

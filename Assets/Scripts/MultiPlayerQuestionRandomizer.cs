@@ -38,7 +38,7 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
             }
                 
             else
-                PV.RPC("RandomEnviormentNumber", RpcTarget.AllBuffered, env.GetHashCode());
+            PV.RPC("RandomEnviormentNumber", RpcTarget.AllBuffered, env.GetHashCode());
         }
         return chosenEnviorment;
     }
