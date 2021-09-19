@@ -126,6 +126,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     {
         if (roomNumCode.text != "")
         {
+            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[4].GetComponent<ModalWindowManager>().CloseWindow();
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(18f));
             FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
             FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " רדחל ףרטצמ";

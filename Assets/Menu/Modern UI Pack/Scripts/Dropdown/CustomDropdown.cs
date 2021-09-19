@@ -84,7 +84,7 @@ namespace Michsky.UI.ModernUIPack
             {
                 dropdownAnimator = gameObject.GetComponent<Animator>();
                 itemList = itemParent.GetComponent<VerticalLayoutGroup>();
-                /*
+                
                 if (dropdownItems.Count != 0)
                     SetupDropdown();
 
@@ -99,7 +99,7 @@ namespace Michsky.UI.ModernUIPack
                     entry.callback.AddListener((eventData) => { Animate(); });
                     triggerEvent.GetComponent<EventTrigger>().triggers.Add(entry);
                 }
-                */
+             
             }
 
             catch
@@ -344,21 +344,7 @@ namespace Michsky.UI.ModernUIPack
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (dropdownItems.Count != 0)
-                SetupDropdown();
-
-            currentListParent = transform.parent;
-
-            if (enableTrigger == true && triggerObject != null)
-            {
-                triggerButton = gameObject.GetComponent<Button>();
-                triggerEvent = triggerObject.AddComponent<EventTrigger>();
-                EventTrigger.Entry entry = new EventTrigger.Entry();
-                entry.eventID = EventTriggerType.PointerClick;
-                entry.callback.AddListener((eventData) => { Animate(); });
-                triggerEvent.GetComponent<EventTrigger>().triggers.Add(entry);
-            }
-            //
+             
             if (enableDropdownSounds == true && useClickSound == true)
                 soundSource.PlayOneShot(clickSound);
         }
