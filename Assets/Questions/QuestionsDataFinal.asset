@@ -11164,7 +11164,7 @@ MonoBehaviour:
       - "\u05E7\u05D5\u05D7\u05DE \u05E8\u05D9\u05D9\u05E0 \u05DC\u05E2 \u05D5\u05D9\u05D3\u05DC"
       - "\u05E7\u05D5\u05D7\u05E9 \u05E8\u05D9\u05D9\u05E0 \u05DC\u05E2 \u05D5\u05D9\u05D3\u05DC"
       correctAns: 3
-    - questionInfo: "\"\u05DF\u05E7\u05E0\u05E7\u05D1 \u05DF\u05DB\u05EA\u05E1\u05EA
+    - questionInfo: "\"_______ \u05DF\u05E7\u05E0\u05E7\u05D1 \u05DC\u05DB\u05EA\u05E1\u05EA
         \u05DC\u05D0\" :\u05D5\u05DE\u05D9\u05DC\u05E9\u05D4"
       questionType: 0
       questionImage: {fileID: 0}
@@ -19606,3 +19606,745 @@ MonoBehaviour:
       - "\u05D0\u05E8\u05E7\u05D9\u05D5"
       - "\u05DD\u05D9\u05E8\u05D1\u05D3"
       correctAns: 3
+  - questions:
+    - questionInfo: "?\u05EA\u05D5\u05DB\u05D5\u05E1\u05D4 \u05D2\u05D7 \u05DC\u05D7
+        \u05DA\u05D9\u05E8\u05D0\u05EA \u05D4\u05D6\u05D9\u05D0\u05D1"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D9\u05E8\u05E9\u05EA\u05D1 \u05D2\"\u05D9"
+      - "\u05D9\u05E8\u05E9\u05EA\u05D1 \u05D5\"\u05D8"
+      - "\u05D9\u05E8\u05E9\u05EA\u05D1 \u05D6\"\u05D9"
+      - "\u05D4\u05E0\u05D5\u05DB\u05E0 \u05D4\u05D1\u05D5\u05E9\u05EA \u05DF\u05D9\u05D0"
+      correctAns: 2
+    - questionInfo: "?\u05DD\u05D9\u05E0\u05D9\u05DE\u05D4 \u05EA\u05E2\u05D1\u05E8\u05D0
+        \u05DD\u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05D1\u05E8\u05E2 \u05D1\u05DC\u05D5\u05DC \u05E1\u05D3\u05D4 \u05D2\u05D5\u05E8\u05EA\u05D0"
+      - "\u05D4\u05E0\u05D0\u05EA \u05DF\u05E4\u05D2 \u05D4\u05E8\u05D5\u05E2\u05E9
+        \u05D4\u05D8\u05D9\u05D7"
+      - "\u05D4\u05D1\u05E8\u05E2 \u05EA\u05D9\u05D6 \u05E1\u05D3\u05D4 \u05D2\u05D5\u05E8\u05EA\u05D0"
+      - "\u05E1\u05D3\u05D4\u05D5 \u05EA\u05D5\u05D1\u05E8\u05E2 \u05D9\u05EA\u05E9
+        \u05D2\u05D5\u05E8\u05EA\u05D0"
+      correctAns: 1
+    - questionInfo: "?\u05D1\u05DC\u05D5\u05DC\u05D4 \u05D7\u05E7\u05DC\u05E0 \u05E5\u05E2
+        \u05D4\u05D6\u05D9\u05D0\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05E1\u05D5\u05D8\u05E4\u05D9\u05DC\u05E7\u05D0"
+      - "\u05D4\u05E0\u05E0\u05D1"
+      - "\u05E8\u05DE\u05EA"
+      - "\u05DD\u05D9\u05E6\u05E2 \u05D4\u05D1\u05E8\u05D4\u05DE \u05E8\u05E9\u05E4\u05D0"
+      correctAns: 3
+    - questionInfo: "?\u05D4\u05E8\u05D5\u05EA\u05D4\u05DE \u05D0\u05D9\u05D4 \u05D4\u05DB\u05D5\u05E1
+        \u05EA\u05D5\u05D5\u05E6\u05DE \u05DD\u05D0\u05D4"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05E8\u05D5\u05E8\u05D1 ,\u05DF\u05DB"
+      - "\u05DF\u05E0\u05D1\u05E8\u05D3\u05DE \u05E7\u05E8 .\u05D0\u05DC"
+      - "\u05D4\u05E8\u05D5\u05EA\u05D4\u05DE \u05D0\u05D9\u05D4 \u05E9\u05D3\u05E7\u05DE\u05D4
+        \u05EA\u05D9\u05D1 \u05DF\u05DE\u05D6\u05D1 \u05E7\u05E8"
+      - "\u05EA\u05E7\u05D5\u05DC\u05D7\u05DE"
+      correctAns: 1
+    - questionInfo: "?\u05D4\u05DB\u05D5\u05E1\u05D1 \u05DC\u05D5\u05DB\u05D0\u05DC
+        \u05DD\u05D9\u05D1\u05D9\u05D9\u05D7 \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "(\u05DD\u05D7\u05DC) \u05EA\u05E4"
+      - "\u05EA\u05D5\u05E7\u05E8\u05D9"
+      - "\u05EA\u05D5\u05E8\u05D9\u05E4"
+      - "\u05EA\u05D5\u05D1\u05D5\u05E9\u05EA\u05D4 \u05DC\u05DB"
+      correctAns: 1
+    - questionInfo: "?\u05D4\u05E8\u05E9\u05DB \u05D0\u05D9\u05D4 \u05DD\u05D0\u05D4
+        ,\u05EA\u05D5\u05E0\u05E4\u05D3 \u05D9\u05EA\u05E9\u05DE \u05E7\u05E8 \u05D4\u05D9\u05D5\u05E9\u05E2\u05E9
+        \u05D4\u05DB\u05D5\u05E1"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05E8\u05E9\u05DB"
+      - "\u05DF\u05D5\u05E9\u05D0\u05E8\u05D4 \u05DD\u05D5\u05D9\u05D1 \u05E7\u05E8
+        \u05D4\u05DC\u05D5\u05E1\u05E4"
+      - "\u05D4\u05DC\u05D5\u05E1\u05E4"
+      - "\u05D4\u05E0\u05D5\u05DB\u05E0 \u05D4\u05D1\u05D5\u05E9\u05EA \u05DF\u05D9\u05D0"
+      correctAns: 3
+    - questionInfo: "?\u05E8\u05E9\u05DB \u2013 \u05DC\u05D6\u05E8\u05D1 \u05EA\u05D5\u05DB\u05D9\u05EA\u05D7\u05DE
+        \u05D9\u05D5\u05E9\u05E2\u05E9 \u05DA\u05DB\u05E1 \u05DD\u05D0\u05D4"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DF\u05D9\u05E8\u05D3\u05D4\u05DE\u05DC \u05E8\u05E9\u05DB"
+      - "\u05E8\u05D7\u05D0 \u05D5\u05D4\u05E9\u05DE \u05DF\u05D9\u05D0 \u05DD\u05D0
+        \u05E7\u05E8 \u05E8\u05E9\u05DB"
+      - "\u05DD\u05D9\u05D6\u05E0\u05DB\u05E9\u05D0\u05DC \u05E7\u05E8 \u05E8\u05E9\u05DB"
+      - "\u05DC\u05D5\u05E1\u05E4"
+      correctAns: 4
+    - questionInfo: "?\u05D4\u05E8\u05D5\u05EA \u05EA\u05D7\u05DE\u05E9\u05D1 \u05DD\u05D9\u05D7\u05DE\u05E9
+        \u05E2\u05D5\u05D3\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05E8\u05D5\u05EA\u05D4 \u05EA\u05D0 \u05D5\u05D1 \u05D5\u05E0\u05DC\u05D1\u05D9\u05E7
+        \u05D9\u05DB"
+      - "\u05D4\u05E8\u05D5\u05EA\u05D4 \u05EA\u05D0\u05D9\u05E8\u05E7 \u05EA\u05D0
+        \u05DD\u05D9\u05DE\u05D9\u05D9\u05E1\u05DE \u05D9\u05DB"
+      - "\u05D2\u05D7\u05D1 \u05D7\u05D5\u05DE\u05E9\u05DC \u05D4\u05D5\u05D5\u05E6\u05DE
+        \u05D9\u05DB"
+      - "\u05EA\u05D5\u05E0\u05D5\u05DB\u05E0 \u05D2 ,\u05D1 \u05EA\u05D5\u05D1\u05D5\u05E9\u05EA"
+      correctAns: 4
+    - questionInfo: "?\"\u05D2\u05D7 \u05D5\u05E8\u05E1\u05D0\" \u05DC\u05D7 \u05D9\u05EA\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05E8\u05D5\u05EA \u05EA\u05D7\u05DE\u05E9 \u05D9\u05E8\u05D7\u05D0
+        \u05DD\u05D5\u05D9"
+      - "\u05E8\u05D5\u05E4\u05D9\u05DB \u05DD\u05D5\u05D9 \u05D9\u05E8\u05D7\u05D0
+        \u05DD\u05D5\u05D9"
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1\u05D4 \u05D2\u05D7 \u05D9\u05E0\u05E4\u05DC
+        \u05DD\u05D5\u05D9"
+      - "\u05EA\u05D5\u05E0\u05D5\u05DB\u05E0 \u05EA\u05D5\u05D1\u05D5\u05E9\u05EA\u05D4
+        \u05DC\u05DB"
+      correctAns: 1
+    - questionInfo: "?\u05DD\u05D9\u05E0\u05D9\u05DE\u05D4 \u05EA\u05E2\u05D1\u05E8\u05D0
+        \u05DD\u05E2 \u05EA\u05D5\u05E4\u05E7\u05D4 7 \u05DD\u05D9\u05DB\u05E8\u05D5\u05E2
+        \u05D9\u05EA\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1 \u05DC\u05E9 \u05DF\u05D5\u05E9\u05D0\u05E8\u05D4
+        \u05DD\u05D5\u05D9\u05D1"
+      - "\u05D4\u05E8\u05D5\u05EA \u05EA\u05D7\u05DE\u05E9\u05D1"
+      - "\u05D4\u05D1\u05E8 \u05D0\u05E0\u05E2\u05E9\u05D5\u05D4 \u05DD\u05D5\u05D9\u05D1"
+      - "\u05EA\u05D5\u05E0\u05D5\u05DB\u05E0 \u05D2 ,\u05D0 \u05EA\u05D5\u05D1\u05D5\u05E9\u05EA"
+      correctAns: 3
+    - questionInfo: "?'\u05D3\u05D5\u05D1\u05DB\u05D4 \u05D9\u05E0\u05E0\u05E2\u05DC
+        \u05E8\u05DB\u05D6' \u05D0\u05D5\u05D4 \u05D4\u05D5\u05D5\u05E6\u05DE \u05D5\u05D6\u05D9\u05D0
+        \u05DC\u05E9 \u05D4\u05DE\u05E2\u05D8"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D1\u05DC\u05D5\u05DC \u05EA\u05DC\u05D9\u05D8\u05E0 \u05EA\u05D5\u05D5\u05E6\u05DE"
+      - "\u05D4\u05DB\u05D5\u05E1\u05D1 \u05D4\u05D1\u05D9\u05E9\u05D9 \u05EA\u05D5\u05D5\u05E6\u05DE"
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1\u05D1 \u05E3\u05E1\u05D5\u05DE \u05DF\u05D1\u05E8\u05E7"
+      - "\u05D4\u05E0\u05D5\u05DB\u05E0 \u05D4\u05D1\u05D5\u05E9\u05EA \u05DF\u05D9\u05D0"
+      correctAns: 2
+    - questionInfo: "?\u05DD\u05D9\u05E0\u05D9\u05DE\u05D4 \u05EA\u05E2\u05D1\u05E8\u05D0
+        \u05EA\u05D5\u05D5\u05E6\u05DE \u05DC\u05E2 \u05DD\u05D9\u05DB\u05E8\u05D1\u05DE
+        \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D2\u05D5\u05E8\u05EA\u05D0 \u05EA\u05DC\u05D9\u05D8\u05E0 \u05DC\u05E2"
+      - "\u05DD\u05D9\u05E0\u05D9\u05DE\u05D4 \u05EA\u05E2\u05D1\u05E8\u05D0 \u05EA\u05DC\u05D9\u05D8\u05E0
+        \u05DC\u05E2"
+      - "\u05D1\u05DC\u05D5\u05DC\u05D4 \u05E2\u05D5\u05E0\u05E2\u05E0 \u05DC\u05E2"
+      - "\u05D1\u05DC\u05D5\u05DC \u05EA\u05DC\u05D9\u05D8\u05E0 \u05DC\u05E2"
+      correctAns: 4
+    - questionInfo: "?\u05EA\u05D5\u05DB\u05D5\u05E1\u05D4 \u05D2\u05D7 \u05DA\u05E9\u05DE\u05E0
+        \u05DD\u05D9\u05DE\u05D9 \u05D4\u05DE\u05DB"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DD\u05D9\u05DE\u05D9 \u05D4\u05E9\u05D9\u05E9"
+      - "\u05DD\u05D9\u05DE\u05D9 \u05D4\u05E2\u05D1\u05E9"
+      - "\u05DD\u05D9\u05DE\u05D9 \u05D4\u05E2\u05E9\u05EA"
+      - "\u05DD\u05D9\u05DE\u05D9 \u05D4\u05E8\u05E9\u05E2"
+      correctAns: 2
+    - questionInfo: "?\u05D4\u05D1\u05E8 \u05D0\u05E0\u05E2\u05E9\u05D5\u05D4 \u05DD\u05D5\u05D9
+        \u05DC\u05D7 \u05D9\u05EA\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1 \u05DC\u05E9 \u05DF\u05D5\u05E9\u05D0\u05E8\u05D4
+        \u05DD\u05D5\u05D9\u05D1"
+      - "\u05D4\u05E8\u05D5\u05EA \u05EA\u05D7\u05DE\u05E9 \u05D9\u05E8\u05D7\u05D0
+        \u05DD\u05D5\u05D9"
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1 \u05DC\u05E9 \u05D9\u05E2\u05D9\u05D1\u05E9\u05D4
+        \u05DD\u05D5\u05D9\u05D1"
+      - "\u05D7\u05D5\u05DC\u05D4 \u05D9\u05E4\u05DC \u05D4\u05E0\u05EA\u05E9\u05DE"
+      correctAns: 3
+    - questionInfo: "?\u05D4\u05E8\u05E9\u05DB \u05D0\u05D9\u05D4 \u05DD\u05D0\u05D4
+        ,\u05EA\u05D9\u05D1\u05D4 \u05D2\u05D2\u05DC \u05EA\u05D7\u05EA\u05DE \u05EA\u05D3\u05DE\u05D5\u05E2\u05E9
+        \u05D4\u05DB\u05D5\u05E1"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05E8\u05E9\u05DB"
+      - "\u05D4\u05DC\u05D5\u05E1\u05E4"
+      - "\u05DF\u05D5\u05E9\u05D0\u05E8\u05D4 \u05DD\u05D5\u05D9\u05D1 \u05E7\u05E8
+        \u05D4\u05DC\u05D5\u05E1\u05E4"
+      - "\u05DD\u05D9\u05D3\u05E8\u05E4\u05E1\u05D4\u05D5 \u05DD\u05D9\u05D6\u05E0\u05DB\u05E9\u05D0\u05D4
+        \u05EA\u05E7\u05D5\u05DC\u05D7\u05DE"
+      correctAns: 2
+    - questionInfo: "?'\u05EA\u05D5\u05D1\u05E2 \u05E5\u05E2 \u05E3\u05E0\u05E2'
+        \u05D0\u05E8\u05E7\u05E0 \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D1\u05DC\u05D5\u05DC\u05D4"
+      - "\u05D4\u05D1\u05E8\u05E2\u05D4"
+      - "\u05E1\u05D3\u05D4\u05D4"
+      - "\u05D2\u05D5\u05E8\u05EA\u05D0\u05D4"
+      correctAns: 3
+    - questionInfo: "?'\u05DD\u05D9\u05E8\u05DE\u05EA \u05EA\u05D5\u05E4\u05DB' \u05D0\u05E8\u05E7\u05E0
+        \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D1\u05DC\u05D5\u05DC\u05D4"
+      - "\u05D4\u05D1\u05E8\u05E2\u05D4"
+      - "\u05E1\u05D3\u05D4\u05D4"
+      - "\u05D2\u05D5\u05E8\u05EA\u05D0\u05D4"
+      correctAns: 1
+    - questionInfo: "?\u05D4\u05E8\u05D5\u05EA \u05EA\u05D7\u05DE\u05E9\u05D1 \u05D1\u05DC\u05D5\u05DC
+        \u05DD\u05D9\u05DC\u05D8\u05D5\u05E0 \u05DD\u05D0\u05D4"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DF\u05DB"
+      - "\u05D0\u05DC"
+      - "\u05DF\u05DB \u05E5\u05E8\u05D0\u05DC \u05E5\u05D5\u05D7\u05D1"
+      - "\u05DF\u05DB \u05DC\u05D0\u05E8\u05E9\u05D9 \u05E5\u05E8\u05D0\u05D1"
+      correctAns: 2
+    - questionInfo: "?\u05D4\u05E8\u05D5\u05EA\u05D1 \u05D4\u05E0\u05D5\u05E8\u05D7\u05D0\u05D4
+        \u05D4\u05E9\u05E8\u05E4\u05D4 \u05EA\u05D0\u05E8\u05E7\u05E0 \u05D3\u05E6\u05D9\u05DB"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D5\u05E0\u05D9\u05D6\u05D0\u05D4"
+      - "\u05D4\u05E8\u05D5\u05EA\u05D4 \u05EA\u05D0\u05D6\u05D5"
+      - "\u05D4\u05DB\u05E8\u05D1\u05D4 \u05EA\u05D0\u05D6\u05D5"
+      - "\u05D4\u05E8\u05D5\u05EA\u05D4 \u05EA\u05E7\u05D5\u05D7"
+      correctAns: 3
+    - questionInfo: "?\u05DA\u05DB\u05E1 \u05DD\u05D9\u05E9\u05D5\u05E2 \u05D4\u05DE\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D3\u05D1\u05DC\u05D1 \u05DC\u05E7\u05D3 \u05D9\u05E4\u05E0\u05E2\u05DE"
+      - "\u05E2\u05E7\u05E8\u05E7\u05D4 \u05DF\u05DE \u05D5\u05DC\u05D5\u05D3\u05D9\u05D2\u05E9
+        \u05E8\u05D1\u05D3\u05DE"
+      - "\u05DD\u05D9\u05E7\u05D5\u05E8\u05D9\u05D5 \u05DD\u05D9\u05DB\u05D5\u05E8\u05D0
+        \u05DD\u05D9\u05E4\u05E0\u05E2\u05DE \u05E7\u05E8"
+      - "\u05E8\u05DE\u05D5\u05D7 \u05DC\u05DB\u05DE \u05E8\u05E9\u05E4\u05D0"
+      correctAns: 2
+    - questionInfo: "?\u05D4\u05D1\u05E8\u05E2\u05D4 \u05D4\u05DC\u05E9\u05DE\u05E0
+        \u05D4\u05DE\u05DC"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DD\u05D9\u05D9\u05EA\u05E4\u05E9\u05DC"
+      - "\u05DD\u05D9\u05D9\u05E0\u05D9\u05E2\u05DC"
+      - "\u05EA\u05D5\u05D9\u05DC\u05DB\u05DC"
+      - "\u05DD\u05D9\u05D9\u05D3\u05D9\u05DC"
+      correctAns: 1
+    - questionInfo: "?\u05E1\u05D3\u05D4\u05D4 \u05DC\u05E9\u05DE\u05E0 \u05D4\u05DE\u05DC"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DD\u05D9\u05D9\u05EA\u05E4\u05E9\u05DC"
+      - "\u05DD\u05D9\u05D9\u05E0\u05D9\u05E2\u05DC"
+      - "\u05EA\u05D5\u05D9\u05DC\u05DB\u05DC"
+      - "\u05D1\u05DC\u05DC"
+      correctAns: 2
+    - questionInfo: "?\u05D1\u05DC\u05DC \u05DC\u05E9\u05DE\u05E0 \u05D9\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D2\u05D5\u05E8\u05EA\u05D0\u05D4"
+      - "\u05D1\u05DC\u05D5\u05DC\u05D4"
+      - "\u05E1\u05D3\u05D4\u05D4"
+      - "\u05D4\u05D1\u05E8\u05E2\u05D4"
+      correctAns: 1
+    - questionInfo: "?\u05E8\u05EA\u05D5\u05DE \u2013 \u05EA\u05E8\u05E6\u05E2 \u05D9\u05E0\u05D9\u05DE\u05E9\u05D1
+        \u05D4\u05DB\u05D5\u05E1\u05D1 \u05EA\u05D1\u05E9\u05DC\u05D5 \u05E8\u05D9\u05DE\u05D7\u05D4\u05DC
+        \u05D4\u05E6\u05D5\u05E8 \u05D9\u05E0\u05D0"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05DC\u05D5\u05D3\u05D2 \u05D4\u05D5\u05D5\u05E6\u05DE"
+      - "\u05D4\u05D6\u05D1 \u05DF\u05D9\u05D9\u05E0\u05E2 \u05DF\u05D9\u05D0 \u05DC\u05D1\u05D0
+        ,\u05E8\u05E9\u05E4\u05D0"
+      - "'\u05E3\u05D9\u05E1\u05D5\u05EA \u05DC\u05D1' \u05DD\u05D5\u05E9\u05DE \u05E8\u05D5\u05E1\u05D0"
+      - "\u05D4\u05D5\u05D5\u05D0\u05D2\u05DB \u05D4\u05D0\u05E8\u05E0\u05E9 \u05DD\u05D5\u05E9\u05DE
+        \u05E8\u05D5\u05E1\u05D0"
+      correctAns: 3
+    - questionInfo: "?\u05D4\u05E0\u05D9\u05D3 \u05D4\u05DE \u2013 \u05DF\u05DC\u05D9\u05D0\u05D4
+        \u05D9\u05D1\u05D2 \u05DC\u05E2\u05E9 \u05D4\u05DB\u05D5\u05E1"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05DC\u05D5\u05E1\u05E4"
+      - "\u05D4\u05E8\u05E9\u05DB"
+      - "\u05D1\u05D5\u05D8 \u05DD\u05D5\u05D9\u05D1 \u05D4\u05DC \u05DF\u05D9\u05DC\u05D5\u05E2
+        \u05DF\u05D9\u05D0\u05D5 \u05D4\u05E8\u05E9\u05DB"
+      - "\u05D9\u05D0\u05DE\u05E9 \u05EA\u05D9\u05D1 \u05EA\u05E2\u05D3\u05DC \u05D4\u05E8\u05E9\u05DB"
+      correctAns: 3
+    - questionInfo: "?\u05D4\u05E0\u05D9\u05D3 \u05D4\u05DE \u2013 \u05DC\u05DE\u05D2\u05D4
+        \u05D9\u05D1\u05D2 \u05DC\u05E2\u05E9 \u05D4\u05DB\u05D5\u05E1"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05DC\u05D5\u05E1\u05E4"
+      - "\u05D1\u05D5\u05D8 \u05DD\u05D5\u05D9\u05D1 \u05D4\u05DC \u05DF\u05D9\u05DC\u05D5\u05E2
+        \u05DF\u05D9\u05D0\u05D5 \u05D4\u05E8\u05E9\u05DB"
+      - "\u05D4\u05E8\u05E9\u05DB"
+      - "\u05EA\u05E7\u05D5\u05DC\u05D7\u05DE"
+      correctAns: 2
+    - questionInfo: "'_________ \u05DD\u05DB\u05D9\u05EA\u05D5\u05E8\u05D5\u05D3
+        \u05D5\u05E2\u05D3\u05D9\u05D9 \u05DF\u05E2\u05DE\u05DC' :\u05D5\u05DE\u05D9\u05DC\u05E9\u05D4"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DD\u05D9\u05E8\u05E6\u05DE\u05D1 \u05EA\u05D5\u05DB\u05D5\u05E1\u05D1
+        \u05DD\u05EA\u05D1\u05E9\u05D9 \u05D9\u05DB"
+      - "\u05D9\"\u05E0\u05D1 \u05EA\u05D0 \u05D9\u05EA\u05D1\u05E9\u05D5\u05D4 \u05EA\u05D5\u05DB\u05D5\u05E1\u05D1
+        \u05D9\u05DB"
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1 \u05D5\u05E9\u05E2 \u05DF\u05DB\u05E9\u05DE\u05D1
+        \u05D9\u05DB"
+      - "\u05DD\u05EA\u05D1\u05E9\u05D9 \u05D3\u05D5\u05D1\u05DB\u05D4 \u05D9\u05E0\u05E0\u05E2\u05D1
+        \u05D9\u05DB"
+      correctAns: 2
+    - questionInfo: "?\u05D4\u05E8\u05D5\u05EA \u05EA\u05D7\u05DE\u05E9\u05D1 '\u05D4\u05E8\u05D5\u05EA
+        \u05DF\u05EA\u05D7' \u05D0\u05E8\u05E7\u05E0 \u05D9\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05E9\u05D3\u05D7\u05DE \u05D4\u05E8\u05D5\u05EA\u05D4 \u05EA\u05D0 \u05DC\u05D9\u05D7\u05EA\u05DE\u05E9
+        \u05D9\u05DE"
+      - "\u05D4\u05E8\u05D5\u05EA\u05D4 \u05EA\u05D0 \u05DD\u05D9\u05D9\u05E1\u05DE\u05E9
+        \u05D9\u05DE"
+      - "\u05DD\u05D9\u05D9\u05E1\u05DE\u05D4 \u05DD\u05D2\u05D5 \u05DC\u05D9\u05D7\u05EA\u05DE\u05D4
+        \u05DD\u05D2"
+      - "\u05EA\u05E1\u05E0\u05DB\u05D4 \u05EA\u05D9\u05D1 \u05DC\u05E9 \u05D1\u05E8\u05D4"
+      correctAns: 2
+    - questionInfo: "?\u05D2\u05D5\u05E8\u05EA\u05D0\u05D4 \u05DC\u05E9\u05DE\u05E0
+        \u05D4\u05DE\u05DC"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05E8\u05D5\u05EA \u05E7\u05E8 \u05D5\u05D1 \u05E9\u05D9\u05E9 \u05D9\u05DE\u05DC"
+      - "\u05DD\u05D9\u05E9\u05E2\u05DE \u05E7\u05E8 \u05D5\u05D1 \u05E9\u05D9\u05E9
+        \u05D9\u05DE\u05DC"
+      - "\u05DD\u05D9\u05D1\u05D5\u05D8 \u05DD\u05D9\u05E9\u05E2\u05DE\u05D5 \u05D4\u05E8\u05D5\u05EA
+        \u05D5\u05D1 \u05E9\u05D9\u05E9 \u05D9\u05DE\u05DC"
+      - "\u05DD\u05D5\u05DC\u05DB \u05D5\u05D1 \u05DF\u05D9\u05D0\u05E9 \u05D9\u05DE\u05DC"
+      correctAns: 3
+    - questionInfo: "?\u05D1\u05DC\u05D5\u05DC\u05D4 \u05D3\u05D9\u05DC \u05D2\u05D5\u05E8\u05EA\u05D0\u05D4
+        \u05EA\u05D0 \u05DD\u05D9\u05E7\u05D9\u05D6\u05D7\u05DE \u05D3\u05E6 \u05D4\u05D6\u05D9\u05D0\u05D1"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DF\u05D9\u05DE\u05D9"
+      - "\u05DC\u05D0\u05DE\u05E9"
+      - "\u05DD\u05D9\u05E0\u05E4\u05DC\u05DE"
+      - "\u05E8\u05D5\u05D7\u05D0\u05DE"
+      correctAns: 2
+    - questionInfo: ":\u05DD\u05D5\u05DC\u05DB \u05D5\u05E0\u05DE\u05DE \u05E8\u05E1\u05D7
+        \u05D0\u05DC \u05DC\u05D1\u05D0 ,\u05DF\u05D8\u05E7 \u05E8\u05D5\u05D7 \u05D5\u05D1
+        \u05D4\u05D9\u05D4\u05E0\u05D5 \u05DC\u05E4\u05E0\u05E9 \u05D2\u05D5\u05E8\u05EA\u05D0"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05E8\u05E9\u05DB"
+      - "\u05DC\u05D5\u05E1\u05E4"
+      - "\u05D3\u05D1\u05E2\u05D9\u05D3\u05D1 \u05E8\u05E9\u05DB"
+      - "\u05D4\u05E0\u05D5\u05DB\u05E0 \u05D4\u05D1\u05D5\u05E9\u05EA \u05DF\u05D9\u05D0"
+      correctAns: 1
+    - questionInfo: ":\u05D4\u05D9\u05D5\u05E6\u05DE \u05D7\u05D5\u05E8\u05D1 \u05EA\u05D3\u05DE\u05D5\u05E2
+        \u05D4\u05E0\u05D9\u05D0\u05E9 \u05D4\u05DB\u05D5\u05E1"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05DC\u05D9\u05D7\u05EA\u05DB\u05DC \u05D4\u05E8\u05E9\u05DB"
+      - "\u05D9\u05E8\u05DE\u05D2\u05DC \u05D4\u05DC\u05D5\u05E1\u05E4"
+      - "\u05D4\u05E8\u05E9\u05DB \u2013 \u05EA\u05D3\u05DE\u05D5\u05E2 \u05D0\u05D9\u05D4
+        \u05D3\u05D5\u05E2 \u05DC\u05DB"
+      - "\u05DF\u05E7\u05EA\u05DC \u05DF\u05EA\u05D9\u05E0\u05E9 \u05D3\u05E2\u05D5\u05DE\u05D4
+        \u05DC\u05D5\u05D7\u05D1 \u05E7\u05E8"
+      correctAns: 2
+    - questionInfo: "?\u05D4\u05D1\u05E8 \u05D4\u05E0\u05E2\u05E9\u05D5\u05D4\u05D1
+        \u05EA\u05D5\u05E4\u05E7\u05D4\u05D1 \u05DD\u05D9\u05DC\u05DC\u05E4\u05EA\u05DE
+        \u05E8\u05E7\u05D9\u05E2\u05D1 \u05D4\u05DE \u05DC\u05E2"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DD\u05D9\u05DE\u05D4 \u05DC\u05E2"
+      - "\u05EA\u05D5\u05D0\u05D9\u05E8\u05D1\u05D4 \u05DC\u05E2"
+      - "\u05D4\u05D7\u05DE\u05E9\u05D4 \u05DC\u05E2"
+      - "\u05DD\u05D9\u05D3\u05DC\u05D9 \u05DC\u05E2"
+      correctAns: 1
+    - questionInfo: "?'\u05D4\u05D1\u05E8\u05E2\u05D4 \u05EA\u05D8\u05D1\u05D7' \u05D2\u05D4\u05E0\u05DE
+        \u05EA\u05D0 \u05DD\u05D9\u05DE\u05D9\u05D9\u05E7\u05DE \u05D9\u05EA\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1 \u05DC\u05E9 \u05DF\u05D5\u05E9\u05D0\u05E8\u05D4
+        \u05DD\u05D5\u05D9\u05D1"
+      - "\u05D3\u05E2\u05D5\u05DE\u05D4 \u05DC\u05D5\u05D7 \u05DC\u05E9 \u05DF\u05D5\u05E9\u05D0\u05E8\u05D4
+        \u05DD\u05D5\u05D9\u05D1"
+      - "\u05D4\u05E8\u05D5\u05EA \u05EA\u05D7\u05DE\u05E9\u05D1"
+      - "\u05D4\u05D1\u05E8 \u05D4\u05E0\u05E2\u05E9\u05D5\u05D4\u05D1"
+      correctAns: 4
+    - questionInfo: "?\u05D5\u05D1\u05D0\u05E9 \u05D4\u05DE \u2013 '\u05D4\u05D1\u05D0\u05D5\u05E9\u05D4
+        \u05EA\u05D9\u05D1 \u05EA\u05D7\u05DE\u05E9'"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DF\u05D9\u05D9\u05D4 \u05DA\u05D5\u05E1\u05D9\u05E0\u05DC \u05DF\u05D9\u05D9"
+      - "\u05DD\u05D9\u05DE\u05D4 \u05DA\u05D5\u05E1\u05D9\u05E0\u05DC \u05DD\u05D9\u05DE"
+      - "\u05EA\u05D5\u05D7\u05E0\u05DE\u05DC \u05DF\u05DE\u05E9"
+      - "\u05EA\u05D5\u05E0\u05D5\u05DB\u05E0 \u05EA\u05D5\u05D1\u05D5\u05E9\u05EA\u05D4
+        \u05DC\u05DB"
+      correctAns: 2
+    - questionInfo: "?\u05EA\u05D5\u05DB\u05D5\u05E1\u05D1 \u05D0\u05D5\u05E8\u05E7\u05DC
+        \u05DD\u05D9\u05D2\u05D4\u05D5\u05E0 \u05E9\u05D9 \u05D4\u05DC\u05D9\u05D2\u05DE
+        \u05D5\u05D6\u05D9\u05D0"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05EA\u05DC\u05D4\u05E7"
+      - "\u05EA\u05D5\u05E8"
+      - "\u05DD\u05D9\u05E8\u05D9\u05E9\u05D4 \u05E8\u05D9\u05E9"
+      - "\u05E8\u05EA\u05E1\u05D0"
+      correctAns: 1
+    - questionInfo: "?\u05D4\u05DC\u05D5\u05E1\u05E4 \u05D4\u05DB\u05D5\u05E1\u05D4
+        \u05D4\u05D1\u05D5\u05D2 \u05D4\u05D6\u05D9\u05D0\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05DE\u05D0 \u05DD\u05D9\u05E8\u05E9\u05E2"
+      - "\u05D4\u05DE\u05D0 \u05DD\u05D9\u05E9\u05D5\u05DC\u05E9"
+      - "\u05D4\u05DE\u05D0 \u05DD\u05D9\u05E2\u05D1\u05E8\u05D0"
+      - "\u05D4\u05DE\u05D0 \u05DD\u05D9\u05E9\u05D9\u05DE\u05D7"
+      correctAns: 1
+    - questionInfo: "?\u05D4\u05E8\u05E9\u05DB \u05D4\u05DB\u05D5\u05E1 \u05DC\u05E9
+        \u05E8\u05EA\u05D5\u05D9\u05D1 \u05DA\u05D5\u05DE\u05E0\u05D4 \u05D4\u05D1\u05D5\u05D2\u05D4
+        \u05D5\u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05EA\u05D5\u05DE\u05D0 \u05E9\u05D5\u05DC\u05E9"
+      - "\u05EA\u05D5\u05DE\u05D0 \u05E2\u05D1\u05E8\u05D0"
+      - "\u05DD\u05D9\u05D7\u05E4\u05D8 \u05DD\u05D9\u05E8\u05E9\u05E2"
+      - "\u05DD\u05D9\u05D7\u05E4\u05D8 \u05D4\u05E8\u05E9\u05E2"
+      correctAns: 4
+    - questionInfo: "?\u05E9\u05D9 '\u05DF\u05D9\u05D6\u05D9\u05E4\u05E9\u05D5\u05D0'
+        \u05D4\u05DE\u05DB"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05E9\u05D5\u05DC\u05E9"
+      - "\u05D4\u05E2\u05D1\u05E9"
+      - "\u05D4\u05E0\u05D5\u05DE\u05E9"
+      - "\u05D4\u05E8\u05E9\u05E2"
+      correctAns: 2
+    - questionInfo: "?\u05DF\u05D9\u05D6\u05D9\u05E4\u05E9\u05D5\u05D0\u05D4 \u05DF\u05D9\u05D1
+        \u05D5\u05E0\u05D9\u05D0 \u05DD\u05D9\u05D0\u05D1\u05D4 \u05EA\u05D5\u05DE\u05E9\u05D4\u05DE
+        \u05D9\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05E3\u05E1\u05D5\u05D9"
+      - "\u05D3\u05D5\u05D3"
+      - "\u05D4\u05E9\u05DE"
+      - "\u05D4\u05DE\u05DC\u05E9"
+      correctAns: 4
+    - questionInfo: "?\"\u05DF\u05D9\u05D6\u05D9\u05E4\u05E9\u05D5\u05D0\" \u05D4\u05DC\u05D9\u05DE\u05D4
+        \u05E9\u05D5\u05E8\u05D9\u05E4 \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DD\u05D9\u05E8\u05D1\u05D7"
+      - "\u05DD\u05D9\u05D7\u05E8\u05D5\u05D0"
+      - "\u05DD\u05D9\u05E7\u05D9\u05D3\u05E6"
+      - "\u05EA\u05D5\u05D1\u05D0"
+      correctAns: 2
+    - questionInfo: "?'\u05D0\u05D1\u05D8 \u05D0\u05E7\u05EA\u05E4' \u05E8\u05DE\u05D5\u05DC
+        \u05D2\u05D5\u05D4\u05E0 \u05DD\u05D5\u05D9 \u05D4\u05D6\u05D9\u05D0\u05D1"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05E8\u05D5\u05E4\u05D9\u05DB \u05DD\u05D5\u05D9\u05D1"
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1 \u05DC\u05D9\u05DC\u05D1"
+      - "\u05D4\u05E8\u05D5\u05EA \u05EA\u05D7\u05DE\u05E9\u05D1"
+      - "\u05D4\u05D1\u05E8 \u05D0\u05E0\u05E2\u05E9\u05D5\u05D4\u05D1"
+      correctAns: 4
+    - questionInfo: "?'\u05EA\u05D5\u05DB\u05D5\u05E1' \u05DD\u05E9\u05D1 \u05DD\u05D5\u05E7\u05DE\u05DC
+        \u05D0\u05E8\u05E7 \u05D5\u05E0\u05D9\u05EA\u05D5\u05D1\u05D0\u05DE \u05D9\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DD\u05D4\u05E8\u05D1\u05D0"
+      - "\u05E7\u05D7\u05E6\u05D9"
+      - "\u05D1\u05E7\u05E2\u05D9"
+      - "\u05EA\u05D5\u05E0\u05D5\u05DB\u05E0 \u05D2 ,\u05D1 \u05EA\u05D5\u05D1\u05D5\u05E9\u05EA"
+      correctAns: 3
+    - questionInfo: "?\u05D4\u05DB\u05D5\u05E1\u05D1 \u05DD\u05D7\u05DC \u05DC\u05D5\u05DB\u05D0\u05DC
+        \u05D4\u05D1\u05D5\u05D7 \u05D9\u05EA\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DF\u05D5\u05E9\u05D0\u05E8\u05D4 \u05D4\u05DC\u05D9\u05DC\u05D1"
+      - "\u05DF\u05D5\u05E8\u05D7\u05D0\u05D4 \u05D4\u05DC\u05D9\u05DC\u05D1"
+      - "\u05D4\u05D1\u05E8 \u05D0\u05E0\u05E2\u05E9\u05D5\u05D4 \u05DD\u05D5\u05D9
+        \u05E8\u05E7\u05D5\u05D1\u05D1"
+      - "\u05DD\u05D7\u05DC \u05DC\u05D5\u05DB\u05D0\u05DC \u05DC\u05DC\u05DB \u05DD\u05D9\u05D1\u05D9\u05D9\u05D7
+        \u05D0\u05DC"
+      correctAns: 1
+    - questionInfo: "?\u05DF\u05D9\u05D3\u05D4 \u05D4\u05DE ,\u05D4\u05DB\u05D5\u05E1\u05D1
+        \u05DD\u05D9\u05D1\u05D5\u05E8\u05DE \u05DD\u05D9\u05DE\u05E9\u05D2 \u05DD\u05D9\u05D3\u05E8\u05D5\u05D9
+        \u05DD\u05D0"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05DB\u05D5\u05E1\u05D4\u05DE \u05EA\u05D0\u05E6\u05DC \u05DA\u05D9\u05E8\u05E6"
+      - "\u05D4\u05DB\u05D5\u05E1\u05D1 \u05E8\u05D0\u05E9\u05D9\u05D4\u05DC \u05E3\u05D9\u05D3\u05E2"
+      - "\u05D4\u05DB\u05D5\u05E1\u05D1 \u05E8\u05D0\u05E9\u05D9\u05D4\u05DC \u05D4\u05D1\u05D5\u05D7"
+      - "\u05D4\u05E0\u05D5\u05DB\u05E0 \u05D4\u05D1\u05D5\u05E9\u05EA \u05DF\u05D9\u05D0"
+      correctAns: 1
+    - questionInfo: "?\u05EA\u05D5\u05DB\u05D5\u05E1\u05D4 \u05D9\u05DE\u05D9\u05D1
+        \u05D4\u05D5\u05D5\u05E6\u05DE \u05E8\u05D1\u05D3\u05DC \u05DD\u05D9\u05DB\u05E8\u05D3
+        \u05D9\u05DB\u05DC\u05D5\u05D4 \u05D5\u05E9\u05E2\u05D9 \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DA\u05E8\u05D3\u05DC \u05D4\u05DB\u05D5\u05E1 \u05EA\u05D7\u05E7\u05DC
+        \u05DD\u05D9\u05D1\u05D9\u05D9\u05D7"
+      - "\u05DD\u05D4\u05DC \u05D5\u05E0\u05DE\u05D3\u05D6\u05D9\u05E9 \u05EA\u05D5\u05DB\u05D5\u05E1
+        \u05DC\u05E2 \u05D5\u05DB\u05DE\u05E1\u05D9"
+      - "\u05D4\u05DB\u05D5\u05E1\u05D4\u05DE \u05DD\u05D9\u05E8\u05D5\u05D8\u05E4
+        \u05DD\u05D9\u05DB\u05E8\u05D3 \u05D9\u05DB\u05DC\u05D5\u05D4"
+      - "\u05EA\u05D5\u05E0\u05D5\u05DB\u05E0 \u05D1 ,\u05D0 \u05EA\u05D5\u05D1\u05D5\u05E9\u05EA"
+      correctAns: 3
+    - questionInfo: "?\u05D9\u05E8\u05DE\u05D2\u05DC \u05E9\u05D1\u05D9\u05D9\u05EA\u05D4
+        \u05D1\u05DC\u05D5\u05DC\u05D4 \u05DD\u05D0 \u05DF\u05D9\u05D3\u05D4 \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05DC\u05D9\u05D7\u05EA\u05DB\u05DC \u05E8\u05E9\u05DB"
+      - "\u05E8\u05D7\u05D0 \u05D5\u05DC \u05DF\u05D9\u05D0 \u05DD\u05D0 \u05E8\u05E9\u05DB"
+      - "\u05E8\u05DB\u05D9\u05E0 \u05D4\u05D9\u05D4\u05D9 \u05D0\u05DC\u05E9 \u05D4\u05E1\u05D5\u05DB\u05DE
+        \u05D5\u05D4\u05DC\u05D8\u05D9"
+      - "\u05DC\u05D5\u05E1\u05E4 \u05E9\u05D1\u05D9\u05D4 \u05D1\u05DC\u05D5\u05DC"
+      correctAns: 4
+    - questionInfo: "?\u05EA\u05E8\u05E6\u05E2 \u05D9\u05E0\u05D9\u05DE\u05E9 \u05DC\u05E2
+        '\u05D5\u05E0\u05D9\u05D9\u05D7\u05D4\u05E9' \u05DD\u05D9\u05DB\u05E8\u05D1\u05DE
+        \u05DD\u05D0\u05D4"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1 \u05DC\u05E9 \u05DA\u05E9\u05DE\u05D4 \u05D4\u05D6
+        ,\u05D0\u05DC"
+      - "\u05D3\u05E8\u05E4\u05E0 \u05D2\u05D7 \u05D5\u05D4\u05D6 ,\u05DF\u05DB"
+      - "\u05DC\u05D0\u05E8\u05E9\u05D9 \u05E5\u05E8\u05D0\u05D1 \u05E7\u05E8"
+      - "\u05E5\u05E8\u05D0\u05DC \u05E5\u05D5\u05D7\u05D1 \u05E7\u05E8"
+      correctAns: 2
+    - questionInfo: "?'\u05D4\u05E0\u05E9\u05DC \u05D4\u05E0\u05E9\u05DE \u05D5\u05E0\u05DC\u05D9\u05D0\u05D1
+        \u05E8\u05D3' \u05D0\u05D5\u05D4\u05E9 \u05D1\u05D5\u05EA\u05DB \u05D4\u05DE
+        \u05DC\u05E2"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D1\u05DC\u05D5\u05DC\u05D4"
+      - "\u05D4\u05D1\u05E8\u05E2\u05D4"
+      - "\u05E1\u05D3\u05D4\u05D4"
+      - "\u05D2\u05D5\u05E8\u05EA\u05D0\u05D4"
+      correctAns: 4
+    - questionInfo: "?'\u05DD\u05D9\u05DE \u05DC\u05DB \u05DC\u05E2 \u05DC\u05D3\u05D2'
+        \u05D0\u05D5\u05D4\u05E9 \u05D5\u05E0\u05D9\u05DE\u05DB\u05D7 \u05D5\u05E8\u05DE\u05D0
+        \u05D4\u05DE \u05DC\u05E2"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D1\u05DC\u05D5\u05DC\u05D4"
+      - "\u05D4\u05D1\u05E8\u05E2\u05D4"
+      - "\u05E1\u05D3\u05D4\u05D4"
+      - "\u05D2\u05D5\u05E8\u05EA\u05D0\u05D4"
+      correctAns: 4
+    - questionInfo: "?\u05D1\"\u05E9\u05E7 \u05E8\"\u05D6\u05E4 \u05D4\u05D6 \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05EA\u05D5\u05DB\u05D5\u05E1\u05D4 \u05D2\u05D7\u05DC \u05D0\u05D1\u05E6\u05D1
+        \u05D3\u05D7\u05D5\u05D9\u05DE \u05D3\u05D5\u05E7"
+      - "\u05EA\u05D5\u05E0\u05E2\u05E9\u05D5\u05D4\u05D4 \u05DA\u05D5\u05EA\u05DE
+        \u05D4\u05DC\u05D9\u05E4\u05EA \u05EA\u05D5\u05DC\u05D9\u05DE"
+      - "\u05EA\u05E8\u05E6\u05E2 \u05D9\u05E0\u05D9\u05DE\u05E9\u05DC \u05EA\u05D5\u05DB\u05D5\u05E1
+        \u05DF\u05D9\u05D1 \u05DD\u05D9\u05DC\u05D3\u05D1\u05D4"
+      - "\u05D4\u05E0\u05D5\u05DB\u05E0 \u05D4\u05D1\u05D5\u05E9\u05EA \u05DF\u05D9\u05D0"
+      correctAns: 3
+    - questionInfo: "?\u05E8\u05E9\u05DB \u05DD\u05D0\u05D4 \u2013 '\u05D9\u05EA\u05E8\u05DB\u05DB
+        \u05E7\u05D5\u05E8\u05D9' \u05D0\u05D5\u05D4\u05E9 \u05D2\u05D5\u05E8\u05EA\u05D0"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05D4\u05DC\u05D9\u05D7\u05EA\u05DB\u05DC \u05E8\u05E9\u05DB"
+      - "\u05DC\u05D5\u05E1\u05E4"
+      - "\u05D3\u05D1\u05E2\u05D9\u05D3\u05D1 \u05E8\u05E9\u05DB"
+      - "\u05DD\u05D9\u05D3\u05E8\u05E4\u05E1\u05DC \u05E8\u05E9\u05DB"
+      correctAns: 2
+    - questionInfo: "?\u05DF\u05D1\u05E8\u05E7\u05DC \u05EA\u05D5\u05DB\u05D5\u05E1\u05D4
+        \u05D2\u05D7\u05D1 70 \u05DD\u05D9\u05D0\u05D9\u05D1\u05DE \u05DD\u05D9\u05D9\u05D7-\u05DC\u05E2\u05D1
+        \u05D4\u05D6\u05D9\u05D0\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05E8\u05E4"
+      - "\u05D6\u05E2"
+      - "\u05E9\u05D1\u05DB"
+      - "\u05D4\u05E0\u05D5\u05D9"
+      correctAns: 1
+    - questionInfo: "?\u05EA\u05D5\u05DB\u05D5\u05E1\u05D1 \u05DF\u05D1\u05E8\u05E7\u05DC
+        \u05DD\u05D9\u05E8\u05E4 \u05DD\u05D9\u05D0\u05D9\u05D1\u05DE \u05D9\u05DE
+        \u05D3\u05D2\u05E0\u05DB"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DC\u05D0\u05E8\u05E9\u05D9 \u05DD\u05E2 \u05D3\u05D2\u05E0\u05DB"
+      - "\u05DD\u05D9\u05E8\u05D2\u05D4 \u05D3\u05D2\u05E0\u05DB"
+      - "\u05DD\u05DC\u05D5\u05E2\u05D4 \u05EA\u05D5\u05DE\u05D5\u05D0 \u05D3\u05D2\u05E0\u05DB"
+      - "\u05E2\u05D5\u05D1\u05E9\u05D4 \u05D9\u05DE\u05D9 7 \u05D3\u05D2\u05E0\u05DB"
+      correctAns: 3
+    - questionInfo: "?\u05E9\u05D3\u05E7\u05DE\u05D4 \u05EA\u05D9\u05D1\u05D1 \u05DD\u05D9\u05DE\u05D4
+        \u05DA\u05D5\u05E1\u05D9\u05E0\u05D1 \u05DD\u05D9\u05E9\u05D5\u05E2 \u05D5\u05D9\u05D4
+        \u05D4\u05DE"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05EA\u05D5\u05E0\u05D1\u05E8\u05E7\u05D4 \u05DC\u05E2 \u05DD\u05D9\u05DE
+        \u05DD\u05D9\u05DB\u05E4\u05D5\u05E9"
+      - "\u05DD\u05D9\u05DE \u05DD\u05D9\u05EA\u05D5\u05E9\u05D5 \u05DD\u05D9\u05DB\u05E8\u05D1\u05DE"
+      - "\u05D7\u05D1\u05D6\u05DE\u05D4 \u05DC\u05E2 \u05DD\u05D9\u05DE \u05DD\u05D9\u05DB\u05E1\u05E0\u05DE"
+      - "\u05DD\u05D9\u05D1\u05D9\u05E8\u05E7\u05DE\u05D5 \u05DF\u05D9\u05D9\u05D1
+        \u05DD\u05D9\u05DE \u05DD\u05D9\u05D1\u05E8\u05E2\u05DE"
+      correctAns: 3
+    - questionInfo: "__________ \u05D4\u05D1\u05D0\u05D5\u05E9\u05D4 \u05EA\u05D9\u05D1
+        \u05EA\u05D7\u05DE\u05E9 \u05D4\u05D0\u05E8 \u05D0\u05DC\u05E9 \u05D9\u05DE
+        :\u05D5\u05DE\u05D9\u05DC\u05E9\u05D4"
+      questionType: 0
+      questionImage: {fileID: 0}
+      audioClip: {fileID: 0}
+      videoClip: {fileID: 0}
+      options:
+      - "\u05DC\u05D2\u05E8\u05DC \u05D4\u05DC\u05E2 \u05D0\u05DC"
+      - "\u05D5\u05EA\u05E8\u05D0\u05E4\u05EA\u05D1 \u05E9\u05D3\u05E7\u05DE \u05D4\u05D0\u05E8
+        \u05D0\u05DC"
+      - "\u05D5\u05D9\u05DE\u05D9\u05DE \u05D4\u05D0\u05E0 \u05DF\u05D9\u05D9\u05E0\u05D1
+        \u05D4\u05D0\u05E8 \u05D0\u05DC"
+      - "\u05D5\u05D9\u05DE\u05D9\u05DE \u05D4\u05D7\u05DE\u05E9 \u05D4\u05D0\u05E8
+        \u05D0\u05DC"
+      correctAns: 4

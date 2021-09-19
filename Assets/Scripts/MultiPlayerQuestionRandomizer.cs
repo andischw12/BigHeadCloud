@@ -32,7 +32,7 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
         {
             if (env == EnviormentList.Random) 
             {
-                int[] randomArr = {0,1,2,3,4,5,6,7,8,9,10,10,10,10,10,10,10,10};
+                int[] randomArr = {0,1,2,3,4,5,6,7,8,9,10,10,10,10, 10, 10, 10, 10, 10, 10, 10, 10 };
                 int chosen = Random.Range(0, randomArr.Length);
                 PV.RPC("RandomEnviormentNumber", RpcTarget.AllBuffered, randomArr[chosen]);
             }
