@@ -184,6 +184,22 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         }
     }
 
+    public IEnumerator SafetyFromPlayAgainWithFriend(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+        {
+            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תעכ קחשמל יונפ וניא שמתשמה";
+        }
+        yield return new WaitForSecondsRealtime(4f);
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+        {
+
+            FindObjectOfType<PhotonLobby>().OnCanelButtonClicked(0);
+        }
+    }
+
+
     public void SelecetSubject(int i) 
     {
         enviorment = (EnviormentList)i;

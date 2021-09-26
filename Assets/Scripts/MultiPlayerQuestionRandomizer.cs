@@ -14,7 +14,7 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
     [SerializeField] PhotonView PV;
     public static MultiPlayerQuestionRandomizer instance;
     int currentQuestioNumber = -1;
-    int chosenEnviorment = -1;
+    public  int chosenEnviorment = -1;
     void Awake()
     {
         PV = GetComponent<PhotonView>();

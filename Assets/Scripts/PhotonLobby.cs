@@ -43,6 +43,13 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             StartCoroutine(AutoStartGameFunction());
             PlayerPrefs.SetInt("AutoConnectAndSearch",0);
         }
+        else if(!PlayerPrefs.GetString("LastRoomName").Equals("")) // if they try to play again
+        {
+            StartCoroutine(PlayAgainWithFriend(PlayerPrefs.GetString("LastRoomName")));
+            
+            
+        }
+
  
 
     }
@@ -54,6 +61,26 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         yield return new WaitUntil(() => Buttons.activeInHierarchy);
         OnRandomBattleButtonClicked();
        
+    }
+    IEnumerator PlayAgainWithFriend(string roomName)
+    {
+        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
+        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...ינשה שמתשמהמ הבושתל הכחמ";
+        yield return new WaitUntil(() => Buttons.activeInHierarchy);
+        PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions(){IsVisible = false, IsOpen = true, MaxPlayers = 2 }, TypedLobby.Default);
+        PlayWithFriendMode = true;
+        PhotonRoom.room.SelecetSubject(PlayerPrefs.GetInt("LastTopicPlayed"));
+        if(roomName == "offline room") // if last game was against bot
+        {
+            print("if was against bot in room: " +  roomName);
+            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(0f));
+        }
+           
+        else
+            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(18f));
+        PlayerPrefs.SetString("LastRoomName", "");
+        
+
     }
 
     public void ConnectToPhoton()
@@ -185,10 +212,12 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom(randomRoomName.ToString(), roomOps);
     }
 
+
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         base.OnCreateRoomFailed(returnCode, message);
-        CreateRoom();
+        if (PlayerPrefs.GetString("LastRoomName").Equals(""))// if its not another game
+            CreateRoom();
     }
 
     public override void OnJoinedRoom()

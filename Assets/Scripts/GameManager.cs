@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
     }
     void Start()
     {
@@ -364,6 +365,9 @@ public class GameManager : MonoBehaviour
     }
     private void DisconnectPlayer()
     {
+        PlayerPrefs.SetString("LastRoomName", PhotonNetwork.CurrentRoom.Name);
+        PlayerPrefs.SetInt("LastTopicPlayed",MultiPlayerQuestionRandomizer.instance.chosenEnviorment);
+
         Destroy(PhotonRoom.room.gameObject);
         StartCoroutine(DisconnectAndLoad());
     }

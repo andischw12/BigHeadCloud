@@ -29,6 +29,7 @@ public class PostGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI UserRank;
     [SerializeField] Image Gem;
     [SerializeField] RenderTexture  UserFace;
+    [SerializeField] GameObject RematchAndHomeButton;
  
     // Start is called before the first frame update
     public void Start()
@@ -42,6 +43,7 @@ public class PostGame : MonoBehaviour
         UserGemsAmmount.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems).ToString();
         UserName.text = FamilyManager.instance.GetActiveKidFullName();
         StartCoroutine(PostGameProgress());
+        RematchAndHomeButton.SetActive(false);
 
     }
 
@@ -128,18 +130,21 @@ public class PostGame : MonoBehaviour
         FindObjectOfType<StarsEffect>().Play();
         UserGemsAmmount.text = "<incr>" + "<rainb>" + FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems);
         yield return new WaitForSecondsRealtime(3f);
-         
-        
+
+        RematchAndHomeButton.SetActive(true);
+        //Initiate.Fade(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(1)), Color.black, 4f);
+    }
+
+
+    public void OnHomeButtonClick() 
+    {
+        PlayerPrefs.SetString("LastRoomName", "");
         Initiate.Fade(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(1)), Color.black, 4f);
+    }
 
-       
-         
-
-
-
-
-
-
+    public void OnReMatchButtonClick()
+    {
+        Initiate.Fade(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(1)), Color.black, 4f);
     }
 
 }
