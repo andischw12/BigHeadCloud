@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GalleryLevelView : MonoBehaviour
 {
     public GalleryLevelSelectionManager manager;
     public Image image;
     public Text text;
+    public TextMeshProUGUI textmpro;
     public string levelName;
     public bool colorEffectOnText = false;
 
-    [HideInInspector] public float index;
-    [HideInInspector] public float progress;
+    public float index;
+     public float progress;
 
     public virtual void UpdateProgress(float value, float linearValue)
     {

@@ -48,10 +48,16 @@ namespace InfiniteWheel
 
         public InfiniteWheelItem[] items;
 
+
+        private void Awake()
+        {
+           // items = FindObjectsOfType<InfiniteWheelItem>();
+        }
+
         private void Start()
         {
+           
             Setting();
-            items = FindObjectsOfType<InfiniteWheelItem>();
             CalculateInit();
         }
 

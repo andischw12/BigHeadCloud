@@ -65,8 +65,10 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     IEnumerator PlayAgainWithFriend(string roomName)
     {
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...ינשה שמתשמהמ הבושתל הכחמ";
+        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "רבחתמ...";
         yield return new WaitUntil(() => Buttons.activeInHierarchy);
+        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...ינשה שמתשמהמ הבושתל הכחמ";
+
         PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions(){IsVisible = false, IsOpen = true, MaxPlayers = 2 }, TypedLobby.Default);
         PlayWithFriendMode = true;
         PhotonRoom.room.SelecetSubject(PlayerPrefs.GetInt("LastTopicPlayed"));
@@ -140,6 +142,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     IEnumerator OnPlayWithFriendMasterClickHelper() 
     {
+        Debug.Log("i am in");
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...רדח רצוי";
         PlayWithFriendMode = true;

@@ -71,6 +71,8 @@ public class GalleryLevelSelectionEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        base.OnInspectorGUI();
+        return;
         serializedObject.Update();
 
         MainSettings();
