@@ -95,7 +95,7 @@ public class GalleryLevelSelectionManager : MonoBehaviour
            
         }
 
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
     }
 
     public virtual void Update()
