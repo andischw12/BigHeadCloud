@@ -148,14 +148,14 @@ public class PostGame : MonoBehaviour
             yield return new WaitForSecondsRealtime(1f);
             FindObjectOfType<WindowManager>().OpenPanel(2);
             Rank.text = FindObjectOfType<ProfileManager>().GetRank(NewPoints).ToString();
-             
+            FindObjectsOfType<StarsEffect>()[1].Play();
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
         }
         else
         {
             FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(NewPoints));
         }
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(1f);
         FindObjectsOfType<StarsEffect>()[0].Play();
         yield return new WaitForSecondsRealtime(1f);
 
