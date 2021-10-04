@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -10,14 +10,16 @@ public class ProfileManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI RankText;
     [SerializeField] public Slider Slider;
     [SerializeField] TextMeshProUGUI Name;
+    [SerializeField] TextMeshProUGUI Title;
+
 
     // Start is called before the first frame update
 
-    
+
     void Start()
     {
 
-
+      
         //print(GetRank(600));
         print(GetPointsByRank(1));
     }
@@ -25,14 +27,20 @@ public class ProfileManager : MonoBehaviour
 
      public void SetValues(int points) 
     {
+
         RankText.text = GetRank(points).ToString(); 
-        try {Slider.value = GetSliderState(points);} catch { }
+        try 
+        {
+            Slider.value = GetSliderState(points);
+            SetTitleByRank(GetRank(points));
+        } 
+        catch { }
     }
 
 
-    public int GetRank() 
+    public int GetRankFromServer() 
     {
-        return GetRank();  
+        return GetRank(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));  
     }
 
     public int GetRank(int points)
@@ -77,6 +85,23 @@ public class ProfileManager : MonoBehaviour
             _slider.value = Mathf.Lerp(_slider.value, newval, lerpValue);
             yield return null;
         }
+    }
+
+    // מתחיל חובבן מומחה מקצוען ידען גאון מלך קיסר מתקדם בר-מוח תלמיד-חכם ינוקא עילוי עוקר-הרים 
+    void SetTitleByRank(int rank) 
+    {
+        
+        switch (rank) 
+        {
+            case var expression when expression < 4:
+                Title.text = "ליחתמ";
+                break;
+
+            default:
+                Title.text = "םכח דימלת";
+                break;
+        }
+       
     }
 
 
