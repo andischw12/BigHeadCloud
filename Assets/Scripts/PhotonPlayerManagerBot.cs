@@ -19,7 +19,7 @@ public class PhotonPlayerManagerBot : PhotonPlayerManager
         //CreatePhotonPlayer(new int[]{0,0,3,0,6,1,0,6,3,3,8});
         SelectedBot = BotArr[Random.Range(0,BotArr.Length)];
         //CreatePhotonPlayer(Avatar.GetComponent<KidAvatarSelector>().GetBotAvatar(SelectedBot), SelectedBot.BotName, SelectedBot.BotSmartness) ;
-        CreatePhotonPlayer(Avatar.GetComponent<KidAvatarSelector>().GetBotAvatar(SelectedBot),SelectedBot.BotName, SelectedBot.BotSmartness);
+        CreatePhotonPlayer(Avatar.GetComponent<KidAvatarSelector>().GetBotAvatar(SelectedBot),SelectedBot.BotName, SelectedBot.BotSmartness * 50*SelectedBot.BotPrefab, SelectedBot.BotSmartness);
 
     }
 

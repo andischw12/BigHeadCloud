@@ -9,6 +9,7 @@ public class Assignment : MonoBehaviour
     public Transform[] PlayersPosition = new Transform[2];
     public Transform[] VsPlayersPosition = new Transform[2];
     public TextMeshProUGUI[] VsPlayerNameText = new TextMeshProUGUI[2];
+    public TextMeshProUGUI[] VSPlayerRankText = new TextMeshProUGUI[2];
     public HelperManager[] Helpers = new HelperManager[2];
     public GameObject[] PlayerCanvas = new GameObject[2];
     public TextMeshProUGUI[] PlayerScoreText = new TextMeshProUGUI[2];

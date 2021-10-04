@@ -53,7 +53,7 @@ public class LoginScreenManager : MonoBehaviour
         SoundManager.instance.PlayMenuMusic();
         SetWavingAnimation();
         PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
-
+        PlayerPrefs.SetString("LastRoomName", "");// sets enmpty roomname for not playing again
 
     }
 

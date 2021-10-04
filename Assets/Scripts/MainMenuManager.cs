@@ -35,8 +35,9 @@ public class MainMenuManager : MonoBehaviour
         FindObjectOfType<Animator>().applyRootMotion = false;
         UpdateStatistics();
         if (CalculationsManager.instance.PostGame) // if its after a game open in shop
-            FindObjectOfType<MainPanelManager>().PanelAnim(3);
+            //FindObjectOfType<MainPanelManager>().PanelAnim(3);
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Camera>().targetTexture = UserFace;
+        
     }
 
     public void UpdateStatistics() 
@@ -46,7 +47,10 @@ public class MainMenuManager : MonoBehaviour
         GemsSpent.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.GemsSpent).ToString();
         Wins.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Wins).ToString();
         Lose.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Lose).ToString();
+        Rank.text = FindObjectOfType<ProfileManager>().GetRank(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points)).ToString();
         PlayTime.text = "תוקד " + FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime).ToString();
+        print(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
+        FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
     }
 
     public void Home() 

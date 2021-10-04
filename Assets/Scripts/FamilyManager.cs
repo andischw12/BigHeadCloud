@@ -251,12 +251,14 @@ public class FamilyManager : MonoBehaviour
     {
         _kidsUserArr[i] = new KidUser(i);
         _kidsUserArr[i].SetInfoVal(UserInfoList.Gems, 300000000);
+        
+
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
  
             _kidsUserArr[i].SetInfoVal(UserInfoList.Gems, 3000);
 #endif
 
-        _kidsUserArr[i].SetInfoVal(UserInfoList.Rank, 1);
+        _kidsUserArr[i].SetInfoVal(UserInfoList.Points, ProfileManager.FIRST_RANK_POINTS);
         _kidsUserArr[i].Store[AvatarInfoList.ChestGM.GetHashCode(), 5] = 1;
         _kidsUserArr[i].Store[AvatarInfoList.FeetGM.GetHashCode(), 1] = 1;
         _kidsUserArr[i].Store[AvatarInfoList.LegsGm.GetHashCode(), 0] = 1;

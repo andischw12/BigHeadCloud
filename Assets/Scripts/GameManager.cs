@@ -108,6 +108,8 @@ public class GameManager : MonoBehaviour
         Assignment.instance.VSCanvas.transform.GetChild(3).gameObject.SetActive(true);
         Assignment.instance.VsPlayerNameText[0].text = player1._myName;
         Assignment.instance.VsPlayerNameText[1].text = player2._myName;
+        Assignment.instance.VSPlayerRankText[0].text = FindObjectOfType<ProfileManager>().GetRank(player1.PointsForScore).ToString();
+        Assignment.instance.VSPlayerRankText[1].text = FindObjectOfType<ProfileManager>().GetRank(player2.PointsForScore).ToString();
         player1.transform.position = Assignment.instance.VsPlayersPosition[0].position;
         player2.transform.position = Assignment.instance.VsPlayersPosition[1].position;
         player1.GetComponentInChildren<Animator>().SetBool("Waving", true);

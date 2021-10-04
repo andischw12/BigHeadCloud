@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] public TextMeshProUGUI PlayerNameTXT;
     [SerializeField] public EmoteGuiButton myEmojiesGuiButton;
     [SerializeField] int _playerSide;
+    public int PointsForScore;
     [SerializeField] playerAI _playerAI;
     public GameObject PlayerCanvas;
     public HelperManager myhelperManager;

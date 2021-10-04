@@ -75,7 +75,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         if(roomName == "offline room") // if last game was against bot
         {
             print("if was against bot in room: " +  roomName);
-            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(0f));
+            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(2f));
         }
            
         else
