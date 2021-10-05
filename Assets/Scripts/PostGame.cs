@@ -27,6 +27,8 @@ public class PostGame : MonoBehaviour
     [SerializeField] TextMeshProUGUI Rank;
     [SerializeField] TextMeshProUGUI UserGemsAmmount;
     [SerializeField] TextMeshProUGUI UserRank;
+    [SerializeField] TextMeshProUGUI UserPoints;
+
     [SerializeField] Image Gem;
     [SerializeField] RenderTexture  UserFace;
     [SerializeField] GameObject RematchAndHomeButton;
@@ -55,6 +57,7 @@ public class PostGame : MonoBehaviour
 
     IEnumerator PostGameProgress()
     {
+        UserGemsAmmount.GetComponentInParent<Animator>().enabled = false;
         CalculationsManager.instance.PostGame = true;
         int thisRoundGems = 0;
         int NewPoints = 0;
@@ -120,8 +123,8 @@ public class PostGame : MonoBehaviour
             FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Points, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points) + CalculationsManager.instance.GetCaluclatedBonus()); //update Score
             FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.PlayTime, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime) + CalculationsManager.instance.GetPlayTime()); //update Score
             thisRoundGems = CalculationsManager.instance.CalculateGems();
-            yield return new WaitForSecondsRealtime(1.5f);
             NewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points) + CalculationsManager.instance.GetCaluclatedBonus();
+            yield return new WaitForSecondsRealtime(1f);
 
         }
 
@@ -131,17 +134,55 @@ public class PostGame : MonoBehaviour
             thisRoundGems = Random.Range(350, 500);
             FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Wins, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Wins) + 1); //update tech win
         }
-           
+
+        //points
+         UserPoints.text = "+ " + NewPoints.ToString();
         FindObjectOfType<WindowManager>().OpenPanel(1);
+        yield return new WaitForSecondsRealtime(0.3f);
+        SoundManager.instance.PlaySoundEffect(SoundEffectsList.reavelAnswer);
+        if(!FindObjectOfType<ProfileManager>().IsNewRank(NewPoints))
+            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(NewPoints));
+        else
+            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(1f);
+        yield return new WaitForSecondsRealtime(1f);
+        FindObjectOfType<StarsEffect>().Play();
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetBool("Waiting", false);
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
-        int NewGemsAmmount = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems) + thisRoundGems;
-        FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Gems, NewGemsAmmount); //update gems
-        GemsAmmount.text = "<incr>" + "<rainb>"  +"+" + thisRoundGems.ToString();
-        FindObjectsOfType<StarsEffect>()[1].Play();
+        yield return new WaitForSecondsRealtime(2.5f);
 
+        //new rank
+        if(FindObjectOfType<ProfileManager>().IsNewRank(NewPoints))
+        {
+            FindObjectOfType<WindowManager>().OpenPanel(2);
+            Rank.text = FindObjectOfType<ProfileManager>().GetRank(NewPoints).ToString();
+            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
+            FindObjectOfType<StarsEffect>().Play();
+            SoundManager.instance.PlaySoundEffect(SoundEffectsList.WinGame);
+            FindObjectOfType<ProfileManager>().SetValues(NewPoints);
+            yield return new WaitForSecondsRealtime(3f);
+
+        }
+
+
+
+
+        //gems
+        GemsAmmount.text = "<incr>" + "<rainb>" + "+" + thisRoundGems.ToString();
+        FindObjectOfType<WindowManager>().OpenPanel(3);
+        FindObjectOfType<StarsEffect>().Play();
+        SoundManager.instance.PlaySoundEffect(SoundEffectsList.GameOver);
         UserGemsAmmount.text = "<incr>" + "<rainb>" + FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems);
-        yield return new WaitForSecondsRealtime(2f);
+        FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
+        yield return new WaitForSecondsRealtime(2.5f);
+        //
+
+
+
+        // end
+        
+        RematchAndHomeButton.SetActive(true);
+        //
+        /*
         if (FindObjectOfType<ProfileManager>().IsNewRank(NewPoints)) 
         {
             FindObjectOfType<ProfileManager>().AnimateSliderOverTime(1f);
@@ -159,14 +200,10 @@ public class PostGame : MonoBehaviour
         FindObjectsOfType<StarsEffect>()[0].Play();
         yield return new WaitForSecondsRealtime(1f);
 
+        */
 
 
 
-        FindObjectOfType<ProfileManager>().SetValues(NewPoints);
-        FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Points, NewPoints); //update Score
-        yield return new WaitForSecondsRealtime(3f);
-       
-        RematchAndHomeButton.SetActive(true);
         //Initiate.Fade(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(1)), Color.black, 4f);
     }
 

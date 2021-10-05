@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ProfileManager : MonoBehaviour
 {
-    public static readonly int FIRST_RANK_POINTS = 150; 
+    public static readonly int FIRST_RANK_POINTS = 149; 
     [SerializeField] TextMeshProUGUI RankText;
     [SerializeField] public Slider Slider;
     [SerializeField] TextMeshProUGUI Name;
