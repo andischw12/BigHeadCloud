@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ProfileManager : MonoBehaviour
 {
-    public static readonly int FIRST_RANK_POINTS = 149; 
+    public static readonly int FIRST_RANK_POINTS = 50; 
     [SerializeField] TextMeshProUGUI RankText;
     [SerializeField] public Slider Slider;
     [SerializeField] TextMeshProUGUI Name;
@@ -21,20 +21,25 @@ public class ProfileManager : MonoBehaviour
 
       
         //print(GetRank(600));
-        print(GetPointsByRank(1));
+        print(GetRankByPoints(400));
     }
 
 
      public void SetValues(int points) 
     {
 
-        RankText.text = GetRank(points).ToString(); 
+        SetUserRank(points);
         try 
         {
-            Slider.value = GetSliderState(points);
-            SetTitleByRank(GetRank(points));
+            AnimateSliderOverTime(GetSliderState(points),2f);
+            SetTitleByRank(GetRank(points)); //title is beginer ..etc
         } 
-        catch { }
+        catch { print("SetValues func couldnt find"); }
+    }
+
+    public void SetUserRank(int points) 
+    {
+        RankText.text = GetRank(points).ToString();
     }
 
 
@@ -50,12 +55,12 @@ public class ProfileManager : MonoBehaviour
 
     int GetRankByPoints(int points) // for inner calculation - do not use from outside
     {
-        return (int)Mathf.Sqrt((float)points/150);
+        return (int)Mathf.Sqrt((float)points/FIRST_RANK_POINTS);
     }
 
     int GetPointsByRank(int rank) 
     {
-        return rank * rank * 150 ;
+        return rank * rank * FIRST_RANK_POINTS;
     }
 
     public float GetSliderState(int points) 
@@ -63,9 +68,10 @@ public class ProfileManager : MonoBehaviour
         return ((points - GetPointsByRank(GetRankByPoints(points))) / (float)(GetPointsByRank(GetRankByPoints(points)+1) - GetPointsByRank(GetRankByPoints(points))));
     }
 
-    public void AnimateSliderOverTime(float newVal) 
+    public void AnimateSliderOverTime(float newVal,float sec) 
     {
-        StartCoroutine(AnimateSliderOverTimeHelper(Slider, newVal, 2f));
+        StopCoroutine(nameof(AnimateSliderOverTimeHelper));
+        StartCoroutine(AnimateSliderOverTimeHelper(Slider, newVal, sec));
     }
 
     public bool IsNewRank(int newPoints) 
@@ -74,17 +80,25 @@ public class ProfileManager : MonoBehaviour
         return newPoints >= GetPointsByRank(GetRankByPoints(oldPoints) + 1);
     }
 
+    public void ResetSlider() 
+    {
+        Slider.value = 0.0f;
+    }
+
+
     IEnumerator AnimateSliderOverTimeHelper(Slider _slider, float newval, float seconds)
     {
        
         float animationTime = 0f;
-        while (animationTime < seconds)
+        while (animationTime < seconds && _slider.value!= newval)
         {
             animationTime += Time.deltaTime;
             float lerpValue = animationTime / seconds;
             _slider.value = Mathf.Lerp(_slider.value, newval, lerpValue);
+            print("working");
             yield return null;
         }
+        
     }
 
     // מתחיל חובבן מומחה מקצוען ידען גאון מלך קיסר מתקדם בר-מוח תלמיד-חכם ינוקא עילוי עוקר-הרים 

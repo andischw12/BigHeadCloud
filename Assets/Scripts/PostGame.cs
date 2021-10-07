@@ -109,7 +109,7 @@ public class PostGame : MonoBehaviour
                 yield return new WaitForSecondsRealtime(0.85f);
                 BonusBar.isOn = true;
                 SoundManager.instance.PlaySoundEffect(SoundEffectsList.Calculation);
-                yield return new WaitUntil(() => BonusBar.currentPercent > CalculationsManager.instance.GetCaluclatedBonus() || BonusBar.currentPercent >= 100);
+                yield return new WaitUntil(() => BonusBar.currentPercent >= CalculationsManager.instance.GetCaluclatedBonus() || BonusBar.currentPercent >= 100);
                 SoundManager.instance.StopSoundEffect();
                 SoundManager.instance.PlaySoundEffect(SoundEffectsList.CalculationEnd);
                 BonusBar.isOn = false;
@@ -120,8 +120,7 @@ public class PostGame : MonoBehaviour
             }
 
             
-            FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Points, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points) + CalculationsManager.instance.GetCaluclatedBonus()); //update Score
-            FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.PlayTime, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime) + CalculationsManager.instance.GetPlayTime()); //update Score
+           
             thisRoundGems = CalculationsManager.instance.CalculateGems();
             NewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points) + CalculationsManager.instance.GetCaluclatedBonus();
             yield return new WaitForSecondsRealtime(1f);
@@ -135,33 +134,54 @@ public class PostGame : MonoBehaviour
             FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Wins, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Wins) + 1); //update tech win
         }
 
+
+        //updateScore
+
+        FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Gems, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems) + thisRoundGems);
+
+        FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.PlayTime, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime) + CalculationsManager.instance.GetPlayTime()); //update Score
+
         //points
-         UserPoints.text = "+ " + NewPoints.ToString();
+        UserPoints.text = "+ " + NewPoints.ToString();
         FindObjectOfType<WindowManager>().OpenPanel(1);
-        yield return new WaitForSecondsRealtime(0.3f);
-        SoundManager.instance.PlaySoundEffect(SoundEffectsList.reavelAnswer);
-        if(!FindObjectOfType<ProfileManager>().IsNewRank(NewPoints))
-            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(NewPoints));
-        else
-            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(1f);
-        yield return new WaitForSecondsRealtime(1f);
         FindObjectOfType<StarsEffect>().Play();
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetBool("Waiting", false);
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
-        yield return new WaitForSecondsRealtime(2.5f);
+       
+        yield return new WaitForSecondsRealtime(2f);
+        SoundManager.instance.PlaySoundEffect(SoundEffectsList.reavelAnswer);
+        bool tmp = FindObjectOfType<ProfileManager>().IsNewRank(NewPoints);
+        if (tmp) 
+        {
+            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(0.99f,2f);
+            yield return new WaitForSecondsRealtime(1f);
+        }
+            
+
+        else
+        {
+            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(NewPoints),2);
+            yield return new WaitForSecondsRealtime(1.3f);
+        }
+           
 
         //new rank
-        if(FindObjectOfType<ProfileManager>().IsNewRank(NewPoints))
+        if(tmp)
         {
             FindObjectOfType<WindowManager>().OpenPanel(2);
             Rank.text = FindObjectOfType<ProfileManager>().GetRank(NewPoints).ToString();
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
             FindObjectOfType<StarsEffect>().Play();
             SoundManager.instance.PlaySoundEffect(SoundEffectsList.WinGame);
-            FindObjectOfType<ProfileManager>().SetValues(NewPoints);
-            yield return new WaitForSecondsRealtime(3f);
+            FindObjectOfType<ProfileManager>().SetUserRank(NewPoints);
+            print("next line is resetingggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+            FindObjectOfType<ProfileManager>().ResetSlider();
+            yield return new WaitForSecondsRealtime(1f);
+            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(NewPoints),1);
+            yield return new WaitForSecondsRealtime(2f);
 
         }
+        FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Points, NewPoints);
 
 
 
@@ -176,10 +196,10 @@ public class PostGame : MonoBehaviour
         yield return new WaitForSecondsRealtime(2.5f);
         //
 
-
+       
 
         // end
-        
+
         RematchAndHomeButton.SetActive(true);
         //
         /*

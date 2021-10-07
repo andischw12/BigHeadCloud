@@ -51,6 +51,7 @@ public class MainMenuManager : MonoBehaviour
         PlayTime.text = "תוקד " + FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime).ToString();
         print(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
         FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
+         
     }
 
     public void Home() 
