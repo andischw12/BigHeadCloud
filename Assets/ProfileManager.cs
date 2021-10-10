@@ -102,17 +102,49 @@ public class ProfileManager : MonoBehaviour
     }
 
     // מתחיל חובבן מומחה מקצוען ידען גאון מלך קיסר מתקדם בר-מוח תלמיד-חכם ינוקא עילוי עוקר-הרים 
+
+    //
+   
     void SetTitleByRank(int rank) 
     {
         
         switch (rank) 
         {
-            case var expression when expression < 4:
-                Title.text = "ליחתמ";
+            case var expression when expression <= 2:
+                Title.text = "אקוני";
                 break;
-
-            default:
+            case var expression when expression <= 4:
+                Title.text = "ףירח";
+                break;
+            case var expression when expression <= 9:
+                Title.text = "יוליע";
+                break;
+            case var expression when expression <= 19:
                 Title.text = "םכח דימלת";
+                break;
+            case var expression when expression <= 29:
+                Title.text = "ןנברמ אברוצ";
+                break;
+            case var expression when expression <= 39:
+                Title.text = "ןואג";
+                break;
+            case var expression when expression <= 49:
+                Title.text = "ןמאנ עטנ";
+                break;
+            case var expression when expression <= 59:
+                Title.text = "םירה רקוע";
+                break;
+            case var expression when expression <= 69:
+                Title.text = "יניס";
+                break;
+            case var expression when expression <= 79:
+                Title.text = "ארתאד ארמ";
+                break;
+            case var expression when expression <= 99:
+                Title.text = "אתולג שיר";
+                break;
+            default:
+                Title.text = "ןרמ";
                 break;
         }
        
