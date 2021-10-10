@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI Rank;
     [SerializeField] TextMeshProUGUI RankSmall;
     [SerializeField] TextMeshProUGUI GemsSpent;
-    [SerializeField] TextMeshProUGUI Prize;
+    [SerializeField] TextMeshProUGUI PointsTXT;
     [SerializeField] TextMeshProUGUI Gems;
     [SerializeField] TextMeshProUGUI Name;
     [SerializeField] RenderTexture UserFace;
@@ -51,6 +51,7 @@ public class MainMenuManager : MonoBehaviour
         PlayTime.text = "תוקד " + FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime).ToString();
         print(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
         FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
+        PointsTXT.text = (FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points) - ProfileManager.FIRST_RANK_POINTS).ToString();
          
     }
 

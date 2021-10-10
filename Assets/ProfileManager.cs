@@ -21,7 +21,7 @@ public class ProfileManager : MonoBehaviour
 
       
         //print(GetRank(600));
-        print(GetRankByPoints(400));
+        print(GetRankByPoints(50000));
     }
 
 

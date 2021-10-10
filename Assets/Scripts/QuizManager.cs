@@ -71,9 +71,6 @@ public class QuizManager : MonoBehaviour
         groups.AddRange(dataScriptable.groups);
         questions.AddRange(groups[Level].questions);
         QuestionMode = QuestionMode.Null;
-
-       
-
     }
     public void SelectQuestion()
     {

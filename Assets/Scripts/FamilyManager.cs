@@ -259,7 +259,7 @@ public class FamilyManager : MonoBehaviour
 #endif
 
         _kidsUserArr[i].SetInfoVal(UserInfoList.Points, ProfileManager.FIRST_RANK_POINTS);
-       // _kidsUserArr[i].SetInfoVal(UserInfoList.Points, 80000);
+       //  _kidsUserArr[i].SetInfoVal(UserInfoList.Points, 80000);
 
         _kidsUserArr[i].Store[AvatarInfoList.ChestGM.GetHashCode(), 5] = 1;
         _kidsUserArr[i].Store[AvatarInfoList.FeetGM.GetHashCode(), 1] = 1;

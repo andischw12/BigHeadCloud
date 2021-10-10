@@ -144,12 +144,12 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     {
         Debug.Log("i am in");
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...רדח רצוי";
+        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...קחשמ רצוי";
         PlayWithFriendMode = true;
         CreateRoom();
         yield return new WaitUntil(() => PhotonNetwork.InRoom);
         PhotonNetwork.CurrentRoom.IsVisible = false;
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = PhotonNetwork.CurrentRoom.Name + " :רדחב רבחל הכחמ";
+        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = PhotonNetwork.CurrentRoom.Name + " :קחשמב רבחל הכחמ";
     }
 
     public void OnPlayWithFriendSlaveClick()
@@ -159,7 +159,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[4].GetComponent<ModalWindowManager>().CloseWindow();
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(18f));
             FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " רדחל ףרטצמ";
+            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " קחשמל ףרטצמ";
             PhotonNetwork.JoinRoom(roomNumCode.text);
             Debug.Log(roomNumCode.text);
         }
