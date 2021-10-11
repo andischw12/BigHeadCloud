@@ -230,12 +230,14 @@ public class PostGame : MonoBehaviour
 
     public void OnHomeButtonClick() 
     {
+        PhotonPlayerManagerBot.LastBotChosen = -1;//reset bot
         PlayerPrefs.SetString("LastRoomName", "");
         Initiate.Fade(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(1)), Color.black, 4f);
     }
 
     public void OnReMatchButtonClick()
     {
+
         Initiate.Fade(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(1)), Color.black, 4f);
     }
 

@@ -65,21 +65,37 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     IEnumerator PlayAgainWithFriend(string roomName)
     {
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "רבחתמ...";
+        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...רבחתמ";
         yield return new WaitUntil(() => Buttons.activeInHierarchy);
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...ינשה שמתשמהמ הבושתל הכחמ";
 
-        PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions(){IsVisible = false, IsOpen = true, MaxPlayers = 2 }, TypedLobby.Default);
-        PlayWithFriendMode = true;
+        
         PhotonRoom.room.SelecetSubject(PlayerPrefs.GetInt("LastTopicPlayed"));
         if(roomName == "offline room") // if last game was against bot
         {
             print("if was against bot in room: " +  roomName);
-            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(2f));
+            //StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(2f));
+            PhotonNetwork.Disconnect();
+            while (PhotonNetwork.IsConnected)
+                yield return null;
+            int[] tmpChance = {0,1,0,0,1,0,0,0,1,0};
+            int chosen = Random.Range(0, tmpChance.Length);
+            if (chosen == 0) 
+            {
+                yield return new WaitForSecondsRealtime(2);
+                FindObjectOfType<PhotonRoom>().flag = true;
+                PhotonNetwork.OfflineMode = true;
+                PhotonNetwork.JoinRandomRoom();
+            }
+            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
         }
            
         else
+        {
+            PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions() { IsVisible = false, IsOpen = true, MaxPlayers = 2 }, TypedLobby.Default);
+            PlayWithFriendMode = true;
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(18f));
+        }
         PlayerPrefs.SetString("LastRoomName", "");
         
 

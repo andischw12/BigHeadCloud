@@ -62,6 +62,16 @@ public class MainMenuManager : MonoBehaviour
         Destroy(FindObjectOfType<PhotonRoom>().gameObject);
         Initiate.Fade(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(0)), Color.black, 2f);
     }
+
+    public void OnOpenNewGameClick() 
+    {
+        if (FindObjectOfType<PhotonRoom>().enviorment != EnviormentList.Random)
+        {
+            FindObjectOfType<PhotonLobby>().OnPlayWithFriendMasterClick();
+        }
+        else
+            FindObjectOfType<MainPanelManager>().PanelAnim(5);
+    }
  
 
      

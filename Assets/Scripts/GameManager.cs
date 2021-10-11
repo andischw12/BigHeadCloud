@@ -462,6 +462,12 @@ public class GameManager : MonoBehaviour
             GetComponent<QuizManager>().LoadQuestionList(10);
         }
 
+        if (chosen == EnviormentList.Shabat.GetHashCode())
+        {
+            Assignment.instance.QuizSubjectText.text = "ימלועה תבשה ןודיח";
+            GetComponent<QuizManager>().LoadQuestionList(11);
+        }
+
 
 
 
