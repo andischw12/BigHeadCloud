@@ -78,16 +78,22 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             PhotonNetwork.Disconnect();
             while (PhotonNetwork.IsConnected)
                 yield return null;
-            int[] tmpChance = {0,1,0,0,1,0,0,0,1,0};
-            int chosen = Random.Range(0, tmpChance.Length);
-            if (chosen == 0) 
+            int[] tmpChance = {0,1,1,0,1,1,1,0,1,0};
+            int chosen = tmpChance[Random.Range(0, tmpChance.Length)];
+            if (chosen == 0)
             {
                 yield return new WaitForSecondsRealtime(2);
                 FindObjectOfType<PhotonRoom>().flag = true;
                 PhotonNetwork.OfflineMode = true;
                 PhotonNetwork.JoinRandomRoom();
+                StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(18f));
             }
-            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
+            else 
+            {
+                PhotonPlayerManagerBot.LastBotChosen = -1;
+                StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(4f));
+            }
+            
         }
            
         else
@@ -253,6 +259,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             PhotonNetwork.LeaveRoom();
         try {CalculationsManager.instance.PostGame = false;}catch{}
         PlayerPrefs.SetInt("AutoConnectAndSearch", AutoConnect);
+        PhotonPlayerManagerBot.LastBotChosen = -1;
         SceneManager.LoadScene(1);
         Destroy(FindObjectOfType<PhotonRoom>().gameObject);
         Destroy(this.gameObject);
