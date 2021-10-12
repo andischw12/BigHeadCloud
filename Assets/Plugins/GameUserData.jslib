@@ -29,12 +29,14 @@ mergeInto(LibraryManager.library, {
         var jsonToSend = Pointer_stringify(data);
         console.log("sendData: " + jsonToSend)
 
-        var userCookie = getCookie("UserSettings");
+        //var userCookie = getCookie("UserSettings");
         var PersonID = getPersonID();
-        if (!PersonID > 0){
-            PersonID = localStorage.getItem("BigHeadPersonID");
+        if (PersonID == undefined || PersonID == null || PersonID == 0 ){
+            PersonID = parseInt(localStorage.getItem("BigHeadPersonID"));
         }
+            if(PersonID>0){
             saveGameBaseData(jsonToSend, player, PersonID)
+            }
             localStorage.setItem("BigHead" + player, jsonToSend)
         
     },
