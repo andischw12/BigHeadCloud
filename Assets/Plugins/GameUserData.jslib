@@ -30,12 +30,13 @@ mergeInto(LibraryManager.library, {
         console.log("sendData: " + jsonToSend)
 
         var userCookie = getCookie("UserSettings");
-        if (userCookie != null && userCookie != "undefined" && userCookie != "") {
-            saveGameBaseData(jsonToSend, player)
-            localStorage.setItem("BigHead" + player, jsonToSend)
-        } else {
-            localStorage.setItem("BigHead" + player, jsonToSend)
+        var PersonID = getPersonID();
+        if (!PersonID > 0){
+            PersonID = localStorage.getItem("BigHeadPersonID");
         }
+            saveGameBaseData(jsonToSend, player, PersonID)
+            localStorage.setItem("BigHead" + player, jsonToSend)
+        
     },
 
     getPlayersCountJS: function() {
