@@ -221,7 +221,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         {
          
             RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
-            roomOps.CustomRoomPropertiesForLobby[0] = PhotonRoom.room.enviorment.GetHashCode().ToString();
+            string[] tmp  = { PhotonRoom.room.enviorment.GetHashCode().ToString() };
+            roomOps.CustomRoomPropertiesForLobby = tmp;
             PhotonNetwork.JoinOrCreateRoom(Random.Range(1000, 10000).ToString(),roomOps,TypedLobby.Default);
         }
         else
