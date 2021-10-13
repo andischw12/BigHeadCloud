@@ -219,11 +219,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
         if(PhotonRoom.room.enviorment == EnviormentList.Shabat)
         {
-         
-            RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
-            string[] tmp  = { PhotonRoom.room.enviorment.GetHashCode().ToString() };
-            roomOps.CustomRoomPropertiesForLobby = tmp;
-            PhotonNetwork.JoinOrCreateRoom(Random.Range(1000, 10000).ToString(),roomOps,TypedLobby.Default);
+            PhotonNetwork.JoinRandomRoom(new Hashtable { { "env",PhotonRoom.room.enviorment.GetHashCode().ToString()}}, 2);
         }
         else
         PhotonNetwork.JoinRandomRoom();
@@ -244,7 +240,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         int randomRoomName = Random.Range(1000, 10000);
         Debug.Log("your code is:" + randomRoomName);
         RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
-        PhotonNetwork.CreateRoom(randomRoomName.ToString(), roomOps);
+        roomOps.CustomRoomProperties  = new Hashtable{{"env",PhotonRoom.room.enviorment.GetHashCode().ToString()}};
+        PhotonNetwork.CreateRoom(randomRoomName.ToString(),roomOps,TypedLobby.Default);
     }
 
 
