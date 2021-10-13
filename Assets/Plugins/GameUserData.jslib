@@ -3,10 +3,20 @@ mergeInto(LibraryManager.library, {
     loadDataJS: function(player) {
         var baseData = "";
         var getdata = ""
-        var DBplayers = parseInt(getGamePlayers());
-        var userCookie = getCookie("UserSettings");
-        if ((userCookie != null && userCookie != "undefined" && userCookie != "") && DBplayers > 0) {
-            baseData = loadGameBasaData(player);
+        
+        var PersonID = 0;
+        PersonID = getPersonID();
+        if (PersonID == undefined || PersonID == null || PersonID == 0 && localStorage.getItem("BigHeadPersonID")!= undefined){
+            PersonID = parseInt(localStorage.getItem("BigHeadPersonID"));
+        }
+        var DBplayers = 0;
+            if(PersonID>0){
+                DBplayers = parseInt(getGamePlayers(PersonID));
+            }
+        
+        //var userCookie = getCookie("UserSettings");
+        //if ((userCookie != null && userCookie != "undefined" && userCookie != "") && DBplayers > 0) {
+            baseData = loadGameBasaData(player, PersonID);
             if (baseData != "" && baseData != null && baseData != "undefined") {
                 getdata = JSON.stringify(baseData)
                 console.log("getdata: " + getdata)
@@ -14,9 +24,9 @@ mergeInto(LibraryManager.library, {
             if (getdata == null || getdata == "undefined" || getdata == "") {
                 getdata = localStorage.getItem("BigHead" + player)
             }
-        } else {
-            getdata = localStorage.getItem("BigHead" + player)
-        }
+        //} else {
+        //    getdata = localStorage.getItem("BigHead" + player)
+        //}
         if (getdata != "" && getdata != null && getdata != "undefined") {
             var bufferSize = lengthBytesUTF8(getdata) + 1;
             var buffer = _malloc(bufferSize);
@@ -42,7 +52,16 @@ mergeInto(LibraryManager.library, {
     },
 
     getPlayersCountJS: function() {
-        var playersCount = parseInt(getGamePlayers());
+        var PersonID = 0;
+        PersonID = getPersonID();
+        if (PersonID == undefined || PersonID == null || PersonID == 0 && localStorage.getItem("BigHeadPersonID")!= undefined){
+            PersonID = parseInt(localStorage.getItem("BigHeadPersonID"));
+        }
+        var playersCount = 0;
+            if(PersonID>0){
+                playersCount = parseInt(getGamePlayers(PersonID));
+            }
+
         console.log("Players from DB: " + playersCount)
         //console.log("players * 2 :"+playersCount*2)
         if (playersCount == 0) {
