@@ -217,12 +217,12 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         //print("DPI is good enough, trying to connect photon"); */
         // RandomBattleButton.SetActive(false);
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
-        if(PhotonRoom.room.enviorment == EnviormentList.Shabat)
-        {
+       // if(PhotonRoom.room.enviorment == EnviormentList.Shabat)
+       // {
             PhotonNetwork.JoinRandomRoom(new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } }, 2);
-        }
-        else
-        PhotonNetwork.JoinRandomRoom();
+       // }
+       // else
+        //PhotonNetwork.JoinRandomRoom();
         StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
     }
 
