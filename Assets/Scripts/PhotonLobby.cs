@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Michsky.UI.ModernUIPack;
 using TMPro;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 
 
@@ -216,6 +217,12 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         //print("DPI is good enough, trying to connect photon"); */
         // RandomBattleButton.SetActive(false);
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
+        if(PhotonRoom.room.enviorment ==EnviormentList.Shabat)
+        {
+            Hashtable expectedCustomRoomProperties = new Hashtable { {"Env",PhotonRoom.room.enviorment.GetHashCode()}};
+            PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 2);
+        }
+        else
         PhotonNetwork.JoinRandomRoom();
         StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
     }
