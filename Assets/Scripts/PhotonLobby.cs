@@ -219,8 +219,10 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
         if(PhotonRoom.room.enviorment == EnviormentList.Shabat)
         {
-            Hashtable expectedCustomRoomProperties = new Hashtable { {"Env",(byte)PhotonRoom.room.enviorment.GetHashCode()}};
-            PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 2);
+         
+            RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
+            roomOps.CustomRoomPropertiesForLobby[0] = PhotonRoom.room.enviorment.GetHashCode().ToString();
+            PhotonNetwork.JoinOrCreateRoom(Random.Range(1000, 10000).ToString(),roomOps,TypedLobby.Default);
         }
         else
         PhotonNetwork.JoinRandomRoom();
