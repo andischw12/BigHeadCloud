@@ -15,6 +15,8 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
     public static MultiPlayerQuestionRandomizer instance;
     int currentQuestioNumber = -1;
     public  int chosenEnviorment = -1;
+    public int chosenEnviormentForRandom = -1;
+    int[] randomArr = {0,1,2,3,4,5,6,7};
     void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -32,7 +34,7 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
         {
             if (env == EnviormentList.Random) 
             {
-                int[] randomArr = {0,1,2,3,4,5,6,7};
+               
                 int chosen = Random.Range(0, randomArr.Length);
                 PV.RPC("RandomEnviormentNumber", RpcTarget.AllBuffered, randomArr[chosen]);
             }
@@ -70,4 +72,23 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
     {
         currentQuestioNumber = -1;
     }
+
+    public void SetEnvOnRandomMode() 
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            int chosen = Random.Range(0, randomArr.Length);
+            PV.RPC("SetEnvOnRandomModeRPC", RpcTarget.AllBuffered, randomArr[chosen]);
+        }
+           
+    }
+
+    [PunRPC]
+    private void SetEnvOnRandomModeRPC(int number)
+    {
+        Debug.Log("Enviorment chosen: " + number);
+        chosenEnviormentForRandom = number;
+    }
+
+
 }

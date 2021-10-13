@@ -11,6 +11,8 @@ using Photon.Realtime;
 using System.IO;
 using System;
 using Febucci.UI;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -56,6 +58,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(AssignmentMethod());
+        
+        print("i am printing " + PhotonNetwork.CurrentRoom.CustomProperties["env"]);
     }
     private IEnumerator AssignmentMethod()
     {
@@ -67,6 +71,8 @@ public class GameManager : MonoBehaviour
         enviorment = PhotonRoom.room.enviorment;
         yield return new WaitUntil(() => player1 != null && player2 != null);
         yield return new WaitUntil(() => EnviormentIsReady());
+        if (IsNewRandomMode())
+            Assignment.instance.QuizSubjectText.text = "תיללכ היווירט - לודג שאר";
         StartCoroutine(VsScreen());
         if (PhotonNetwork.IsMasterClient)
         {
@@ -368,8 +374,10 @@ public class GameManager : MonoBehaviour
     private void DisconnectPlayer()
     {
         PlayerPrefs.SetString("LastRoomName", PhotonNetwork.CurrentRoom.Name);
-        PlayerPrefs.SetInt("LastTopicPlayed",MultiPlayerQuestionRandomizer.instance.chosenEnviorment);
-
+        if(IsNewRandomMode())
+            PlayerPrefs.SetInt("LastTopicPlayed",(int)EnviormentList.Random);
+        else
+            PlayerPrefs.SetInt("LastTopicPlayed", MultiPlayerQuestionRandomizer.instance.chosenEnviorment);
         Destroy(PhotonRoom.room.gameObject);
         StartCoroutine(DisconnectAndLoad());
     }
@@ -390,86 +398,82 @@ public class GameManager : MonoBehaviour
         int chosenEnv = MultiPlayerQuestionRandomizer.instance.SetEnviorment(enviorment);
         EnviormentsManager.instance.ChooseEnviorment(chosenEnv);
         SetQuiz(chosenEnv);
+        Assignment.instance.QuizSubjectText.text = GetSubjectText(chosenEnv);
         return true;
     }
 
-    private void SetQuiz(int chosen)
+    public bool IsNewRandomMode() 
     {
+        return (PhotonRoom.room.IsSinglePlayer && PhotonRoom.room.enviorment == EnviormentList.Random) ||
+            (!PhotonRoom.room.IsSinglePlayer && (byte)PhotonNetwork.CurrentRoom.CustomProperties["env"] == 255);
+    }
 
-        if (chosen == EnviormentList.Bereshit.GetHashCode()) 
+    public void SetQuiz(int chosen)
+    {
+        GetComponent<QuizManager>().LoadQuestionList(chosen);
+    }
+
+    private string GetSubjectText (int chosen)
+    {
+        if (chosen == EnviormentList.Bereshit.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "תישארב שמוח";
-            GetComponent<QuizManager>().LoadQuestionList(0);
+             return "תישארב שמוח";
         }
-          
 
         if (chosen == EnviormentList.ShmotVaikra.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "ארקיו-תומש ישמוח";
-            GetComponent<QuizManager>().LoadQuestionList(1);
+            return "ארקיו-תומש ישמוח";
         }
 
         if (chosen == EnviormentList.BamidbarDvarim.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "םירבד-רבדמב ישמוח";
-            GetComponent<QuizManager>().LoadQuestionList(2);
+            return  "םירבד-רבדמב ישמוח";
         }
 
         if (chosen == EnviormentList.Tanak.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "םינושאר םיאיבנ";
-            GetComponent<QuizManager>().LoadQuestionList(3);
+            return "םינושאר םיאיבנ";
         }
 
         if (chosen == EnviormentList.Avot.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "תובא יקרפ";
-            GetComponent<QuizManager>().LoadQuestionList(4);
+            return "תובא יקרפ";
         }
 
         if (chosen == EnviormentList.Israel.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "לארשי ץרא";
-            GetComponent<QuizManager>().LoadQuestionList(5);
+            return "לארשי ץרא";
         }
 
         if (chosen == EnviormentList.Mada.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "עדמו עבט";
-            GetComponent<QuizManager>().LoadQuestionList(6);
+            return "עדמו עבט";
         }
         if (chosen == EnviormentList.Tarbut.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "ץורעה תוינכות";
-            GetComponent<QuizManager>().LoadQuestionList(7);
+            return "ץורעה תוינכות";
         }
 
         if (chosen == EnviormentList.RoshHashana.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "הנשה  שאר";
-            GetComponent<QuizManager>().LoadQuestionList(8);
+            return "הנשה  שאר";
         }
 
         if (chosen == EnviormentList.Kippur.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "םירופיכה םוי";
-            GetComponent<QuizManager>().LoadQuestionList(9);
+            return "םירופיכה םוי";
         }
 
         if (chosen == EnviormentList.Sukkot.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "תוכוס";
-            GetComponent<QuizManager>().LoadQuestionList(10);
+            return "תוכוס";
         }
 
         if (chosen == EnviormentList.Shabat.GetHashCode())
         {
-            Assignment.instance.QuizSubjectText.text = "ימלועה תבשה ןודיח";
-            GetComponent<QuizManager>().LoadQuestionList(11);
+            return "ימלועה תבשה ןודיח";
         }
 
-
-
-
+        else return "יללכ עדי";
     }
 }

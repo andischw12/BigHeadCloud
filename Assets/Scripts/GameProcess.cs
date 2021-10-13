@@ -34,6 +34,20 @@ public class GameProcess : MonoBehaviour
     IEnumerator LoadQuestionHelper() 
     {
         // Assignment.instance.TechMassage.text = "...רבחתמ";
+        if(GameManager.instance.IsNewRandomMode()) 
+        {
+            if (currentQuestionNumber > 0)
+            {
+                MultiPlayerQuestionRandomizer.instance.SetEnvOnRandomMode();
+                yield return new WaitUntil(() => MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom > -1);
+                int chosen = MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom;
+                EnviormentsManager.instance.ChooseEnviorment(chosen);
+                GameManager.instance.SetQuiz(chosen);
+                MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom = -1;
+            }
+          
+                 
+        }
         GameManager.instance.thisComputerPlayer.myPhotonPlayer.SetReadyForNewQuestion();
         yield return new WaitUntil(() => GameManager.instance.otherPlayer.myPhotonPlayer.ReadyForNewQuestion);
         GameManager.instance.player1.myPhotonPlayer.ReadyForNewQuestion = false;

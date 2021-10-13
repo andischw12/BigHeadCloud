@@ -99,7 +99,11 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
            
         else
         {
-            PhotonNetwork.JoinOrCreateRoom(roomName, new RoomOptions() { IsVisible = false, IsOpen = true, MaxPlayers = 2 }, TypedLobby.Default);
+            RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
+            string[] s = { "env" };
+            roomOps.CustomRoomPropertiesForLobby = s;
+            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } };
+            PhotonNetwork.JoinOrCreateRoom(roomName, roomOps, TypedLobby.Default);
             PlayWithFriendMode = true;
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(18f));
         }
