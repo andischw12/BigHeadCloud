@@ -16,12 +16,28 @@ public class EnviormentsManager : MonoBehaviour
     }
     public void ChooseEnviorment(int chosen) 
     {
-        for(int i =0;i<enviorments.Length; i++)
+        if (GameManager.instance.IsNewRandomMode()&& GameProcess.instance.currentQuestionNumber>0)
+            Cameras.instance.SelectCamera(Cameras.instance.CameraArray.Length - 1);
+        for (int i = 0; i < enviorments.Length; i++)
         {
-            if (i == chosen)
-                enviorments[i].SetActive(true);
-            else
+            if (enviorments[i].activeInHierarchy)
+            {
                 enviorments[i].SetActive(false);
+                break;
+            }
         }
+        enviorments[chosen].SetActive(true);
+
+        
+    }
+
+    public int GetActiveEnv() 
+    { 
+        for(int i=0; i<enviorments.Length;i++)
+        {
+            if (enviorments[i].activeInHierarchy)
+                return i;
+        }
+        return -1;
     }
 }

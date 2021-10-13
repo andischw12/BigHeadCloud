@@ -101,8 +101,10 @@ public class GameManager : MonoBehaviour
         CalculationsManager.instance.LastGameTimePerQuestion = timePerQuestion;
         CalculationsManager.instance.LastGameTotalNumOfQuestions = totalNumOfQuestions;
         CalculationsManager.instance.LastGamePointsPerQuestion = PointsPerQuestion;
-      
-       // Assignment.instance.TechMassage.text = "רבוחמ";
+        UlpanScreenManager.instance.SetVsPic();
+        UlpanScreenManager.instance.SetText("םיאבה םיכורב");
+
+        // Assignment.instance.TechMassage.text = "רבוחמ";
         //
     }
 
@@ -183,6 +185,8 @@ public class GameManager : MonoBehaviour
             if(GameProcess.instance.currentQuestionNumber == 4)
                 SoundManager.instance.PlayMusic(1);
         }
+       
+
         player1.ResetParameters();
         player2.ResetParameters();
         host.talking(host.GetComponent<NarrationHolder>().questionProcess);
@@ -298,6 +302,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameOver(Player winner)
     {
         isGameOver = true;
+        UlpanScreenManager.instance.SetDefultPic();
+        UlpanScreenManager.instance.SetText("");
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.GameOver);
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.Clapping);
         LightsController.instance.LightsOn();
@@ -413,7 +419,7 @@ public class GameManager : MonoBehaviour
         GetComponent<QuizManager>().LoadQuestionList(chosen);
     }
 
-    private string GetSubjectText (int chosen)
+    public  string GetSubjectText (int chosen)
     {
         if (chosen == EnviormentList.Bereshit.GetHashCode())
         {

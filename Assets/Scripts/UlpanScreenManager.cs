@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 
 public class UlpanScreenManager : MonoBehaviour
 {
+
     public static UlpanScreenManager instance;
     [SerializeField] Sprite defult;
+    [SerializeField] TextMeshPro Tvtxt;
+    [SerializeField] Sprite VsPic;
+
     // Start is called before the first frame update
 
     void Awake()
@@ -30,10 +36,15 @@ public class UlpanScreenManager : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = defult;
     }
 
-    public void SetPic(Sprite s)
+    public void SetVsPic()
     {
         if (GetComponent<SpriteRenderer>() != null)
-            GetComponent<SpriteRenderer>().sprite = s;
+            GetComponent<SpriteRenderer>().sprite = VsPic;
+    }
+
+    public void SetText(string s) 
+    {
+        Tvtxt.text = s;
     }
 
 }

@@ -95,7 +95,11 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     {
         base.OnPlayerLeftRoom(otherPlayer);
         if(!GameManager.instance.IsGameOver)
+        {
+            try {Cameras.instance.SelectCamera(Cameras.instance.CameraArray.Length - 1);}
+            catch { }
             GameManager.instance.PlayerLeftInTheMiddle();
+        }
         Debug.Log(otherPlayer.NickName + "has left the room. you win!");
     }
 

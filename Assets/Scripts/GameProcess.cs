@@ -33,21 +33,22 @@ public class GameProcess : MonoBehaviour
     }
     IEnumerator LoadQuestionHelper() 
     {
+        UlpanScreenManager.instance.SetVsPic();
         // Assignment.instance.TechMassage.text = "...רבחתמ";
-        if(GameManager.instance.IsNewRandomMode()) 
+        if (GameManager.instance.IsNewRandomMode()) 
         {
             if (currentQuestionNumber > 0)
             {
                 MultiPlayerQuestionRandomizer.instance.SetEnvOnRandomMode();
                 yield return new WaitUntil(() => MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom > -1);
                 int chosen = MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom;
+                UlpanScreenManager.instance.SetText(GameManager.instance.GetSubjectText(chosen));
                 EnviormentsManager.instance.ChooseEnviorment(chosen);
                 GameManager.instance.SetQuiz(chosen);
                 MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom = -1;
             }
-          
-                 
         }
+        UlpanScreenManager.instance.SetText(GameManager.instance.GetSubjectText(EnviormentsManager.instance.GetActiveEnv()));
         GameManager.instance.thisComputerPlayer.myPhotonPlayer.SetReadyForNewQuestion();
         yield return new WaitUntil(() => GameManager.instance.otherPlayer.myPhotonPlayer.ReadyForNewQuestion);
         GameManager.instance.player1.myPhotonPlayer.ReadyForNewQuestion = false;
