@@ -21,6 +21,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI Gems;
     [SerializeField] TextMeshProUGUI Name;
     [SerializeField] RenderTexture UserFace;
+    [SerializeField] TextMeshProUGUI ShabbatPointsTxt;
+
 
     private void Awake()
     {
@@ -72,7 +74,18 @@ public class MainMenuManager : MonoBehaviour
         else
             FindObjectOfType<MainPanelManager>().PanelAnim(5);
     }
- 
 
-     
+    public void SetShabbatPointsTxt() 
+    {
+        ShabbatPointsTxt.text = FamilyManager.instance.GetShabbatPoints() + " :תבש דוקינ" ;
+    }
+
+    public void HideShabbatPointsTxt() 
+    {
+        ShabbatPointsTxt.text = "";
+    }
+
+
+
+
 }
