@@ -180,7 +180,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         CreateRoom();
         yield return new WaitUntil(() => PhotonNetwork.InRoom);
         PhotonNetwork.CurrentRoom.IsVisible = false;
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = PhotonNetwork.CurrentRoom.Name + " :קחשמב רבחל הכחמ";
+        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "ינשה ןקחשל ריבעהל שי " + PhotonNetwork.CurrentRoom.Name + " :םכלש קחשמה רפסמ";
     }
 
     public void OnPlayWithFriendSlaveClick()
@@ -230,7 +230,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             PhotonNetwork.JoinRandomRoom(new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } }, 2);
         }
         else
-            PhotonNetwork.JoinRandomRoom(new Hashtable { {"cla",(byte)1}},2);
+            PhotonNetwork.JoinRandomRoom(new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() },{"cla",(byte)1}},2);
         StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
     }
 
@@ -257,9 +257,9 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         }
         else 
         {
-            string[] s = {"cla"};
+            string[] s = {  "env",  "cla"};
             roomOps.CustomRoomPropertiesForLobby = s;
-            roomOps.CustomRoomProperties = new Hashtable { { "cla", (byte)1 } } ;
+            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() }, { "cla", (byte)1 } } ;
         }    
       
         PhotonNetwork.CreateRoom(randomRoomName.ToString(),roomOps,TypedLobby.Default);

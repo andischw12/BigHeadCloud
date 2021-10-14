@@ -65,7 +65,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnOpenNewGameClick() 
     {
-        if (FindObjectOfType<PhotonRoom>().enviorment != EnviormentList.Random)
+        if (FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Random || FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Shabat)
         {
             FindObjectOfType<PhotonLobby>().OnPlayWithFriendMasterClick();
         }
