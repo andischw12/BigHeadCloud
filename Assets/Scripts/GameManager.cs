@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => player1 != null && player2 != null);
         yield return new WaitUntil(() => EnviormentIsReady());
         if (IsNewRandomMode())
-            Assignment.instance.QuizSubjectText.text = "תיללכ היווירט - לודג שאר";
+            Assignment.instance.QuizSubjectText.text = "איבוברע";
         StartCoroutine(VsScreen());
         if (PhotonNetwork.IsMasterClient)
         {
@@ -410,8 +410,11 @@ public class GameManager : MonoBehaviour
 
     public bool IsNewRandomMode() 
     {
+        byte b = 0;
+
+        try {b=(byte)PhotonNetwork.CurrentRoom.CustomProperties["env"];} catch{ }
         return (PhotonRoom.room.IsSinglePlayer && PhotonRoom.room.enviorment == EnviormentList.Random) ||
-            (!PhotonRoom.room.IsSinglePlayer && (byte)PhotonNetwork.CurrentRoom.CustomProperties["env"] == 255);
+            (!PhotonRoom.room.IsSinglePlayer && b== 255);
     }
 
     public void SetQuiz(int chosen)

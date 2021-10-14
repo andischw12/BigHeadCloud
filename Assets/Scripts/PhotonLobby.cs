@@ -20,6 +20,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
    // public GameObject FriendBattleButton;
     //public GameObject cancelButton;
     public GameObject ConnectingGM;
+    public GameObject JoinAFriendButton;
+    bool clasic;
     [SerializeField] TMP_InputField roomNumCode;
     public bool PlayWithFriendMode { get; set; }
     
@@ -35,6 +37,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     {
         //PhotonNetwork.ConnectUsingSettings(); //connects to Master photon server;
         Buttons.SetActive(false);
+        JoinAFriendButton.SetActive(false);
         FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = false;
         PhotonNetwork.OfflineMode = false;
         PlayWithFriendMode = false;
@@ -99,7 +102,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
            
         else
         {
-            RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
+            RoomOptions roomOps = new RoomOptions() { IsVisible = false, IsOpen = true, MaxPlayers = 2 };
             string[] s = { "env" };
             roomOps.CustomRoomPropertiesForLobby = s;
             roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } };
@@ -153,6 +156,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
         connectedToMaster = true;
         Buttons.SetActive(true);
+        JoinAFriendButton.SetActive(true);
         ConnectingGM.SetActive(false);
     }
 
@@ -221,12 +225,12 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         //print("DPI is good enough, trying to connect photon"); */
         // RandomBattleButton.SetActive(false);
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
-       // if(PhotonRoom.room.enviorment == EnviormentList.Shabat)
-       // {
+        if(PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
+        {
             PhotonNetwork.JoinRandomRoom(new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } }, 2);
-       // }
-       // else
-        //PhotonNetwork.JoinRandomRoom();
+        }
+        else
+            PhotonNetwork.JoinRandomRoom(new Hashtable { {"cla",(byte)1}},2);
         StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
     }
 
@@ -245,9 +249,19 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         Debug.Log("your code is:" + randomRoomName);
          
         RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
-        string[] s = {"env"};
-        roomOps.CustomRoomPropertiesForLobby = s;
-        roomOps.CustomRoomProperties  = new Hashtable {{"env",(byte)PhotonRoom.room.enviorment.GetHashCode()}};
+        if (PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
+        {
+            string[] s = { "env" };
+            roomOps.CustomRoomPropertiesForLobby = s;
+            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } };
+        }
+        else 
+        {
+            string[] s = {"cla"};
+            roomOps.CustomRoomPropertiesForLobby = s;
+            roomOps.CustomRoomProperties = new Hashtable { { "cla", (byte)1 } } ;
+        }    
+      
         PhotonNetwork.CreateRoom(randomRoomName.ToString(),roomOps,TypedLobby.Default);
     }
 

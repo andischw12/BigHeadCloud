@@ -210,7 +210,12 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     }
 
+    public void SelecetRandomSubject()
+    {
+        int i = UnityEngine.Random.Range(0, MultiPlayerQuestionRandomizer.randomArr.Length);
+        enviorment = (EnviormentList)i;
 
+    }
 }
 
 
