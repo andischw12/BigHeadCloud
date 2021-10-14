@@ -20,7 +20,7 @@ public class KidUser
     public static extern string loadDataJS(int player);
 
     [DllImport("__Internal")]
-    public static extern void saveDataJS(string data, int player);
+    public static extern void saveDataJS(string data, int player, int Points);
 
     [DllImport("__Internal")]
     public static extern string getLastNameJS();
@@ -111,8 +111,9 @@ public class KidUser
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
         UserName = FirstName.Replace("?","");
         int player = GetInfoVal(UserInfoList.Number);
+        int points = GetInfoVal(UserInfoList.Points);
         sendJson = JsonPrefer();
-        saveDataJS(sendJson, player);
+        saveDataJS(sendJson, player,points);
 #endif
 
     }
