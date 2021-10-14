@@ -35,6 +35,7 @@ public class KidUser
     public int[] myAvatar = new int[Enum.GetNames(typeof(AvatarInfoList)).Length];
     public int[,] mystore = new int[Enum.GetNames(typeof(AvatarInfoList)).Length, 100];
     //properties
+    public int ShabbatPoints { get; set; }
     public int[,] Store { get { return mystore; } set { mystore = Store; } }
     public string FirstName { get { return UserName; } set { UserName = value; } }
     public int[] FullAvatar { get { return myAvatar; } set { myAvatar = value; } }
@@ -323,4 +324,17 @@ public class FamilyManager : MonoBehaviour
         }
         return toReturn;
     }
+
+    public void SetShabbatPoints(int val) 
+    {
+        ActiveKid.ShabbatPoints = val;
+        print("shabat point is updated. points now: " + GetShabbatPoints()); ;
+    }
+
+
+    public int GetShabbatPoints()
+    {
+        return ActiveKid.ShabbatPoints;
+    }
+
 }

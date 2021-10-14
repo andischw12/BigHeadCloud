@@ -15,6 +15,7 @@ public class CalculationsManager : MonoBehaviour
     public bool AmIWinner;
     public bool PostGame;
     public bool TechnicalWIn;
+    
     int minValToRretun;
     
     private void Awake()
