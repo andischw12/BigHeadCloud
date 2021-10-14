@@ -31,11 +31,12 @@ public class KidUser
 
     //variables
     public string UserName;
+    public int shabbatPoints;
     public int[] myInfo = new int[Enum.GetNames(typeof(UserInfoList)).Length];
     public int[] myAvatar = new int[Enum.GetNames(typeof(AvatarInfoList)).Length];
     public int[,] mystore = new int[Enum.GetNames(typeof(AvatarInfoList)).Length, 100];
     //properties
-    public int ShabbatPoints { get; set; }
+    public int ShabbatPoints { get { return shabbatPoints; } set { shabbatPoints = value; } }
     public int[,] Store { get { return mystore; } set { mystore = Store; } }
     public string FirstName { get { return UserName; } set { UserName = value; } }
     public int[] FullAvatar { get { return myAvatar; } set { myAvatar = value; } }
