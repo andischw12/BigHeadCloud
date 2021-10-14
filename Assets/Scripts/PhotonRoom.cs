@@ -75,7 +75,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        Debug.Log("We are in a room");
+        //Debug.Log("We are in a room");
         if (!PhotonNetwork.IsMasterClient)
             return;
 
@@ -84,7 +84,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     private void StartGame()
     {
-        Debug.Log("LoadingLevel");
+       // Debug.Log("LoadingLevel");
         StartCoroutine(LoadScene());
         //StartCoroutine(Safety(17f));
 
@@ -100,7 +100,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
             catch { }
             GameManager.instance.PlayerLeftInTheMiddle();
         }
-        Debug.Log(otherPlayer.NickName + "has left the room. you win!");
+        //Debug.Log(otherPlayer.NickName + "has left the room. you win!");
     }
 
     IEnumerator LoadScene() 
@@ -152,7 +152,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     IEnumerator Waiting(float time)
     {
-        Debug.Log("i am Waiting");
+       // Debug.Log("i am Waiting");
         yield return new WaitForSecondsRealtime(time);
         WaitingTimeIsOver = true;
     }

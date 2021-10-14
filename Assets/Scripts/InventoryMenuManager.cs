@@ -73,12 +73,12 @@ public class InventoryMenuManager : MonoBehaviour
                 FindObjectOfType<KidAvatarSelector>().GetSignateGM().SetActive(true);
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().ResetTrigger("SignOff");
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Sign");
-                Debug.Log("i am working");
+               // Debug.Log("i am working");
 
             }
             else  
             {
-                print("signoff");
+               // print("signoff");
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("SignOff");
                 FindObjectOfType<KidAvatarSelector>().SetSignOff(0f);
             }

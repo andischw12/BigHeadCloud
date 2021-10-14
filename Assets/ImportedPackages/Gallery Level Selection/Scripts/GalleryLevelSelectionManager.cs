@@ -125,7 +125,7 @@ public class GalleryLevelSelectionManager : MonoBehaviour
 
     public virtual void OnItemsClicked(int index, bool isCenter)
     {
-        Debug.Log("Item " + index + " clicked");
+        //Debug.Log("Item " + index + " clicked");
 
         if (!isCenter && navigateToClickedItems)
         {
@@ -166,7 +166,7 @@ public class GalleryLevelSelectionManager : MonoBehaviour
     public virtual void OnNavigationButtonsClick(int value)
     {
         
-            print("clicked");
+            //print("clicked");
             if (value == 0) return;
 
             int centerIndex = GetCenterItemIndex();

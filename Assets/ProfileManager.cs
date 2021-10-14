@@ -21,7 +21,7 @@ public class ProfileManager : MonoBehaviour
 
       
         //print(GetRank(600));
-        print(GetRankByPoints(50000));
+        //print(GetRankByPoints(50000));
     }
 
 
@@ -34,7 +34,7 @@ public class ProfileManager : MonoBehaviour
             AnimateSliderOverTime(GetSliderState(points),2f);
             SetTitleByRank(GetRank(points)); //title is beginer ..etc
         } 
-        catch { print("SetValues func couldnt find"); }
+        catch { }
     }
 
     public void SetUserRank(int points) 
@@ -95,7 +95,7 @@ public class ProfileManager : MonoBehaviour
             animationTime += Time.deltaTime;
             float lerpValue = animationTime / seconds;
             _slider.value = Mathf.Lerp(_slider.value, newval, lerpValue);
-            print("working");
+            //print("working");
             yield return null;
         }
         

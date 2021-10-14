@@ -111,7 +111,7 @@ public class QuizManager : MonoBehaviour
         //quizGameUI.SetQuestion(selectedQuetion);
         
         QuestionMode = QuestionMode.WaitingForAnswer;
-        print(selectedQuetion.questionInfo);
+        //print(selectedQuetion.questionInfo);
         Question = selectedQuetion.questionInfo;
         Answer1 = selectedQuetion.options[0];
         Answer2 = selectedQuetion.options[1];

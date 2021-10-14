@@ -540,7 +540,7 @@ Material:
     - _UVRotatePivot: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _UVScalePivot: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _UVScaleScale: {r: 1.18, g: 1, b: 0, a: 0}
-    - _UVScrollSpeed: {r: 0, g: 0.04, b: 0, a: 0}
+    - _UVScrollSpeed: {r: 0, g: 0.01, b: 0, a: 0}
     - _UberNoiseScale: {r: 0.2, g: 0.2, b: 0, a: 0}
     - _UberPosition: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -48,7 +48,7 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
     [PunRPC]
     private void RandomEnviormentNumber(int number)
     {
-        Debug.Log("RandomEnviormentNumber" + " from randomizer");
+        //Debug.Log("RandomEnviormentNumber" + " from randomizer");
         chosenEnviorment = number;
     }
     /// <summary>
@@ -62,7 +62,7 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
     }
     [PunRPC]private  void RandomQuestionNumber(int number) 
     {
-        Debug.Log("RandomQuestionNumber" +" from randomizer");
+       // Debug.Log("RandomQuestionNumber" +" from randomizer");
         currentQuestioNumber = number;
     }
     /// <summary>
@@ -86,7 +86,7 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
     [PunRPC]
     private void SetEnvOnRandomModeRPC(int number)
     {
-        Debug.Log("Enviorment chosen: " + number);
+        //Debug.Log("Enviorment chosen: " + number);
         chosenEnviormentForRandom = number;
     }
 

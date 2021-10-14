@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(AssignmentMethod());
         
-        print("i am printing " + PhotonNetwork.CurrentRoom.CustomProperties["env"]);
+       // print("i am printing " + PhotonNetwork.CurrentRoom.CustomProperties["env"]);
     }
     private IEnumerator AssignmentMethod()
     {
@@ -269,7 +269,7 @@ public class GameManager : MonoBehaviour
         else
             StartCoroutine(player2.WrongAnswer());
         yield return new WaitForSecondsRealtime(2f);
-        Debug.Log(GameProcess.instance.currentQuestionNumber);
+        //Debug.Log(GameProcess.instance.currentQuestionNumber);
         if (GameProcess.instance.currentQuestionNumber >= totalNumOfQuestions)
             CheckIfGameOver();
         else

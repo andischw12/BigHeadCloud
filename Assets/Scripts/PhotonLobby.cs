@@ -77,7 +77,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         PhotonRoom.room.SelecetSubject(PlayerPrefs.GetInt("LastTopicPlayed"));
         if(roomName == "offline room") // if last game was against bot
         {
-            print("if was against bot in room: " +  roomName);
+            //print("if was against bot in room: " +  roomName);
             //StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(2f));
             PhotonNetwork.Disconnect();
             while (PhotonNetwork.IsConnected)
@@ -134,7 +134,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         StartCoroutine(ConnectToPhotonHelperWaiting(10f));
         //check fps
         float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
-        Debug.Log("FPS is: " + CurrentFps);
+       //Debug.Log("FPS is: " + CurrentFps);
         if (CurrentFps < 25)
             FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = true;
         
@@ -173,7 +173,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     IEnumerator OnPlayWithFriendMasterClickHelper() 
     {
-        Debug.Log("i am in");
+       // Debug.Log("i am in");
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...קחשמ רצוי";
         PlayWithFriendMode = true;
@@ -192,20 +192,20 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
             FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " קחשמל ףרטצמ";
             PhotonNetwork.JoinRoom(roomNumCode.text);
-            Debug.Log(roomNumCode.text);
+            //Debug.Log(roomNumCode.text);
         }
     }
 
     public void OnRandomBattleButtonClicked()
     {
         StartCoroutine(OnRandomeBattleButtonClickedHelper());
-        Debug.Log("Random battle button was clicked");
+        //Debug.Log("Random battle button was clicked");
     }
 
     IEnumerator OnRandomeBattleButtonClickedHelper() 
     {
         float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
-        Debug.Log("FPS is: " + CurrentFps);
+        //Debug.Log("FPS is: " + CurrentFps);
         if (CurrentFps < 18)
         {
             print("FPS is Low.Playing in offline mode");
@@ -275,12 +275,12 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("We are in room: " + PhotonNetwork.CurrentRoom.Name);
+       // Debug.Log("We are in room: " + PhotonNetwork.CurrentRoom.Name);
         
     }
     public void OnCanelButtonClicked(int AutoConnect) // 1 to auto start searchiing for game
     {
-        Debug.Log("cancel button was clicked");
+        //Debug.Log("cancel button was clicked");
         //cancelButton.SetActive(false);
         FindObjectOfType<PhotonRoom>().CancelButtonClicked = true;
         if (PhotonNetwork.InRoom)

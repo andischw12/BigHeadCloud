@@ -177,7 +177,7 @@ public class PostGame : MonoBehaviour
             FindObjectOfType<StarsEffect>().Play();
             SoundManager.instance.PlaySoundEffect(SoundEffectsList.WinGame);
             FindObjectOfType<ProfileManager>().SetUserRank(NewPoints);
-            print("next line is resetingggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
+            //print("next line is resetingggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
             FindObjectOfType<ProfileManager>().ResetSlider();
             yield return new WaitForSecondsRealtime(1f);
             FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(NewPoints),1);

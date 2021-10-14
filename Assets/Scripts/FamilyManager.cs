@@ -98,7 +98,7 @@ public class KidUser
             int YItem = Convert.ToInt32(itemInfo[1]);
             mystore[XItem, YItem] = 1;
             //Debug.Log(Mystore[XItem,YItem]);
-            Debug.Log(XItem.ToString() + "/" + YItem.ToString());
+           // Debug.Log(XItem.ToString() + "/" + YItem.ToString());
         }
         Array.Resize(ref StoreInfo, 0);
     }
@@ -168,7 +168,7 @@ public class FamilyManager : MonoBehaviour
     }
     void OutputTime()
     {
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         SaveActiveKidInfo();
     }
 
