@@ -142,7 +142,7 @@ public class PostGame : MonoBehaviour
         FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.PlayTime, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime) + CalculationsManager.instance.GetPlayTime()); //update Score
 
         //points
-        UserPoints.text = "+ " + NewPoints.ToString();
+        UserPoints.text = "+ " + CalculationsManager.instance.GetCaluclatedBonus();
         FindObjectOfType<WindowManager>().OpenPanel(1);
         FindObjectOfType<StarsEffect>().Play();
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetBool("Waiting", false);
