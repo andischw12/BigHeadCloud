@@ -4,11 +4,20 @@ mergeInto(LibraryManager.library, {
         var baseData = "";
         var getdata = ""
         
+
         var PersonID = 0;
-        PersonID = getPersonID();
-        if (PersonID == undefined || PersonID == null || PersonID == 0 && localStorage.getItem("BigHeadPersonID")!= undefined){
-            PersonID = parseInt(localStorage.getItem("BigHeadPersonID"));
+        var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
+
+        if( LSPersonID != undefined && LSPersonID >0 ){
+            PersonID = LSPersonID;
+        } else {
+            PersonID = getPersonID();
         }
+
+        if (PersonID == undefined || PersonID == null){
+            PersonID = 0;
+        }
+
         var DBplayers = 0;
             if(PersonID>0){
                 DBplayers = parseInt(getGamePlayers(PersonID));
@@ -41,22 +50,34 @@ mergeInto(LibraryManager.library, {
 
         //var userCookie = getCookie("UserSettings");
         var PersonID = getPersonID();
-        if (PersonID == undefined || PersonID == null || PersonID == 0 ){
-            PersonID = parseInt(localStorage.getItem("BigHeadPersonID"));
+        var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
+        if (PersonID == undefined || PersonID == null || PersonID == 0 && LSPersonID != undefined){
+            PersonID = LSPersonID;
+        } else {
+            localStorage.setItem("BigHeadPersonID"+getIdxNumber(),PersonID)
         }
             if(PersonID>0){
             saveGameBaseData(jsonToSend, player, PersonID)
             }
             localStorage.setItem("BigHead" + player, jsonToSend)
-        
     },
 
     getPlayersCountJS: function() {
+
+        //PersonID = getPersonID();
         var PersonID = 0;
-        PersonID = getPersonID();
-        if (PersonID == undefined || PersonID == null || PersonID == 0 && localStorage.getItem("BigHeadPersonID")!= undefined){
-            PersonID = parseInt(localStorage.getItem("BigHeadPersonID"));
+        var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
+
+        if(LSPersonID != undefined && LSPersonID >0 ){
+            PersonID = LSPersonID;
+        } else {
+            PersonID = getPersonID();
         }
+
+        if (PersonID == undefined || PersonID == null){
+            PersonID = 0;
+        }
+
         var playersCount = 0;
             if(PersonID>0){
                 playersCount = parseInt(getGamePlayers(PersonID));
