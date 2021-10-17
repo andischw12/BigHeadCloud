@@ -44,7 +44,7 @@ mergeInto(LibraryManager.library, {
         }
     },
 
-    saveDataJS: function(data, player) {
+    saveDataJS: function(data, player, points) {
         var jsonToSend = Pointer_stringify(data);
         console.log("sendData: " + jsonToSend)
 
@@ -57,7 +57,7 @@ mergeInto(LibraryManager.library, {
             localStorage.setItem("BigHeadPersonID"+getIdxNumber(),PersonID)
         }
             if(PersonID>0){
-            saveGameBaseData(jsonToSend, player, PersonID)
+            saveGameBaseData(jsonToSend, player, PersonID, points)
             }
             localStorage.setItem("BigHead" + player, jsonToSend)
     },
