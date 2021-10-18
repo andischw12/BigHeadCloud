@@ -6,18 +6,26 @@ mergeInto(LibraryManager.library, {
         
 
         var PersonID = 0;
-        var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
-
-        if( LSPersonID != undefined && LSPersonID >0 ){
-            PersonID = LSPersonID;
+        var PersonIDDB = getPersonID();
+        var playersCountCheck = 0;
+        if(parseInt(PersonIDDB)>0){
+            playersCountCheck = getGamePlayers(PersonIDDB);
+        } 
+        if(playersCountCheck>0){
+            PersonID = PersonIDDB;
         } else {
-            PersonID = getPersonID();
-        }
+            var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
 
-        if (PersonID == undefined || PersonID == null){
-            PersonID = 0;
-        }
+            if( LSPersonID != undefined && LSPersonID >0 ){
+                PersonID = LSPersonID;
+            } else {
+                PersonID = getPersonID();
+            }
 
+            if (PersonID == undefined || PersonID == null){
+                PersonID = 0;
+            }
+        }
         var DBplayers = 0;
             if(PersonID>0){
                 DBplayers = parseInt(getGamePlayers(PersonID));
@@ -44,7 +52,7 @@ mergeInto(LibraryManager.library, {
         }
     },
 
-    saveDataJS: function(data, player) {
+    saveDataJS: function(data, player, points, shabbatPoints) {
         var jsonToSend = Pointer_stringify(data);
         console.log("sendData: " + jsonToSend)
 
@@ -57,27 +65,27 @@ mergeInto(LibraryManager.library, {
             localStorage.setItem("BigHeadPersonID"+getIdxNumber(),PersonID)
         }
             if(PersonID>0){
-            saveGameBaseData(jsonToSend, player, PersonID)
+            saveGameBaseData(jsonToSend, player, PersonID, points, shabbatPoints)
             }
             localStorage.setItem("BigHead" + player, jsonToSend)
     },
 
     getPlayersCountJS: function() {
 
-        //PersonID = getPersonID();
+        //PersonID;
         var PersonID = 0;
         var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
+        
+            if(LSPersonID != undefined && LSPersonID >0 ){
+                PersonID = LSPersonID;
+            } else {
+                PersonID = getPersonID();
+            }
 
-        if(LSPersonID != undefined && LSPersonID >0 ){
-            PersonID = LSPersonID;
-        } else {
-            PersonID = getPersonID();
-        }
-
-        if (PersonID == undefined || PersonID == null){
-            PersonID = 0;
-        }
-
+            if (PersonID == undefined || PersonID == null){
+                PersonID = 0;
+            }
+        
         var playersCount = 0;
             if(PersonID>0){
                 playersCount = parseInt(getGamePlayers(PersonID));
@@ -105,7 +113,7 @@ mergeInto(LibraryManager.library, {
         saveWinnersJS: function(winner,loser) {
             var winnerToSent = Pointer_stringify(winner);
             var loserToSent = Pointer_stringify(loser);
-		$.ajax({
+	/*	$.ajax({
             type: "POST",
             cache: false,
             //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
@@ -114,7 +122,7 @@ mergeInto(LibraryManager.library, {
             success: function (value) {
 			
 			}
-        })
+        }) */
 
     },
 
