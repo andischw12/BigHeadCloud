@@ -38,7 +38,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         //PhotonNetwork.ConnectUsingSettings(); //connects to Master photon server;
         Buttons.SetActive(false);
         JoinAFriendButton.SetActive(false);
-        FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = false;
+        //FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = false;
         PhotonNetwork.OfflineMode = false;
         PlayWithFriendMode = false;
         ConnectToPhoton();

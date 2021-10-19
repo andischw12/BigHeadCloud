@@ -54,7 +54,7 @@ public class LoginScreenManager : MonoBehaviour
         SetWavingAnimation();
         PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
         PlayerPrefs.SetString("LastRoomName", "");// sets enmpty roomname for not playing again
-        Application.targetFrameRate = 60;
+         
     }
 
     public void SetWavingAnimation() 
