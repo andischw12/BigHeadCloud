@@ -44,6 +44,8 @@ public class LoginScreenManager : MonoBehaviour
         GameManager.pushWinnersJS();
 #endif
 
+
+        FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = false;
         AddPlayerButton.onClick.AddListener(AddKidUserButton);
         EnterNameNextButton.onClick.AddListener(EnterNameNextClick);
         PrevAvatarButton.onClick.AddListener(ChangeAvatarColorEffect);
