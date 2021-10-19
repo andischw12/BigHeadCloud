@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine.SceneManagement;
+using AG_WebGLFPSAccelerator;
 
 
 public class LoginScreenManager : MonoBehaviour
@@ -54,7 +55,17 @@ public class LoginScreenManager : MonoBehaviour
         SetWavingAnimation();
         PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
         PlayerPrefs.SetString("LastRoomName", "");// sets enmpty roomname for not playing again
-         
+        StartCoroutine(CheckAndStartGLAccelerator(4f));
+    }
+
+    IEnumerator CheckAndStartGLAccelerator(float timeToWait) 
+    {
+        Application.targetFrameRate = 60;
+        yield return new WaitForSeconds(timeToWait);
+        if(FindObjectOfType<FPSCounter>().m_CurrentFps < 40) 
+        {
+            FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = true;
+        }
     }
 
     public void SetWavingAnimation() 

@@ -135,8 +135,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         //check fps
         float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
        //Debug.Log("FPS is: " + CurrentFps);
-        if (CurrentFps < 25)
-            FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = true;
+       // if (CurrentFps < 25)
+            //FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = true;
         
     }
     IEnumerator ConnectToPhotonHelperWaiting(float time)
@@ -269,7 +269,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         base.OnCreateRoomFailed(returnCode, message);
-        if (PlayerPrefs.GetString("LastRoomName").Equals(""))// if its not another game
+        if (PlayerPrefs.GetString("LastRoomName").Equals(""))// if its not another game between 2 players
             CreateRoom();
     }
 
