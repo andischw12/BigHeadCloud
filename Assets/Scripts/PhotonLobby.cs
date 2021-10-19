@@ -230,7 +230,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             PhotonNetwork.JoinRandomRoom(new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } }, 2);
         }
         else
-            PhotonNetwork.JoinRandomRoom(new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() },{"cla",(byte)1}},2);
+            PhotonNetwork.JoinRandomRoom(new Hashtable{{"cla",(byte)1}},2);
         StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
     }
 
