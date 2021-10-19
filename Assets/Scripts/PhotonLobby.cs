@@ -257,9 +257,9 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         }
         else 
         {
-            string[] s = {  "env",  "cla"};
+            string[] s = { "cla"};
             roomOps.CustomRoomPropertiesForLobby = s;
-            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() }, { "cla", (byte)1 } } ;
+            roomOps.CustomRoomProperties = new Hashtable { { "cla", (byte)1 } } ;
         }    
       
         PhotonNetwork.CreateRoom(randomRoomName.ToString(),roomOps,TypedLobby.Default);
