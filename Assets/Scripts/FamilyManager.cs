@@ -109,7 +109,7 @@ public class KidUser
 
 
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
-        UserName = FirstName.Replace("?","");
+        UserName = FirstName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
         int player = GetInfoVal(UserInfoList.Number);
         int points = GetInfoVal(UserInfoList.Points);
         //int shabbatPointsToSave = GetShabbatPoints();
