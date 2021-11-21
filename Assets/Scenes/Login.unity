@@ -28866,7 +28866,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1816015209}
         m_TargetAssemblyTypeName: LoginScreenManager, Assembly-CSharp
-        m_MethodName: CreateKidUserButton
+        m_MethodName: OnCreatePlayerClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -28916,7 +28916,19 @@ MonoBehaviour:
   buttonText: "\u05DA\u05E9\u05DE\u05D4"
   clickEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1816015208}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   hoverEvent:
     m_PersistentCalls:
       m_Calls: []

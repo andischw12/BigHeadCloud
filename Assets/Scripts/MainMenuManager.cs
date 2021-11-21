@@ -21,7 +21,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI Gems;
     [SerializeField] TextMeshProUGUI Name;
     [SerializeField] RenderTexture UserFace;
-    [SerializeField] TextMeshProUGUI ShabbatPointsTxt;
+    [SerializeField] TextMeshProUGUI SpecialPointsText;
 
 
     private void Awake()
@@ -67,7 +67,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnOpenNewGameClick() 
     {
-        if (FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Random || FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Shabat)
+        if (FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Random || FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Shabat || FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Hanuka)
         {
             FindObjectOfType<PhotonLobby>().OnPlayWithFriendMasterClick();
         }
@@ -77,15 +77,23 @@ public class MainMenuManager : MonoBehaviour
 
     public void SetShabbatPointsTxt() 
     {
-        ShabbatPointsTxt.text = FamilyManager.instance.GetShabbatPoints() + " :תבש דוקינ" ;
+        SpecialPointsText.text = FamilyManager.instance.GetShabbatPoints() + " :תבש דוקינ" ;
     }
 
     public void HideShabbatPointsTxt() 
     {
-        ShabbatPointsTxt.text = "";
+        SpecialPointsText.text = "";
     }
 
+    public void SetHanukkaPointsTxt()
+    {
+        SpecialPointsText.text = FamilyManager.instance.GetHanukkaPoints() + " :הכונח דוקינ";
+    }
 
+    public void HideHanukkaPointsTxt()
+    {
+        SpecialPointsText.text = "";
+    }
 
 
 }

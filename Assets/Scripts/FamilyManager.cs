@@ -32,11 +32,15 @@ public class KidUser
     //variables
     public string UserName;
     public int shabbatPoints;
+    public int hanukkaPoints;
+
     public int[] myInfo = new int[Enum.GetNames(typeof(UserInfoList)).Length];
     public int[] myAvatar = new int[Enum.GetNames(typeof(AvatarInfoList)).Length];
     public int[,] mystore = new int[Enum.GetNames(typeof(AvatarInfoList)).Length, 100];
     //properties
     public int ShabbatPoints { get { return shabbatPoints; } set { shabbatPoints = value; } }
+    public int HanukkaPoints { get { return hanukkaPoints; } set { hanukkaPoints = value; } }
+
     public int[,] Store { get { return mystore; } set { mystore = Store; } }
     public string FirstName { get { return UserName; } set { UserName = value; } }
     public int[] FullAvatar { get { return myAvatar; } set { myAvatar = value; } }
@@ -338,6 +342,18 @@ public class FamilyManager : MonoBehaviour
     public int GetShabbatPoints()
     {
         return ActiveKid.ShabbatPoints;
+    }
+
+    public void SetHanukkaPoints(int val)
+    {
+        ActiveKid.HanukkaPoints = val;
+        print("Hanuka points is updated. points now: " + GetHanukkaPoints()); ;
+    }
+
+
+    public int GetHanukkaPoints()
+    {
+        return ActiveKid.HanukkaPoints;
     }
 
 }

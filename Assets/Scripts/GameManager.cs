@@ -483,6 +483,11 @@ public class GameManager : MonoBehaviour
             return "ימלועה תבשה ןודיח";
         }
 
+        if (chosen == EnviormentList.Hanuka.GetHashCode())
+        {
+            return "הכונח";
+        }
+
         else return "יללכ עדי";
     }
 }

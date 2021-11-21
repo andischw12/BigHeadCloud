@@ -51,7 +51,6 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     public override void OnDisable()
     {
         base.OnDisable();
-        base.OnDisable();
         PhotonNetwork.RemoveCallbackTarget(this);
         SceneManager.sceneLoaded -= OnSceneFinishLoading; // need to learn about events i think
     }
@@ -162,7 +161,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         yield return new WaitForSecondsRealtime(time);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תוינש המכ דועב בוש הסנמ .תרשה לע בר סמוע";
+            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תוינש המכ דועב בוש הסנמ .תרשה לע בר סמוע";
         }
         yield return new WaitForSecondsRealtime(4f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
@@ -178,7 +177,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         yield return new WaitForSecondsRealtime(time);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = ".תינש וסנ .לשכנ רוביחה";
+            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = ".תינש וסנ .לשכנ רוביחה";
         }
         yield return new WaitForSecondsRealtime(4f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
@@ -193,7 +192,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         yield return new WaitForSecondsRealtime(time);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תעכ קחשמל יונפ וניא שמתשמה";
+            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תעכ קחשמל יונפ וניא שמתשמה";
         }
         yield return new WaitForSecondsRealtime(4f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))

@@ -20,8 +20,8 @@ public class ShopItem : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[2].confirmButton.onClick.AddListener(OnConfirmClick);
-        FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[2].cancelButton.onClick.AddListener(OnCancelClick);
+        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].confirmButton.onClick.AddListener(OnConfirmClick);
+        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].cancelButton.onClick.AddListener(OnCancelClick);
         myButton.onClick.AddListener(OnClick);
     }
 
@@ -29,12 +29,12 @@ public class ShopItem : MonoBehaviour
     {
        
         if (FamilyManager.instance.GetStoreItemState(type,itemNum) == 1)
-            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[0].OpenWindow();
+            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[0].OpenWindow();
         else if (price > FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems))
-            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[1].OpenWindow();
+            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[1].OpenWindow();
         else 
         {
-            FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[2].OpenWindow();
+            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].OpenWindow();
             ImClicked =true;
         }
              

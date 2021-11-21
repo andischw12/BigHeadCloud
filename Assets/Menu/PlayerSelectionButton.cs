@@ -19,7 +19,7 @@ public class PlayerSelectionButton : MonoBehaviour
 
         private void Start()
         {
-            deleteNotificationWindow = FindObjectOfType<NotificationsWindowManager>().CurrentSceneNotifications[LoginScreenNotificationList.DeleteUser.GetHashCode()];
+            deleteNotificationWindow = FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[LoginScreenNotificationList.DeleteUser.GetHashCode()];
             HideDeleteIcon();
             FindObjectOfType<ModalWindowManager>().confirmButton.onClick.AddListener(DeleteThisPlayer);
             FindObjectOfType<ModalWindowManager>().cancelButton.onClick.AddListener(() => SetDeleteButtonIsClicked(false));
@@ -29,13 +29,11 @@ public class PlayerSelectionButton : MonoBehaviour
         
         public void ShowDeleteIcon()
         {
-           
             DeleteButton.gameObject.SetActive(true);
         }
 
         public void HideDeleteIcon()
         {
-           
             DeleteButton.gameObject.SetActive(false);
         }
 
@@ -52,7 +50,6 @@ public class PlayerSelectionButton : MonoBehaviour
                 LoginScreenManager.instance.ShowActiveKidsButtons();
                 SetDeleteButtonIsClicked(false);
             }
-               
         }
 
         void SetDeleteButtonIsClicked(bool b) 
