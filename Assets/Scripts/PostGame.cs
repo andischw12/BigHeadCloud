@@ -147,6 +147,8 @@ public class PostGame : MonoBehaviour
             FamilyManager.instance.SetShabbatPoints(FamilyManager.instance.GetShabbatPoints()+ CalculationsManager.instance.GetCaluclatedBonus());
         if (PlayerPrefs.GetInt("LastTopicPlayed") == (int)EnviormentList.Hanuka)
             FamilyManager.instance.SetHanukkaPoints(FamilyManager.instance.GetHanukkaPoints() + CalculationsManager.instance.GetCaluclatedBonus());
+        if (PlayerPrefs.GetInt("LastTopicPlayed") == (int)EnviormentList.Purim)
+            FamilyManager.instance.SetPurimPoints(FamilyManager.instance.GetPurimPoints() + CalculationsManager.instance.GetCaluclatedBonus());
         FindObjectOfType<WindowManager>().OpenPanel(1);
         FindObjectOfType<StarsEffect>().Play();
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetBool("Waiting", false);

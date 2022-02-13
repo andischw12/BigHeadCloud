@@ -41,7 +41,7 @@ public class KidUser
     //properties
     public int ShabbatPoints { get { return shabbatPoints; } set { shabbatPoints = value; } }
     public int HanukkaPoints { get { return hanukkaPoints; } set { hanukkaPoints = value; } }
-    public int PurimPoints { get { return hanukkaPoints; } set { hanukkaPoints = value; } }
+    public int PurimPoints { get { return purimPoints; } set { purimPoints = value; } }
     public int[,] Store { get { return mystore; } set { mystore = Store; } }
     public string FirstName { get { return UserName; } set { UserName = value; } }
     public int[] FullAvatar { get { return myAvatar; } set { myAvatar = value; } }
