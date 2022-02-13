@@ -20,7 +20,7 @@ public class KidUser
     public static extern string loadDataJS(int player);
 
     [DllImport("__Internal")]
-    public static extern void saveDataJS(string data, int player, int Points, int ShabbatPoints, int HanukkaPoints);
+    public static extern void saveDataJS(string data, int player, int Points, int ShabbatPoints, int HanukkaPoints, int PurimPoints);
 
     [DllImport("__Internal")]
     public static extern string getLastNameJS();
@@ -33,6 +33,7 @@ public class KidUser
     public string UserName;
     public int shabbatPoints;
     public int hanukkaPoints;
+    public int purimPoints;
 
     public int[] myInfo = new int[Enum.GetNames(typeof(UserInfoList)).Length];
     public int[] myAvatar = new int[Enum.GetNames(typeof(AvatarInfoList)).Length];
@@ -118,7 +119,7 @@ public class KidUser
         int points = GetInfoVal(UserInfoList.Points);
         //int shabbatPointsToSave = GetShabbatPoints();
         sendJson = JsonPrefer();
-        saveDataJS(sendJson, player,points,ShabbatPoints, HanukkaPoints);
+        saveDataJS(sendJson, player,points,ShabbatPoints, HanukkaPoints, PurimPoints);
 #endif
 
     }
@@ -359,14 +360,14 @@ public class FamilyManager : MonoBehaviour
 
     public void SetPurimPoints(int val)
     {
-        ActiveKid.HanukkaPoints = val;
-        print("Hanuka points is updated. points now: " + GetHanukkaPoints()); ;
+        ActiveKid.PurimPoints = val;
+        print("Hanuka points is updated. points now: " + GetPurimPoints()); ;
     }
 
 
     public int GetPurimPoints()
     {
-        return ActiveKid.HanukkaPoints;
+        return ActiveKid.PurimPoints;
     }
 
 }

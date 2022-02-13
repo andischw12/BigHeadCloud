@@ -52,7 +52,7 @@ mergeInto(LibraryManager.library, {
         }
     },
 
-    saveDataJS: function(data, player, points, shabbatPoints, hanukkaPoints) {
+    saveDataJS: function(data, player, points, shabbatPoints, hanukkaPoints, purimPoints) {
         var jsonToSend = Pointer_stringify(data);
         console.log("sendData: " + jsonToSend)
 
@@ -65,7 +65,7 @@ mergeInto(LibraryManager.library, {
             localStorage.setItem("BigHeadPersonID"+getIdxNumber(),PersonID)
         }
             if(PersonID>0){
-            saveGameBaseData(jsonToSend, player, PersonID, points, shabbatPoints,hanukkaPoints)
+            saveGameBaseData(jsonToSend, player, PersonID, points, shabbatPoints,hanukkaPoints, purimPoints)
             }
             localStorage.setItem("BigHead" + player, jsonToSend)
     },
