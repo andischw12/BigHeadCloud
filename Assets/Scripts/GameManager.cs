@@ -488,6 +488,11 @@ public class GameManager : MonoBehaviour
             return "הכונח";
         }
 
+        if (chosen == EnviormentList.Purim.GetHashCode())
+        {
+            return "םירופ";
+        }
+
         else return "יללכ עדי";
     }
 }

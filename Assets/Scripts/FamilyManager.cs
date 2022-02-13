@@ -40,7 +40,7 @@ public class KidUser
     //properties
     public int ShabbatPoints { get { return shabbatPoints; } set { shabbatPoints = value; } }
     public int HanukkaPoints { get { return hanukkaPoints; } set { hanukkaPoints = value; } }
-
+    public int PurimPoints { get { return hanukkaPoints; } set { hanukkaPoints = value; } }
     public int[,] Store { get { return mystore; } set { mystore = Store; } }
     public string FirstName { get { return UserName; } set { UserName = value; } }
     public int[] FullAvatar { get { return myAvatar; } set { myAvatar = value; } }
@@ -352,6 +352,19 @@ public class FamilyManager : MonoBehaviour
 
 
     public int GetHanukkaPoints()
+    {
+        return ActiveKid.HanukkaPoints;
+    }
+
+
+    public void SetPurimPoints(int val)
+    {
+        ActiveKid.HanukkaPoints = val;
+        print("Hanuka points is updated. points now: " + GetHanukkaPoints()); ;
+    }
+
+
+    public int GetPurimPoints()
     {
         return ActiveKid.HanukkaPoints;
     }

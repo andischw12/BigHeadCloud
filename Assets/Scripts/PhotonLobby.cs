@@ -197,7 +197,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         }
         
         FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
-        if(PhotonRoom.room.enviorment == EnviormentList.Hanuka || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
+        if(PhotonRoom.room.enviorment == EnviormentList.Purim || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
         {
             PhotonNetwork.JoinRandomRoom(new Hashtable {{"env", (byte)PhotonRoom.room.enviorment.GetHashCode()}},2);
         }
@@ -221,7 +221,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         Debug.Log("your code is:" + randomRoomName);
          
         RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
-        if (PhotonRoom.room.enviorment == EnviormentList.Hanuka || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
+        if (PhotonRoom.room.enviorment == EnviormentList.Purim || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
         {
             string[] s = { "env" };
             roomOps.CustomRoomPropertiesForLobby = s;

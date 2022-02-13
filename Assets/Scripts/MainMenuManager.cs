@@ -95,5 +95,13 @@ public class MainMenuManager : MonoBehaviour
         SpecialPointsText.text = "";
     }
 
+    public void SetPurimPointsTxt()
+    {
+        SpecialPointsText.text = FamilyManager.instance.GetHanukkaPoints() + " :םירופ דוקינ";
+    }
 
+    public void HidePurimPointsTxt()
+    {
+        SpecialPointsText.text = "";
+    }
 }
