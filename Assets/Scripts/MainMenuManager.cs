@@ -67,7 +67,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void OnOpenNewGameClick() 
     {
-        if (FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Random || FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Shabat || FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Hanuka)
+        if (FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Random || FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Shabat || FindObjectOfType<PhotonRoom>().enviorment == EnviormentList.Purim)
         {
             FindObjectOfType<PhotonLobby>().OnPlayWithFriendMasterClick();
         }
@@ -97,7 +97,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void SetPurimPointsTxt()
     {
-        SpecialPointsText.text = FamilyManager.instance.GetHanukkaPoints() + " :םירופ דוקינ";
+        SpecialPointsText.text = FamilyManager.instance.GetPurimPoints() + " :םירופ דוקינ";
     }
 
     public void HidePurimPointsTxt()
