@@ -14,7 +14,7 @@ public class GalleryLevelView : MonoBehaviour
     public string levelName;
     public bool colorEffectOnText = false;
 
-    public float index;
+    public float index;  
      public float progress;
 
     public virtual void UpdateProgress(float value, float linearValue)
