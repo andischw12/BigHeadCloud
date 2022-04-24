@@ -97,7 +97,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void SetPurimPointsTxt()
     {
-        SpecialPointsText.text = FamilyManager.instance.GetPurimPoints() + " :םירופ דוקינ";
+        SpecialPointsText.text = FamilyManager.instance.GetPurimPoints() + " :חספ דוקינ";
     }
 
     public void HidePurimPointsTxt()

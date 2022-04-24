@@ -34,6 +34,7 @@ public class KidUser
     public int shabbatPoints;
     public int hanukkaPoints;
     public int purimPoints;
+    public int oldPurimPoints;
 
     public int[] myInfo = new int[Enum.GetNames(typeof(UserInfoList)).Length];
     public int[] myAvatar = new int[Enum.GetNames(typeof(AvatarInfoList)).Length];
