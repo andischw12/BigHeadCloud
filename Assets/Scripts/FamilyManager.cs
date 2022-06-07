@@ -34,17 +34,18 @@ public class KidUser
     public int shabbatPoints;
     public int hanukkaPoints;
     public int purimPoints;
-
+    //properties
     public int[] myInfo = new int[Enum.GetNames(typeof(UserInfoList)).Length];
     public int[] myAvatar = new int[Enum.GetNames(typeof(AvatarInfoList)).Length];
     public int[,] mystore = new int[Enum.GetNames(typeof(AvatarInfoList)).Length, 100];
-    //properties
-    public int ShabbatPoints { get { return shabbatPoints; } set { shabbatPoints = value; } }
-    public int HanukkaPoints { get { return hanukkaPoints; } set { hanukkaPoints = value; } }
-    public int PurimPoints { get { return purimPoints; } set { purimPoints = value; } }
-    public int[,] Store { get { return mystore; } set { mystore = Store; } }
-    public string FirstName { get { return UserName; } set { UserName = value; } }
-    public int[] FullAvatar { get { return myAvatar; } set { myAvatar = value; } }
+   
+   // public int shabbatPoints { get { return shabbatPoints; } set { shabbatPoints = value; } }
+   // public int hanukkaPoints { get { return hanukkaPoints; } set { hanukkaPoints = value; } }
+   // public int purimPoints { get { return purimPoints; } set { purimPoints = value; } }
+    //public int[,] mystore { get { return mystore; } set { mystore = mystore; } }
+    //public string UserName { get { return UserName; } set { UserName = value; } }
+    //public int[] myAvatar { get { return myAvatar; } set { myAvatar = value; } }
+    //functions
     public bool IsActive
     {
         get { return myInfo[UserInfoList.IsActive.GetHashCode()] == 1; }
@@ -205,11 +206,11 @@ public class FamilyManager : MonoBehaviour
     }
     public int GetStoreItemState(AvatarInfoList item, int collum)
     {
-        return ActiveKid.Store[item.GetHashCode(), collum];
+        return ActiveKid.mystore[item.GetHashCode(), collum];
     }
     public void SetStoreItemState(AvatarInfoList item, int collum, int Val)
     {
-        ActiveKid.Store[item.GetHashCode(), collum] = Val;
+        ActiveKid.mystore[item.GetHashCode(), collum] = Val;
         SaveActiveKidInfo();
     }
     public void SetActiveKidInfoValue(UserInfoList info, int newVal)
@@ -219,12 +220,12 @@ public class FamilyManager : MonoBehaviour
     }
     public void SetAvatarForActiveKid(int[] arr)
     {
-        ActiveKid.FullAvatar = arr;
+        ActiveKid.myAvatar = arr;
         SaveActiveKidInfo();
     }
     public int[] GetAvatarForActiveKid()
     {
-        return ActiveKid.FullAvatar;
+        return ActiveKid.myAvatar;
     }
 
     public int GetInfoValForActiveKid(UserInfoList info)
@@ -270,12 +271,12 @@ public class FamilyManager : MonoBehaviour
         _kidsUserArr[i].SetInfoVal(UserInfoList.Points, ProfileManager.FIRST_RANK_POINTS);
        //  _kidsUserArr[i].SetInfoVal(UserInfoList.Points, 80000);
 
-        _kidsUserArr[i].Store[AvatarInfoList.ChestGM.GetHashCode(), 5] = 1;
-        _kidsUserArr[i].Store[AvatarInfoList.FeetGM.GetHashCode(), 1] = 1;
-        _kidsUserArr[i].Store[AvatarInfoList.LegsGm.GetHashCode(), 0] = 1;
-        _kidsUserArr[i].Store[AvatarInfoList.Signates.GetHashCode(), 0] = 1;
-        _kidsUserArr[i].Store[AvatarInfoList.Hats.GetHashCode(), 0] = 1;
-        _kidsUserArr[i].Store[AvatarInfoList.Glasses.GetHashCode(), 0] = 1;
+        _kidsUserArr[i].mystore[AvatarInfoList.ChestGM.GetHashCode(), 5] = 1;
+        _kidsUserArr[i].mystore[AvatarInfoList.FeetGM.GetHashCode(), 1] = 1;
+        _kidsUserArr[i].mystore[AvatarInfoList.LegsGm.GetHashCode(), 0] = 1;
+        _kidsUserArr[i].mystore[AvatarInfoList.Signates.GetHashCode(), 0] = 1;
+        _kidsUserArr[i].mystore[AvatarInfoList.Hats.GetHashCode(), 0] = 1;
+        _kidsUserArr[i].mystore[AvatarInfoList.Glasses.GetHashCode(), 0] = 1;
     }
     
     public void DeleteKidUser(int kidUserNum)
@@ -296,8 +297,8 @@ public class FamilyManager : MonoBehaviour
             if (!_kidsUserArr[i].IsActive)
             {
                 _kidsUserArr[i].IsActive = true;
-                _kidsUserArr[i].FirstName = _firstName;
-                _kidsUserArr[i].FullAvatar = _userInfo;
+                _kidsUserArr[i].UserName = _firstName;
+                _kidsUserArr[i].myAvatar = _userInfo;
                 _kidsUserArr[i].savePlayerData(); //Ishay - Save on server
                 _kidsUserArr[i].loadPlayerData();
 
@@ -313,12 +314,12 @@ public class FamilyManager : MonoBehaviour
 
     public string GetKidFirstName(int kid)
     {
-        return _kidsUserArr[kid].FirstName;
+        return _kidsUserArr[kid].UserName;
     }
 
     public string GetActiveKidFullName()
     {
-        return ActiveKid.FirstName;
+        return ActiveKid.UserName;
     }
     public int GetNumberOfKidUsers()
     {
@@ -335,39 +336,39 @@ public class FamilyManager : MonoBehaviour
 
     public void SetShabbatPoints(int val) 
     {
-        ActiveKid.ShabbatPoints = val;
+        ActiveKid.shabbatPoints = val;
         print("shabat point is updated. points now: " + GetShabbatPoints()); ;
     }
 
 
     public int GetShabbatPoints()
     {
-        return ActiveKid.ShabbatPoints;
+        return ActiveKid.shabbatPoints;
     }
 
     public void SetHanukkaPoints(int val)
     {
-        ActiveKid.HanukkaPoints = val;
+        ActiveKid.hanukkaPoints = val;
         print("Hanuka points is updated. points now: " + GetHanukkaPoints()); ;
     }
 
 
     public int GetHanukkaPoints()
     {
-        return ActiveKid.HanukkaPoints;
+        return ActiveKid.hanukkaPoints;
     }
 
 
     public void SetPurimPoints(int val)
     {
-        ActiveKid.PurimPoints = val;
+        ActiveKid.purimPoints = val;
         print("Hanuka points is updated. points now: " + GetPurimPoints()); ;
     }
 
 
     public int GetPurimPoints()
     {
-        return ActiveKid.PurimPoints;
+        return ActiveKid.purimPoints;
     }
 
 }

@@ -323,6 +323,7 @@ MonoBehaviour:
   manager: {fileID: 276104219}
   image: {fileID: 0}
   text: {fileID: 1299891644}
+  textmpro: {fileID: 0}
   levelName: Shop Page
   colorEffectOnText: 1
   index: 2
@@ -514,6 +515,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 387527441}
   text: {fileID: 1479012021}
+  textmpro: {fileID: 0}
   levelName: item 10
   colorEffectOnText: 0
   index: 9
@@ -816,6 +818,7 @@ MonoBehaviour:
   manager: {fileID: 1608802749}
   image: {fileID: 0}
   text: {fileID: 1482776173}
+  textmpro: {fileID: 0}
   levelName: Exit
   colorEffectOnText: 1
   index: 4
@@ -1316,6 +1319,7 @@ MonoBehaviour:
   snapItems: 1
   isScrollable: 1
   moveThreshold: 0.05
+  clickedLevelIndex: 0
 --- !u!61 &177458656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2105,6 +2109,7 @@ MonoBehaviour:
   snapItems: 1
   isScrollable: 1
   moveThreshold: 0.05
+  clickedLevelIndex: 0
 --- !u!61 &276104220
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2294,6 +2299,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 1603926208}
   text: {fileID: 1582126547}
+  textmpro: {fileID: 0}
   levelName: item 8
   colorEffectOnText: 0
   index: 7
@@ -2419,6 +2425,7 @@ MonoBehaviour:
   manager: {fileID: 1608802749}
   image: {fileID: 0}
   text: {fileID: 1367616314}
+  textmpro: {fileID: 0}
   levelName: Load
   colorEffectOnText: 1
   index: 0
@@ -4518,7 +4525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.587414, y: 0}
+  m_AnchoredPosition: {x: -7.9974165, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771636658
@@ -5249,6 +5256,7 @@ MonoBehaviour:
   manager: {fileID: 276104219}
   image: {fileID: 0}
   text: {fileID: 723478669}
+  textmpro: {fileID: 0}
   levelName: Pagination Types
   colorEffectOnText: 1
   index: 3
@@ -6282,6 +6290,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 910127623}
   text: {fileID: 1773775494}
+  textmpro: {fileID: 0}
   levelName: item 3
   colorEffectOnText: 0
   index: 2
@@ -6676,6 +6685,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 768486065}
   text: {fileID: 808031420}
+  textmpro: {fileID: 0}
   levelName: item 6
   colorEffectOnText: 0
   index: 5
@@ -6916,6 +6926,7 @@ MonoBehaviour:
   manager: {fileID: 276104219}
   image: {fileID: 0}
   text: {fileID: 940802670}
+  textmpro: {fileID: 0}
   levelName: Character Selection
   colorEffectOnText: 1
   index: 0
@@ -7049,6 +7060,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 1362641983}
   text: {fileID: 144850810}
+  textmpro: {fileID: 0}
   levelName: item 1
   colorEffectOnText: 0
   index: 0
@@ -7516,6 +7528,7 @@ MonoBehaviour:
   manager: {fileID: 276104219}
   image: {fileID: 0}
   text: {fileID: 2085363040}
+  textmpro: {fileID: 0}
   levelName: Tab - Vertical and Horizontal
   colorEffectOnText: 1
   index: 4
@@ -7628,6 +7641,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 406509645}
   text: {fileID: 2140134216}
+  textmpro: {fileID: 0}
   levelName: item 9
   colorEffectOnText: 0
   index: 8
@@ -7789,6 +7803,7 @@ MonoBehaviour:
   manager: {fileID: 1608802749}
   image: {fileID: 0}
   text: {fileID: 1430923435}
+  textmpro: {fileID: 0}
   levelName: Solo Play
   colorEffectOnText: 1
   index: 1
@@ -8032,6 +8047,7 @@ MonoBehaviour:
   manager: {fileID: 1608802749}
   image: {fileID: 0}
   text: {fileID: 1325334861}
+  textmpro: {fileID: 0}
   levelName: Credits
   colorEffectOnText: 1
   index: 5
@@ -8504,6 +8520,7 @@ MonoBehaviour:
   manager: {fileID: 1608802749}
   image: {fileID: 0}
   text: {fileID: 708212388}
+  textmpro: {fileID: 0}
   levelName: Multiplayer
   colorEffectOnText: 1
   index: 2
@@ -9945,6 +9962,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 1278974935}
   text: {fileID: 2020385485}
+  textmpro: {fileID: 0}
   levelName: item 7
   colorEffectOnText: 0
   index: 6
@@ -10232,6 +10250,7 @@ MonoBehaviour:
   manager: {fileID: 1608802749}
   image: {fileID: 0}
   text: {fileID: 1488536368}
+  textmpro: {fileID: 0}
   levelName: Options
   colorEffectOnText: 1
   index: 6
@@ -10609,6 +10628,7 @@ MonoBehaviour:
   snapItems: 1
   isScrollable: 1
   moveThreshold: 0.05
+  clickedLevelIndex: 0
 --- !u!61 &1608802750
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10909,6 +10929,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 802083786}
   text: {fileID: 193445311}
+  textmpro: {fileID: 0}
   levelName: item 2
   colorEffectOnText: 0
   index: 1
@@ -10995,6 +11016,7 @@ MonoBehaviour:
   manager: {fileID: 1608802749}
   image: {fileID: 0}
   text: {fileID: 1250561909}
+  textmpro: {fileID: 0}
   levelName: Demo
   colorEffectOnText: 1
   index: 3
@@ -11155,6 +11177,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 212862685}
   text: {fileID: 490228793}
+  textmpro: {fileID: 0}
   levelName: item 4
   colorEffectOnText: 0
   index: 3
@@ -12892,6 +12915,7 @@ MonoBehaviour:
   manager: {fileID: 276104219}
   image: {fileID: 0}
   text: {fileID: 1997782621}
+  textmpro: {fileID: 0}
   levelName: Numbers List
   colorEffectOnText: 1
   index: 1
@@ -13055,6 +13079,7 @@ MonoBehaviour:
   manager: {fileID: 177458655}
   image: {fileID: 598278928}
   text: {fileID: 1599719444}
+  textmpro: {fileID: 0}
   levelName: item 5
   colorEffectOnText: 0
   index: 4
