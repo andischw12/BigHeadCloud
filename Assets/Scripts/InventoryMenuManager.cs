@@ -10,7 +10,7 @@ public class InventoryMenuManager : MonoBehaviour
     [SerializeField] Button NextMat;
     [SerializeField] Button PreMat;
     [SerializeField] int currentPanel;
-    [SerializeField] AvatarInfoList CurrentGMtype ;
+    [SerializeField] AvatarArrayEnum CurrentGMtype ;
     [SerializeField] int CurrentNum;
     [SerializeField] int[] tmp;
     [SerializeField] public InventoryItem[] AllItems;
@@ -92,7 +92,7 @@ public class InventoryMenuManager : MonoBehaviour
         
         
     }
-    public void ShowSelectors(AvatarInfoList type,int ObjectNum) 
+    public void ShowSelectors(AvatarArrayEnum type,int ObjectNum) 
     {
         CurrentGMtype = type;
         CurrentNum = ObjectNum;
@@ -109,11 +109,11 @@ public class InventoryMenuManager : MonoBehaviour
     void OnClickNextMat()
     {
         
-        if (CurrentGMtype == AvatarInfoList.ChestGM)
+        if (CurrentGMtype == AvatarArrayEnum.ChestGM)
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextchestcolor(0);
-        if (CurrentGMtype == AvatarInfoList.LegsGm)
+        if (CurrentGMtype == AvatarArrayEnum.LegsGm)
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextlegscolor(0);
-        if (CurrentGMtype == AvatarInfoList.FeetGM) 
+        if (CurrentGMtype == AvatarArrayEnum.FeetGM) 
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextfeetcolor(0);
         FamilyManager.instance.SetAvatarForActiveKid(currentKid.GetAvatarInfo());
     }
@@ -121,11 +121,11 @@ public class InventoryMenuManager : MonoBehaviour
     void OnClickPreMat()
     {
        
-        if (CurrentGMtype == AvatarInfoList.ChestGM)
+        if (CurrentGMtype == AvatarArrayEnum.ChestGM)
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextchestcolor(1);
-        if (CurrentGMtype == AvatarInfoList.LegsGm)
+        if (CurrentGMtype == AvatarArrayEnum.LegsGm)
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextlegscolor(1);
-        if (CurrentGMtype == AvatarInfoList.FeetGM)
+        if (CurrentGMtype == AvatarArrayEnum.FeetGM)
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextfeetcolor(1);
         FamilyManager.instance.SetAvatarForActiveKid(currentKid.GetAvatarInfo());
     }

@@ -6,7 +6,7 @@ using TMPro;
 
 public class InventoryItem : MonoBehaviour
 {
-    [SerializeField] public AvatarInfoList type;
+    [SerializeField] public AvatarArrayEnum type;
     [SerializeField] public string Title;
     [SerializeField] public int num;
     [SerializeField] Button myButton;
@@ -26,7 +26,7 @@ public class InventoryItem : MonoBehaviour
 
     public void SelectItem() 
     {
-        if (type == AvatarInfoList.ChestGM || type == AvatarInfoList.LegsGm || type == AvatarInfoList.FeetGM)
+        if (type == AvatarArrayEnum.ChestGM || type == AvatarArrayEnum.LegsGm || type == AvatarArrayEnum.FeetGM)
         {
             if (num == CurrentKidAvatar.GetAvatarInfo()[type.GetHashCode()]) // if its the same cloth package dont change material
                 CurrentKidAvatar.SetAvatarDressItem(type,num, CurrentKidAvatar.GetAvatarInfo()[type.GetHashCode()+1]); // same cloth

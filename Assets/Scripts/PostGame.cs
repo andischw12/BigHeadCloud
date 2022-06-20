@@ -44,11 +44,11 @@ public class PostGame : MonoBehaviour
         try { FindObjectOfType<KidAvatarSelector>().SetAvatar(FindObjectOfType<FamilyManager>().GetAvatarForActiveKid()); } catch { }
         CorrectAnsweresBar.currentPercent = 0;
         SoundManager.instance.PlayMenuMusic();
-        UserGemsAmmount.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems).ToString();
+        UserGemsAmmount.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems).ToString();
         UserName.text = FamilyManager.instance.GetActiveKidFullName();
         StartCoroutine(PostGameProgress());
         RematchAndHomeButton.SetActive(false);
-        FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
+        FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));
        
 
 
@@ -105,7 +105,7 @@ public class PostGame : MonoBehaviour
 
             if (CalculationsManager.instance.AmIWinner)
             {
-                FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Wins, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Wins) + 1); //update win
+                FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Wins, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Wins) + 1); //update win
                 yield return new WaitForSecondsRealtime(0.85f);
                 BonusBar.isOn = true;
                 SoundManager.instance.PlaySoundEffect(SoundEffectsList.Calculation);
@@ -116,39 +116,33 @@ public class PostGame : MonoBehaviour
             }
             else
             {
-                FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Lose, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Lose) + 1); //update lose
+                FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Lose, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Lose) + 1); //update lose
             }
 
             
            
             thisRoundGems = CalculationsManager.instance.CalculateGems();
-            NewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points) + CalculationsManager.instance.GetCaluclatedBonus();
+            NewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + CalculationsManager.instance.GetCaluclatedBonus();
             yield return new WaitForSecondsRealtime(1f);
 
         }
 
         else
         {
-            NewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points) + Random.Range(50, 150);
+            NewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + Random.Range(50, 150);
             thisRoundGems = Random.Range(350, 500);
-            FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Wins, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Wins) + 1); //update tech win
+            FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Wins, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Wins) + 1); //update tech win
         }
 
 
         //updateScore
 
-        FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Gems, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems) + thisRoundGems);
+        FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Gems, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems) + thisRoundGems);
 
-        FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.PlayTime, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime) + CalculationsManager.instance.GetPlayTime()); //update Score
+        FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.PlayTime, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.PlayTime) + CalculationsManager.instance.GetPlayTime()); //update Score
 
         //points
         UserPoints.text = "+ " + CalculationsManager.instance.GetCaluclatedBonus();
-        if (PlayerPrefs.GetInt("LastTopicPlayed") == (int)EnviormentList.Shabat)
-            FamilyManager.instance.SetShabbatPoints(FamilyManager.instance.GetShabbatPoints()+ CalculationsManager.instance.GetCaluclatedBonus());
-        if (PlayerPrefs.GetInt("LastTopicPlayed") == (int)EnviormentList.Hanuka)
-            FamilyManager.instance.SetHanukkaPoints(FamilyManager.instance.GetHanukkaPoints() + CalculationsManager.instance.GetCaluclatedBonus());
-        if (PlayerPrefs.GetInt("LastTopicPlayed") == (int)EnviormentList.Purim)
-            FamilyManager.instance.SetPurimPoints(FamilyManager.instance.GetPurimPoints() + CalculationsManager.instance.GetCaluclatedBonus());
         FindObjectOfType<WindowManager>().OpenPanel(1);
         FindObjectOfType<StarsEffect>().Play();
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetBool("Waiting", false);
@@ -187,7 +181,7 @@ public class PostGame : MonoBehaviour
             yield return new WaitForSecondsRealtime(2f);
 
         }
-        FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Points, NewPoints);
+        FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Points, NewPoints);
 
 
 
@@ -197,7 +191,7 @@ public class PostGame : MonoBehaviour
         FindObjectOfType<WindowManager>().OpenPanel(3);
         FindObjectOfType<StarsEffect>().Play();
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.GameOver);
-        UserGemsAmmount.text = "<incr>" + "<rainb>" + FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems);
+        UserGemsAmmount.text = "<incr>" + "<rainb>" + FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems);
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
         yield return new WaitForSecondsRealtime(2.5f);
         //

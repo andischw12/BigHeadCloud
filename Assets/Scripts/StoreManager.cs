@@ -15,16 +15,16 @@ public class StoreManager : MonoBehaviour
     public void SetStore()
     {
         _AllItems = FindObjectOfType<InventoryMenuManager>().AllItems;
-        SetStorePanel(AvatarInfoList.Hats,HatsPanel);
-        SetStorePanel(AvatarInfoList.Glasses, GlassesPanel);
-        SetStorePanel(AvatarInfoList.ChestGM, ClothsPanel);
-        SetStorePanel(AvatarInfoList.LegsGm, ClothsPanel);
-        SetStorePanel(AvatarInfoList.FeetGM, ClothsPanel);
-        SetStorePanel(AvatarInfoList.Signates,SignatePanel);
+        SetStorePanel(AvatarArrayEnum.Hats,HatsPanel);
+        SetStorePanel(AvatarArrayEnum.Glasses, GlassesPanel);
+        SetStorePanel(AvatarArrayEnum.ChestGM, ClothsPanel);
+        SetStorePanel(AvatarArrayEnum.LegsGm, ClothsPanel);
+        SetStorePanel(AvatarArrayEnum.FeetGM, ClothsPanel);
+        SetStorePanel(AvatarArrayEnum.Signates,SignatePanel);
 
     }
 
-    public void SetStorePanel(AvatarInfoList listItem,GameObject _panel) 
+    public void SetStorePanel(AvatarArrayEnum listItem,GameObject _panel) 
     {
 
         foreach (InventoryItem i in _AllItems)

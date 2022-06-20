@@ -11,12 +11,12 @@ namespace AvatarStuff
         [SerializeField] public GameObject HatsPrefab;
         [SerializeField] public GameObject GlassesPrefab;
         [SerializeField] public GameObject SignatePrefab;
-        [SerializeField] public GameObject CapesPrefab;
+        //[SerializeField] public GameObject CapesPrefab;
         [SerializeField] public GameObject[] Hats;
         [SerializeField] public GameObject[] Glasses;
         [SerializeField] public GameObject[] Signates;
-        [SerializeField] GameObject[] Capes;
-        [SerializeField] int[] _avatarDress = new int[Enum.GetNames(typeof(AvatarInfoList)).Length];
+        //[SerializeField] GameObject[] Capes;
+        [SerializeField] int[] _avatarDress = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
         [SerializeField] KidTKPrefabMaker myKidPrefabMaker;
         int CurrentSignate;
         /// <summary>
@@ -40,76 +40,79 @@ namespace AvatarStuff
             Signates = new GameObject[SignatePrefab.transform.childCount];
             for (int i = 0; i < Signates.Length; i++)
                 Signates[i] = SignatePrefab.transform.GetChild(i).gameObject;
-            Capes = new GameObject[CapesPrefab.transform.childCount];
-            for (int i = 0; i < Capes.Length; i++)
-                Capes[i] = CapesPrefab.transform.GetChild(i).gameObject;
+           // Capes = new GameObject[CapesPrefab.transform.childCount];
+            //for (int i = 0; i < Capes.Length; i++)
+              //  Capes[i] = CapesPrefab.transform.GetChild(i).gameObject;
             Hats = new GameObject[HatsPrefab.transform.childCount];
             for (int i = 0; i < Hats.Length; i++)
                 Hats[i] = HatsPrefab.transform.GetChild(i).gameObject;
         }
 
-        public void SetAvatarAccessoryItem(AvatarInfoList item, int num)
+        public void SetAvatarAccessoryItem(AvatarArrayEnum item, int num)
         {
-            if (item == AvatarInfoList.Hats)
+            if (item == AvatarArrayEnum.Hats)
             {
                 foreach (GameObject GM in Hats)
                     GM.SetActive(false);
                 Hats[num].SetActive(true);
             }
-            else if (item == AvatarInfoList.Glasses)
+            else if (item == AvatarArrayEnum.Glasses)
             {
                 foreach (GameObject GM in Glasses)
                     GM.SetActive(false);
                 Glasses[num].SetActive(true);
             }
-            else if (item == AvatarInfoList.Signates)
+            else if (item == AvatarArrayEnum.Signates)
             {
                 CurrentSignate = num;
                 foreach (GameObject GM in Signates)
                     GM.SetActive(false);
                 Signates[num].SetActive(true);
             }
+            /*
             else if (item == AvatarInfoList.Capes)
             {
                 foreach (GameObject GM in Capes)
                     GM.SetActive(false);
                 Capes[num].SetActive(true);
             }
+            */
         }
 
-        public void SetAvatarDressItem(AvatarInfoList item, int gmNum, int matNum)
+        public void SetAvatarDressItem(AvatarArrayEnum item, int gmNum, int matNum)
         {
-            if (item == AvatarInfoList.ChestGM)
+            if (item == AvatarArrayEnum.ChestGM)
                 myKidPrefabMaker.SetSpecificChest(gmNum, matNum);
-            else if (item == AvatarInfoList.LegsGm)
+            else if (item == AvatarArrayEnum.LegsGm)
                 myKidPrefabMaker.SetSpecificLegs(gmNum, matNum);
-            else if (item == AvatarInfoList.FeetGM)
+            else if (item == AvatarArrayEnum.FeetGM)
                 myKidPrefabMaker.SetSpecificFeet(gmNum, matNum);
         }
 
-        public int GetAvatrItem(AvatarInfoList item)
+        public int GetAvatrItem(AvatarArrayEnum item)
         {
                 while (!myKidPrefabMaker.isReady) { }
-                if (item == AvatarInfoList.Hats)
+                if (item == AvatarArrayEnum.Hats)
                     for (int i = 0; i < Hats.Length; i++) if (Hats[i].activeInHierarchy) return i;
-                if (item == AvatarInfoList.Glasses)
+                if (item == AvatarArrayEnum.Glasses)
                     for (int i = 0; i < Glasses.Length; i++) if (Glasses[i].activeInHierarchy) return i;
-            if (item == AvatarInfoList.Signates)
+            if (item == AvatarArrayEnum.Signates)
                 return CurrentSignate;
-               
+               /*
                 if (item == AvatarInfoList.Capes)
                     for (int i = 0; i < Capes.Length; i++) if (Capes[i].activeInHierarchy) return i;
-                if (item == AvatarInfoList.ChestGM)
+               */
+                if (item == AvatarArrayEnum.ChestGM)
                     return myKidPrefabMaker.GetSetSpecificChestGM();
-                if (item == AvatarInfoList.ChestMat)
+                if (item == AvatarArrayEnum.ChestMat)
                     return myKidPrefabMaker.GetSetSpecificChestMat();
-                if (item == AvatarInfoList.LegsGm)
+                if (item == AvatarArrayEnum.LegsGm)
                     return myKidPrefabMaker.GetSetSpecificLegsGM();
-                if (item == AvatarInfoList.LegsMat)
+                if (item == AvatarArrayEnum.LegsMat)
                     return myKidPrefabMaker.GetSetSpecificLegsMat();
-                if (item == AvatarInfoList.FeetGM)
+                if (item == AvatarArrayEnum.FeetGM)
                     return myKidPrefabMaker.GetSetSpecificFeetGM();
-                if (item == AvatarInfoList.FeetMat)
+                if (item == AvatarArrayEnum.FeetMat)
                     return myKidPrefabMaker.GetSetSpecificFeetMat();
                 return -1;
         }

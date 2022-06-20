@@ -31,7 +31,7 @@ public class PhotonPlayerManager : MonoBehaviour
     {
         PV = GetComponent<PhotonView>();
         if (PV.IsMine)
-            PV.RPC("CreatePhotonPlayer", RpcTarget.AllBufferedViaServer,(object) FamilyManager.instance.GetAvatarForActiveKid() , FamilyManager.instance.GetActiveKidFullName(), FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
+            PV.RPC("CreatePhotonPlayer", RpcTarget.AllBufferedViaServer,(object) FamilyManager.instance.GetAvatarForActiveKid() , FamilyManager.instance.GetActiveKidFullName(), FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));
     }
     [PunRPC]protected void CreatePhotonPlayer(int[] AvatarArr,string name,int points,int botSmartness) //overloading bots
     {
@@ -46,17 +46,15 @@ public class PhotonPlayerManager : MonoBehaviour
         myPlayerAvatar._myName = name;
     }
 
-
-    [PunRPC]
-    protected void CreatePhotonPlayer(int[] AvatarArr, string name,int points)
-    {
+    
+   [PunRPC] protected void CreatePhotonPlayer(int[] AvatarArr, string name,int points)
+   {
         GameObject temp = Instantiate(Avatar, transform);
         temp.GetComponent<KidAvatarSelector>().SetAvatar(AvatarArr);
         temp.gameObject.AddComponent<Player>();
         myPlayerAvatar = temp.GetComponent<Player>();
         myPlayerAvatar.myPhotonPlayer = this;
         myPlayerAvatar.PointsForScore = points;
-        
         myPlayerAvatar._myName = name;
     }
 
@@ -70,13 +68,10 @@ public class PhotonPlayerManager : MonoBehaviour
     }
     [PunRPC] void ChooseAnswerRPC(int num) 
     {
-         
         if(PV.Owner.ActorNumber==1 && PhotonNetwork.IsMasterClient || PV.Owner.ActorNumber == 2 && !PhotonNetwork.IsMasterClient)
         {
             myPlayerAvatar.ChooseAnswer(num, true);
-           
         }
-           
         else
             myPlayerAvatar.ChooseAnswer(num, false);
     }

@@ -45,15 +45,15 @@ public class MainMenuManager : MonoBehaviour
     public void UpdateStatistics() 
     {
         Name.text = FamilyManager.instance.GetActiveKidFullName();
-        Gems.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems).ToString();
-        GemsSpent.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.GemsSpent).ToString();
-        Wins.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Wins).ToString();
-        Lose.text = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Lose).ToString();
-        Rank.text = FindObjectOfType<ProfileManager>().GetRank(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points)).ToString();
-        PlayTime.text = "תוקד " + FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.PlayTime).ToString();
+        Gems.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems).ToString();
+        GemsSpent.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.GemsSpent).ToString();
+        Wins.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Wins).ToString();
+        Lose.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Lose).ToString();
+        Rank.text = FindObjectOfType<ProfileManager>().GetRank(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points)).ToString();
+        PlayTime.text = "תוקד " + FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.PlayTime).ToString();
        // print(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
-        FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
-        PointsTXT.text = (FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points) - ProfileManager.FIRST_RANK_POINTS).ToString();
+        FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));
+        PointsTXT.text = (FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) - ProfileManager.FIRST_RANK_POINTS).ToString();
          
     }
 
@@ -75,6 +75,7 @@ public class MainMenuManager : MonoBehaviour
             FindObjectOfType<MainPanelManager>().PanelAnim(5);
     }
 
+    /*
     public void SetShabbatPointsTxt() 
     {
         SpecialPointsText.text = FamilyManager.instance.GetShabbatPoints() + " :תבש דוקינ" ;
@@ -104,4 +105,6 @@ public class MainMenuManager : MonoBehaviour
     {
         SpecialPointsText.text = "";
     }
+
+    */
 }

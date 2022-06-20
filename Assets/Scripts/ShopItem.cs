@@ -9,7 +9,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] public TextMeshProUGUI priceText;
     [SerializeField] public Image icon;
     [SerializeField] public TextMeshProUGUI Text;
-    [SerializeField] public AvatarInfoList type;
+    [SerializeField] public AvatarArrayEnum type;
     [SerializeField] public int itemNum;
     [SerializeField] public int price;
     [SerializeField] public Button myButton;
@@ -30,7 +30,7 @@ public class ShopItem : MonoBehaviour
        
         if (FamilyManager.instance.GetStoreItemState(type,itemNum) == 1)
             FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[0].OpenWindow();
-        else if (price > FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems))
+        else if (price > FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems))
             FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[1].OpenWindow();
         else 
         {
@@ -48,10 +48,10 @@ public class ShopItem : MonoBehaviour
         {
             Debug.Log("im on click");
             FamilyManager.instance.SetStoreItemState(type,itemNum,1);
-            int currentGemsAmount = FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Gems);
+            int currentGemsAmount = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems);
             int newGemsAmmount = Mathf.Max(currentGemsAmount - price, 0);
-            FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.Gems, newGemsAmmount);
-            FamilyManager.instance.SetActiveKidInfoValue(UserInfoList.GemsSpent, FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.GemsSpent) + price);
+            FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Gems, newGemsAmmount);
+            FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.GemsSpent, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.GemsSpent) + price);
             MainMenuManager.instance.UpdateStatistics();
             FindObjectOfType<InventoryMenuManager>().SetAvaliableItems();
             ImClicked = false;
