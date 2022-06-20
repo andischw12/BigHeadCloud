@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEditor;
 
 
-[CustomEditor(typeof(BoyTKPrefabMaker))]
+[CustomEditor(typeof(MaleKid_ClothesAndSkeenMaker))]
 
 public class EditorBoyTKPrefabMaker : Editor
 {
     public override void OnInspectorGUI()
     {
         base.DrawDefaultInspector(); 
-        BoyTKPrefabMaker myPrefabMaker = (BoyTKPrefabMaker)target;
+        MaleKid_ClothesAndSkeenMaker myPrefabMaker = (MaleKid_ClothesAndSkeenMaker)target;
 
         if (!myPrefabMaker.allOptions)
         {

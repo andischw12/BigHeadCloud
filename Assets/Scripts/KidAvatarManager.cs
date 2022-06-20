@@ -17,14 +17,14 @@ namespace AvatarStuff
         [SerializeField] public GameObject[] Signates;
         //[SerializeField] GameObject[] Capes;
         [SerializeField] int[] _avatarDress = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
-        [SerializeField] KidTKPrefabMaker myKidPrefabMaker;
+        [SerializeField] Avater_ClothesAndSkeenMaker myKidPrefabMaker;
         int CurrentSignate;
         /// <summary>
         /// This Methods Should be used only by the KidAvatarSelector script;
         /// </summary>
         private void Awake()
         {
-            myKidPrefabMaker = GetComponent<KidTKPrefabMaker>();
+            myKidPrefabMaker = GetComponent<Avater_ClothesAndSkeenMaker>();
             myKidPrefabMaker.Getready();
             SetGameObjectsArrays();
 

@@ -28,8 +28,8 @@ public class InventoryItem : MonoBehaviour
     {
         if (type == AvatarArrayEnum.ChestGM || type == AvatarArrayEnum.LegsGm || type == AvatarArrayEnum.FeetGM)
         {
-            if (num == CurrentKidAvatar.GetAvatarInfo()[type.GetHashCode()]) // if its the same cloth package dont change material
-                CurrentKidAvatar.SetAvatarDressItem(type,num, CurrentKidAvatar.GetAvatarInfo()[type.GetHashCode()+1]); // same cloth
+            if (num == CurrentKidAvatar.GetActiveAvatarInfo()[type.GetHashCode()]) // if its the same cloth package dont change material
+                CurrentKidAvatar.SetAvatarDressItem(type,num, CurrentKidAvatar.GetActiveAvatarInfo()[type.GetHashCode()+1]); // same cloth
             else// if its a diffrent one so choose a random one 
             {
                 CurrentKidAvatar.SetAvatarDressItem(type, num, Random.Range(0, 3)); //diffrent cloths
@@ -49,7 +49,7 @@ public class InventoryItem : MonoBehaviour
 
 
         }
-        FamilyManager.instance.SetAvatarForActiveKid(CurrentKidAvatar.GetAvatarInfo()); //Change kid array
+        FamilyManager.instance.SetAvatarForActiveKid(CurrentKidAvatar.GetActiveAvatarInfo()); //Change kid array
         
     }
    

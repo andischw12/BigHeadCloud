@@ -110,24 +110,24 @@ public class InventoryMenuManager : MonoBehaviour
     {
         
         if (CurrentGMtype == AvatarArrayEnum.ChestGM)
-            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextchestcolor(0);
+            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Avater_ClothesAndSkeenMaker>().Nextchestcolor(0);
         if (CurrentGMtype == AvatarArrayEnum.LegsGm)
-            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextlegscolor(0);
+            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Avater_ClothesAndSkeenMaker>().Nextlegscolor(0);
         if (CurrentGMtype == AvatarArrayEnum.FeetGM) 
-            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextfeetcolor(0);
-        FamilyManager.instance.SetAvatarForActiveKid(currentKid.GetAvatarInfo());
+            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Avater_ClothesAndSkeenMaker>().Nextfeetcolor(0);
+        FamilyManager.instance.SetAvatarForActiveKid(currentKid.GetActiveAvatarInfo());
     }
 
     void OnClickPreMat()
     {
        
         if (CurrentGMtype == AvatarArrayEnum.ChestGM)
-            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextchestcolor(1);
+            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Avater_ClothesAndSkeenMaker>().Nextchestcolor(1);
         if (CurrentGMtype == AvatarArrayEnum.LegsGm)
-            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextlegscolor(1);
+            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Avater_ClothesAndSkeenMaker>().Nextlegscolor(1);
         if (CurrentGMtype == AvatarArrayEnum.FeetGM)
-            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<KidTKPrefabMaker>().Nextfeetcolor(1);
-        FamilyManager.instance.SetAvatarForActiveKid(currentKid.GetAvatarInfo());
+            FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Avater_ClothesAndSkeenMaker>().Nextfeetcolor(1);
+        FamilyManager.instance.SetAvatarForActiveKid(currentKid.GetActiveAvatarInfo());
     }
 
 

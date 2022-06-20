@@ -31,7 +31,7 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         int[] currentAvatar = FamilyManager.instance.GetAvatarForActiveKid();
-        FindObjectOfType<KidAvatarSelector>().SetAvatar(currentAvatar);
+        FindObjectOfType<KidAvatarSelector>().SetActiveAvatarLook(currentAvatar);
         FindObjectOfType<KidAvatarSelector>().GetSignateGM().SetActive(false);
         FindObjectOfType<KidAvatarSelector>().SetSignOff(0);
         FindObjectOfType<Animator>().applyRootMotion = false;

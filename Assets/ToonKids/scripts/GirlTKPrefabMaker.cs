@@ -4,7 +4,7 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 
-public class GirlTKPrefabMaker : KidTKPrefabMaker
+public class GirlTKPrefabMaker : Avater_ClothesAndSkeenMaker
 {
     public bool allOptions;
     int hair;

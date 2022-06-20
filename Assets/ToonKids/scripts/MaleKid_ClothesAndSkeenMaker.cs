@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class KidTKPrefabMaker : MonoBehaviour
+public abstract class Avater_ClothesAndSkeenMaker : MonoBehaviour
 {
     public bool isReady;
 
@@ -23,7 +23,7 @@ public abstract class KidTKPrefabMaker : MonoBehaviour
 
 [ExecuteInEditMode]
 
-public class BoyTKPrefabMaker : KidTKPrefabMaker
+public class MaleKid_ClothesAndSkeenMaker : Avater_ClothesAndSkeenMaker
 {
     public bool allOptions;
     int hair;
@@ -482,7 +482,7 @@ public class BoyTKPrefabMaker : KidTKPrefabMaker
             if (!newcharacter.transform.GetChild(forAUX).gameObject.activeSelf) DestroyImmediate(newcharacter.transform.GetChild(forAUX).gameObject);
         }
         if (!GOglasses.activeSelf) DestroyImmediate(newcharacter.transform.Find("ROOT/TK/TK Pelvis/TK Spine/TK Spine1/TK Spine2/TK Neck/TK Head/Glasses").gameObject as GameObject);
-        DestroyImmediate(newcharacter.GetComponent<BoyTKPrefabMaker>());
+        DestroyImmediate(newcharacter.GetComponent<MaleKid_ClothesAndSkeenMaker>());
     }
     public void FIX()
     {
@@ -492,7 +492,7 @@ public class BoyTKPrefabMaker : KidTKPrefabMaker
             if (!newcharacter.transform.GetChild(forAUX).gameObject.activeSelf) DestroyImmediate(newcharacter.transform.GetChild(forAUX).gameObject);
         }
         if (!GOglasses.activeSelf) DestroyImmediate(newcharacter.transform.Find("ROOT/TK/TK Pelvis/TK Spine/TK Spine1/TK Spine2/TK Neck/TK Head/Glasses").gameObject as GameObject);
-        DestroyImmediate(newcharacter.GetComponent<BoyTKPrefabMaker>());
+        DestroyImmediate(newcharacter.GetComponent<MaleKid_ClothesAndSkeenMaker>());
         DestroyImmediate(gameObject);
     }
 

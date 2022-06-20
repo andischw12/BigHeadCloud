@@ -39,9 +39,9 @@ public class PostGame : MonoBehaviour
 
 
         //CalculateInfo();
-        FindObjectOfType<KidAvatarSelector>().SetAvatar(FamilyManager.instance.GetAvatarForActiveKid());
+        FindObjectOfType<KidAvatarSelector>().SetActiveAvatarLook(FamilyManager.instance.GetAvatarForActiveKid());
        FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Camera>().targetTexture = UserFace;
-        try { FindObjectOfType<KidAvatarSelector>().SetAvatar(FindObjectOfType<FamilyManager>().GetAvatarForActiveKid()); } catch { }
+        try { FindObjectOfType<KidAvatarSelector>().SetActiveAvatarLook(FindObjectOfType<FamilyManager>().GetAvatarForActiveKid()); } catch { }
         CorrectAnsweresBar.currentPercent = 0;
         SoundManager.instance.PlayMenuMusic();
         UserGemsAmmount.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems).ToString();

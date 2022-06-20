@@ -21,6 +21,10 @@ public class LoginScreenManager : MonoBehaviour
     WindowManager loginWindowManager;
     string newName;
     public delegate void TestDelegate(int i);
+    [SerializeField] Transform AvatarTransformPlace;
+    [SerializeField] GameObject AvatarPrefab;
+
+
     private void Awake()
     {
         if (instance != null && instance != this) Destroy(this.gameObject); else instance = this; // singelton
@@ -45,6 +49,10 @@ public class LoginScreenManager : MonoBehaviour
         PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
         PlayerPrefs.SetString("LastRoomName", "");// sets enmpty roomname for not playing again
         StartCoroutine(CheckAndStartGLAccelerator(4f));
+        GameObject Avatar =  Instantiate(AvatarPrefab, AvatarTransformPlace);
+        Avatar.GetComponent<KidAvatarSelector>().PreperePrefabArr();
+        Avatar.GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(0);
+
     }
 
     

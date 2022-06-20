@@ -27,10 +27,10 @@ public class SPAWNER : MonoBehaviour {
             }
             else
             {             
-                newcharacter.GetComponent<BoyTKPrefabMaker>().Getready();
-                newcharacter.GetComponent<BoyTKPrefabMaker>().Randomize();
+                newcharacter.GetComponent<MaleKid_ClothesAndSkeenMaker>().Getready();
+                newcharacter.GetComponent<MaleKid_ClothesAndSkeenMaker>().Randomize();
                 newcharacter.GetComponent<playanimation>().playtheanimation("TK_walk1");
-                newcharacter.GetComponent<BoyTKPrefabMaker>().FIX();
+                newcharacter.GetComponent<MaleKid_ClothesAndSkeenMaker>().FIX();
             }
 
             randomTime = Random.Range(1, 4);
