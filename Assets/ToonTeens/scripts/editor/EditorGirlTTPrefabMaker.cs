@@ -10,6 +10,7 @@ public class EditorGirlTTPrefabMaker : Editor
 {
     public override void OnInspectorGUI()
     {
+        base.DrawDefaultInspector();
         GirlTTPrefabMaker myPrefabMaker = (GirlTTPrefabMaker)target;
         if (!myPrefabMaker.allOptions)
         {
