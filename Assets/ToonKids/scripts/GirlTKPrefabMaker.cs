@@ -539,6 +539,7 @@ public class GirlTKPrefabMaker : Avater_ClothesAndSkeenMaker
         }
         AUXmaterial = MAT[MATindex] as Material;
         GO[GOindex].GetComponent<Renderer>().sharedMaterial = AUXmaterial;
+        print(MATindex);
         return MATindex;
     }
     public int Setmaterials(GameObject[] GO, Object[] MAT, int matchannel, int todo)

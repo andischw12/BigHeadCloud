@@ -4,16 +4,20 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 
-public class GirlTTPrefabMaker : MonoBehaviour
+public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
 {    
     public bool allOptions;
-    int hair;
-    int chest;
-    int legs;
-    int feet;
+    public int hair;
+    public int chest;
+    public int legs;
+    public  int feet;
     int tie;
     int jacket;
     int skintone;
+
+    [SerializeField] int chestMat;
+    [SerializeField] int legsMat;
+    [SerializeField] int feetMat;
     public bool legsactive;
     public bool hoodactive;
     public bool hoodon;
@@ -24,7 +28,7 @@ public class GirlTTPrefabMaker : MonoBehaviour
     GameObject GOhead;
     GameObject GOheadsimple;
   public  GameObject[] GOfeet;
- public   GameObject[] GOhair;
+  public   GameObject[] GOhair;
    public GameObject[] GOchest;
   public  GameObject[] GOlegs;
     GameObject GOglasses;
@@ -56,7 +60,94 @@ public class GirlTTPrefabMaker : MonoBehaviour
         allOptions = false;
     }
 
-    public void Getready()
+    // ------------------------------------
+
+
+    public override void SetSpecificChest(int gm, int mat)
+    {
+        Getready();
+        //set GM
+        while (gm != chest)
+            Nextchest();
+        //set mat
+        while (chestMat != mat)
+            Nextchestcolor(0); ;
+    }
+
+    public override void SetSpecificLegs(int gm, int mat)
+    {
+        //Getready();
+        //set GM
+        while (gm != legs)
+            Nextlegs();
+        //set mat
+        while (legsMat != mat)
+            Nextlegscolor(0); ;
+    }
+
+    public override void SetSpecificFeet(int gm, int mat)
+    {
+        //Getready();
+        //set GM
+        while (gm != feet)
+            Nextfeet();
+        //set mat
+        while (feetMat != mat)
+            Nextfeetcolor(0); ;
+    }
+
+    public override int GetSetSpecificChestGM()
+    {
+        //Getready();
+        return chest;
+    }
+
+    public override int GetSetSpecificChestMat()
+    {
+        //Getready();
+        Nextchestcolor(0);
+        Nextchestcolor(1);
+
+         
+        return chestMat;
+    }
+
+
+    public override int GetSetSpecificLegsGM()
+    {
+        //Getready();
+        return legs;
+    }
+
+    public override int GetSetSpecificLegsMat()
+    {
+        //Getready();
+        Nextlegscolor(0);
+        Nextlegscolor(1);
+        return legsMat;
+    }
+
+
+    public override int GetSetSpecificFeetGM()
+    {
+        //Getready();
+        return feet;
+    }
+
+    public override int GetSetSpecificFeetMat()
+    {
+        //Getready();
+        Nextfeetcolor(0);
+        Nextfeetcolor(1);
+        return feetMat;
+    }
+
+    //--------------------------------------------
+
+
+
+
+    public override void Getready()
     {
         GOhead = (GetComponent<Transform>().GetChild(0).gameObject);
         GOheadsimple = (GetComponent<Transform>().GetChild(1).gameObject);
@@ -436,7 +527,7 @@ public class GirlTTPrefabMaker : MonoBehaviour
             if (hair == 6) ChangeMaterials(MATHatB, todo);
         }
     }
-    public void Nextchestcolor(int todo)
+    public override void Nextchestcolor(int todo)
     {
         if (chest >0 && chest < 4) ChangeMaterials(MATTshirt, todo);
         if (chest == 4)
@@ -446,26 +537,25 @@ public class GirlTTPrefabMaker : MonoBehaviour
         }
         if (chest > 4 ) ChangeMaterials(MATTshirt, todo);
     }
-    public void Nextjacketcolor(int todo)
+    public  void Nextjacketcolor(int todo)
     {
         ChangeMaterials(MATJacket, todo);
     }
-    public void Nextlegscolor(int todo)
+    public override void Nextlegscolor(int todo)
     {
-        print("next legs color" + todo);
-        if (legsactive)
+         if (legsactive)
         {
             ChangeMaterials(MATLegs, todo);
             //ChangeMaterial(GOlegs[3], MATTshirt, todo);
             if (GOlegs[GOlegs.Length - 1].activeSelf)
-                ChangeMaterial(GOlegs[GOlegs.Length - 1], MATTshirt, todo);
+              legsMat =  ChangeMaterial(GOlegs[GOlegs.Length - 1], MATTshirt, todo);
         }
         // fix for skirt
       
     }
-    public void Nextfeetcolor(int todo)
+    public override void Nextfeetcolor(int todo)
     {
-        if (feet == 1) ChangeMaterials(MATFeetA, todo);
+        if (feet == 1)  ChangeMaterials(MATFeetA, todo);
         if (feet == 2) ChangeMaterials(MATFeetB, todo);
         if (feet >2) ChangeMaterials(MATFeetC, todo);
     }
@@ -562,7 +652,7 @@ public class GirlTTPrefabMaker : MonoBehaviour
     }
 
 
-    void ChangeMaterial(GameObject GO, Object[] MAT, int todo)
+   int ChangeMaterial(GameObject GO, Object[] MAT, int todo)
     {
         bool found = false;
         int MATindex = 0;
@@ -576,7 +666,7 @@ public class GirlTTPrefabMaker : MonoBehaviour
             {
                 if (AUXmaterials[forAUX].name == MAT[forAUX2].name)
                 {
-                    subMAT = forAUX;
+                   subMAT = forAUX;
                     MATindex = forAUX2;
                     found = true;
                 }
@@ -611,21 +701,27 @@ public class GirlTTPrefabMaker : MonoBehaviour
             }
             AUXmaterials[subMAT] = MAT[MATindex] as Material;
             GO.GetComponent<Renderer>().sharedMaterials = AUXmaterials;
+
+
+ 
+
         }
+        else return -1;
+        return MATindex;
     }
     void ChangeMaterials(Object[] MAT, int todo)
     {
-       
+        int tmp = -1;
         for (int forAUX = 0; forAUX < GOhair.Length; forAUX++) ChangeMaterial(GOhair[forAUX], MAT, todo);
 
         ChangeMaterial(GOhead, MAT, todo);
         ChangeMaterial(GOglasses, MAT, todo);
         ChangeMaterial(GOheadsimple, MAT, todo);
         ChangeMaterial(GOjacket, MAT, todo);
-        for (int forAUX = 0; forAUX < GOhoods.Length; forAUX++) ChangeMaterial(GOhoods[forAUX], MAT, todo);
-        for (int forAUX = 0; forAUX < GOchest.Length; forAUX++) ChangeMaterial(GOchest[forAUX], MAT, todo);
-      //  for (int forAUX = 0; forAUX < GOlegs.Length; forAUX++) ChangeMaterial(GOlegs[forAUX], MAT, todo); prevent skirt bug = andy
-        for (int forAUX = 0; forAUX < GOfeet.Length; forAUX++) ChangeMaterial(GOfeet[forAUX], MAT, todo);
+        for (int forAUX = 0; forAUX < GOhoods.Length; forAUX++)  ChangeMaterial(GOhoods[forAUX], MAT, todo);
+        for (int forAUX = 0; forAUX < GOchest.Length; forAUX++) if ((tmp = ChangeMaterial(GOchest[forAUX], MAT, todo)) > -1) chestMat = tmp;
+        // for (int forAUX = 0; forAUX < GOlegs.Length; forAUX++) ChangeMaterial(GOlegs[forAUX], MAT, todo); prevent skirt bug = andy
+        for (int forAUX = 0; forAUX < GOfeet.Length; forAUX++)  if((tmp=ChangeMaterial(GOfeet[forAUX], MAT, todo))>-1)feetMat = tmp;
 
     }
     void SwitchMaterial(GameObject GO, Object[] MAT1, Object[] MAT2)
