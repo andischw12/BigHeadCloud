@@ -63,7 +63,7 @@ public class KidAvatarSelector : MonoBehaviour
      
     public int[] GetActiveAvatarInfo()
     {
-        while (!ActiveAvatar.AmIready()) { }
+     //   while (!ActiveAvatar.AmIready()) { }
         int[] toReturn = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
         toReturn[AvatarArrayEnum.Hats.GetHashCode()] = ActiveAvatar.GetAvatrItem(AvatarArrayEnum.Hats);
         toReturn[AvatarArrayEnum.Glasses.GetHashCode()] = ActiveAvatar.GetAvatrItem(AvatarArrayEnum.Glasses);

@@ -25,15 +25,20 @@ namespace AvatarStuff
         private void Awake()
         {
             myKidPrefabMaker = GetComponent<Avater_ClothesAndSkeenMaker>();
+
             myKidPrefabMaker.Getready();
             SetGameObjectsArrays();
 
-            
         }
 
+
+        private void Start()
+        {
+            
+        }
         void SetGameObjectsArrays()
         {
-            while (!myKidPrefabMaker.isReady) { }
+           // while (!myKidPrefabMaker.isReady) { }
             Glasses = new GameObject[GlassesPrefab.transform.childCount];
             for (int i = 0; i < Glasses.Length; i++)
                 Glasses[i] = GlassesPrefab.transform.GetChild(i).gameObject;
@@ -91,7 +96,7 @@ namespace AvatarStuff
 
         public int GetAvatrItem(AvatarArrayEnum item)
         {
-                while (!myKidPrefabMaker.isReady) { }
+              //  while (!myKidPrefabMaker.isReady) { }
                 if (item == AvatarArrayEnum.Hats)
                     for (int i = 0; i < Hats.Length; i++) if (Hats[i].activeInHierarchy) return i;
                 if (item == AvatarArrayEnum.Glasses)
@@ -119,7 +124,8 @@ namespace AvatarStuff
 
         public bool AmIready() 
         {
-            return myKidPrefabMaker.isReady;
+            return true;
+            //return myKidPrefabMaker.isReady;
         }
 
          
