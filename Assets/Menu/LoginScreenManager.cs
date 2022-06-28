@@ -21,8 +21,11 @@ public class LoginScreenManager : MonoBehaviour
     WindowManager loginWindowManager;
     string newName;
     public delegate void TestDelegate(int i);
-    [SerializeField] Transform AvatarTransformPlace;
+    [SerializeField] Transform[] AvatarTransformPlace;
+
     [SerializeField] GameObject AvatarPrefab;
+    [SerializeField] GameObject[] AvatarInstances = new GameObject[4];
+
 
 
     private void Awake()
@@ -49,10 +52,18 @@ public class LoginScreenManager : MonoBehaviour
         PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
         PlayerPrefs.SetString("LastRoomName", "");// sets enmpty roomname for not playing again
         StartCoroutine(CheckAndStartGLAccelerator(4f));
-        GameObject Avatar =  Instantiate(AvatarPrefab, AvatarTransformPlace);
-        Avatar.GetComponent<KidAvatarSelector>().PreperePrefabArr();
-        Avatar.GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(0);
+        // GameObject Avatar[] = new GameObject[AllPlayers.Length];
+         
+        for (int i =0;i<AllPlayers.Length;i++)
+        {
+            AvatarInstances[i] = Instantiate(AvatarPrefab,AvatarTransformPlace[i]);
+            AvatarInstances[i].GetComponent<KidAvatarSelector>().PreperePrefabArr();
+            AvatarInstances[i].GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(FamilyManager.instance._kidsUserArr[i].UserAvatarArr[AvatarArrayEnum.AvatarPrefab.GetHashCode()]);
 
+            // AvatarPrefab[i] = GameObject.Instantiate(AvatarPrefab, AvatarTransformPlace[i]) ;
+        }
+        
+         
     }
 
     

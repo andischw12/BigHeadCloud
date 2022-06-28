@@ -67,22 +67,50 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
     {
         Getready();
         //set GM
+
+
+        for (int i = 0; i < 100; i++)
+            if (gm == chest)
+                return;
+            else
+                Nextchest();
+        //set mat
+
+        for (int i = 0; i < 100; i++)
+            if (mat == chestMat)
+                return;
+            else
+                Nextchestcolor(0);
+        /*
         while (gm != chest)
             Nextchest();
         //set mat
         while (chestMat != mat)
             Nextchestcolor(0); ;
+        */
     }
 
     public override void SetSpecificLegs(int gm, int mat)
     {
-        //Getready();
+        Getready();
         //set GM
-        while (gm != legs)
+        // while (gm != legs)
+        for (int i = 0; i < 100; i++)
+            if (gm == legs)
+                return;
+            else
             Nextlegs();
         //set mat
+
+        for (int i = 0; i < 100; i++)
+            if (mat == legsMat)
+                return;
+            else
+                Nextlegscolor(0); 
+        /*
         while (legsMat != mat)
             Nextlegscolor(0); ;
+        */
     }
 
     public override void SetSpecificFeet(int gm, int mat)
@@ -145,7 +173,7 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
     //--------------------------------------------
 
 
-
+    //Original code:
 
     public override void Getready()
     {
@@ -543,10 +571,10 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
     }
     public override void Nextlegscolor(int todo)
     {
-         if (legsactive)
+      //   if (legsactive)
         {
             ChangeMaterials(MATLegs, todo);
-            //ChangeMaterial(GOlegs[3], MATTshirt, todo);
+            ChangeMaterial(GOlegs[3], MATTshirt, todo);
             if (GOlegs[GOlegs.Length - 1].activeSelf)
               legsMat =  ChangeMaterial(GOlegs[GOlegs.Length - 1], MATTshirt, todo);
         }
@@ -720,7 +748,7 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
         ChangeMaterial(GOjacket, MAT, todo);
         for (int forAUX = 0; forAUX < GOhoods.Length; forAUX++)  ChangeMaterial(GOhoods[forAUX], MAT, todo);
         for (int forAUX = 0; forAUX < GOchest.Length; forAUX++) if ((tmp = ChangeMaterial(GOchest[forAUX], MAT, todo)) > -1) chestMat = tmp;
-        // for (int forAUX = 0; forAUX < GOlegs.Length; forAUX++) ChangeMaterial(GOlegs[forAUX], MAT, todo); prevent skirt bug = andy
+       if(MAT == MATLegs || MAT == MATSkins) for (int forAUX = 0; forAUX < GOlegs.Length; forAUX++) ChangeMaterial(GOlegs[forAUX], MAT, todo); // fixing ski  
         for (int forAUX = 0; forAUX < GOfeet.Length; forAUX++)  if((tmp=ChangeMaterial(GOfeet[forAUX], MAT, todo))>-1)feetMat = tmp;
 
     }

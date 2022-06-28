@@ -32,7 +32,7 @@ public class InventoryItem : MonoBehaviour
                 CurrentKidAvatar.SetAvatarDressItem(type,num, CurrentKidAvatar.GetActiveAvatarInfo()[type.GetHashCode()+1]); // same cloth
             else// if its a diffrent one so choose a random one 
             {
-                CurrentKidAvatar.SetAvatarDressItem(type, num, Random.Range(0, 3)); //diffrent cloths
+                CurrentKidAvatar.SetAvatarDressItem(type, num, 0); //diffrent cloths
               //  FindObjectOfType<InventoryMenuManager>().ChangeAvatarColorEffect();
             }
                
