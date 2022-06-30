@@ -19,7 +19,7 @@ public class PrefabConvertor : MonoBehaviour
         
         for(int i =0;i<TargetSkinRenderer.Length;i++) 
         {
-            OriginalSkinRenderer[i].GetComponentInParent<BoyTTPrefabMaker>().SwitchMaterial(TargetSkinRenderer[i].gameObject, TargetSkinRenderer[i].sharedMaterials,OriginalSkinRenderer[i].sharedMaterials);
+            OriginalSkinRenderer[i].GetComponentInParent<GirlTTPrefabMaker>().SwitchMaterial(TargetSkinRenderer[i].gameObject, TargetSkinRenderer[i].sharedMaterials,OriginalSkinRenderer[i].sharedMaterials);
             
         }
         

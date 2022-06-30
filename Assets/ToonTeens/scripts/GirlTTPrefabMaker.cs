@@ -209,6 +209,7 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
             while (!GOchest[chest].activeSelf) chest++;
             if (chest == 0 || chest > 3) while (!GOlegs[legs].activeSelf) legs++;
             print( "GOfeet lenght is" + GOfeet.Length +  " feet is :" + feet);
+            while (GOfeet.Length ==0 ) { }
             while (!GOfeet[feet].activeSelf) feet++;
             if (GOjacket.activeSelf) jacketactive = true; 
             Checklegs();
@@ -754,7 +755,7 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
         for (int forAUX = 0; forAUX < GOfeet.Length; forAUX++)  if((tmp=ChangeMaterial(GOfeet[forAUX], MAT, todo))>-1)feetMat = tmp;
 
     }
-   public  void SwitchMaterial(GameObject GO, Object[] MAT1, Object[] MAT2)
+    public  void SwitchMaterial(GameObject GO, Object[] MAT1, Object[] MAT2)
     {
         Material[] AUXmaterials;
         AUXmaterials = GO.GetComponent<Renderer>().sharedMaterials;
