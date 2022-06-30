@@ -14,6 +14,7 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
     int tie;
     int jacket;
     int skintone;
+ 
 
     [SerializeField] int chestMat;
     [SerializeField] int legsMat;
@@ -62,7 +63,7 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
 
     // ------------------------------------
 
-
+    
     public override void SetSpecificChest(int gm, int mat)
     {
         Getready();
@@ -207,6 +208,7 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
             for (int forAUX = 0; forAUX < GOhair.Length ; forAUX++) { if (GOhair[forAUX].activeSelf) hair = forAUX; }
             while (!GOchest[chest].activeSelf) chest++;
             if (chest == 0 || chest > 3) while (!GOlegs[legs].activeSelf) legs++;
+            print( "GOfeet lenght is" + GOfeet.Length +  " feet is :" + feet);
             while (!GOfeet[feet].activeSelf) feet++;
             if (GOjacket.activeSelf) jacketactive = true; 
             Checklegs();

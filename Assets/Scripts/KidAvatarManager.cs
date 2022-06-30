@@ -34,29 +34,47 @@ namespace AvatarStuff
 
         private void Start()
         {
-            
+           
+
+            StartCoroutine(SetGameObjectsArrays());
         }
-        void SetGameObjectsArrays()
+
+        public void SetAcceories(GameObject HatsPrefabIn,GameObject GlassesPrefabIn, GameObject SignatePrefabIn) 
         {
-           // while (!myKidPrefabMaker.isReady) { }
+           HatsPrefab = Instantiate( HatsPrefabIn,transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT Neck/TT Head")); 
+           GlassesPrefab=  Instantiate(GlassesPrefabIn,transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT Neck/TT Head")); 
+           SignatePrefab = Instantiate(SignatePrefabIn, transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT L Clavicle/TT L UpperArm/TT L Forearm/TT L Hand")); 
+        }
+        IEnumerator SetGameObjectsArrays()
+        {
+            yield return new WaitUntil(() => HatsPrefab!=null);
             Glasses = new GameObject[GlassesPrefab.transform.childCount];
             for (int i = 0; i < Glasses.Length; i++)
                 Glasses[i] = GlassesPrefab.transform.GetChild(i).gameObject;
+            yield return new WaitUntil(() => SignatePrefab != null);
             Signates = new GameObject[SignatePrefab.transform.childCount];
             for (int i = 0; i < Signates.Length; i++)
                 Signates[i] = SignatePrefab.transform.GetChild(i).gameObject;
-           // Capes = new GameObject[CapesPrefab.transform.childCount];
-            //for (int i = 0; i < Capes.Length; i++)
-              //  Capes[i] = CapesPrefab.transform.GetChild(i).gameObject;
+           yield return new WaitUntil(() => HatsPrefab != null);
             Hats = new GameObject[HatsPrefab.transform.childCount];
             for (int i = 0; i < Hats.Length; i++)
                 Hats[i] = HatsPrefab.transform.GetChild(i).gameObject;
+            yield return null;
         }
 
         public void SetAvatarAccessoryItem(AvatarArrayEnum item, int num)
         {
+
+            StartCoroutine(SetAvatarAccessoryItemHelper(item, num));
+        }
+
+        IEnumerator SetAvatarAccessoryItemHelper(AvatarArrayEnum item, int num) 
+        {
+            yield return new WaitUntil(() => Hats.Length>0);
+
             if (item == AvatarArrayEnum.Hats)
             {
+                print("Num is: " + num);
                 foreach (GameObject GM in Hats)
                     GM.SetActive(false);
                 Hats[num].SetActive(true);
@@ -74,15 +92,8 @@ namespace AvatarStuff
                     GM.SetActive(false);
                 Signates[num].SetActive(true);
             }
-            /*
-            else if (item == AvatarInfoList.Capes)
-            {
-                foreach (GameObject GM in Capes)
-                    GM.SetActive(false);
-                Capes[num].SetActive(true);
-            }
-            */
         }
+
 
         public void SetAvatarDressItem(AvatarArrayEnum item, int gmNum, int matNum)
         {

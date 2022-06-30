@@ -11,10 +11,12 @@ public class GirlTKPrefabMaker : Avater_ClothesAndSkeenMaker
     [SerializeField] int chest;
     [SerializeField] int legs;
     [SerializeField] int feet;
-    int skintone;
+   
     [SerializeField] int chestMat;
     [SerializeField] int legsMat;
     [SerializeField] int feetMat;
+
+    int skintone;
     public bool glassesactive;
     public bool legsactive;
     public bool hatactive;
@@ -55,8 +57,7 @@ public class GirlTKPrefabMaker : Avater_ClothesAndSkeenMaker
     }
 
     // ------------------------------------
-
-    
+ 
     public override void SetSpecificChest(int gm, int mat)
     {
         Getready();

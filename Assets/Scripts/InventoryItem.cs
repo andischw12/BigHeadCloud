@@ -20,12 +20,16 @@ public class InventoryItem : MonoBehaviour
     private void Start()
     {
         myButton.onClick.AddListener(SelectItem);
-        CurrentKidAvatar = FindObjectOfType<KidAvatarSelector>();
+        
+        
+        if(CurrentKidAvatar==null)
+        print("CurrentKidAvatar is null");
         text.text = Title;
     }
 
     public void SelectItem() 
     {
+        CurrentKidAvatar = FindObjectOfType<KidAvatarSelector>();
         if (type == AvatarArrayEnum.ChestGM || type == AvatarArrayEnum.LegsGm || type == AvatarArrayEnum.FeetGM)
         {
             if (num == CurrentKidAvatar.GetActiveAvatarInfo()[type.GetHashCode()]) // if its the same cloth package dont change material

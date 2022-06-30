@@ -19,6 +19,7 @@ public abstract class Avater_ClothesAndSkeenMaker : MonoBehaviour
     public abstract void Nextchestcolor(int todo);
     public abstract void Nextlegscolor(int todo);
     public abstract void Nextfeetcolor(int todo);
+ 
 }
 
 [ExecuteInEditMode]
@@ -64,12 +65,13 @@ public class MaleKid_ClothesAndSkeenMaker : Avater_ClothesAndSkeenMaker
     int skinindex;
     int teethindex;
     string model;
-   
+
 
 
     // ------------------------------------
 
-   
+ 
+
     public override void SetSpecificChest(int gm, int mat)
     {
         //Getready();
@@ -220,7 +222,7 @@ public class MaleKid_ClothesAndSkeenMaker : Avater_ClothesAndSkeenMaker
             Resetskin(MATskins[MATindex] as Material);
         }
         base.isReady = true;
-
+  
     }
     public void Identifymodel()
     {

@@ -22,6 +22,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI Name;
     [SerializeField] RenderTexture UserFace;
     [SerializeField] TextMeshProUGUI SpecialPointsText;
+    [SerializeField] Transform AvatarTransform;
+    [SerializeField] GameObject AvatarPrefab;
 
 
     private void Awake()
@@ -31,15 +33,20 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         int[] currentAvatar = FamilyManager.instance.GetAvatarForActiveKid();
+
+        Instantiate(AvatarPrefab, AvatarTransform);
+        FindObjectOfType<KidAvatarSelector>().PreperePrefabArr();
+
         FindObjectOfType<KidAvatarSelector>().SetActiveAvatarLook(currentAvatar);
-        FindObjectOfType<KidAvatarSelector>().GetSignateGM().SetActive(false);
+   
         FindObjectOfType<KidAvatarSelector>().SetSignOff(0);
         FindObjectOfType<Animator>().applyRootMotion = false;
         UpdateStatistics();
         if (CalculationsManager.instance.PostGame) // if its after a game open in shop
             //FindObjectOfType<MainPanelManager>().PanelAnim(3);
         FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Camera>().targetTexture = UserFace;
-        
+       // FindObjectOfType<KidAvatarSelector>().GetSignateGM().SetActive(false);
+
     }
 
     public void UpdateStatistics() 

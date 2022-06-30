@@ -10,7 +10,7 @@ public class EditorBoyTTPrefabMaker : Editor
 {
     public override void OnInspectorGUI()
     {
-
+        base.DrawDefaultInspector();
         BoyTTPrefabMaker myPrefabMaker = (BoyTTPrefabMaker)target;
 
         if (!myPrefabMaker.allOptions)

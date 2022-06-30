@@ -10,10 +10,19 @@ public class KidAvatarSelector : MonoBehaviour
     [SerializeField]   KidAvatarManager ActiveAvatar;
     [SerializeField] int[] currentSelection;
     [SerializeField] Camera RawImageCam;
+    [SerializeField] GameObject[] AccesoriesArr = new GameObject[3];
 
 
  
     
+    public void SetAccesories() 
+    {
+        for(int i= 0;i< PrefabArr.Length; i++) 
+        {
+            PrefabArr[i].GetComponent<KidAvatarManager>().SetAcceories(AccesoriesArr[0], AccesoriesArr[1], AccesoriesArr[2]);
+        }
+    }
+
     public void PreperePrefabArr() 
     {
         KidAvatarManager[] tmpArr = GetComponentsInChildren<KidAvatarManager>();
@@ -22,7 +31,10 @@ public class KidAvatarSelector : MonoBehaviour
         {
             PrefabArr[i] = tmpArr[i].gameObject;
         }
-     }
+        SetAccesories();
+    }
+
+
 
     public int[] SelectAvatarByPrefab(int num)
     {
