@@ -208,9 +208,15 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
             for (int forAUX = 0; forAUX < GOhair.Length ; forAUX++) { if (GOhair[forAUX].activeSelf) hair = forAUX; }
             while (!GOchest[chest].activeSelf) chest++;
             if (chest == 0 || chest > 3) while (!GOlegs[legs].activeSelf) legs++;
-            print( "GOfeet lenght is" + GOfeet.Length +  " feet is :" + feet);
-            while (GOfeet.Length ==0 ) { }
-            while (!GOfeet[feet].activeSelf) feet++;
+            //print( "GOfeet lenght is" + GOfeet.Length +  " feet is :" + feet);
+            //while (GOfeet.Length ==0 ) { }
+            feet = 0;
+            while (!GOfeet[feet].activeSelf) 
+            {
+                
+                    feet++;
+            }
+                
             if (GOjacket.activeSelf) jacketactive = true; 
             Checklegs();
             if (GOchest[4].activeSelf) hoodactive = true;

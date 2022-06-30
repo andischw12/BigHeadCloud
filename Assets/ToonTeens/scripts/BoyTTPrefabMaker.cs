@@ -675,7 +675,6 @@ public class BoyTTPrefabMaker : Avater_ClothesAndSkeenMaker
             }
         if (found)
         {
-            print("found" + subMAT + " " + MATindex);
             if (todo == 0) //increase
             {
                 MATindex++;
