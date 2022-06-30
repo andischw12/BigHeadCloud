@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//[ExecuteInEditMode]
 public class PrefabConvertor : MonoBehaviour
 {
     [SerializeField] GameObject OriginalPrefab;
@@ -15,11 +16,20 @@ public class PrefabConvertor : MonoBehaviour
     {
         OriginalSkinRenderer = OriginalPrefab.GetComponentsInChildren<SkinnedMeshRenderer>();
         TargetSkinRenderer = TargetPrefab.GetComponentsInChildren<SkinnedMeshRenderer>();
-
+        
         for(int i =0;i<TargetSkinRenderer.Length;i++) 
         {
-            TargetSkinRenderer[i].materials = OriginalSkinRenderer[i].materials;
+            Material[] TmpOriginalArr= OriginalSkinRenderer[i].materials;
+            Material[] TmpTargetArr = TargetSkinRenderer[i].materials;
+
+            for (int j =0; j< TmpOriginalArr.Length; j++) 
+            {
+                print(j);
+                TmpTargetArr[j] = TmpOriginalArr[j];
+            }
+            
         }
+        
 
     }
 
