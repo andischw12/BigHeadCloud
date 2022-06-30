@@ -19,14 +19,7 @@ public class PrefabConvertor : MonoBehaviour
         
         for(int i =0;i<TargetSkinRenderer.Length;i++) 
         {
-            Material[] TmpOriginalArr= OriginalSkinRenderer[i].materials;
-            Material[] TmpTargetArr = TargetSkinRenderer[i].materials;
-
-            for (int j =0; j< TmpOriginalArr.Length; j++) 
-            {
-                print(j);
-                TmpTargetArr[j] = TmpOriginalArr[j];
-            }
+            OriginalSkinRenderer[i].GetComponentInParent<BoyTTPrefabMaker>().SwitchMaterial(TargetSkinRenderer[i].gameObject, TargetSkinRenderer[i].sharedMaterials,OriginalSkinRenderer[i].sharedMaterials);
             
         }
         

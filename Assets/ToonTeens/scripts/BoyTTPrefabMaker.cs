@@ -670,10 +670,12 @@ public class BoyTTPrefabMaker : Avater_ClothesAndSkeenMaker
                     subMAT = forAUX;
                     MATindex = forAUX2;
                     found = true;
+
                 }
             }
         if (found)
         {
+            print("found" + subMAT + " " + MATindex);
             if (todo == 0) //increase
             {
                 MATindex++;
@@ -734,7 +736,7 @@ public class BoyTTPrefabMaker : Avater_ClothesAndSkeenMaker
         for (int forAUX = 0; forAUX < GOfeet.Length; forAUX++) if ((tmp = ChangeMaterial(GOfeet[forAUX], MAT, todo)) > -1) feetMat = tmp;
 
     }
-    void SwitchMaterial(GameObject GO, Object[] MAT1, Object[] MAT2)
+    public void SwitchMaterial(GameObject GO, Object[] MAT1, Object[] MAT2)
     {
         Material[] AUXmaterials;
         AUXmaterials = GO.GetComponent<Renderer>().sharedMaterials;
