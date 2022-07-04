@@ -4754,7 +4754,7 @@ GameObject:
   - component: {fileID: 6196908943772828234}
   - component: {fileID: 8511009248776051326}
   m_Layer: 0
-  m_Name: TTBoyA_Final
+  m_Name: TTBoyA_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
