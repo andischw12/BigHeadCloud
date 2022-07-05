@@ -25,6 +25,8 @@ public class LoginScreenManager : MonoBehaviour
 
     [SerializeField] GameObject AvatarPrefab;
     [SerializeField] public  GameObject[] AvatarInstances = new GameObject[4];
+    [SerializeField] Transform AvatarPlayerChoosingTransform;
+    [SerializeField] public GameObject AvatarPlayerChoosingInstance;
 
 
 
@@ -63,6 +65,13 @@ public class LoginScreenManager : MonoBehaviour
             AllPlayers[i].PlayerAvatar = AvatarInstances[i].GetComponent<KidAvatarSelector>();
             // AvatarPrefab[i] = GameObject.Instantiate(AvatarPrefab, AvatarTransformPlace[i]) ;
         }
+
+        AvatarPlayerChoosingInstance = Instantiate(AvatarPrefab, AvatarPlayerChoosingTransform);
+        AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().PreperePrefabArr();
+        //AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(FamilyManager.instance._kidsUserArr[i].UserAvatarArr[AvatarArrayEnum.AvatarPrefab.GetHashCode()]);
+
+
+
         ShowActiveKidsButtons();
 
 
@@ -92,8 +101,9 @@ public class LoginScreenManager : MonoBehaviour
     {
         //using only 1 instance for creation new user
 
-        for (int i = 1; i < AvatarInstances.Length; i++)
-            AvatarInstances[i].SetActive(false);
+       // for (int i = 0; i < AvatarInstances.Length; i++) // skip last one
+         //   AvatarInstances[i].SetActive(false);
+        //AvatarInstances[AvatarInstances.Length - 1].SetActive(true);
         // end
 
         loginWindowManager.OpenPanel(1);
@@ -109,8 +119,9 @@ public class LoginScreenManager : MonoBehaviour
        
         ShowActiveKidsButtons();
         loginWindowManager.OpenPanel(0);
-        for (int i = 0; i < AvatarInstances.Length; i++)
-            AvatarInstances[i].SetActive(true);
+       // for (int i = 0; i < AvatarInstances.Length; i++)
+           // AvatarInstances[i].SetActive(true);
+       
         //using only 1 instance for creation new user
 
 

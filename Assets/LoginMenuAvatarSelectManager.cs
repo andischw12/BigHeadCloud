@@ -8,37 +8,39 @@ public class LoginMenuAvatarSelectManager : MonoBehaviour
    public int startPrefab;
    public  int endPrafab;
    public  int current;
+   KidAvatarSelector MenuAvatar;
 
 
     private void Start()
     {// will be replaced:
         endPrafab = FindObjectOfType<KidAvatarSelector>().PrefabArr.Length;
         startPrefab = 0;
+        MenuAvatar = LoginScreenManager.instance.AvatarPlayerChoosingInstance.GetComponentInChildren<KidAvatarSelector>();
     }
 
     public void SelectFirstCharacther() 
     {
-        FindObjectOfType<KidAvatarSelector>().SelectAvatarByPrefab(current = startPrefab);
+        MenuAvatar.SelectAvatarByPrefab(current = startPrefab);
     }
 
     public void Next() 
     {
-        KidAvatarSelector kid =FindObjectOfType<KidAvatarSelector>();
+         
         int tmp = current + 1;
         if (tmp == endPrafab)
             tmp = startPrefab;
-        kid.SelectAvatarByPrefab(current=tmp);
+        MenuAvatar.SelectAvatarByPrefab(current=tmp);
     }
 
     public void Pre()
     {
-        KidAvatarSelector kid = FindObjectOfType<KidAvatarSelector>();
+         
         int tmp = current - 1;
         if (tmp == startPrefab - 1)
         {
             tmp = endPrafab;
         }
-        kid.SelectAvatarByPrefab(current = tmp);
+        MenuAvatar.SelectAvatarByPrefab(current = tmp);
     }
 
 
