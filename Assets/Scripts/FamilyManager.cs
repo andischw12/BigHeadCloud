@@ -326,6 +326,24 @@ public class FamilyManager : MonoBehaviour
         return toReturn;
     }
 
+
+
+    public int GetNextFreeUserSlot() 
+    {
+
+        for (int i = 0; i < _kidsUserArr.Length; i++)
+        {
+            if (!_kidsUserArr[i].IsActive)
+            {
+
+                print("GetNextFreeUserSlot is returning: " + i);
+                return i;
+            }
+        }
+        return -1;
+
+    }
+
     /*
 
     public void SetShabbatPoints(int val) 

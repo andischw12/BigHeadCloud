@@ -16,6 +16,9 @@ public class PlayerSelectionButton : MonoBehaviour
         bool DeleteButtonIsClicked;
         [SerializeField] Button DeleteButton;
         ModalWindowManager deleteNotificationWindow;
+        public KidAvatarSelector PlayerAvatar;
+        public RawImage PlayerAvatarImage;
+        
 
         private void Start()
         {
@@ -24,6 +27,8 @@ public class PlayerSelectionButton : MonoBehaviour
             FindObjectOfType<ModalWindowManager>().confirmButton.onClick.AddListener(DeleteThisPlayer);
             FindObjectOfType<ModalWindowManager>().cancelButton.onClick.AddListener(() => SetDeleteButtonIsClicked(false));
             DeleteButton.onClick.AddListener(() => SetDeleteButtonIsClicked(true));
+            PlayerAvatarImage = FindObjectOfType<RawImage>();
+           // PlayerAvatar = LoginScreenManager.instance.AvatarInstances[PlayerNumber].GetComponentInChildren<KidAvatarSelector>();
         }
 
         

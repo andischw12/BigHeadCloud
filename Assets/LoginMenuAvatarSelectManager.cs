@@ -24,21 +24,41 @@ public class LoginMenuAvatarSelectManager : MonoBehaviour
     public void Next() 
     {
         KidAvatarSelector kid =FindObjectOfType<KidAvatarSelector>();
-
-        int tmp = kid.GetActivePrefabNum() + 1;
-        if (tmp == kid.PrefabArr.Length)
-            tmp = 0;
+        int tmp = current + 1;
+        if (tmp == endPrafab)
+            tmp = startPrefab;
         kid.SelectAvatarByPrefab(current=tmp);
     }
 
     public void Pre()
     {
         KidAvatarSelector kid = FindObjectOfType<KidAvatarSelector>();
-        int tmp = kid.GetActivePrefabNum() - 1;
-        if (tmp == -1)
+        int tmp = current - 1;
+        if (tmp == startPrefab - 1)
         {
-            tmp = kid.PrefabArr.Length - 1;
+            tmp = endPrafab;
         }
         kid.SelectAvatarByPrefab(current = tmp);
+    }
+
+
+    public void ChooseBoys()
+    {
+        startPrefab = 0;
+        endPrafab = 16;
+        current = startPrefab;
+        Next();
+        Pre();
+    }
+
+    public void ChooseGirls()
+    {
+        current = startPrefab;
+        startPrefab = 16;
+        endPrafab = 32;
+        current = startPrefab;
+
+        Next();
+        Pre();
     }
 }

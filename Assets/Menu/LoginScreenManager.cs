@@ -24,7 +24,8 @@ public class LoginScreenManager : MonoBehaviour
     [SerializeField] Transform[] AvatarTransformPlace;
 
     [SerializeField] GameObject AvatarPrefab;
-    [SerializeField] GameObject[] AvatarInstances = new GameObject[4];
+    [SerializeField] public  GameObject[] AvatarInstances = new GameObject[4];
+
 
 
 
@@ -46,7 +47,6 @@ public class LoginScreenManager : MonoBehaviour
         PrevAvatarButton.onClick.AddListener(ChangeAvatarColorEffect);
         NextAvatarButton.onClick.AddListener(ChangeAvatarColorEffect);
         ShowHideAddNewPlayer();
-        ShowActiveKidsButtons();
         FindObjectOfType<HorizontalSelector>().defaultIndex = 0;
         SoundManager.instance.PlayMenuMusic();
         PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
@@ -59,17 +59,19 @@ public class LoginScreenManager : MonoBehaviour
             AvatarInstances[i] = Instantiate(AvatarPrefab,AvatarTransformPlace[i]);
             AvatarInstances[i].GetComponent<KidAvatarSelector>().PreperePrefabArr();
             AvatarInstances[i].GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(FamilyManager.instance._kidsUserArr[i].UserAvatarArr[AvatarArrayEnum.AvatarPrefab.GetHashCode()]);
-
+            
+            AllPlayers[i].PlayerAvatar = AvatarInstances[i].GetComponent<KidAvatarSelector>();
             // AvatarPrefab[i] = GameObject.Instantiate(AvatarPrefab, AvatarTransformPlace[i]) ;
         }
-        
-         
+        ShowActiveKidsButtons();
+
+
     }
 
-    
 
-    
- 
+
+
+
 
     public void ShowActiveKidsButtons( ) 
     {
@@ -85,21 +87,37 @@ public class LoginScreenManager : MonoBehaviour
         }
     }
 
+    // on the first screen, clicking new user button
     void AddKidUserButton() 
     {
+        //using only 1 instance for creation new user
+
+        for (int i = 1; i < AvatarInstances.Length; i++)
+            AvatarInstances[i].SetActive(false);
+        // end
+
         loginWindowManager.OpenPanel(1);
         NameTxtInput.GetComponentInParent<TMP_InputField>().text = "";
+        FindObjectOfType<LoginMenuAvatarSelectManager>().ChooseBoys();
     }
 
 
     public void OnCreatePlayerClick() 
     {
-        FamilyManager.instance.CreateNewKidUser(newName, FindObjectOfType<KidAvatarSelector>().SelectAvatarByPrefab(FindObjectOfType<HorizontalSelector>().index));
+        FamilyManager.instance.CreateNewKidUser(newName, FindObjectOfType<KidAvatarSelector>().SelectAvatarByPrefab(FindObjectOfType<LoginMenuAvatarSelectManager>().current));
+
+       
         ShowActiveKidsButtons();
         loginWindowManager.OpenPanel(0);
+        for (int i = 0; i < AvatarInstances.Length; i++)
+            AvatarInstances[i].SetActive(true);
+        //using only 1 instance for creation new user
+
+
+        // end
     }
 
-    
+
     public void HidePlayerButton(int player) 
     {
         AllPlayers[player].gameObject.SetActive(false);
@@ -109,7 +127,11 @@ public class LoginScreenManager : MonoBehaviour
     public void ShowPlayerButton(int player)
     {
         AllPlayers[player].gameObject.SetActive(true);
+        AllPlayers[player].PlayerAvatar.SelectAvatarByPrefab(FamilyManager.instance._kidsUserArr[player].UserAvatarArr[AvatarArrayEnum.AvatarPrefab.GetHashCode()]);
+        AllPlayers[player].PlayerAvatar.SetActiveAvatarLook(FamilyManager.instance._kidsUserArr[player].UserAvatarArr);
         ShowHideAddNewPlayer();
+
+
     }
 
     void OnEnterNameNextClick()
@@ -122,6 +144,7 @@ public class LoginScreenManager : MonoBehaviour
     }
     public void SelectPlayer(int player) 
     {
+        print("Player is: " + player);
         FamilyManager.instance.SetActiveKid(player);
         CalculationsManager.instance.ResetParameters();
         Initiate.Fade(System.IO.Path.GetFileNameWithoutExtension(SceneUtility.GetScenePathByBuildIndex(1)), Color.black, 4f);
@@ -168,5 +191,5 @@ public class LoginScreenManager : MonoBehaviour
         else
             AddPlayerButton.gameObject.SetActive(true);
     }
-
+ 
 }

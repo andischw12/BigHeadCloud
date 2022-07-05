@@ -78,6 +78,7 @@ namespace AvatarStuff
                 foreach (GameObject GM in Hats)
                     GM.SetActive(false);
                 Hats[num].SetActive(true);
+                print("num is : " + num);
             }
             else if (item == AvatarArrayEnum.Glasses)
             {
