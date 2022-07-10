@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Signate_Letter_3
   m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLEFROZEN_ON _ENABLERECOLOR_ON _SHADERSPACE_UV
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLEFROZEN_ON _ENABLEINNEROUTLINE_ON _SHADERSPACE_UV
     _TIMESETTINGS_LINEAR_DEFAULT _UBERFADING_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -198,13 +198,13 @@ Material:
     - _EnableHologram: 0
     - _EnableHue: 0
     - _EnableInkSpread: 0
-    - _EnableInnerOutline: 0
+    - _EnableInnerOutline: 1
     - _EnableMetal: 0
     - _EnableOuterOutline: 0
     - _EnablePixelate: 0
     - _EnablePoison: 0
     - _EnableRainbow: 0
-    - _EnableRecolor: 1
+    - _EnableRecolor: 0
     - _EnableSaturation: 0
     - _EnableShiftHue: 0
     - _EnableShine: 0
@@ -230,7 +230,7 @@ Material:
     - _FlameRadius: 0.31
     - _FlameSmooth: 798.57
     - _FrozenContrast: 2
-    - _FrozenFade: 1
+    - _FrozenFade: 0.389
     - _FrozenHighlightContrast: 2
     - _FrozenHighlightDensity: 1
     - _FrozenSnowContrast: 1
@@ -270,7 +270,7 @@ Material:
     - _InkSpreadWidth: 0.2
     - _InnerOutlineDistortionToggle: 0
     - _InnerOutlineFade: 1
-    - _InnerOutlineWidth: 0.02
+    - _InnerOutlineWidth: 0.1
     - _IsText: 0
     - _MetalContrast: 2
     - _MetalFade: 1
@@ -280,8 +280,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _OuterOutlineDistortionToggle: 0
-    - _OuterOutlineFade: 1
-    - _OuterOutlineWidth: 0.04
+    - _OuterOutlineFade: 0.286
+    - _OuterOutlineWidth: 2.09
     - _Parallax: 0.02
     - _PixelateFade: 1
     - _PixelatePixelDensity: 16
@@ -441,7 +441,7 @@ Material:
     - _InkSpreadColor: {r: 8.47419, g: 5.013525, b: 0.08873497, a: 0}
     - _InkSpreadNoiseScale: {r: 0.4, g: 0.4, b: 0, a: 0}
     - _InkSpreadPosition: {r: 0.5, g: -1, b: 0, a: 0}
-    - _InnerOutlineColor: {r: 11.98431, g: 1.254902, b: 1.254902, a: 1}
+    - _InnerOutlineColor: {r: 0, g: 0.5, b: 0.46666667, a: 1}
     - _InnerOutlineDistortionIntensity: {r: 0.01, g: 0.01, b: 0, a: 0}
     - _InnerOutlineNoiseScale: {r: 4, g: 4, b: 0, a: 0}
     - _InnerOutlineNoiseSpeed: {r: 0, g: 0.1, b: 0, a: 0}
@@ -452,7 +452,7 @@ Material:
     - _MetalNoiseDistortionSpeed: {r: -0.05, g: -0.05, b: 0, a: 0}
     - _MetalNoiseScale: {r: 0.25, g: 0.25, b: 0, a: 0}
     - _MetalNoiseSpeed: {r: 0.05, g: 0.05, b: 0, a: 0}
-    - _OuterOutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OuterOutlineColor: {r: 0, g: 0.71050805, b: 0.9339623, a: 1}
     - _OuterOutlineDistortionIntensity: {r: 0.01, g: 0.01, b: 0, a: 0}
     - _OuterOutlineNoiseScale: {r: 4, g: 4, b: 0, a: 0}
     - _OuterOutlineNoiseSpeed: {r: 0, g: 0.1, b: 0, a: 0}

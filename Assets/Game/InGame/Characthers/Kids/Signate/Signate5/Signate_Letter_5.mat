@@ -384,7 +384,7 @@ Material:
     - _WindXPosition: 0
     - _ZWrite: 1
     m_Colors:
-    - _AddColorColor: {r: 3.08497, g: 0, b: 5.3403134, a: 0}
+    - _AddColorColor: {r: 7.129739, g: 2.3806121, b: 0, a: 0}
     - _AlphaTintColor: {r: 23.96863, g: 1.254902, b: 23.96863, a: 0}
     - _BlackTintColor: {r: 1, g: 0, b: 0, a: 0}
     - _BurnEdgeColor: {r: 11.98431, g: 1.129412, b: 0.1254902, a: 0}

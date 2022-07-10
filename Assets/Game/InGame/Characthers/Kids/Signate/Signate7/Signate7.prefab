@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3559831032057783752}
   - component: {fileID: 3958700817709784857}
   m_Layer: 11
-  m_Name: BackGround6
+  m_Name: BackGround7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41207e4a7f7e20f4494b43d0dc5c95c0, type: 2}
+  - {fileID: 2100000, guid: f9fa1cc756977014aa099d56519e6591, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2391140534056568186}
   - component: {fileID: 4275838890101540821}
   m_Layer: 11
-  m_Name: BackGround6
+  m_Name: BackGround7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3851c035ea9b6774f8bfe25e0ffd2231, type: 2}
+  - {fileID: 2100000, guid: f9fa1cc756977014aa099d56519e6591, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 3674323850961088023}
   - component: {fileID: 3665752897776055237}
   m_Layer: 11
-  m_Name: signage_6
+  m_Name: signage_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 7385755648904795134}
   - component: {fileID: 476602584262402549}
   m_Layer: 11
-  m_Name: Letter6
+  m_Name: Letter7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,7 +314,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 61b3b8b0e2c63024ebb76f8ef6a14a27, type: 2}
+  - {fileID: 2100000, guid: dac698b4d8f751d4b81d53d922fb40db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -356,12 +356,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7736344046521500460}
   m_Layer: 11
-  m_Name: Signate6
+  m_Name: Signate7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7736344046521500460
 Transform:
   m_ObjectHideFlags: 0

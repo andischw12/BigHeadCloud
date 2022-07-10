@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SignateBackMat3
   m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLEFROZEN_ON _SHADERSPACE_UV _TIMESETTINGS_LINEAR_DEFAULT
-    _UBERFADING_NONE
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLEADDCOLOR_ON _ENABLEFROZEN_ON _SHADERSPACE_UV
+    _TIMESETTINGS_LINEAR_DEFAULT _UBERFADING_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -115,7 +115,7 @@ Material:
     m_Floats:
     - PixelSnap: 0
     - _AddColorContrast: 0.5
-    - _AddColorFade: 1
+    - _AddColorFade: 0.165
     - _AddHueBrightness: 2
     - _AddHueContrast: 1
     - _AddHueFade: 0.377
@@ -174,7 +174,7 @@ Material:
     - _DirectionalGlowFadeRotation: 0
     - _DirectionalGlowFadeWidth: 0.1
     - _DstBlend: 0
-    - _EnableAddColor: 0
+    - _EnableAddColor: 1
     - _EnableAddHue: 0
     - _EnableAlphaTint: 0
     - _EnableBlackTint: 0
@@ -384,7 +384,7 @@ Material:
     - _WindXPosition: 0
     - _ZWrite: 1
     m_Colors:
-    - _AddColorColor: {r: 4, g: 0, b: 0, a: 0}
+    - _AddColorColor: {r: 0, g: 5.101066, b: 5.3403134, a: 0}
     - _AlphaTintColor: {r: 23.96863, g: 1.254902, b: 23.96863, a: 0}
     - _BlackTintColor: {r: 1, g: 0, b: 0, a: 0}
     - _BurnEdgeColor: {r: 11.98431, g: 1.129412, b: 0.1254902, a: 0}

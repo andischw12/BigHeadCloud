@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: SignateBackMat4
   m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLERAINBOW_ON _SHADERSPACE_UV _TIMESETTINGS_LINEAR_DEFAULT
-    _UBERFADING_NONE
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLESINEGLOW_ON _ENABLESINEMOVE_ON _SHADERSPACE_UV
+    _TIMESETTINGS_LINEAR_DEFAULT _UBERFADING_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -203,13 +203,13 @@ Material:
     - _EnableOuterOutline: 0
     - _EnablePixelate: 0
     - _EnablePoison: 0
-    - _EnableRainbow: 1
+    - _EnableRainbow: 0
     - _EnableRecolor: 0
     - _EnableSaturation: 0
     - _EnableShiftHue: 0
     - _EnableShine: 0
-    - _EnableSineGlow: 0
-    - _EnableSineMove: 0
+    - _EnableSineGlow: 1
+    - _EnableSineMove: 1
     - _EnableSineRotate: 0
     - _EnableSmoke: 0
     - _EnableSourceAlphaDissolve: 0
@@ -469,8 +469,8 @@ Material:
     - _RecolorYellowTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _ShineColor: {r: 11.98431, g: 11.98431, b: 11.98431, a: 0}
     - _SineGlowColor: {r: 0, g: 7.129739, b: 6.0114436, a: 0}
-    - _SineMoveFrequency: {r: 1, g: 1, b: 0, a: 0}
-    - _SineMoveOffset: {r: 0, g: 0.5, b: 0, a: 0}
+    - _SineMoveFrequency: {r: 1, g: 0.5, b: 0, a: 0}
+    - _SineMoveOffset: {r: 0, g: 0, b: 0, a: 0}
     - _SineRotatePivot: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _SourceAlphaDissolveNoiseScale: {r: 0.3, g: 0.3, b: 0, a: 0}
     - _SourceAlphaDissolvePosition: {r: 0, g: 0, b: 0, a: 0}
