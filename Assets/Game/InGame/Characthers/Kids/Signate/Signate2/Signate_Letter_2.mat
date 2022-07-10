@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Signate_Letter_2
   m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLEFLAME_ON _ENABLEPOISON_ON _ENABLESINEGLOW_ON
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLEBURN_ON _ENABLEFLAME_ON _ENABLESINEGLOW_ON
     _SHADERSPACE_UV _TIMESETTINGS_LINEAR_DEFAULT _UBERFADING_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -132,7 +132,7 @@ Material:
     - _BurnFade: 1
     - _BurnInsideContrast: 2
     - _BurnInsideNoiseFactor: 0.05
-    - _BurnRadius: 5
+    - _BurnRadius: 3.77
     - _BurnSwirlFactor: 1
     - _BurnWidth: 0.1
     - _CamouflageAnimated: 0
@@ -179,7 +179,7 @@ Material:
     - _EnableAlphaTint: 0
     - _EnableBlackTint: 0
     - _EnableBrightness: 0
-    - _EnableBurn: 0
+    - _EnableBurn: 1
     - _EnableCamouflage: 0
     - _EnableCheckerboard: 0
     - _EnableColorReplace: 0
@@ -202,7 +202,7 @@ Material:
     - _EnableMetal: 0
     - _EnableOuterOutline: 0
     - _EnablePixelate: 0
-    - _EnablePoison: 1
+    - _EnablePoison: 0
     - _EnableRainbow: 0
     - _EnableRecolor: 0
     - _EnableSaturation: 0
@@ -224,7 +224,7 @@ Material:
     - _EnableUVScroll: 0
     - _EnableVibrate: 0
     - _EnableWind: 0
-    - _FlameBrightness: 0.36
+    - _FlameBrightness: 0
     - _FlameNoiseFactor: 2.11
     - _FlameNoiseHeightFactor: 2.48
     - _FlameRadius: 0.31
@@ -456,7 +456,7 @@ Material:
     - _OuterOutlineDistortionIntensity: {r: 0.01, g: 0.01, b: 0, a: 0}
     - _OuterOutlineNoiseScale: {r: 4, g: 4, b: 0, a: 0}
     - _OuterOutlineNoiseSpeed: {r: 0, g: 0.1, b: 0, a: 0}
-    - _PoisonColor: {r: 3.9999998, g: 0.9312766, b: 0, a: 0}
+    - _PoisonColor: {r: 0.0007314645, g: 0.0006318934, b: 0, a: 0}
     - _PoisonNoiseScale: {r: 0.2, g: 0.2, b: 0, a: 0}
     - _PoisonNoiseSpeed: {r: 0, g: -0.2, b: 0, a: 0}
     - _RainbowCenter: {r: 0, g: 0, b: 0, a: 0}
@@ -468,7 +468,7 @@ Material:
     - _RecolorRedTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _RecolorYellowTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _ShineColor: {r: 11.98431, g: 11.98431, b: 11.98431, a: 0}
-    - _SineGlowColor: {r: 6.3225985, g: 0.9841781, b: 0.9841781, a: 0}
+    - _SineGlowColor: {r: 0.9930783, g: 6.322598, b: 5.253573, a: 0}
     - _SineMoveFrequency: {r: 1, g: 1, b: 0, a: 0}
     - _SineMoveOffset: {r: 0, g: 0.5, b: 0, a: 0}
     - _SineRotatePivot: {r: 0.5, g: 0.5, b: 0, a: 0}

@@ -16,6 +16,9 @@ public class TestManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.H)) 
+        {
+            FindObjectOfType<KidAvatarSelector>().SetAvatarAccessoryItem(AvatarArrayEnum.Hats, FindObjectOfType<KidAvatarSelector>().GetActiveAvatarInfo()[AvatarArrayEnum.Hats.GetHashCode()+1]);
+        }
     }
 }

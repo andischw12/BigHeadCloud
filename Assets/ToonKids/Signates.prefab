@@ -225,22 +225,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3221969647038633381}
     m_Modifications:
-    - target: {fileID: 1018092742903737530, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2271920115646734465, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 3642682882790838097, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 6192202427623858987, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 7736344046521500460, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -288,10 +272,6 @@ PrefabInstance:
     - target: {fileID: 7736344046521500461, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
       propertyPath: m_Name
       value: Signate_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7736344046521500461, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7736344046521500461, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
       propertyPath: m_IsActive
@@ -511,6 +491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Signate8
       objectReference: {fileID: 0}
+    - target: {fileID: 4291886790958823886, guid: 188936e7cee433f4aab34911a85018a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4291886790958823887, guid: 188936e7cee433f4aab34911a85018a5, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -554,6 +538,14 @@ PrefabInstance:
     - target: {fileID: 4291886790958823887, guid: 188936e7cee433f4aab34911a85018a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5716652225634622050, guid: 188936e7cee433f4aab34911a85018a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359720497538803194, guid: 188936e7cee433f4aab34911a85018a5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188936e7cee433f4aab34911a85018a5, type: 3}

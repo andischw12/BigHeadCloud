@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SignateBackMat1
+  m_Name: Signate2Mat
   m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLESINEGLOW_ON _SHADERSPACE_UV _TIMESETTINGS_LINEAR_DEFAULT
-    _UBERFADING_NONE
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA _ENABLEMETAL_ON _ENABLESINEGLOW_ON _SHADERSPACE_UV
+    _TIMESETTINGS_LINEAR_DEFAULT _UBERFADING_NONE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -199,7 +199,7 @@ Material:
     - _EnableHue: 0
     - _EnableInkSpread: 0
     - _EnableInnerOutline: 0
-    - _EnableMetal: 0
+    - _EnableMetal: 1
     - _EnableOuterOutline: 0
     - _EnablePixelate: 0
     - _EnablePoison: 0
@@ -273,7 +273,7 @@ Material:
     - _InnerOutlineWidth: 10.97
     - _IsText: 0
     - _MetalContrast: 2
-    - _MetalFade: 1
+    - _MetalFade: 0.304
     - _MetalHighlightContrast: 2
     - _MetalHighlightDensity: 1
     - _Metallic: 1
@@ -315,7 +315,7 @@ Material:
     - _ShineSpeed: 2.49
     - _ShineWidth: 0.09
     - _SineGlowContrast: 1
-    - _SineGlowFade: 0.048
+    - _SineGlowFade: 0.099
     - _SineGlowFrequency: 4
     - _SineGlowMax: 1
     - _SineGlowMin: 0
@@ -468,7 +468,7 @@ Material:
     - _RecolorRedTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _RecolorYellowTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _ShineColor: {r: 15.999997, g: 15.169808, b: 15.169808, a: 0}
-    - _SineGlowColor: {r: 0, g: 7.129739, b: 6.0114436, a: 0}
+    - _SineGlowColor: {r: 9.51876, g: 2.997348, b: 0, a: 0}
     - _SineMoveFrequency: {r: 1, g: 1, b: 0, a: 0}
     - _SineMoveOffset: {r: 0, g: 0.5, b: 0, a: 0}
     - _SineRotatePivot: {r: 0.5, g: 0.5, b: 0, a: 0}
