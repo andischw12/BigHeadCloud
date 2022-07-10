@@ -16,19 +16,20 @@ public class TestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int arr = 0;
+        AvatarPrefab.GetComponent<KidAvatarSelector>().PreperePrefabArr();
+        int arr = AvatarPrefab.GetComponent<KidAvatarSelector>().PrefabArr.Length;
         //AvatarPrefab.GetComponent<KidAvatarSelector>().PreperePrefabArr();
-        do { arr = AvatarPrefab.GetComponent<KidAvatarSelector>().PrefabArr.Length; } while (arr==0);
+    
        
         AvatarInstance = new GameObject[arr];
-        AvatarInstance[0] = FindObjectOfType<KidAvatarSelector>().gameObject;
-        AvatarInstance[0].GetComponent<KidAvatarSelector>().PreperePrefabArr();
+        AvatarInstance[0] = AvatarPrefab;
+     
         AvatarInstance[0].GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(0);
 
         for (int i =1;i<arr;i++)
         {
             AvatarInstance[i] = Instantiate(AvatarPrefab,instance0.position + i*Vector3.left,Quaternion.identity);
-            AvatarInstance[i].GetComponent<KidAvatarSelector>().PreperePrefabArr();
+         //   AvatarInstance[i].GetComponent<KidAvatarSelector>().PreperePrefabArr();
           AvatarInstance[i].GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(i);
 
           //  AvatarInstance[i].GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.Glasses, 0, 0);
