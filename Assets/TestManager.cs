@@ -16,13 +16,16 @@ public class TestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int arr = 0;
         //AvatarPrefab.GetComponent<KidAvatarSelector>().PreperePrefabArr();
-
-        int arr  = AvatarPrefab.GetComponent<KidAvatarSelector>().PrefabArr.Length;
+        do { arr = AvatarPrefab.GetComponent<KidAvatarSelector>().PrefabArr.Length; } while (arr==0);
+       
         AvatarInstance = new GameObject[arr];
+        AvatarInstance[0] = FindObjectOfType<KidAvatarSelector>().gameObject;
+        AvatarInstance[0].GetComponent<KidAvatarSelector>().PreperePrefabArr();
+        AvatarInstance[0].GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(0);
 
-
-        for (int i =0;i<arr;i++)
+        for (int i =1;i<arr;i++)
         {
             AvatarInstance[i] = Instantiate(AvatarPrefab,instance0.position + i*Vector3.left,Quaternion.identity);
             AvatarInstance[i].GetComponent<KidAvatarSelector>().PreperePrefabArr();
@@ -40,14 +43,20 @@ public class TestManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.H)) 
         {
-            Hatcounter++;
+          
+            if (Hatcounter == AvatarPrefab.GetComponent<KidAvatarSelector>().AccesoriesArr[0].transform.childCount)
+                Hatcounter = 0;
+               
             SetHats();
+            Hatcounter++;
         }
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-           Glassescounter++;
+            if (Glassescounter == AvatarPrefab.GetComponent<KidAvatarSelector>().AccesoriesArr[1].transform.childCount)
+                Glassescounter = 0;
             SetGlasses();
+            Glassescounter++;
         }
 
     }

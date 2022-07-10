@@ -10,7 +10,7 @@ public class KidAvatarSelector : MonoBehaviour
     [SerializeField]   KidAvatarManager ActiveAvatar;
     [SerializeField] int[] currentSelection;
     [SerializeField] Camera RawImageCam;
-    [SerializeField] GameObject[] AccesoriesArr = new GameObject[3];
+    [SerializeField]public  GameObject[] AccesoriesArr = new GameObject[3];
 
 
  
