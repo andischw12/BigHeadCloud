@@ -114,7 +114,7 @@ public class LoginScreenManager : MonoBehaviour
 
     public void OnCreatePlayerClick() 
     {
-        FamilyManager.instance.CreateNewKidUser(newName, FindObjectOfType<KidAvatarSelector>().SelectAvatarByPrefab(FindObjectOfType<LoginMenuAvatarSelectManager>().current));
+     FamilyManager.instance.CreateNewKidUser(newName, FindObjectOfType<KidAvatarSelector>().SelectAvatarByPrefab(FindObjectOfType<LoginMenuAvatarSelectManager>().current));
 
        
         ShowActiveKidsButtons();

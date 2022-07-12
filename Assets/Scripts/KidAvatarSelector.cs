@@ -10,16 +10,20 @@ public class KidAvatarSelector : MonoBehaviour
     [SerializeField]   KidAvatarManager ActiveAvatar;
     [SerializeField] int[] currentSelection;
     [SerializeField] Camera RawImageCam;
-    [SerializeField]public  GameObject[] AccesoriesArr = new GameObject[3];
+    [SerializeField]public  GameObject[] AccesoriesArr = new GameObject[4];
 
 
- 
-    
+
+
+
     public void SetAccesories() 
     {
         for(int i= 0;i< PrefabArr.Length; i++) 
         {
-            PrefabArr[i].GetComponent<KidAvatarManager>().SetAcceories(AccesoriesArr[0], AccesoriesArr[1], AccesoriesArr[2]);
+            if(PrefabArr[i].GetComponentInChildren<Avater_ClothesAndSkeenMaker>().GetType()  == typeof( BoyTTPrefabMaker))
+                PrefabArr[i].GetComponent<KidAvatarManager>().SetAcceories(AccesoriesArr[0], AccesoriesArr[2], AccesoriesArr[3]);
+            else if(PrefabArr[i].GetComponent<Avater_ClothesAndSkeenMaker>().GetType() == typeof(GirlTTPrefabMaker))
+                PrefabArr[i].GetComponent<KidAvatarManager>().SetAcceories(AccesoriesArr[1], AccesoriesArr[2], AccesoriesArr[3]);
         }
     }
 
@@ -64,6 +68,7 @@ public class KidAvatarSelector : MonoBehaviour
         SelectAvatarPrafab(arr[10]);
         SetSignOn();
         Instantiate(RawImageCam,ActiveAvatar.HatsPrefab.transform.parent);
+        print(arr[0]);
         ActiveAvatar.SetAvatarAccessoryItem(AvatarArrayEnum.Hats, arr[0]);
         ActiveAvatar.SetAvatarAccessoryItem(AvatarArrayEnum.Glasses, arr[1]);
         ActiveAvatar.SetAvatarAccessoryItem(AvatarArrayEnum.Signates, arr[2]);
