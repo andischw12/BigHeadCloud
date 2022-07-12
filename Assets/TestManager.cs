@@ -54,7 +54,7 @@ public class TestManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            if (Glassescounter == AvatarPrefab.GetComponent<KidAvatarSelector>().AccesoriesArr[1].transform.childCount)
+            if (Glassescounter == AvatarPrefab.GetComponent<KidAvatarSelector>().AccesoriesArr[2].transform.childCount)
                 Glassescounter = 0;
             SetGlasses();
             Glassescounter++;

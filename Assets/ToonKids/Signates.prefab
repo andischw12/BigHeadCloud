@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7736344046521500461, guid: 38c642720239aef44bec6812a954644f, type: 3}
       propertyPath: m_Name
-      value: 'Signate7 '
+      value: Signate7 _noUse
       objectReference: {fileID: 0}
     - target: {fileID: 7736344046521500461, guid: 38c642720239aef44bec6812a954644f, type: 3}
       propertyPath: m_IsActive
@@ -227,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7736344046521500461, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9fe6a7f3179d0942acd369e9ff878ef, type: 3}
@@ -417,7 +417,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4291886790958823886, guid: 188936e7cee433f4aab34911a85018a5, type: 3}
       propertyPath: m_Name
-      value: Signate8
+      value: Signate8_NOUse
       objectReference: {fileID: 0}
     - target: {fileID: 4291886790958823886, guid: 188936e7cee433f4aab34911a85018a5, type: 3}
       propertyPath: m_IsActive
