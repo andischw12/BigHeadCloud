@@ -19,6 +19,8 @@ namespace AvatarStuff
         [SerializeField] int[] _avatarDress = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
         [SerializeField] Avater_ClothesAndSkeenMaker myKidPrefabMaker;
         int CurrentSignate;
+
+       
         /// <summary>
         /// This Methods Should be used only by the KidAvatarSelector script;
         /// </summary>
@@ -41,6 +43,7 @@ namespace AvatarStuff
 
         public void SetAcceories(GameObject HatsPrefabIn,GameObject GlassesPrefabIn, GameObject SignatePrefabIn) 
         {
+            
            HatsPrefab = Instantiate( HatsPrefabIn,transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT Neck/TT Head")); 
            GlassesPrefab=  Instantiate(GlassesPrefabIn,transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT Neck/TT Head")); 
            SignatePrefab = Instantiate(SignatePrefabIn, transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT L Clavicle/TT L UpperArm/TT L Forearm/TT L Hand")); 

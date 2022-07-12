@@ -35,7 +35,7 @@ public class KidAvatarSelector : MonoBehaviour
     }
 
     public void PreperePrefabArr() 
-    {
+    {   if (prefabarr) return;
         KidAvatarManager[] tmpArr = GetComponentsInChildren<KidAvatarManager>();
         PrefabArr = new GameObject[tmpArr.Length];
         for (int i = 0; i < PrefabArr.Length; i++)
@@ -43,6 +43,7 @@ public class KidAvatarSelector : MonoBehaviour
             PrefabArr[i] = tmpArr[i].gameObject;
         }
         SetAccesories();
+        prefabarr = true;
     }
 
 
@@ -88,8 +89,7 @@ public class KidAvatarSelector : MonoBehaviour
      
     public int[] GetActiveAvatarInfo()
     {
-        while (!ActiveAvatar.AmIready()) { }
-        int[] toReturn = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
+         int[] toReturn = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
         toReturn[AvatarArrayEnum.Hats.GetHashCode()] = ActiveAvatar.GetAvatrItem(AvatarArrayEnum.Hats);
         toReturn[AvatarArrayEnum.Glasses.GetHashCode()] = ActiveAvatar.GetAvatrItem(AvatarArrayEnum.Glasses);
         toReturn[AvatarArrayEnum.Signates.GetHashCode()] = ActiveAvatar.GetAvatrItem(AvatarArrayEnum.Signates);
@@ -103,6 +103,9 @@ public class KidAvatarSelector : MonoBehaviour
         toReturn[AvatarArrayEnum.AvatarPrefab.GetHashCode()] = GetActivePrefabNum();
         return toReturn;
     }
+
+
+
 
     public void SetAvatarAccessoryItem(AvatarArrayEnum item, int num)
     {
@@ -145,11 +148,14 @@ public class KidAvatarSelector : MonoBehaviour
     {
         
         GameObject tmp = Instantiate(this.gameObject);
-        tmp.GetComponent<KidAvatarSelector>().SelectAvatarPrafab(bot.BotPrefab);
+        tmp.GetComponent<KidAvatarSelector>().PreperePrefabArr();
+       tmp.GetComponent<KidAvatarSelector>().SelectAvatarPrafab(bot.BotPrefab);
         int[] toReturn = tmp.GetComponent<KidAvatarSelector>().GetActiveAvatarInfo();
-        toReturn[AvatarArrayEnum.Hats.GetHashCode()] = Math.Min(tmp.GetComponent<KidAvatarSelector>().GetComponentInChildren<KidAvatarManager>().Hats.Length-3,bot.BotPrefab +1);
-        toReturn[AvatarArrayEnum.Glasses.GetHashCode()] = Math.Min(tmp.GetComponent<KidAvatarSelector>().GetComponentInChildren<KidAvatarManager>().Glasses.Length-1, bot.BotPrefab + 1);
-        toReturn[AvatarArrayEnum.Signates.GetHashCode()] = Math.Min(tmp.GetComponent<KidAvatarSelector>().GetComponentInChildren<KidAvatarManager>().Signates.Length-1,CalculateSignetForBot(bot.BotPoints()));
+        toReturn[AvatarArrayEnum.Hats.GetHashCode()] = UnityEngine.Random.Range(0, 16);
+         
+        toReturn[AvatarArrayEnum.Glasses.GetHashCode()] = UnityEngine.Random.Range(0, 12);
+     
+        toReturn[AvatarArrayEnum.Signates.GetHashCode()] = UnityEngine.Random.Range(0,4);
         Destroy(tmp.gameObject);
         
         return toReturn;

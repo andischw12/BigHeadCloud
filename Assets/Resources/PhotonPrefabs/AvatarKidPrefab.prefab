@@ -4777,7 +4777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5530679902841649278, guid: 5a468505d5b0ee54b85757887541894c, type: 3}
       propertyPath: allOptions
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530679902841649278, guid: 5a468505d5b0ee54b85757887541894c, type: 3}
       propertyPath: hoodactive
@@ -6186,7 +6186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5530679902841649278, guid: 5a468505d5b0ee54b85757887541894c, type: 3}
       propertyPath: allOptions
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530679902841649278, guid: 5a468505d5b0ee54b85757887541894c, type: 3}
       propertyPath: hoodactive
@@ -10665,7 +10665,7 @@ PrefabInstance:
       objectReference: {fileID: 7060998783114601131}
     - target: {fileID: 5530679902841649278, guid: 5a468505d5b0ee54b85757887541894c, type: 3}
       propertyPath: allOptions
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530679902841649278, guid: 5a468505d5b0ee54b85757887541894c, type: 3}
       propertyPath: hoodactive
@@ -11865,6 +11865,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 81315577cdd4d8a4686834b127bb48f6, type: 2}
+    - target: {fileID: 4680203954981857423, guid: 4373d242c80e6f348845d3c79a7ad3fc, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4867877756043845907, guid: 4373d242c80e6f348845d3c79a7ad3fc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -353,7 +353,8 @@ public class GameManager : MonoBehaviour
         thisComputerPlayer.myhelperManager.MakeAllHelpersNotActive();
         UIManager.instance.CloseAllPanels();
         Cameras.instance.SelectCamera(2);
-        host.GetComponentInChildren<Animator>().SetBool("Dancing", false);// currentli this is the only option/ need to switch to somthing better
+        host.GetComponentInChildren<Animator>().SetBool("Dancing", false);// currentli this is the only option/
+                                                                          // switch to somthing better
         UIManager.instance.ShowMassageToUser("בזע ינשה דדומתמה");
         yield return new WaitForSecondsRealtime(2f);
         UIManager.instance.CloseAllPanels();

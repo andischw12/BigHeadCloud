@@ -24,7 +24,7 @@ public class PhotonPlayerManager : MonoBehaviour
 // Start is called before the first frame update
     protected virtual void Start()
     {
-        Invoke("LateStart",0.1f);       
+        Invoke("LateStart",0.5f);       
     }
 
     protected virtual void LateStart() 
@@ -36,7 +36,8 @@ public class PhotonPlayerManager : MonoBehaviour
     [PunRPC]protected void CreatePhotonPlayer(int[] AvatarArr,string name,int points,int botSmartness) //overloading bots
     {
         GameObject temp = Instantiate(Avatar,transform);
-        temp.GetComponent<KidAvatarSelector>().SetActiveAvatarLook(AvatarArr);
+        temp.GetComponent<KidAvatarSelector>().PreperePrefabArr();
+       temp.GetComponent<KidAvatarSelector>().SetActiveAvatarLook(AvatarArr);
         temp.gameObject.AddComponent<Player>();
         myPlayerAvatar = temp.GetComponent<Player>();
         myPlayerAvatar.myPhotonPlayer = this;
