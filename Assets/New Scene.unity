@@ -784,12 +784,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isReady: 0
-  BigHeadGlasses: {fileID: 0}
-  BigHeadHats: {fileID: 0}
-  BigHeadSignate: {fileID: 0}
-  GlassesTransform: {fileID: 0}
-  HatsTransform: {fileID: 0}
-  SignateTranform: {fileID: 0}
   allOptions: 0
   hoodactive: 0
   hoodon: 1

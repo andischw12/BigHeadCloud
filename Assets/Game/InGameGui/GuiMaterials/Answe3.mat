@@ -118,7 +118,7 @@ Material:
     - _AddColorFade: 1
     - _AddHueBrightness: 2
     - _AddHueContrast: 1
-    - _AddHueFade: 0.6
+    - _AddHueFade: 0
     - _AddHueSaturation: 1
     - _AddHueSpeed: 3
     - _AlphaTintFade: 1

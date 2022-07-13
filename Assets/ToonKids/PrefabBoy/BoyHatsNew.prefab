@@ -80,6 +80,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
     - target: {fileID: 1041892340556360, guid: 176c4a291ed82574991162a5a97e0230, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041892340556360, guid: 176c4a291ed82574991162a5a97e0230, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -226,6 +230,10 @@ PrefabInstance:
       value: Headphone
       objectReference: {fileID: 0}
     - target: {fileID: 4199206248746958721, guid: 653454a549e7bdb49b9b20894b70b9cf, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4199206248746958721, guid: 653454a549e7bdb49b9b20894b70b9cf, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -304,6 +312,10 @@ PrefabInstance:
       value: RopeHeadband
       objectReference: {fileID: 0}
     - target: {fileID: 3346980520740559918, guid: a83d7d82b41a5044398afe9cec318623, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3346980520740559918, guid: a83d7d82b41a5044398afe9cec318623, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -325,6 +337,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1442648421160508, guid: 40f2140e91f1dee49a10e68de8dc25e1, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1442648421160508, guid: 40f2140e91f1dee49a10e68de8dc25e1, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -408,6 +424,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
     - target: {fileID: 1542969397585910, guid: bf1b440eaa9f72a41a61c07fca560bac, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1542969397585910, guid: bf1b440eaa9f72a41a61c07fca560bac, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -489,6 +509,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1960849780758218, guid: 070576d913c46744eab590b67f8fd854, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1960849780758218, guid: 070576d913c46744eab590b67f8fd854, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -580,6 +604,10 @@ PrefabInstance:
       value: HiphopCap
       objectReference: {fileID: 0}
     - target: {fileID: 8129947610431091819, guid: d2151313fb1510e45943dbb84c68f312, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129947610431091819, guid: d2151313fb1510e45943dbb84c68f312, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -653,6 +681,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1463848422818510, guid: 4945b1c76f9ccd943a75033c4ca65f96, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1463848422818510, guid: 4945b1c76f9ccd943a75033c4ca65f96, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -742,6 +774,10 @@ PrefabInstance:
     - target: {fileID: 6330526851056172347, guid: 73f06936516b34f4b906780bbf53596f, type: 3}
       propertyPath: m_Name
       value: BeanieHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330526851056172347, guid: 73f06936516b34f4b906780bbf53596f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6330526851056172347, guid: 73f06936516b34f4b906780bbf53596f, type: 3}
       propertyPath: m_IsActive
@@ -882,6 +918,10 @@ PrefabInstance:
       value: WhiteCowboyHat
       objectReference: {fileID: 0}
     - target: {fileID: 8850090983011455933, guid: 07431f90dcf7d664aa806e665dbd19ce, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8850090983011455933, guid: 07431f90dcf7d664aa806e665dbd19ce, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -899,6 +939,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1785208018599354, guid: 768bb7701625b6641a8aed315fd19e40, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1785208018599354, guid: 768bb7701625b6641a8aed315fd19e40, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1042,6 +1086,10 @@ PrefabInstance:
       value: ChefHat
       objectReference: {fileID: 0}
     - target: {fileID: 754318201680381329, guid: 4ed22fa3991736f4dbbd428f7b91af5a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 754318201680381329, guid: 4ed22fa3991736f4dbbd428f7b91af5a, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1066,6 +1114,10 @@ PrefabInstance:
     - target: {fileID: 504297810418727383, guid: 39389c5316dd78f4c98b9a86dd505b21, type: 3}
       propertyPath: m_Name
       value: ElfHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 504297810418727383, guid: 39389c5316dd78f4c98b9a86dd505b21, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 504297810418727383, guid: 39389c5316dd78f4c98b9a86dd505b21, type: 3}
       propertyPath: m_IsActive
@@ -1145,6 +1197,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1504224023276882, guid: 45c891e07ab0e4242b3667d49db95d74, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1504224023276882, guid: 45c891e07ab0e4242b3667d49db95d74, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1227,6 +1283,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1141927688560930, guid: eff9ee6af591c8149b1bdd6b19c1447e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1141927688560930, guid: eff9ee6af591c8149b1bdd6b19c1447e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1374,6 +1434,10 @@ PrefabInstance:
       value: CatHeadband
       objectReference: {fileID: 0}
     - target: {fileID: 1937164120082568810, guid: 09e6c2286c78c1c4eb0b626aae9d6a38, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1937164120082568810, guid: 09e6c2286c78c1c4eb0b626aae9d6a38, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1391,6 +1455,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1423794761902650, guid: bb8b0a58d1e71dc4c985bc7b552dbb3e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1423794761902650, guid: bb8b0a58d1e71dc4c985bc7b552dbb3e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1473,6 +1541,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1008581606706940, guid: 88b1a1392db1d9d4599981e32b02b500, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1008581606706940, guid: 88b1a1392db1d9d4599981e32b02b500, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1620,6 +1692,10 @@ PrefabInstance:
       value: BearHat
       objectReference: {fileID: 0}
     - target: {fileID: 2211716749977466352, guid: df1218d4e9b048c4d86636fcda2ff43c, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2211716749977466352, guid: df1218d4e9b048c4d86636fcda2ff43c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1637,6 +1713,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1870438890438154, guid: ea1761cf9be70964a940c29f1ff12c7a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1870438890438154, guid: ea1761cf9be70964a940c29f1ff12c7a, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1720,6 +1800,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
     - target: {fileID: 1440530998681410, guid: 375bb26fecf4e5142bcfed660a25a4b8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440530998681410, guid: 375bb26fecf4e5142bcfed660a25a4b8, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1801,6 +1885,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1800744481864018, guid: 3babb92688c529541b734df00b4aa3c5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1800744481864018, guid: 3babb92688c529541b734df00b4aa3c5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1884,6 +1972,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
     - target: {fileID: 1894334770968836, guid: 8c4fa00772b039547a379dfedd98d203, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1894334770968836, guid: 8c4fa00772b039547a379dfedd98d203, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1966,6 +2058,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
     - target: {fileID: 1457385988346012, guid: 96bd15188e7dbf347bacdb5304d31505, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457385988346012, guid: 96bd15188e7dbf347bacdb5304d31505, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2047,6 +2143,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1552406955536368, guid: ad9790550de92e746a363dc11cb3e61e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1552406955536368, guid: ad9790550de92e746a363dc11cb3e61e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2132,6 +2232,10 @@ PrefabInstance:
     - target: {fileID: 7003484983590580585, guid: df55ab76d60f0c84cb4ea3d63a73e338, type: 3}
       propertyPath: m_Name
       value: KungfuHeadband
+      objectReference: {fileID: 0}
+    - target: {fileID: 7003484983590580585, guid: df55ab76d60f0c84cb4ea3d63a73e338, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7003484983590580585, guid: df55ab76d60f0c84cb4ea3d63a73e338, type: 3}
       propertyPath: m_IsActive
@@ -2220,6 +2324,10 @@ PrefabInstance:
       value: BretonHat
       objectReference: {fileID: 0}
     - target: {fileID: 6130138859001626773, guid: 626aee3e53d8a484b98155b84bfa7d05, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130138859001626773, guid: 626aee3e53d8a484b98155b84bfa7d05, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2293,6 +2401,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1470449355352788, guid: 8a765f2a12804954e9dd2601f48f2669, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1470449355352788, guid: 8a765f2a12804954e9dd2601f48f2669, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2378,6 +2490,10 @@ PrefabInstance:
     - target: {fileID: 2310312899232039606, guid: 16552585f397a5146905b9d4740cf2b0, type: 3}
       propertyPath: m_Name
       value: SultanHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310312899232039606, guid: 16552585f397a5146905b9d4740cf2b0, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2310312899232039606, guid: 16552585f397a5146905b9d4740cf2b0, type: 3}
       propertyPath: m_IsActive
@@ -2518,6 +2634,10 @@ PrefabInstance:
       value: WatermelonHelmet
       objectReference: {fileID: 0}
     - target: {fileID: 5665668650344598771, guid: d86262ffd3383b24d9d82c8f9f0add0e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665668650344598771, guid: d86262ffd3383b24d9d82c8f9f0add0e, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2539,6 +2659,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1652815775880856, guid: cfbdf4cb9d9cfe844b0154b9499afe93, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1652815775880856, guid: cfbdf4cb9d9cfe844b0154b9499afe93, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2622,6 +2746,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
     - target: {fileID: 1137577923330998, guid: a9799bf75948c5643b869fada79258a5, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137577923330998, guid: a9799bf75948c5643b869fada79258a5, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -2703,6 +2831,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1061421422174040, guid: cbad1e53a2de2e3418284f1d34f5afea, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1061421422174040, guid: cbad1e53a2de2e3418284f1d34f5afea, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2792,6 +2924,10 @@ PrefabInstance:
     - target: {fileID: 3621516201018215703, guid: 94e22a9403318a040a8b27ed769a9ff5, type: 3}
       propertyPath: m_Name
       value: SkateboardHelmet
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621516201018215703, guid: 94e22a9403318a040a8b27ed769a9ff5, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3621516201018215703, guid: 94e22a9403318a040a8b27ed769a9ff5, type: 3}
       propertyPath: m_IsActive
@@ -2932,6 +3068,10 @@ PrefabInstance:
       value: JudgeWig
       objectReference: {fileID: 0}
     - target: {fileID: 8931234380064083901, guid: 36b63b768c2209d40b05b2d6fd3a7266, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8931234380064083901, guid: 36b63b768c2209d40b05b2d6fd3a7266, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3008,6 +3148,10 @@ PrefabInstance:
     - target: {fileID: 3116555286807920974, guid: aba45d36be7eab74c86d824786baf49e, type: 3}
       propertyPath: m_Name
       value: FrogHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116555286807920974, guid: aba45d36be7eab74c86d824786baf49e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3116555286807920974, guid: aba45d36be7eab74c86d824786baf49e, type: 3}
       propertyPath: m_IsActive
@@ -3096,6 +3240,10 @@ PrefabInstance:
       value: FedoraHat
       objectReference: {fileID: 0}
     - target: {fileID: 2048119156581331325, guid: 91c11b0e4a6756f4bb4f03759f0b2b49, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048119156581331325, guid: 91c11b0e4a6756f4bb4f03759f0b2b49, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3113,6 +3261,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1760294339278588, guid: bef32c889e302ca49aa812313880ff98, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1760294339278588, guid: bef32c889e302ca49aa812313880ff98, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3195,6 +3347,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1642300735398296, guid: fb2ea35e97ad43d4494fdae9cfe1d188, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1642300735398296, guid: fb2ea35e97ad43d4494fdae9cfe1d188, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3344,6 +3500,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
     - target: {fileID: 1605444529902268, guid: 7b608b24428f55c4590548933913b2ee, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1605444529902268, guid: 7b608b24428f55c4590548933913b2ee, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -3425,6 +3585,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8540086933756803989}
     m_Modifications:
+    - target: {fileID: 1392426088729238, guid: 282c2b970e91587469b7dce41162188a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1392426088729238, guid: 282c2b970e91587469b7dce41162188a, type: 3}
       propertyPath: m_IsActive
       value: 0

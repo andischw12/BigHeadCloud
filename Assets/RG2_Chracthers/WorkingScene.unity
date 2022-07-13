@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 1005518224}
   - component: {fileID: 1005518223}
   - component: {fileID: 1005518222}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -751,7 +751,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 16
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -770,13 +770,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005518221}
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.028, y: 1.116, z: 4.545}
+  m_LocalRotation: {x: -0, y: -0.9931874, z: -0, w: 0.11652795}
+  m_LocalPosition: {x: 0.192, y: 1.242, z: 0.817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -166.616, z: 0}
 --- !u!137 &1013574131 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2831095405702651279, guid: e968e6eee8c4ce248a859b69b47f98bd, type: 3}
@@ -1488,6 +1488,10 @@ PrefabInstance:
     - target: {fileID: 2155893987807552585, guid: 9118161dfa026cd43981f3c725268fe5, type: 3}
       propertyPath: m_Name
       value: AvatarKidPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4203023467871616097, guid: 9118161dfa026cd43981f3c725268fe5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9118161dfa026cd43981f3c725268fe5, type: 3}
