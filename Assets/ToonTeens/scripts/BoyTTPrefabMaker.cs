@@ -8,9 +8,9 @@ public class BoyTTPrefabMaker : Avater_ClothesAndSkeenMaker
 {
     public bool allOptions;
     int hair;
-    int chest;
-    int legs;
-    int feet;
+   public  int chest;
+    public int legs;
+    public int feet;
     int tie;
     int jacket;
     int skintone;
@@ -652,7 +652,10 @@ public class BoyTTPrefabMaker : Avater_ClothesAndSkeenMaker
         DestroyImmediate(gameObject);
     }
 
-
+    public override void JacketOff()
+    {
+        GOjacket.SetActive(false);
+    }
     int ChangeMaterial(GameObject GO, Object[] MAT, int todo)
     {
         bool found = false;

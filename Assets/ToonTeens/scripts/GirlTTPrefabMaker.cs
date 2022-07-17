@@ -393,6 +393,12 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
         GOjacket.SetActive(jacketactive);
     }
     
+
+    public override void JacketOff() 
+    {
+        GOjacket.SetActive(false); 
+    }
+
     //models
     public void Nexthat()
     {

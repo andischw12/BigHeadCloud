@@ -490,6 +490,8 @@ public class GirlTKPrefabMaker : Avater_ClothesAndSkeenMaker
         for (int forAUX = 0; forAUX < (Random.Range(0, 4)); forAUX++) Nextskincolor(0);
         
     }
+
+    public override void JacketOff() { }
     public void CreateCopy()
     {
         GameObject newcharacter = Instantiate(gameObject, transform.position, transform.rotation);

@@ -104,7 +104,10 @@ public class KidAvatarSelector : MonoBehaviour
         return toReturn;
     }
 
-
+    public void SetJacketOff() 
+    {
+        ActiveAvatar.GetComponent<Avater_ClothesAndSkeenMaker>().JacketOff();
+    }
 
 
     public void SetAvatarAccessoryItem(AvatarArrayEnum item, int num)

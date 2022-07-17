@@ -69,7 +69,7 @@ public class LoginScreenManager : MonoBehaviour
         AvatarPlayerChoosingInstance = Instantiate(AvatarPrefab, AvatarPlayerChoosingTransform);
         AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().PreperePrefabArr();
         //AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(FamilyManager.instance._kidsUserArr[i].UserAvatarArr[AvatarArrayEnum.AvatarPrefab.GetHashCode()]);
-
+        ChangeAvatarChoosinginstancewithCorrectClothes();
 
 
         ShowActiveKidsButtons();
@@ -79,7 +79,29 @@ public class LoginScreenManager : MonoBehaviour
 
 
 
+   void ChangeAvatarChoosinginstancewithCorrectClothes()
+    {
+        for (int i = 0; i < AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().PrefabArr.Length; i++)
+        {
+            AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(i);
+            AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetJacketOff();
+            if (i < 17)
+            {
+                 
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.ChestGM, 6, 1);
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.LegsGm, 2, 1);
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.FeetGM, 1, 1);
+            }
+            else
+            {
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.ChestGM, 8, 1);
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.LegsGm, 10, 1);
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.FeetGM, 1, 1);
+            }
 
+
+        }
+    }
 
 
     public void ShowActiveKidsButtons( ) 

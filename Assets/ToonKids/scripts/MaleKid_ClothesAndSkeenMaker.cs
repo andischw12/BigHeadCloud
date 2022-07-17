@@ -19,7 +19,10 @@ public abstract class Avater_ClothesAndSkeenMaker : MonoBehaviour
     public abstract void Nextchestcolor(int todo);
     public abstract void Nextlegscolor(int todo);
     public abstract void Nextfeetcolor(int todo);
- 
+
+    public abstract void JacketOff();
+
+
 }
 
 [ExecuteInEditMode]
@@ -70,7 +73,8 @@ public class MaleKid_ClothesAndSkeenMaker : Avater_ClothesAndSkeenMaker
 
     // ------------------------------------
 
- 
+
+    public override void JacketOff() { }
 
     public override void SetSpecificChest(int gm, int mat)
     {
