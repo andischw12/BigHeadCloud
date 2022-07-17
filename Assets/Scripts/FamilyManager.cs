@@ -31,7 +31,7 @@ public class KidUser
     public string UserName;
     public int[] UserGeneralInfoArr = new int[Enum.GetNames(typeof(UserArrayEnum)).Length];
     public int[] UserAvatarArr = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
-    public int[,] UserStoreMatrix = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length,100];
+    public int[,] UserStoreMatrix = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length,1000];
     /*
     public int shabbatPoints;
     public int hanukkaPoints;
@@ -198,6 +198,7 @@ public class FamilyManager : MonoBehaviour
     }
     public int GetStoreItemState(AvatarArrayEnum item, int collum)
     {
+        
         return ActiveKid.UserStoreMatrix[item.GetHashCode(), collum];
     }
     public void SetStoreItemState(AvatarArrayEnum item, int collum, int Val)

@@ -77,26 +77,29 @@ public class LoginScreenManager : MonoBehaviour
 
     }
 
+    public  int GetFirstDigitLoop(int number)
+    {
+        return (number% 10);
+    }
 
-
-   void ChangeAvatarChoosinginstancewithCorrectClothes()
+    void ChangeAvatarChoosinginstancewithCorrectClothes()
     {
         for (int i = 0; i < AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().PrefabArr.Length; i++)
         {
             AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(i);
             AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetJacketOff();
-            if (i < 16)
+            if (i < 16)// if boys
             {
                  
-                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.ChestGM, 6, 1);
-                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.LegsGm, 2, 1);
-                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.FeetGM, 1, 1);
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.ChestGM, 6, GetFirstDigitLoop(i));
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.LegsGm, 2, GetFirstDigitLoop(i));
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.FeetGM, 1, GetFirstDigitLoop(i));
             }
             else
             {
-                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.ChestGM, 8, 1);
-                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.LegsGm, 10, 1);
-                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.FeetGM, 1, 1);
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.ChestGM, 8, GetFirstDigitLoop(i));
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.LegsGm, 10, GetFirstDigitLoop(i));
+                AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.FeetGM, 1, GetFirstDigitLoop(i));
             }
 
 
