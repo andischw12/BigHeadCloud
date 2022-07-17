@@ -85,7 +85,7 @@ public class LoginScreenManager : MonoBehaviour
         {
             AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SelectAvatarByPrefab(i);
             AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetJacketOff();
-            if (i < 17)
+            if (i < 16)
             {
                  
                 AvatarPlayerChoosingInstance.GetComponent<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.ChestGM, 6, 1);

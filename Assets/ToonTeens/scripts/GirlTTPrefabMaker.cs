@@ -16,9 +16,6 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
     int skintone;
  
 
-    [SerializeField] int chestMat;
-    [SerializeField] int legsMat;
-    [SerializeField] int feetMat;
     public bool legsactive;
     public bool hoodactive;
     public bool hoodon;
@@ -55,6 +52,9 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
     public Object[] MATHoods;
     Material headskin;
 
+    [SerializeField] int chestMat;
+    [SerializeField] int legsMat;
+    [SerializeField] int feetMat;
 
     void Start()
     {
@@ -66,22 +66,31 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
     
     public override void SetSpecificChest(int gm, int mat)
     {
+       
         Getready();
         //set GM
-
+        Nextchestcolor(0);
+        Nextchestcolor(1);
 
         for (int i = 0; i < 100; i++)
             if (gm == chest)
-                return;
+                break;
             else
                 Nextchest();
         //set mat
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++) 
+        {
             if (mat == chestMat)
-                return;
-            else
-                Nextchestcolor(0);
+                break;
+            else 
+            {
+                Nextchestcolor(1);
+                print("i am working");
+            }
+                
+        }
+            
         /*
         while (gm != chest)
             Nextchest();
@@ -94,18 +103,20 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
     public override void SetSpecificLegs(int gm, int mat)
     {
         Getready();
+        Nextlegscolor(0);
+        Nextlegscolor(1);
         //set GM
         // while (gm != legs)
         for (int i = 0; i < 100; i++)
             if (gm == legs)
-                return;
+                break;
             else
             Nextlegs();
         //set mat
 
         for (int i = 0; i < 100; i++)
             if (mat == legsMat)
-                return;
+                break;
             else
                 Nextlegscolor(0); 
         /*
@@ -116,8 +127,11 @@ public class GirlTTPrefabMaker : Avater_ClothesAndSkeenMaker
 
     public override void SetSpecificFeet(int gm, int mat)
     {
+
         //Getready();
         //set GM
+        Nextfeetcolor(0);
+        Nextfeetcolor(1);
         while (gm != feet)
             Nextfeet();
         //set mat

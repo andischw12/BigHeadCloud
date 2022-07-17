@@ -73,14 +73,14 @@ public class BoyTTPrefabMaker : Avater_ClothesAndSkeenMaker
 
         for (int i = 0; i < 100; i++)
             if (gm == chest)
-                return;
+                break;
             else
                 Nextchest();
         //set mat
 
         for (int i = 0; i < 100; i++)
             if (mat == chestMat)
-                return;
+                break;
             else
                 Nextchestcolor(0);
         /*
@@ -99,14 +99,14 @@ public class BoyTTPrefabMaker : Avater_ClothesAndSkeenMaker
         // while (gm != legs)
         for (int i = 0; i < 100; i++)
             if (gm == legs)
-                return;
+                break;
             else
                 Nextlegs();
         //set mat
 
         for (int i = 0; i < 100; i++)
             if (mat == legsMat)
-                return;
+                break;
             else
                 Nextlegscolor(0);
         /*
