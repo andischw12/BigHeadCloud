@@ -93,8 +93,8 @@ MonoBehaviour:
     deletionPromptShown: 0
     muteNoIgnoredScenesWarning: 0
     tabState:
-      selection: 01010101
-      compaction: 01010101
+      selection: 01
+      compaction: 01
       scrollPosition: {x: 0, y: 0}
     sortingType: 3
     sortingDirection: 0
