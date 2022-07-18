@@ -42,7 +42,7 @@ public class InventoryMenuManager : MonoBehaviour
 
     public void SetBoyOrGirl() 
     {
-        if (currentKid.GetActivePrefabNum() > 5) // if its a girl prefab
+        if (currentKid.GetActivePrefabNum() > 15) // if its a girl prefab
             foreach (GameObject GM in boyGM)
                 GM.SetActive(false);
         else

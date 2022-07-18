@@ -198,7 +198,7 @@ public class FamilyManager : MonoBehaviour
     }
     public int GetStoreItemState(AvatarArrayEnum item, int collum)
     {
-        
+       
         return ActiveKid.UserStoreMatrix[item.GetHashCode(), collum];
     }
     public void SetStoreItemState(AvatarArrayEnum item, int collum, int Val)
@@ -262,14 +262,17 @@ public class FamilyManager : MonoBehaviour
 #endif
 
         _kidsUserArr[i].SetInfoVal(UserArrayEnum.Points, ProfileManager.FIRST_RANK_POINTS);
-       //  _kidsUserArr[i].SetInfoVal(UserInfoList.Points, 80000);
-
-        _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.ChestGM.GetHashCode(), 5] = 1;
-        _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.FeetGM.GetHashCode(), 1] = 1;
-        _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.LegsGm.GetHashCode(), 0] = 1;
         _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.Signates.GetHashCode(), 0] = 1;
         _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.Hats.GetHashCode(), 0] = 1;
-        _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.Glasses.GetHashCode(), 0] = 1;
+        //  _kidsUserArr[i].SetInfoVal(UserInfoList.Points, 80000);
+        /*
+         _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.ChestGM.GetHashCode(), 5] = 1;
+         _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.FeetGM.GetHashCode(), 1] = 1;
+         _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.LegsGm.GetHashCode(), 0] = 1;
+         _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.Signates.GetHashCode(), 0] = 1;
+        
+         _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.Glasses.GetHashCode(), 0] = 1;
+        */
     }
     
     public void DeleteKidUser(int kidUserNum)
