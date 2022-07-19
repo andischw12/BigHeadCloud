@@ -16,8 +16,8 @@ public class TestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AvatarPrefab.GetComponent<KidAvatarSelector>().PreperePrefabArr();
-        int arr = AvatarPrefab.GetComponent<KidAvatarSelector>().PrefabArr.Length;
+         
+        int arr = AvatarPrefab.GetComponent<KidAvatarSelector>().AvatarsArray.Length;
         //AvatarPrefab.GetComponent<KidAvatarSelector>().PreperePrefabArr();
     
        
@@ -66,7 +66,7 @@ public class TestManager : MonoBehaviour
     {
         foreach (GameObject GM in AvatarInstance)
         {
-            GM.GetComponentInChildren<KidAvatarSelector>().SetAvatarAccessoryItem(AvatarArrayEnum.Hats, Hatcounter);
+            GM.GetComponentInChildren<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.Hats, Hatcounter);
 
         }
     }
@@ -76,7 +76,7 @@ public class TestManager : MonoBehaviour
     {
         foreach (GameObject GM in AvatarInstance)
         {
-            GM.GetComponentInChildren<KidAvatarSelector>().SetAvatarAccessoryItem(AvatarArrayEnum.Glasses, Glassescounter);
+            GM.GetComponentInChildren<KidAvatarSelector>().SetAvatarDressItem(AvatarArrayEnum.Glasses, Glassescounter);
 
         }
     }

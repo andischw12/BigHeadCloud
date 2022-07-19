@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEditor;
 
 
-[CustomEditor(typeof(BoyTTPrefabMaker))]
+[CustomEditor(typeof(AvatarManagerBoys))]
 
 public class EditorBoyTTPrefabMaker : Editor
 {
     public override void OnInspectorGUI()
     {
         base.DrawDefaultInspector();
-        BoyTTPrefabMaker myPrefabMaker = (BoyTTPrefabMaker)target;
+        AvatarManagerBoys myPrefabMaker = (AvatarManagerBoys)target;
 
         if (!myPrefabMaker.allOptions)
         {

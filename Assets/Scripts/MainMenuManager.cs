@@ -35,7 +35,7 @@ public class MainMenuManager : MonoBehaviour
         int[] currentAvatar = FamilyManager.instance.GetAvatarForActiveKid();
 
         Instantiate(AvatarPrefab, AvatarTransform);
-        FindObjectOfType<KidAvatarSelector>().PreperePrefabArr();
+         
 
         FindObjectOfType<KidAvatarSelector>().SetActiveAvatarLook(currentAvatar);
    

@@ -22,17 +22,17 @@ namespace ToonTeens
                 GameObject newcharacter = Instantiate(characters[coin], transform.position + (transform.right * Random.Range(-1f, 1f)), transform.rotation * Quaternion.Euler(Vector3.up * Random.Range(-deviation, deviation)));
                 if (coin < 4)
                 {
-                    newcharacter.GetComponent<GirlTTPrefabMaker>().Getready();
-                    newcharacter.GetComponent<GirlTTPrefabMaker>().Randomize();
+                    newcharacter.GetComponent<AvatarManagerGirls>().Getready();
+                    newcharacter.GetComponent<AvatarManagerGirls>().Randomize();
                     newcharacter.GetComponent<playanimation>().playtheanimation("TTG_walk2");
-                    newcharacter.GetComponent<GirlTTPrefabMaker>().FIX();
+                    newcharacter.GetComponent<AvatarManagerGirls>().FIX();
                 }
                 else
                 {
-                    newcharacter.GetComponent<BoyTTPrefabMaker>().Getready();
-                    newcharacter.GetComponent<BoyTTPrefabMaker>().Randomize();
+                    newcharacter.GetComponent<AvatarManagerBoys>().Getready();
+                    newcharacter.GetComponent<AvatarManagerBoys>().Randomize();
                     newcharacter.GetComponent<playanimation>().playtheanimation("TTB_walk2");
-                    newcharacter.GetComponent<BoyTTPrefabMaker>().FIX();
+                    newcharacter.GetComponent<AvatarManagerBoys>().FIX();
                 }
                 randomTime = Random.Range(1, 4);
                 timeCounter = 0f;

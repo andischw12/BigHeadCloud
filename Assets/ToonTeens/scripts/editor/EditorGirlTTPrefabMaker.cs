@@ -4,14 +4,14 @@ using UnityEngine;
 using UnityEditor;
 
 
-[CustomEditor(typeof(GirlTTPrefabMaker))]
+[CustomEditor(typeof(AvatarManagerGirls))]
 
 public class EditorGirlTTPrefabMaker : Editor
 {
     public override void OnInspectorGUI()
     {
         base.DrawDefaultInspector();
-        GirlTTPrefabMaker myPrefabMaker = (GirlTTPrefabMaker)target;
+        AvatarManagerGirls myPrefabMaker = (AvatarManagerGirls)target;
         if (!myPrefabMaker.allOptions)
         {
             if (GUILayout.Button("LET'S GET DRESS", GUILayout.Width(250), GUILayout.Height(75)))

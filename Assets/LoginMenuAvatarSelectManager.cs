@@ -13,7 +13,7 @@ public class LoginMenuAvatarSelectManager : MonoBehaviour
 
     private void Start()
     {// will be replaced:
-        endPrafab = FindObjectOfType<KidAvatarSelector>().PrefabArr.Length;
+        endPrafab = FindObjectOfType<KidAvatarSelector>().AvatarsArray.Length;
         startPrefab = 0;
         MenuAvatar = LoginScreenManager.instance.AvatarPlayerChoosingInstance.GetComponentInChildren<KidAvatarSelector>();
     }

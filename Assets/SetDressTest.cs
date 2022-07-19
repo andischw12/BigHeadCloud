@@ -6,7 +6,7 @@ public class SetDressTest : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] Avater_ClothesAndSkeenMaker MyTT;
+    [SerializeField] AvatarManager MyTT;
     void Start()
     {
        // MyTT.SetSpecificChest(1, 0);
