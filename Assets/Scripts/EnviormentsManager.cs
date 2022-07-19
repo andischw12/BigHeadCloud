@@ -27,13 +27,14 @@ public class EnviormentsManager : MonoBehaviour
                 break;
             }
         }
-        enviorments[chosen].SetActive(true);
+        enviorments[chosen].SetActive(false); // andy cancel env false instead of true
 
         
     }
 
     public int GetActiveEnv() 
-    { 
+    {
+        return -1;
         for(int i=0; i<enviorments.Length;i++)
         {
             if (enviorments[i].activeInHierarchy)
