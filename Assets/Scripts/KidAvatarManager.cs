@@ -27,53 +27,31 @@ namespace AvatarStuff
         private void Awake()
         {
             myKidPrefabMaker = GetComponent<Avater_ClothesAndSkeenMaker>();
-
-            myKidPrefabMaker.Getready();
-            SetGameObjectsArrays();
-
         }
 
-
-        private void Start()
+        public void SetAcceories(GameObject HatsPrefabIn, GameObject GlassesPrefabIn, GameObject SignatePrefabIn)
         {
-           
 
-            StartCoroutine(SetGameObjectsArrays());
-        }
+            HatsPrefab = Instantiate(HatsPrefabIn, transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT Neck/TT Head"));
+            GlassesPrefab = Instantiate(GlassesPrefabIn, transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT Neck/TT Head"));
+            SignatePrefab = Instantiate(SignatePrefabIn, transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT L Clavicle/TT L UpperArm/TT L Forearm/TT L Hand"));
 
-        public void SetAcceories(GameObject HatsPrefabIn,GameObject GlassesPrefabIn, GameObject SignatePrefabIn) 
-        {
-            
-           HatsPrefab = Instantiate( HatsPrefabIn,transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT Neck/TT Head")); 
-           GlassesPrefab=  Instantiate(GlassesPrefabIn,transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT Neck/TT Head")); 
-           SignatePrefab = Instantiate(SignatePrefabIn, transform.Find("ROOT/TT/TT Pelvis/TT Spine/TT Spine1/TT Spine2/TT L Clavicle/TT L UpperArm/TT L Forearm/TT L Hand")); 
-        }
-        IEnumerator SetGameObjectsArrays()
-        {
-            yield return new WaitUntil(() => HatsPrefab!=null);
             Glasses = new GameObject[GlassesPrefab.transform.childCount];
             for (int i = 0; i < Glasses.Length; i++)
                 Glasses[i] = GlassesPrefab.transform.GetChild(i).gameObject;
-            yield return new WaitUntil(() => SignatePrefab != null);
+
             Signates = new GameObject[SignatePrefab.transform.childCount];
             for (int i = 0; i < Signates.Length; i++)
                 Signates[i] = SignatePrefab.transform.GetChild(i).gameObject;
-           yield return new WaitUntil(() => HatsPrefab != null);
+
             Hats = new GameObject[HatsPrefab.transform.childCount];
             for (int i = 0; i < Hats.Length; i++)
                 Hats[i] = HatsPrefab.transform.GetChild(i).gameObject;
-            yield return null;
+
         }
 
         public void SetAvatarAccessoryItem(AvatarArrayEnum item, int num)
         {
-
-            StartCoroutine(SetAvatarAccessoryItemHelper(item, num));
-        }
-
-        IEnumerator SetAvatarAccessoryItemHelper(AvatarArrayEnum item, int num) 
-        {
-            yield return new WaitUntil(() => Hats.Length>0);
 
             if (item == AvatarArrayEnum.Hats)
             {
@@ -111,17 +89,12 @@ namespace AvatarStuff
 
         public int GetAvatrItem(AvatarArrayEnum item)
         {
-              //  while (!myKidPrefabMaker.isReady) { }
                 if (item == AvatarArrayEnum.Hats)
                     for (int i = 0; i < Hats.Length; i++) if (Hats[i].activeInHierarchy) return i;
                 if (item == AvatarArrayEnum.Glasses)
                     for (int i = 0; i < Glasses.Length; i++) if (Glasses[i].activeInHierarchy) return i;
-            if (item == AvatarArrayEnum.Signates)
+                 if (item == AvatarArrayEnum.Signates)
                 return CurrentSignate;
-               /*
-                if (item == AvatarInfoList.Capes)
-                    for (int i = 0; i < Capes.Length; i++) if (Capes[i].activeInHierarchy) return i;
-               */
                 if (item == AvatarArrayEnum.ChestGM)
                     return myKidPrefabMaker.GetSetSpecificChestGM();
                 if (item == AvatarArrayEnum.ChestMat)
@@ -137,11 +110,6 @@ namespace AvatarStuff
                 return -1;
         }
 
-        public bool AmIready() 
-        {
-            return true;
-            //return myKidPrefabMaker.isReady;
-        }
 
          
 

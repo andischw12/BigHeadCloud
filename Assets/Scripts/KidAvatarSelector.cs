@@ -22,7 +22,8 @@ public class KidAvatarSelector : MonoBehaviour
     {
         for(int i= 0;i< PrefabArr.Length; i++) 
         {
-            if(PrefabArr[i].GetComponentInChildren<Avater_ClothesAndSkeenMaker>().GetType()  == typeof( BoyTTPrefabMaker))
+            PrefabArr[i].GetComponentInChildren<Avater_ClothesAndSkeenMaker>().Getready();
+            if (PrefabArr[i].GetComponentInChildren<Avater_ClothesAndSkeenMaker>().GetType()  == typeof( BoyTTPrefabMaker))
                 PrefabArr[i].GetComponent<KidAvatarManager>().SetAcceories(AccesoriesArr[0], AccesoriesArr[2], AccesoriesArr[3]);
             else if(PrefabArr[i].GetComponent<Avater_ClothesAndSkeenMaker>().GetType() == typeof(GirlTTPrefabMaker))
                 PrefabArr[i].GetComponent<KidAvatarManager>().SetAcceories(AccesoriesArr[1], AccesoriesArr[2], AccesoriesArr[3]);
