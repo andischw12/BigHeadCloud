@@ -26,8 +26,16 @@ public class Cameras : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
         CameraArray = GetComponentsInChildren<CinemachineVirtualCamera>();
     }
+
     public void SelectRandomCamera(float time)
     {
 

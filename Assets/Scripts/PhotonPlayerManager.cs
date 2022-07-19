@@ -36,8 +36,8 @@ public class PhotonPlayerManager : MonoBehaviour
     [PunRPC]protected void CreatePhotonPlayer(int[] AvatarArr,string name,int points,int botSmartness) //overloading bots
     {
         GameObject temp = Instantiate(Avatar,transform);
-     
-       temp.GetComponent<KidAvatarSelector>().SetActiveAvatarLook(AvatarArr);
+        temp.transform.localScale *= 2.5f; // make player correct size in scene
+        temp.GetComponent<KidAvatarSelector>().SetActiveAvatarLook(AvatarArr);
         temp.gameObject.AddComponent<Player>();
         myPlayerAvatar = temp.GetComponent<Player>();
         myPlayerAvatar.myPhotonPlayer = this;
@@ -51,6 +51,7 @@ public class PhotonPlayerManager : MonoBehaviour
    [PunRPC] protected void CreatePhotonPlayer(int[] AvatarArr, string name,int points)
    {
         GameObject temp = Instantiate(Avatar, transform);
+        temp.transform.localScale *= 2.5f; // make player correct size in scene
         temp.GetComponent<KidAvatarSelector>().SetActiveAvatarLook(AvatarArr);
         temp.gameObject.AddComponent<Player>();
         myPlayerAvatar = temp.GetComponent<Player>();

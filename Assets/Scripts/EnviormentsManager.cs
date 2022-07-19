@@ -16,6 +16,7 @@ public class EnviormentsManager : MonoBehaviour
     }
     public void ChooseEnviorment(int chosen) 
     {
+        //return; // andy for test
         if (GameManager.instance.IsNewRandomMode()&& GameProcess.instance.currentQuestionNumber>0)
             Cameras.instance.SelectCamera(Cameras.instance.CameraArray.Length - 1);
         for (int i = 0; i < enviorments.Length; i++)
