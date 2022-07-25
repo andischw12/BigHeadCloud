@@ -9,9 +9,9 @@ public class UlpanScreenManager : MonoBehaviour
 {
 
     public static UlpanScreenManager instance;
-    [SerializeField] Sprite defult;
+    [SerializeField] Material defult;
     [SerializeField] TextMeshPro Tvtxt;
-    [SerializeField] Sprite VsPic;
+    [SerializeField] Material EmptyBackground;
 
     // Start is called before the first frame update
 
@@ -26,25 +26,26 @@ public class UlpanScreenManager : MonoBehaviour
 
     void Start()
     {
-        if(GetComponent<SpriteRenderer>()!=null)
-        GetComponent<SpriteRenderer>().sprite  = defult;
+        SetDefultPic();
+
+
     }
 
     public void SetDefultPic() 
     {
-        if (GetComponent<SpriteRenderer>() != null)
-            GetComponent<SpriteRenderer>().sprite = defult;
+        if (GetComponent<MeshRenderer>() != null)
+            GetComponent<MeshRenderer>().material = defult;
     }
 
     public void SetVsPic()
     {
-        if (GetComponent<SpriteRenderer>() != null)
-            GetComponent<SpriteRenderer>().sprite = VsPic;
+        if (GetComponent<MeshRenderer>() != null)
+            GetComponent<MeshRenderer>().material = EmptyBackground;
     }
 
     public void SetText(string s) 
     {
-        Tvtxt.text = s;
+        Tvtxt.text =  s;
     }
 
 }

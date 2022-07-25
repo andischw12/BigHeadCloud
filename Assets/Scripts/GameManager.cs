@@ -101,10 +101,11 @@ public class GameManager : MonoBehaviour
         CalculationsManager.instance.LastGameTimePerQuestion = timePerQuestion;
         CalculationsManager.instance.LastGameTotalNumOfQuestions = totalNumOfQuestions;
         CalculationsManager.instance.LastGamePointsPerQuestion = PointsPerQuestion;
+
         UlpanScreenManager.instance.SetVsPic();
         UlpanScreenManager.instance.SetText("םיאבה םיכורב");
 
-        // Assignment.instance.TechMassage.text = "רבוחמ";
+        Assignment.instance.TechMassage.text = "רבוחמ";
         //
     }
 
@@ -130,8 +131,7 @@ public class GameManager : MonoBehaviour
         thisComputerPlayer.myPhotonPlayer.SetReadyToStartGame();
         yield return new WaitUntil(() => otherPlayer.myPhotonPlayer.ReadyToStartGame);
         //set players for game
-        player1.GetComponentInChildren<Animator>().SetBool("Waving", false);
-        player2.GetComponentInChildren<Animator>().SetBool("Waving", false);
+       
         player2.GetComponentInChildren<Animator>().SetBool("MirrorPushButton", false);
         player2.GetComponentInChildren<Animator>().speed = 1f;
         player1.transform.position = Assignment.instance.PlayersPosition[0].position;
@@ -158,17 +158,29 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Opening()
     {
+        UI_Effects.instance.PlayStartEffect(1);
+        UI_Effects.instance.PlayStartEffect(0);
         SoundManager.instance.PlayMusic(0);
+        SoundManager.instance.PlaySoundEffect(SoundEffectsList.Clapping);
         host.talking(host.GetComponent<NarrationHolder>().Opening);
+        Cameras.instance.SelectCamera(4);
+        yield return new WaitForSecondsRealtime(1.75f);
+        Cameras.instance.SelectCamera(5);
         yield return new WaitUntil(() => !host.IsTalkingInProgress);
         thisComputerPlayer.myEmojiesGuiButton.MakeButtonNotAvaliable();
         LightsController.instance.LightsOn();
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.Clapping);
+
+       
         //---CountDownSession
-        EveryBodyDance(3);
+
         UIManager.instance.startCountDown(3);
-        Cameras.instance.SelectCamera(0);
+        Cameras.instance.SelectCamera(3);
+        player1.GetComponentInChildren<Animator>().SetBool("Waving", false);
+        player2.GetComponentInChildren<Animator>().SetBool("Waving", false);
+        EveryBodyDance(3);
         yield return new WaitForSecondsRealtime(1);
+        
         Cameras.instance.SelectCamera(1);
         yield return new WaitForSecondsRealtime(1);
         Cameras.instance.SelectCamera(3);

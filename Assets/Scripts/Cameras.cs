@@ -48,10 +48,28 @@ public class Cameras : MonoBehaviour
 
     public void SelectCamera(int Camera)
     {
-
+       // CameraArray[0].gameObject.GetComponent<Animator>().enabled = false;
         RandomCamBool = false;
         SwitchCamera(Camera);
     }
+
+    public void SelectLongShotWithNoMovement()
+    {
+       // CameraArray[0].gameObject.GetComponent<Animator>().enabled = false;
+        SelectCamera(0);
+
+       
+    }
+
+    public void SelectLongShotCameraWithDolly(float speed)
+    {
+
+        SwitchCamera(0);
+        CameraArray[0].gameObject.GetComponent<Animator>().enabled = false;
+        CameraArray[0].gameObject.GetComponent<Animator>().enabled = true;
+       // CameraArray[0].gameObject.GetComponent<Animator>().speed = speed;
+    }
+
 
     public void SelectCamera(Player player)
     {
@@ -67,13 +85,15 @@ public class Cameras : MonoBehaviour
 
     private void SwitchCamera(int SwitchCamera)
     {
-        CameraArray[SwitchCamera].enabled = true;
+
+         
+        CameraArray[SwitchCamera].gameObject.SetActive(true);
         _activeCamera = CameraArray[SwitchCamera];
         foreach (CinemachineVirtualCamera C in CameraArray)
         {
             if (C != CameraArray[SwitchCamera])
             {
-                C.enabled = false;
+                C.gameObject.SetActive(false); 
             }
         }
     }
