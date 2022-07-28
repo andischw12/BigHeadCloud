@@ -39,11 +39,5 @@ namespace Michsky.UI.Zone
                 } 
             }
         }
-
-
-        public void SelectUser(int user) 
-        {
-            pressAction.Invoke();
-        }
     }
 }

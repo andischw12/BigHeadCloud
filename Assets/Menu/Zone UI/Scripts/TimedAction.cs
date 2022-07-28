@@ -15,7 +15,7 @@ namespace Michsky.UI.Zone
 
         IEnumerator TimedEvent()
         {
-            yield return new WaitForSecondsRealtime(timer);
+            yield return new WaitForSeconds(timer);
             timerAction.Invoke();
         }
 

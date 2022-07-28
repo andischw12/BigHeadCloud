@@ -14,7 +14,7 @@ namespace Michsky.UI.Zone
 
         IEnumerator ExecuteAfterTime(float time)
         {
-            yield return new WaitForSecondsRealtime(time);
+            yield return new WaitForSeconds(time);
             gameObject.SetActive(false);
             gameObject.SetActive(true);
             StopCoroutine(ExecuteAfterTime(0.01f));

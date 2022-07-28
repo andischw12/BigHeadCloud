@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace Michsky.UI.ModernUIPack
 {
+
+   
+
+
     public class WindowManager : MonoBehaviour
     {
         // Content
@@ -160,6 +164,12 @@ namespace Michsky.UI.ModernUIPack
             }
         }
 
+
+
+        public void OpenPanel(MainMenuWinows newPanel) 
+        {
+            OpenPanel(newPanel.GetHashCode());
+        }
 
         public void OpenPanel(int newPanel)
         {
