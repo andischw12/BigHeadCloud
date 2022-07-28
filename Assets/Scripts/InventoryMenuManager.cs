@@ -56,10 +56,14 @@ public class InventoryMenuManager : MonoBehaviour
         //while (AllItems.Length == 0) { }
         foreach (InventoryItem s in AllItems)  
         {
-                if (FamilyManager.instance.GetStoreItemState(s.type, s.num) == 1)
+            s.gameObject.SetActive(true);
+             //andy to check -> this is the correct one:
+             /*
+            if (FamilyManager.instance.GetStoreItemState(s.type, s.num) == 1)
                     s.gameObject.SetActive(true);
                 else
                     s.gameObject.SetActive(false);
+             */
         }
     }
 

@@ -1091,7 +1091,7 @@ GameObject:
   - component: {fileID: 5033856786932783145}
   - component: {fileID: 8934723563650761695}
   m_Layer: 5
-  m_Name: Inventory Button_old
+  m_Name: Inventory Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,6 +1279,7 @@ MonoBehaviour:
   price: 0
   ImageRenderer: {fileID: 5033101564087561587}
   CurrentKidAvatar: {fileID: 0}
+  IsNew: 0
 --- !u!1 &4920364636793633295
 GameObject:
   m_ObjectHideFlags: 0

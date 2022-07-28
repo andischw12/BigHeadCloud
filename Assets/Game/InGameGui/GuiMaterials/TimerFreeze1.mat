@@ -313,8 +313,8 @@ Material:
     - _ShineSpeed: 0.3
     - _ShineWidth: 0.05
     - _SineGlowContrast: 1
-    - _SineGlowFade: 1
-    - _SineGlowFrequency: 25
+    - _SineGlowFade: 0.1
+    - _SineGlowFrequency: 4
     - _SineGlowMax: 1
     - _SineGlowMin: 0
     - _SineMoveFade: 1
@@ -460,7 +460,7 @@ Material:
     - _RecolorRedTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _RecolorYellowTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _ShineColor: {r: 0, g: 8.658911, b: 15.999997, a: 0}
-    - _SineGlowColor: {r: 1, g: 0, b: 0, a: 1}
+    - _SineGlowColor: {r: 1, g: 1, b: 1, a: 1}
     - _SineMoveFrequency: {r: 1, g: 1, b: 0, a: 0}
     - _SineMoveOffset: {r: 0, g: 0.5, b: 0, a: 0}
     - _SineRotatePivot: {r: 0.5, g: 0.5, b: 0, a: 0}

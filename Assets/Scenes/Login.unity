@@ -47762,8 +47762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c65c7917835d8a04b94c8b906234b09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputText: {fileID: 114045031347386288}
   inputFieldAnimator: {fileID: 95141713942285108}
+  fieldTrigger: {fileID: 0}
+  inputText: {fileID: 114045031347386288}
 --- !u!114 &114102531684007487
 MonoBehaviour:
   m_ObjectHideFlags: 0

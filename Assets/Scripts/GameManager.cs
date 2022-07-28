@@ -121,12 +121,14 @@ public class GameManager : MonoBehaviour
         Assignment.instance.VSPlayerRankText[1].text = FindObjectOfType<ProfileManager>().GetRank(player2.PointsForScore).ToString();
         player1.transform.position = Assignment.instance.VsPlayersPosition[0].position;
         player2.transform.position = Assignment.instance.VsPlayersPosition[1].position;
+        player1.GetComponentInChildren<Animator>().GetComponent<lookatactivecam>().enabled = false;
+        player2.GetComponentInChildren<Animator>().GetComponent<lookatactivecam>().enabled = false;
         player1.GetComponentInChildren<Animator>().SetBool("Waving", true);
         yield return new WaitForSecondsRealtime(0.5f);
         player2.GetComponentInChildren<Animator>().SetBool("MirrorPushButton", true);
         player2.GetComponentInChildren<Animator>().SetBool("Waving", true);
         player2.GetComponentInChildren<Animator>().speed =0.85f;
-        yield return new WaitForSecondsRealtime(5);
+        yield return new WaitForSecondsRealtime(2.5f);
         //waiting for other player
         thisComputerPlayer.myPhotonPlayer.SetReadyToStartGame();
         yield return new WaitUntil(() => otherPlayer.myPhotonPlayer.ReadyToStartGame);
@@ -136,6 +138,9 @@ public class GameManager : MonoBehaviour
         player2.GetComponentInChildren<Animator>().speed = 1f;
         player1.transform.position = Assignment.instance.PlayersPosition[0].position;
         player2.transform.position = Assignment.instance.PlayersPosition[1].position;
+        player1.GetComponentInChildren<Animator>().GetComponent<lookatactivecam>().enabled = true;
+        player2.GetComponentInChildren<Animator>().GetComponent<lookatactivecam>().enabled = true;
+
         // turn vs screen off and start game
         Assignment.instance.VSCanvas.SetActive(false);
         StartCoroutine(Opening());
