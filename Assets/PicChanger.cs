@@ -2,35 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+[ExecuteInEditMode]
 public class PicChanger : MonoBehaviour
 {
+ 
 
-    [SerializeField] Sprite[] IconsSource;
-    [SerializeField] Image[] TargetArr;
+    [SerializeField] Sprite[] SpriteArr;
+    [SerializeField] string[] NameArr;
 
     // Start is called before the first frame update
     void Start()
     {
-        Image[] tmpArr = GetComponentsInChildren<Image>();
+        InventoryItem[] SourceArr = GetComponentsInChildren<InventoryItem>();
 
+        SpriteArr = new Sprite[SourceArr.Length];
+        NameArr = new string[SourceArr.Length];
 
-        TargetArr = new Image[IconsSource.Length];
-        for(int i = 0; i < tmpArr.Length; i++) 
+        for(int i =0;i< SourceArr.Length; i++) 
         {
-            if(tmpArr[i].gameObject.transform.name == "Icon") 
-            {
-                print("icon found");
-            }
+            SpriteArr[i] = SourceArr[i].ImageRenderer.sprite;
+            NameArr[i] = SourceArr[i].Title;
         }
 
 
 
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

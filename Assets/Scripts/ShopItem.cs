@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-    [SerializeField] public TextMeshProUGUI priceText;
-    [SerializeField] public Image icon;
-    [SerializeField] public TextMeshProUGUI Text;
+    [SerializeField] public TextMeshProUGUI priceText; int price {get{return int.Parse(priceText.text);}}
+    [SerializeField] public TextMeshProUGUI ItemName;
+    [SerializeField] public TextMeshProUGUI itemLevel;
     [SerializeField] public AvatarArrayEnum type;
+    [SerializeField] public Image ItemPic;
     [SerializeField] public int itemNum;
-    [SerializeField] public int price;
+
+    
+
+    // This is for the confirmation of buying the item
     [SerializeField] public Button myButton;
     [SerializeField] bool ImClicked;
     [SerializeField] public GameObject NewMassage;
@@ -22,12 +26,13 @@ public class ShopItem : MonoBehaviour
     {
         FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].confirmButton.onClick.AddListener(OnConfirmClick);
         FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].cancelButton.onClick.AddListener(OnCancelClick);
-        myButton.onClick.AddListener(OnClick);
+
+       // myButton.onClick.AddListener(OnClick);
     }
 
     void OnClick() 
     {
-       
+       /*
         if (FamilyManager.instance.GetStoreItemState(type,itemNum) == 1)
             FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[0].OpenWindow();
         else if (price > FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems))
@@ -38,7 +43,7 @@ public class ShopItem : MonoBehaviour
             ImClicked =true;
         }
              
- 
+    */
 
     }
 

@@ -32,7 +32,7 @@ public class InventoryMenuManager : MonoBehaviour
         currentKid = FindObjectOfType<KidAvatarSelector>();
         AllItems = GetComponentsInChildren<InventoryItem>();
         SetBoyOrGirl();
-        FindObjectOfType<StoreManager>().SetStore();
+        FindObjectOfType<ShopManager>().SetStore();
         SetAvaliableItems();
         //SetAvaliableItems();
 
