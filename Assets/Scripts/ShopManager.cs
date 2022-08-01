@@ -39,10 +39,12 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
+        
         PreparePanel(HatsPanel ,BoyHatsSprites,BoyHatsNames,HatsRangeRankNeeded,HatsRangePrice);
         PreparePanel(GlassesPanel, GlassesSprites,GlassesNames,GlassesRangeRankNeeded,GlassesRangePrice);
         PreparePanel(ClothsPanel, BoyClothesSprites, BoyClothesNames,ClothesRangeRankNeeded,ClothesRangePrice);
         PreparePanel(SignatePanel, SignatesSprites, SignatesNames,SignatesRangeRankNeeded,SignatesRangePrice);
+       
     }
 
 
