@@ -12,13 +12,13 @@ public class ShopManager : MonoBehaviour
     [SerializeField] InventoryItem[] _AllItems;
     [SerializeField] GameObject ShopButton;
     [SerializeField] Material mat;
-
+    
     [SerializeField] Sprite[] BoyHatsSprites;
     [SerializeField] string[] BoyHatsNames;
     [SerializeField] Sprite[] GirlHatsSprites;
     [SerializeField] string[] GirlHatsNames;
     [SerializeField] Sprite[] GlassesSprites;
-    [SerializeField] string[] glassesNames;
+    [SerializeField] string[] GlassesNames;
     [SerializeField] Sprite[] BoyClothesSprites;
     [SerializeField] string[] BoyClothesNames;
     [SerializeField] Sprite[] GirlClothesSprites;
@@ -26,20 +26,38 @@ public class ShopManager : MonoBehaviour
     [SerializeField] Sprite[] SignatesSprites;
     [SerializeField] string[] SignatesNames;
 
+    [SerializeField] RangeInt Price;
+    [SerializeField] RangeInt RankeNeeded;
+    public RangeInt HatsRangePrice = new RangeInt(1000, 99000);
+    public RangeInt GlassesRangePrice = new RangeInt(1000, 50000);
+    public RangeInt ClothesRangePrice = new RangeInt(1000, 50000);
+    public RangeInt SignatesRangePrice = new RangeInt(1000, 50000);
+    public RangeInt HatsRangeRankNeeded = new RangeInt(1, 50);
+    public RangeInt GlassesRangeRankNeeded = new RangeInt(1, 25);
+    public RangeInt ClothesRangeRankNeeded = new RangeInt(1, 30);
+    public RangeInt SignatesRangeRankNeeded = new RangeInt(1, 20);
 
     private void Start()
     {
-        PreparePanel(BoyHatsSprites,BoyHatsNames);
+        PreparePanel(HatsPanel ,BoyHatsSprites,BoyHatsNames,HatsRangeRankNeeded,HatsRangePrice);
+        PreparePanel(GlassesPanel, GlassesSprites,GlassesNames,GlassesRangeRankNeeded,GlassesRangePrice);
+        PreparePanel(ClothsPanel, BoyClothesSprites, BoyClothesNames,ClothesRangeRankNeeded,ClothesRangePrice);
+        PreparePanel(SignatePanel, SignatesSprites, SignatesNames,SignatesRangeRankNeeded,SignatesRangePrice);
     }
 
+
+
+
     //This methos Builds The store Panel
-    void PreparePanel(Sprite[] _images,string[] _hatsNames) 
+    void PreparePanel(GameObject _panelGM, Sprite[] _images,string[] _hatsNames,RangeInt _rankRangeInt, RangeInt _PriceRangeInt) 
     {
+        
         for (int i = 0; i < _images.Length;i++)
         {
-            ShopItem tmp = Instantiate(ShopButton, HatsPanel.transform).GetComponent<ShopItem>();
+            ShopItem tmp = Instantiate(ShopButton, _panelGM.transform).GetComponent<ShopItem>();
             tmp.ItemName.text = _hatsNames[i];
-            tmp.priceText.text = "100";
+            tmp.priceText.text =(Mathf.RoundToInt ((_PriceRangeInt.start + ((float)i / (_images.Length+1) *  _PriceRangeInt.end))/1000)*1000).ToString() ;
+            tmp.itemLevel.text = (Mathf.RoundToInt((_rankRangeInt.start + ((float)i / (_images.Length) * _rankRangeInt.end)) ) ).ToString();
             tmp.ItemPic.sprite = _images[i];
         }
     }
@@ -103,6 +121,7 @@ public class ShopManager : MonoBehaviour
 
 
     
+
 
 
 }
