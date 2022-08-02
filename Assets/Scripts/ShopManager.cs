@@ -42,10 +42,11 @@ public class ShopManager : MonoBehaviour
     public RangeInt GlassesRangeRankNeeded = new RangeInt(1, 25);
     public RangeInt ClothesRangeRankNeeded = new RangeInt(1, 30);
     public RangeInt SignatesRangeRankNeeded = new RangeInt(1, 20);
+    bool isGirl;
 
     private void Start()
     {
-
+        isGirl = true;
         SetShopPanels();
         SetInventoryPanels();
 
@@ -54,7 +55,10 @@ public class ShopManager : MonoBehaviour
 
     public void SetShopPanels() 
     {
-        PreparePanel(HatsPanel, BoyHatsSprites, BoyHatsNames, HatsRangeRankNeeded, HatsRangePrice, AvatarArrayEnum.Hats);
+        if(isGirl)
+            PreparePanel(HatsPanel, GirlHatsSprites, GirlHatsNames, HatsRangeRankNeeded, HatsRangePrice, AvatarArrayEnum.Hats);
+        else
+            PreparePanel(HatsPanel, BoyHatsSprites, BoyHatsNames, HatsRangeRankNeeded, HatsRangePrice, AvatarArrayEnum.Hats);
         PreparePanel(GlassesPanel, GlassesSprites, GlassesNames, GlassesRangeRankNeeded, GlassesRangePrice, AvatarArrayEnum.Glasses);
         PrepareClothesPanel();
         PreparePanel(SignatePanel, SignatesSprites, SignatesNames, SignatesRangeRankNeeded, SignatesRangePrice, AvatarArrayEnum.Signates);
@@ -81,21 +85,66 @@ public class ShopManager : MonoBehaviour
         {
             ShopItem tmp = Instantiate(ShopButton, _panelGM.transform).GetComponent<ShopItem>();
             tmp.ItemName.text = _hatsNames[i];
-            tmp.priceText.text =(Mathf.RoundToInt ((_PriceRangeInt.start + ((float)i / (_images.Length+1) *  _PriceRangeInt.end))/1000)*1000).ToString() ;
-            tmp.itemLevel.text = (Mathf.RoundToInt((_rankRangeInt.start + ((float)i / (_images.Length) * _rankRangeInt.end)) ) ).ToString();
+            //tmp.priceText.text =(Mathf.RoundToInt ((_PriceRangeInt.start + ((float)i / (_images.Length+1) *  _PriceRangeInt.end))/1000)*1000).ToString() ;
+            //tmp.itemLevel.text = (Mathf.RoundToInt((_rankRangeInt.start + ((float)i / (_images.Length) * _rankRangeInt.end)) ) ).ToString();
+            tmp.priceText.text = CalculatePrice(i,_type).ToString();
+            tmp.itemLevel.text = CalculateRank(i,_type).ToString();
             tmp.ItemPic.sprite = _images[i];
             tmp.type = _type;
         }
+    }
+
+        //need to fix the formulas and just change the first parameter of the pow
+    int CalculatePrice(int x, AvatarArrayEnum type) 
+    {
+        if (type == AvatarArrayEnum.Glasses)
+            return (1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(1.15f, 1.104f * x)));
+
+        else if (type == AvatarArrayEnum.Signates)
+            return (1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(1.9f, 1.104f * x)));
+
+        else if (type == AvatarArrayEnum.ChestGM)
+            return (1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(1.25f, 1.104f * x)));
+
+        //hats boys and girls
+        if(isGirl)
+            return (1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(1.19f, 1.104f * x)));
+        else
+            return (1000*Mathf.Min(4,x)) +(1000* (int)(0.7f * Mathf.Pow(1.115f,1.104f*x)));
+    }
+
+    int CalculateRank(int x, AvatarArrayEnum type)
+    {
+       
+
+        if (type == AvatarArrayEnum.Glasses)
+            return Mathf.Min(50,1 + (int)(0.75f * Mathf.Pow(1.15f, 1.104f * x)));
+
+        else if (type == AvatarArrayEnum.Signates)
+            return Mathf.Min(50,1+ (int)(0.75f * Mathf.Pow(1.9f, 1.104f * x)));
+
+        else if(type == AvatarArrayEnum.ChestGM)
+            return Mathf.Min(50, 1 + (int)(0.75f * Mathf.Pow(1.25f, 1.104f * x)));
+
+        //hats boys and girls
+        if (isGirl)
+            return Mathf.Min(50, 1 + (int)(0.75f * Mathf.Pow(1.175f, 1.104f * x)));
+        else
+            return Mathf.Min(50, 1 +(int)(0.75f * Mathf.Pow(1.1f, 1.104f * x)));
+
     }
 
     void PrepareClothesPanel() 
     {
         //if boys:
         Transform tmp;
-        for(int i = 0; i < BoysClothesPrefabList.transform.childCount; i++) 
+
+        GameObject BoyOrGirl = GirlsClothesPrefabList;
+        for(int i = 0; i < BoyOrGirl.transform.childCount; i++) 
         {
-            tmp = Instantiate(BoysClothesPrefabList.transform.GetChild(i),ClothsPanel.transform);
-            tmp.GetComponent<ShopItem>().priceText.text = "3000"; 
+            tmp = Instantiate(BoyOrGirl.transform.GetChild(i),ClothsPanel.transform);
+            tmp.GetComponent<ShopItem>().priceText.text = CalculatePrice(i, AvatarArrayEnum.ChestGM).ToString();
+            tmp.GetComponent<ShopItem>().itemLevel.text = CalculateRank(i,AvatarArrayEnum.ChestGM).ToString();
         }
 
         //if girls:
