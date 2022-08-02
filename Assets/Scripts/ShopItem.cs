@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
+
     [SerializeField] public TextMeshProUGUI priceText; int price {get{return int.Parse(priceText.text);}}
     [SerializeField] public TextMeshProUGUI ItemName;
     [SerializeField] public TextMeshProUGUI itemLevel;

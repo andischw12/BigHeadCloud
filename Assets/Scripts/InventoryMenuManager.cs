@@ -71,10 +71,12 @@ public class InventoryMenuManager : MonoBehaviour
             tmp.GetComponent<InventoryItem>().ImageRenderer.sprite= _itemArr[i].ItemPic.sprite;
             tmp.GetComponent<InventoryItem>().type = _type;
 
+            /* check if got the item
             if (FamilyManager.instance.GetStoreItemState(tmp.GetComponent<InventoryItem>().type, tmp.GetComponent<InventoryItem>().InventoryItemnum) == 1)
                 tmp.SetActive(true);
             else
                 tmp.SetActive(false);
+            */
         }
 
     }

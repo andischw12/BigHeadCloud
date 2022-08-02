@@ -7,10 +7,14 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] GameObject HatsPanel;
     [SerializeField] GameObject GlassesPanel;
-    [SerializeField] GameObject ClothsBoysPanel;
-    [SerializeField] GameObject ClothsGirlsPanel;
-
+    [SerializeField] GameObject ClothsPanel;
     [SerializeField] GameObject SignatePanel;
+
+
+    [SerializeField] GameObject BoysClothesPrefabList;
+    [SerializeField] GameObject GirlsClothesPrefabList;
+
+
     [SerializeField] InventoryItem[] _AllItems;
     [SerializeField] GameObject ShopButton;
     [SerializeField] Material mat;
@@ -41,18 +45,21 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        
-        PreparePanel(HatsPanel ,BoyHatsSprites,BoyHatsNames,HatsRangeRankNeeded,HatsRangePrice, AvatarArrayEnum.Hats);
-        PreparePanel(GlassesPanel, GlassesSprites,GlassesNames,GlassesRangeRankNeeded,GlassesRangePrice, AvatarArrayEnum.Glasses);
-        //PreparePanel(ClothsPanel, BoyClothesSprites, BoyClothesNames,ClothesRangeRankNeeded,ClothesRangePrice, AvatarArrayEnum.ChestGM);
-        PreparePanel(SignatePanel, SignatesSprites, SignatesNames,SignatesRangeRankNeeded,SignatesRangePrice, AvatarArrayEnum.Signates);
-        SetInventoryPanels();
 
+        SetShopPanels();
+        SetInventoryPanels();
 
 
     }
 
-
+    public void SetShopPanels() 
+    {
+        PreparePanel(HatsPanel, BoyHatsSprites, BoyHatsNames, HatsRangeRankNeeded, HatsRangePrice, AvatarArrayEnum.Hats);
+        PreparePanel(GlassesPanel, GlassesSprites, GlassesNames, GlassesRangeRankNeeded, GlassesRangePrice, AvatarArrayEnum.Glasses);
+        PrepareClothesPanel();
+        PreparePanel(SignatePanel, SignatesSprites, SignatesNames, SignatesRangeRankNeeded, SignatesRangePrice, AvatarArrayEnum.Signates);
+        
+    }
 
 
     public void SetInventoryPanels() 
@@ -60,7 +67,7 @@ public class ShopManager : MonoBehaviour
         InventoryMenuManager _tmpInventoryManager = FindObjectOfType<InventoryMenuManager>();
         _tmpInventoryManager.SetInventoryPanel(HatsPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Hats);
         _tmpInventoryManager.SetInventoryPanel(GlassesPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Glasses);
-        _tmpInventoryManager.SetInventoryPanel(ClothsBoysPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.ChestGM);// add if boys if girl
+        _tmpInventoryManager.SetInventoryPanel(ClothsPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.ChestGM);// add if boys if girl
         _tmpInventoryManager.SetInventoryPanel(SignatePanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Signates);
 
     }
@@ -79,6 +86,26 @@ public class ShopManager : MonoBehaviour
             tmp.ItemPic.sprite = _images[i];
             tmp.type = _type;
         }
+    }
+
+    void PrepareClothesPanel() 
+    {
+        //if boys:
+        Transform tmp;
+        for(int i = 0; i < BoysClothesPrefabList.transform.childCount; i++) 
+        {
+            tmp = Instantiate(BoysClothesPrefabList.transform.GetChild(i),ClothsPanel.transform);
+            tmp.GetComponent<ShopItem>().priceText.text = "3000"; 
+        }
+
+        //if girls:
+        /*
+        for (int i = 0; i < GirlsClothesPrefabList.transform.childCount; i++)
+        {
+            tmp = Instantiate(GirlsClothesPrefabList.transform.GetChild(i), ClothsPanel.transform);
+            tmp.GetComponent<ShopItem>().priceText.text = "3000";
+        }
+        */
     }
 
 
