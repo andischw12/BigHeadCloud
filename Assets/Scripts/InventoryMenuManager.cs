@@ -7,10 +7,17 @@ using Michsky.UI.Zone;
 
 public class InventoryMenuManager : MonoBehaviour
 {
+
+    [SerializeField] GameObject HatsPanel;
+    [SerializeField] GameObject GlassesPanel;
+    [SerializeField] GameObject ClothesPanel;
+    [SerializeField] GameObject SignatePanel;
+
+
     [SerializeField] Button NextMat;
     [SerializeField] Button PreMat;
     [SerializeField] int currentPanel;
-    [SerializeField] AvatarArrayEnum CurrentGMtype ;
+    [SerializeField] AvatarArrayEnum CurrentGMtype;
     [SerializeField] int CurrentNum;
     [SerializeField] int[] tmp;
     [SerializeField] public InventoryItem[] AllItems;
@@ -18,6 +25,8 @@ public class InventoryMenuManager : MonoBehaviour
     [SerializeField] GameObject[] boyGM;
     [SerializeField] GameObject[] girlGM;
     [SerializeField] RawImage AvatarImage;
+    [SerializeField] GameObject InventoryItemPrefab;
+
     public bool IsPanelActive { get; set; }
 
 
@@ -27,18 +36,48 @@ public class InventoryMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       NextMat.onClick.AddListener(OnClickNextMat);
-       PreMat.onClick.AddListener(OnClickPreMat); 
+        /*
+        NextMat.onClick.AddListener(OnClickNextMat);
+        PreMat.onClick.AddListener(OnClickPreMat);
         currentKid = FindObjectOfType<KidAvatarSelector>();
         AllItems = GetComponentsInChildren<InventoryItem>();
-        SetBoyOrGirl();
-        FindObjectOfType<ShopManager>().SetStore();
-        SetAvaliableItems();
+        // SetBoyOrGirl();
+        //FindObjectOfType<ShopManager>().SetStore();
+        // SetAvaliableItems();
         //SetAvaliableItems();
-
+        */
 
     }
 
+
+    public void SetInventoryPanel(ShopItem[] _itemArr, AvatarArrayEnum _type)
+    {
+        GameObject panel;
+        if (_type == AvatarArrayEnum.Hats)
+            panel = HatsPanel;
+        else if (_type == AvatarArrayEnum.Glasses)
+            panel = GlassesPanel;
+        else if (_type == AvatarArrayEnum.ChestGM|| _type == AvatarArrayEnum.LegsGm|| _type == AvatarArrayEnum.FeetGM)
+            panel = ClothesPanel;
+        else //if(_type == AvatarArrayEnum.FeetGM)
+            panel = SignatePanel;
+
+        GameObject tmp;
+        for (int i = 0; i < _itemArr.Length; i++)
+        {
+            tmp = Instantiate(InventoryItemPrefab, panel.transform);
+            tmp.GetComponent<InventoryItem>().InventoryItemnum = _itemArr[i].shopItemNum;
+            tmp.GetComponent<InventoryItem>().Title.text = _itemArr[i].ItemName.text;
+            tmp.GetComponent<InventoryItem>().ImageRenderer.sprite= _itemArr[i].ItemPic.sprite;
+            tmp.GetComponent<InventoryItem>().type = _type;
+
+            if (FamilyManager.instance.GetStoreItemState(tmp.GetComponent<InventoryItem>().type, tmp.GetComponent<InventoryItem>().InventoryItemnum) == 1)
+                tmp.SetActive(true);
+            else
+                tmp.SetActive(false);
+        }
+
+    }
 
     public void SetBoyOrGirl() 
     {

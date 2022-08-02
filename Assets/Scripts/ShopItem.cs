@@ -11,7 +11,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] public TextMeshProUGUI itemLevel;
     [SerializeField] public AvatarArrayEnum type;
     [SerializeField] public Image ItemPic;
-    [SerializeField] public int itemNum;
+    [SerializeField] public int shopItemNum;
 
     
 
@@ -52,13 +52,13 @@ public class ShopItem : MonoBehaviour
         if (ImClicked) 
         {
             Debug.Log("im on click");
-            FamilyManager.instance.SetStoreItemState(type,itemNum,1);
+            FamilyManager.instance.SetStoreItemState(type,shopItemNum,1);
             int currentGemsAmount = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems);
             int newGemsAmmount = Mathf.Max(currentGemsAmount - price, 0);
             FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Gems, newGemsAmmount);
             FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.GemsSpent, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.GemsSpent) + price);
             MainMenuManager.instance.UpdateStatistics();
-            FindObjectOfType<InventoryMenuManager>().SetAvaliableItems();
+            FindObjectOfType<ShopManager>().SetInventoryPanels();
             ImClicked = false;
             FindObjectOfType<StarsEffect>().Play();
         }

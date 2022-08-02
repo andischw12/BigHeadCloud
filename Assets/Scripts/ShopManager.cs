@@ -7,7 +7,9 @@ public class ShopManager : MonoBehaviour
 {
     [SerializeField] GameObject HatsPanel;
     [SerializeField] GameObject GlassesPanel;
-    [SerializeField] GameObject ClothsPanel;
+    [SerializeField] GameObject ClothsBoysPanel;
+    [SerializeField] GameObject ClothsGirlsPanel;
+
     [SerializeField] GameObject SignatePanel;
     [SerializeField] InventoryItem[] _AllItems;
     [SerializeField] GameObject ShopButton;
@@ -40,18 +42,32 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         
-        PreparePanel(HatsPanel ,BoyHatsSprites,BoyHatsNames,HatsRangeRankNeeded,HatsRangePrice);
-        PreparePanel(GlassesPanel, GlassesSprites,GlassesNames,GlassesRangeRankNeeded,GlassesRangePrice);
-        PreparePanel(ClothsPanel, BoyClothesSprites, BoyClothesNames,ClothesRangeRankNeeded,ClothesRangePrice);
-        PreparePanel(SignatePanel, SignatesSprites, SignatesNames,SignatesRangeRankNeeded,SignatesRangePrice);
-       
+        PreparePanel(HatsPanel ,BoyHatsSprites,BoyHatsNames,HatsRangeRankNeeded,HatsRangePrice, AvatarArrayEnum.Hats);
+        PreparePanel(GlassesPanel, GlassesSprites,GlassesNames,GlassesRangeRankNeeded,GlassesRangePrice, AvatarArrayEnum.Glasses);
+        //PreparePanel(ClothsPanel, BoyClothesSprites, BoyClothesNames,ClothesRangeRankNeeded,ClothesRangePrice, AvatarArrayEnum.ChestGM);
+        PreparePanel(SignatePanel, SignatesSprites, SignatesNames,SignatesRangeRankNeeded,SignatesRangePrice, AvatarArrayEnum.Signates);
+        SetInventoryPanels();
+
+
+
     }
 
 
 
 
+    public void SetInventoryPanels() 
+    {
+        InventoryMenuManager _tmpInventoryManager = FindObjectOfType<InventoryMenuManager>();
+        _tmpInventoryManager.SetInventoryPanel(HatsPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Hats);
+        _tmpInventoryManager.SetInventoryPanel(GlassesPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Glasses);
+        _tmpInventoryManager.SetInventoryPanel(ClothsBoysPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.ChestGM);// add if boys if girl
+        _tmpInventoryManager.SetInventoryPanel(SignatePanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Signates);
+
+    }
+
+
     //This methos Builds The store Panel
-    void PreparePanel(GameObject _panelGM, Sprite[] _images,string[] _hatsNames,RangeInt _rankRangeInt, RangeInt _PriceRangeInt) 
+    void PreparePanel(GameObject _panelGM, Sprite[] _images,string[] _hatsNames,RangeInt _rankRangeInt, RangeInt _PriceRangeInt,AvatarArrayEnum _type) 
     {
         
         for (int i = 0; i < _images.Length;i++)
@@ -61,6 +77,7 @@ public class ShopManager : MonoBehaviour
             tmp.priceText.text =(Mathf.RoundToInt ((_PriceRangeInt.start + ((float)i / (_images.Length+1) *  _PriceRangeInt.end))/1000)*1000).ToString() ;
             tmp.itemLevel.text = (Mathf.RoundToInt((_rankRangeInt.start + ((float)i / (_images.Length) * _rankRangeInt.end)) ) ).ToString();
             tmp.ItemPic.sprite = _images[i];
+            tmp.type = _type;
         }
     }
 

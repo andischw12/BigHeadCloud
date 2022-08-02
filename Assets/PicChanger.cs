@@ -21,7 +21,7 @@ public class PicChanger : MonoBehaviour
         for(int i =0;i< SourceArr.Length; i++) 
         {
             SpriteArr[i] = SourceArr[i].ImageRenderer.sprite;
-            NameArr[i] = SourceArr[i].Title;
+           // NameArr[i] = SourceArr[i].;
         }
 
 
