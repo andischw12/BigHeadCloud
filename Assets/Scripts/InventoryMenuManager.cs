@@ -133,7 +133,7 @@ public class InventoryMenuManager : MonoBehaviour
     {
         if (gameObject.GetComponentInParent<CanvasGroup>().alpha == 1 )
         {
-            if (newPanel == 3 && panelName == "Inventory")
+            if (newPanel == 1 && panelName == "Inventory")
             {
                 FindObjectOfType<KidAvatarSelector>().GetSignateGM().SetActive(true);
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().ResetTrigger("SignOff");

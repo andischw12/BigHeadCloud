@@ -173,6 +173,9 @@ namespace Michsky.UI.ModernUIPack
 
         public void OpenPanel(int newPanel)
         {
+
+           FindObjectOfType<InventoryMenuManager>().OnPanelChange(newPanel,windows[1].windowName);
+
             for (int i = 0; i < windows.Count; i++)
             {
                 if (i == newPanel)
