@@ -62,9 +62,12 @@ public class MainMenuManager : MonoBehaviour
         Rank.text = FindObjectOfType<ProfileManager>().GetRank(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points)).ToString();
         PlayTime.text = "תוקד " + FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.PlayTime).ToString();
        // print(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
-        FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));
+      
         PointsTXT.text = (FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) - ProfileManager.FIRST_RANK_POINTS).ToString();
          */
+        Gems.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems).ToString();
+        Name.text = FamilyManager.instance.GetActiveKidFullName();
+        FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));
     }
 
     public void Home() 
