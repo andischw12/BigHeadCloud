@@ -14,6 +14,7 @@ public class MenuButtonRG2 : MonoBehaviour
         Button btn = gameObject.AddComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
         myManager = GetComponentInParent<WindowManager>();
+        myManager.OpenPanel(0);
     }
 
     void TaskOnClick()
