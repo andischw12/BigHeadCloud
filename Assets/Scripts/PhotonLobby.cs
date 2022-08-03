@@ -195,7 +195,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             connectedToMaster = false;
             PhotonNetwork.OfflineMode = true;
         }
-        
+        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
         if(PhotonRoom.room.enviorment == EnviormentList.Purim || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
         {
