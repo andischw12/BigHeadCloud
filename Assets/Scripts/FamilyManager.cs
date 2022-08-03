@@ -31,7 +31,7 @@ public class KidUser
     public string UserName;
     public int[] UserGeneralInfoArr = new int[Enum.GetNames(typeof(UserArrayEnum)).Length];
     public int[] UserAvatarArr = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
-    public int[,] UserStoreMatrix = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length,1000];
+    public int[,] UserStoreMatrix = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length,100];
     /*
     public int shabbatPoints;
     public int hanukkaPoints;
@@ -198,8 +198,9 @@ public class FamilyManager : MonoBehaviour
     }
     public int GetStoreItemState(AvatarArrayEnum item, int collum)
     {
-       
-        return ActiveKid.UserStoreMatrix[item.GetHashCode(), collum];
+        int toReturn = ActiveKid.UserStoreMatrix[item.GetHashCode(), collum];
+            print(toReturn);
+        return toReturn;
     }
     public void SetStoreItemState(AvatarArrayEnum item, int collum, int Val)
     {
@@ -262,8 +263,7 @@ public class FamilyManager : MonoBehaviour
 #endif
 
         _kidsUserArr[i].SetInfoVal(UserArrayEnum.Points, ProfileManager.FIRST_RANK_POINTS);
-        _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.Signates.GetHashCode(), 0] = 1;
-        _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.Hats.GetHashCode(), 0] = 1;
+       
         //  _kidsUserArr[i].SetInfoVal(UserInfoList.Points, 80000);
         /*
          _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.ChestGM.GetHashCode(), 5] = 1;

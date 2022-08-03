@@ -13,6 +13,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] public AvatarArrayEnum type;
     [SerializeField] public Image ItemPic;
     [SerializeField] public int shopItemNum;
+    
 
     
 
@@ -27,14 +28,14 @@ public class ShopItem : MonoBehaviour
     {
         FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].confirmButton.onClick.AddListener(OnConfirmClick);
         FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].cancelButton.onClick.AddListener(OnCancelClick);
-
-       // myButton.onClick.AddListener(OnClick);
+        myButton = GetComponent<Button>();
+        myButton.onClick.AddListener(OnClick);
     }
 
     void OnClick() 
     {
-       /*
-        if (FamilyManager.instance.GetStoreItemState(type,itemNum) == 1)
+       
+        if (FamilyManager.instance.GetStoreItemState(type, shopItemNum) == 1)
             FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[0].OpenWindow();
         else if (price > FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems))
             FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[1].OpenWindow();
@@ -44,7 +45,7 @@ public class ShopItem : MonoBehaviour
             ImClicked =true;
         }
              
-    */
+    
 
     }
 
@@ -59,11 +60,24 @@ public class ShopItem : MonoBehaviour
             FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Gems, newGemsAmmount);
             FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.GemsSpent, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.GemsSpent) + price);
             MainMenuManager.instance.UpdateStatistics();
-            FindObjectOfType<ShopManager>().SetInventoryPanels();
+            FindObjectOfType<InventoryMenuManager>().AddItemToInventory(type, FindItemPlaceInParent());
             ImClicked = false;
             FindObjectOfType<StarsEffect>().Play();
         }
         
+    }
+
+
+
+    int FindItemPlaceInParent() 
+    {
+
+        for(int i = 0; i < transform.parent.childCount; i++) 
+        {
+            if (transform.parent.GetChild(i) == this.transform)
+                return i;
+        }
+        return -1;
     }
 
     public void OnConfirmClick() 

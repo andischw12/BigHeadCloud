@@ -36,16 +36,17 @@ public class InventoryMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
+        
         NextMat.onClick.AddListener(OnClickNextMat);
         PreMat.onClick.AddListener(OnClickPreMat);
         currentKid = FindObjectOfType<KidAvatarSelector>();
         AllItems = GetComponentsInChildren<InventoryItem>();
+        HideSelectors();
         // SetBoyOrGirl();
         //FindObjectOfType<ShopManager>().SetStore();
         // SetAvaliableItems();
         //SetAvaliableItems();
-        */
+     
 
     }
 
@@ -62,24 +63,43 @@ public class InventoryMenuManager : MonoBehaviour
         else //if(_type == AvatarArrayEnum.FeetGM)
             panel = SignatePanel;
 
+        //for(int i = 0; i < panel.transform.childCount; i++) {Destroy(panel.transform.GetChild(i).gameObject);}
+
         GameObject tmp;
         for (int i = 0; i < _itemArr.Length; i++)
         {
+
             tmp = Instantiate(InventoryItemPrefab, panel.transform);
             tmp.GetComponent<InventoryItem>().InventoryItemnum = _itemArr[i].shopItemNum;
             tmp.GetComponent<InventoryItem>().Title.text = _itemArr[i].ItemName.text;
             tmp.GetComponent<InventoryItem>().ImageRenderer.sprite= _itemArr[i].ItemPic.sprite;
-            tmp.GetComponent<InventoryItem>().type = _type;
+            tmp.GetComponent<InventoryItem>().type = _itemArr[i].type;
 
-            /* check if got the item
-            if (FamilyManager.instance.GetStoreItemState(tmp.GetComponent<InventoryItem>().type, tmp.GetComponent<InventoryItem>().InventoryItemnum) == 1)
-                tmp.SetActive(true);
-            else
+           //  check if got the item
+            if (FamilyManager.instance.GetStoreItemState(tmp.GetComponent<InventoryItem>().type, tmp.GetComponent<InventoryItem>().InventoryItemnum) == 0)
                 tmp.SetActive(false);
-            */
+             
+            
         }
 
     }
+
+
+    public void AddItemToInventory(AvatarArrayEnum _type, int num) 
+    {
+        GameObject panel;
+        if (_type == AvatarArrayEnum.Hats)
+            panel = HatsPanel;
+        else if (_type == AvatarArrayEnum.Glasses)
+            panel = GlassesPanel;
+        else if (_type == AvatarArrayEnum.ChestGM || _type == AvatarArrayEnum.LegsGm || _type == AvatarArrayEnum.FeetGM)
+            panel = ClothesPanel;
+        else //if(_type == AvatarArrayEnum.FeetGM)
+            panel = SignatePanel;
+
+        panel.transform.GetChild(num).gameObject.SetActive(true);
+    }
+ 
 
     public void SetBoyOrGirl() 
     {
@@ -174,7 +194,6 @@ public class InventoryMenuManager : MonoBehaviour
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<AvatarManager>().Nextfeetcolor(1);
         FamilyManager.instance.SetAvatarForActiveKid(currentKid.GetActiveAvatarLook());
     }
-
 
 
 }

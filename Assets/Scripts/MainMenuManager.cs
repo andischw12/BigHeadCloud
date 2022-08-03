@@ -32,14 +32,15 @@ public class MainMenuManager : MonoBehaviour
     }
     void Start()
     {
-        int[] currentAvatar = FamilyManager.instance.GetAvatarForActiveKid();
+        //int[] currentAvatar = FamilyManager.instance.GetAvatarForActiveKid();
 
         Instantiate(AvatarPrefab, AvatarTransform);
          
 
-        FindObjectOfType<KidAvatarSelector>().SetActiveAvatarLook(currentAvatar);
+        FindObjectOfType<KidAvatarSelector>().SetActiveAvatarLook(FamilyManager.instance.GetAvatarForActiveKid());
    
         FindObjectOfType<KidAvatarSelector>().SetSignOff(0);
+
         FindObjectOfType<Animator>().applyRootMotion = false;
         UpdateStatistics();
         if (CalculationsManager.instance.PostGame) // if its after a game open in shop
@@ -51,6 +52,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void UpdateStatistics() 
     {
+        /*
         Name.text = FamilyManager.instance.GetActiveKidFullName();
         Gems.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems).ToString();
         GemsSpent.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.GemsSpent).ToString();
@@ -61,7 +63,7 @@ public class MainMenuManager : MonoBehaviour
        // print(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
         FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));
         PointsTXT.text = (FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) - ProfileManager.FIRST_RANK_POINTS).ToString();
-         
+         */
     }
 
     public void Home() 

@@ -29,6 +29,7 @@ public class InventoryItem : MonoBehaviour
         if(CurrentKidAvatar==null)
             print("CurrentKidAvatar is null");
         
+        
     }
 
     public void SelectItem() 
@@ -37,11 +38,11 @@ public class InventoryItem : MonoBehaviour
         if (type == AvatarArrayEnum.ChestGM || type == AvatarArrayEnum.LegsGm || type == AvatarArrayEnum.FeetGM)
         {
             if (InventoryItemnum == CurrentKidAvatar.GetActiveAvatarLook()[type.GetHashCode()]) // if its the same cloth package dont change material
-                CurrentKidAvatar.SetAvatarDressItem(type,InventoryItemnum, CurrentKidAvatar.GetActiveAvatarLook()[type.GetHashCode()+1]); // same cloth
+               CurrentKidAvatar.SetAvatarDressItem(type,InventoryItemnum, CurrentKidAvatar.GetActiveAvatarLook()[type.GetHashCode()+1]); // same cloth
             else// if its a diffrent one so choose a random one 
             {
                 CurrentKidAvatar.SetAvatarDressItem(type, InventoryItemnum, 0); //diffrent cloths
-              //  FindObjectOfType<InventoryMenuManager>().ChangeAvatarColorEffect();
+               // FindObjectOfType<InventoryMenuManager>().ChangeAvatarColorEffect();
             }
                
 

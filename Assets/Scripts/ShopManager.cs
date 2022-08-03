@@ -46,11 +46,30 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        isGirl = true;
+        
+        if(FindObjectOfType<KidAvatarSelector>().GetActivePrefabNum()>15)
+            isGirl = true;
+        SetMustHaveItems();
         SetShopPanels();
         SetInventoryPanels();
+        RemoveUnnesseryItemsFromStore();
 
+    }
 
+    void SetMustHaveItems() 
+    {
+        FamilyManager.instance.SetStoreItemState(AvatarArrayEnum.Signates, 0, 1);
+        FamilyManager.instance.SetStoreItemState(AvatarArrayEnum.Glasses, 0, 1);
+        if (!isGirl)
+        FamilyManager.instance.SetStoreItemState(AvatarArrayEnum.Hats, 0, 1);
+    }
+
+    void RemoveUnnesseryItemsFromStore() 
+    {
+        SignatePanel.transform.GetChild(0).gameObject.SetActive(false);
+        GlassesPanel.transform.GetChild(0).gameObject.SetActive(false);
+        if(!isGirl)
+        HatsPanel.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void SetShopPanels() 
@@ -71,7 +90,7 @@ public class ShopManager : MonoBehaviour
         InventoryMenuManager _tmpInventoryManager = FindObjectOfType<InventoryMenuManager>();
         _tmpInventoryManager.SetInventoryPanel(HatsPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Hats);
         _tmpInventoryManager.SetInventoryPanel(GlassesPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Glasses);
-        _tmpInventoryManager.SetInventoryPanel(ClothsPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.ChestGM);// add if boys if girl
+        _tmpInventoryManager.SetInventoryPanel(ClothsPanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.ChestGM);// fix for other
         _tmpInventoryManager.SetInventoryPanel(SignatePanel.GetComponentsInChildren<ShopItem>(), AvatarArrayEnum.Signates);
 
     }
@@ -85,80 +104,65 @@ public class ShopManager : MonoBehaviour
         {
             ShopItem tmp = Instantiate(ShopButton, _panelGM.transform).GetComponent<ShopItem>();
             tmp.ItemName.text = _hatsNames[i];
-            //tmp.priceText.text =(Mathf.RoundToInt ((_PriceRangeInt.start + ((float)i / (_images.Length+1) *  _PriceRangeInt.end))/1000)*1000).ToString() ;
-            //tmp.itemLevel.text = (Mathf.RoundToInt((_rankRangeInt.start + ((float)i / (_images.Length) * _rankRangeInt.end)) ) ).ToString();
             tmp.priceText.text = CalculatePrice(i,_type).ToString();
             tmp.itemLevel.text = CalculateRank(i,_type).ToString();
             tmp.ItemPic.sprite = _images[i];
             tmp.type = _type;
+            tmp.shopItemNum = i;
         }
     }
 
         //need to fix the formulas and just change the first parameter of the pow
-    int CalculatePrice(int x, AvatarArrayEnum type) 
-    {
-        if (type == AvatarArrayEnum.Glasses)
-            return (1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(1.15f, 1.104f * x)));
-
-        else if (type == AvatarArrayEnum.Signates)
-            return (1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(1.9f, 1.104f * x)));
-
-        else if (type == AvatarArrayEnum.ChestGM)
-            return (1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(1.25f, 1.104f * x)));
-
-        //hats boys and girls
-        if(isGirl)
-            return (1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(1.19f, 1.104f * x)));
-        else
-            return (1000*Mathf.Min(4,x)) +(1000* (int)(0.7f * Mathf.Pow(1.115f,1.104f*x)));
-    }
-
-    int CalculateRank(int x, AvatarArrayEnum type)
-    {
-       
-
-        if (type == AvatarArrayEnum.Glasses)
-            return Mathf.Min(50,1 + (int)(0.75f * Mathf.Pow(1.15f, 1.104f * x)));
-
-        else if (type == AvatarArrayEnum.Signates)
-            return Mathf.Min(50,1+ (int)(0.75f * Mathf.Pow(1.9f, 1.104f * x)));
-
-        else if(type == AvatarArrayEnum.ChestGM)
-            return Mathf.Min(50, 1 + (int)(0.75f * Mathf.Pow(1.25f, 1.104f * x)));
-
-        //hats boys and girls
-        if (isGirl)
-            return Mathf.Min(50, 1 + (int)(0.75f * Mathf.Pow(1.175f, 1.104f * x)));
-        else
-            return Mathf.Min(50, 1 +(int)(0.75f * Mathf.Pow(1.1f, 1.104f * x)));
-
-    }
+   
 
     void PrepareClothesPanel() 
     {
-        //if boys:
+       // Check if boy or girl selected
+        GameObject ClothesPanelPrefabList = isGirl ? GirlsClothesPrefabList:BoysClothesPrefabList;
+        // end
         Transform tmp;
-
-        GameObject BoyOrGirl = GirlsClothesPrefabList;
-        for(int i = 0; i < BoyOrGirl.transform.childCount; i++) 
+        for (int i = 0; i < ClothesPanelPrefabList.transform.childCount; i++) 
         {
-            tmp = Instantiate(BoyOrGirl.transform.GetChild(i),ClothsPanel.transform);
+            tmp = Instantiate(ClothesPanelPrefabList.transform.GetChild(i),ClothsPanel.transform);
             tmp.GetComponent<ShopItem>().priceText.text = CalculatePrice(i, AvatarArrayEnum.ChestGM).ToString();
             tmp.GetComponent<ShopItem>().itemLevel.text = CalculateRank(i,AvatarArrayEnum.ChestGM).ToString();
         }
-
-        //if girls:
-        /*
-        for (int i = 0; i < GirlsClothesPrefabList.transform.childCount; i++)
-        {
-            tmp = Instantiate(GirlsClothesPrefabList.transform.GetChild(i), ClothsPanel.transform);
-            tmp.GetComponent<ShopItem>().priceText.text = "3000";
-        }
-        */
     }
 
+    private int CalculatePrice(int x, AvatarArrayEnum type)
+    {
+        float _formulaCurve=0;
+        switch (type)
+        {
+            case AvatarArrayEnum.Hats:
+                _formulaCurve = isGirl ? 1.19f : 1.115f;break;
+            case AvatarArrayEnum.Glasses:
+                 _formulaCurve = 1.15f; break;
+            case AvatarArrayEnum.Signates:
+                _formulaCurve = 1.9f; break;
+            case AvatarArrayEnum.ChestGM: // all type of clothes
+                _formulaCurve = 1.25f; break;
+        }
+        return Mathf.Min(99999, Mathf.Max(1500,(1000 * Mathf.Min(4, x)) + (1000 * (int)(0.7f * Mathf.Pow(_formulaCurve, 1.104f * x)))));
+    }
 
-
+    private int CalculateRank(int x, AvatarArrayEnum type)
+    {
+        float _formulaCurve = 0;
+        switch (type)
+        {
+            case AvatarArrayEnum.Hats:
+                _formulaCurve = isGirl ? 1.19f : 1.10f; break;
+            case AvatarArrayEnum.Glasses:
+                _formulaCurve = 1.15f; break;
+            case AvatarArrayEnum.Signates:
+                _formulaCurve = 1.9f; break;
+            case AvatarArrayEnum.ChestGM: // all type of clothes
+                _formulaCurve = 1.25f; break;
+        }
+        return Mathf.Min(50, 1 + (int)(0.75f * Mathf.Pow(_formulaCurve, 1.104f * x)));
+    }
+ 
 
 
     public void SetStore()
