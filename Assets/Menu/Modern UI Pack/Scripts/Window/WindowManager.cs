@@ -174,7 +174,9 @@ namespace Michsky.UI.ModernUIPack
         public void OpenPanel(int newPanel)
         {
 
-           FindObjectOfType<InventoryMenuManager>().OnPanelChange(newPanel,windows[1].windowName);
+
+           
+               
 
             for (int i = 0; i < windows.Count; i++)
             {
@@ -209,9 +211,23 @@ namespace Michsky.UI.ModernUIPack
                     currentButtonAnimator.Play(buttonFadeOut);
                     nextButtonAnimator.Play(buttonFadeIn);
                 }
-
+                catch { }
+                try
+                {
+                    if (this == FindObjectOfType<InventoryMenuManager>().InventoryWindowManager)
+                        FindObjectOfType<InventoryMenuManager>().OnPanelChange(newPanel, windows[3].windowName);
+                    else if (this == FindObjectOfType<MainMenuManager>().MainMenuWindowsManager) 
+                    {
+                        if(newPanel ==1 && FindObjectOfType<InventoryMenuManager>().InventoryWindowManager.currentWindowIndex==3)
+                            FindObjectOfType<InventoryMenuManager>().OnPanelChange(3, "Inventory");
+                        else
+                            FindObjectOfType<InventoryMenuManager>().OnPanelChange(0, "");
+                    }
+                     
+                }
                 catch { }
             }
+          
         }
 
         public void NextPage()

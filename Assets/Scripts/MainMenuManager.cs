@@ -25,6 +25,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI SpecialPointsText;
     [SerializeField] Transform AvatarTransform;
     [SerializeField] GameObject AvatarPrefab;
+    [SerializeField] public WindowManager MainMenuWindowsManager;
 
 
     private void Awake()
@@ -34,6 +35,7 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         //int[] currentAvatar = FamilyManager.instance.GetAvatarForActiveKid();
+        MainMenuWindowsManager = GetComponentInChildren<WindowManager>();
         FindObjectOfType<WindowManager>().OpenPanel(0);
         Instantiate(AvatarPrefab, AvatarTransform);
          
@@ -70,7 +72,7 @@ public class MainMenuManager : MonoBehaviour
         FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));
     }
 
-    public void Home() 
+    public void SwitchUser() 
     {
         PhotonNetwork.Disconnect();
         Destroy(FindObjectOfType<PhotonLobby>().gameObject);

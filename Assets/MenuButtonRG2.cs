@@ -7,18 +7,25 @@ public enum MainMenuWinows {Game, Inventory, Shop, Performence,ChooseRoom,PlayWi
 public class MenuButtonRG2 : MonoBehaviour
 {
     public MainMenuWinows ButtonType;
-    private WindowManager myManager;
+     
+
 
     void Start()
     {
         Button btn = gameObject.AddComponent<Button>();
         btn.onClick.AddListener(TaskOnClick);
-        myManager = GetComponentInParent<WindowManager>();
-        myManager.OpenPanel(0);
+        
+
+          
+
+
     }
 
     void TaskOnClick()
     {
-        myManager.OpenPanel(ButtonType);
+        FindObjectOfType<MainMenuManager>().MainMenuWindowsManager.OpenPanel(ButtonType);
+         
+         
+            
     }
 }

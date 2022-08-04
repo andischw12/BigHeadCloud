@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Michsky.UI.Zone;
+using Michsky.UI.ModernUIPack;
 
 
 public class InventoryMenuManager : MonoBehaviour
@@ -26,6 +27,7 @@ public class InventoryMenuManager : MonoBehaviour
     [SerializeField] GameObject[] girlGM;
     [SerializeField] RawImage AvatarImage;
     [SerializeField] GameObject InventoryItemPrefab;
+    [SerializeField] public  WindowManager InventoryWindowManager;
 
     public bool IsPanelActive { get; set; }
 
@@ -36,7 +38,7 @@ public class InventoryMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InventoryWindowManager = GetComponentInChildren<WindowManager>();
         NextMat.onClick.AddListener(OnClickNextMat);
         PreMat.onClick.AddListener(OnClickPreMat);
         currentKid = FindObjectOfType<KidAvatarSelector>();
@@ -46,7 +48,7 @@ public class InventoryMenuManager : MonoBehaviour
         //FindObjectOfType<ShopManager>().SetStore();
         // SetAvaliableItems();
         //SetAvaliableItems();
-     
+        
 
     }
 
@@ -129,30 +131,57 @@ public class InventoryMenuManager : MonoBehaviour
     }
 
 
-    public void OnPanelChange(int newPanel, string panelName) 
+    public void OnPanelChange(bool b)
     {
-        if (gameObject.GetComponentInParent<CanvasGroup>().alpha == 1 )
-        {
-            if (newPanel == 1 && panelName == "Inventory")
+         
+            if (b)
             {
                 FindObjectOfType<KidAvatarSelector>().GetSignateGM().SetActive(true);
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().ResetTrigger("SignOff");
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Sign");
-               // Debug.Log("i am working");
+                // Debug.Log("i am working");
 
             }
-            else  
+            else
+            {
+                // print("signoff");
+                FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("SignOff");
+                FindObjectOfType<KidAvatarSelector>().SetSignOff(0f);
+            }
+
+             
+       
+
+
+    }
+
+
+    public void OnPanelChange(int newPanel, string panelName) 
+    {
+       // if (gameObject.GetComponentInParent<CanvasGroup>().alpha == 1 )
+        {
+            if (newPanel == 3 && panelName == "Inventory")
+            {
+                
+                FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().ResetTrigger("SignOff");
+                FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Sign");
+                FindObjectOfType<KidAvatarSelector>().SetSignOn();
+                // Debug.Log("i am working");
+
+            }
+            else   
             {
                // print("signoff");
                 FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("SignOff");
                 FindObjectOfType<KidAvatarSelector>().SetSignOff(0f);
             }
-
+            /*
             if (newPanel != 2)
             {
                 HideSelectors();
             }
             currentPanel = newPanel;
+            */
         }
         
         
