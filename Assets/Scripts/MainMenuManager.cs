@@ -31,12 +31,14 @@ public class MainMenuManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
     }
+    
     void Start()
     {
         //int[] currentAvatar = FamilyManager.instance.GetAvatarForActiveKid();
         MainMenuWindowsManager = GetComponentInChildren<WindowManager>();
-        FindObjectOfType<WindowManager>().OpenPanel(0);
+        //MainMenuWindowsManager.OpenPanel(0);
         Instantiate(AvatarPrefab, AvatarTransform);
          
 
@@ -55,7 +57,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void UpdateStatistics() 
     {
-        /*
+        
         Name.text = FamilyManager.instance.GetActiveKidFullName();
         Gems.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems).ToString();
         GemsSpent.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.GemsSpent).ToString();
@@ -66,7 +68,7 @@ public class MainMenuManager : MonoBehaviour
        // print(FamilyManager.instance.GetInfoValForActiveKid(UserInfoList.Points));
       
         PointsTXT.text = (FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) - ProfileManager.FIRST_RANK_POINTS).ToString();
-         */
+       
         Gems.text = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems).ToString();
         Name.text = FamilyManager.instance.GetActiveKidFullName();
         FindObjectOfType<ProfileManager>().SetValues(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));

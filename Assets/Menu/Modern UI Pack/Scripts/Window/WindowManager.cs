@@ -63,8 +63,13 @@ namespace Michsky.UI.ModernUIPack
         {
             if (isFirstTime == false && nextWindowAnimator == null)
             {
-                currentWindowAnimator.Play(windowFadeIn);
-                currentButtonAnimator.Play(buttonFadeIn);
+                try
+                {
+                    currentWindowAnimator.Play(windowFadeIn);
+                    currentButtonAnimator.Play(buttonFadeIn);
+                }
+                catch { }
+                
             }
 
             else if (isFirstTime == false && nextWindowAnimator != null)
