@@ -18,7 +18,7 @@ public class PlayerSelectionButton : MonoBehaviour
         ModalWindowManager deleteNotificationWindow;
         public KidAvatarSelector PlayerAvatar;
         public RawImage PlayerAvatarImage;
-    public int PlayerRank;
+        public int PlayerRank;
         
 
         private void Start()

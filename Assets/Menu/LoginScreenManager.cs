@@ -27,7 +27,7 @@ public class LoginScreenManager : MonoBehaviour
     [SerializeField] public  GameObject[] AvatarInstances = new GameObject[4];
     [SerializeField] Transform AvatarPlayerChoosingTransform;
     [SerializeField] public GameObject AvatarPlayerChoosingInstance;
-
+    public GameObject LogoGM;
 
 
 
@@ -109,16 +109,22 @@ public class LoginScreenManager : MonoBehaviour
 
     public void ShowActiveKidsButtons( ) 
     {
+        int tmp = 0;
         for (int i = 0; i < 4; i++) 
         {
             if (FamilyManager.instance.IsKidActive(i))
             {
                 AllPlayers[i].GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = FamilyManager.instance.GetKidFirstName(i);
                 ShowPlayerButton(i);
+                tmp++;
             }
             else
                 HidePlayerButton(i);
         }
+        if (tmp > 0)
+            LogoGM.SetActive(false);
+        else
+            LogoGM.SetActive(true);
     }
 
     // on the first screen, clicking new user button
