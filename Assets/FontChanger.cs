@@ -20,7 +20,7 @@ public class FontChanger : MonoBehaviour
 
     void Start()
     {
-
+        TMProFontchange();
        // ButtonChanger();
     }  
 

@@ -113,7 +113,7 @@ public class LoginScreenManager : MonoBehaviour
         {
             if (FamilyManager.instance.IsKidActive(i))
             {
-                AllPlayers[i].GetComponent<ButtonManager>().buttonText = FamilyManager.instance.GetKidFirstName(i);
+                AllPlayers[i].GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = FamilyManager.instance.GetKidFirstName(i);
                 ShowPlayerButton(i);
             }
             else
@@ -165,6 +165,7 @@ public class LoginScreenManager : MonoBehaviour
         AllPlayers[player].gameObject.SetActive(true);
         AllPlayers[player].PlayerAvatar.SelectAvatarByPrefab(FamilyManager.instance._kidsUserArr[player].UserAvatarArr[AvatarArrayEnum.AvatarPrefab.GetHashCode()]);
         AllPlayers[player].PlayerAvatar.SetActiveAvatarLook(FamilyManager.instance._kidsUserArr[player].UserAvatarArr);
+         
         ShowHideAddNewPlayer();
 
 

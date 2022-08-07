@@ -57,7 +57,7 @@ public class PostGame : MonoBehaviour
 
     IEnumerator PostGameProgress()
     {
-        UserGemsAmmount.GetComponentInParent<Animator>().enabled = false;
+        try { UserGemsAmmount.GetComponentInParent<Animator>().enabled = false; } catch { }
         CalculationsManager.instance.PostGame = true;
         int thisRoundGems = 0;
         int NewPoints = 0;
