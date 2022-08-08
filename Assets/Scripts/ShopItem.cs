@@ -26,8 +26,8 @@ public class ShopItem : MonoBehaviour
 
     void Start()
     {
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].confirmButton.onClick.AddListener(OnConfirmClick);
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].cancelButton.onClick.AddListener(OnCancelClick);
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[2].confirmButton.onClick.AddListener(OnConfirmClick);
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[2].cancelButton.onClick.AddListener(OnCancelClick);
         myButton = GetComponent<Button>();
         myButton.onClick.AddListener(OnClick);
     }
@@ -36,18 +36,18 @@ public class ShopItem : MonoBehaviour
     {
        
         if (FamilyManager.instance.GetStoreItemState(type, shopItemNum) == 1)
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[0].OpenWindow();
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[0].OpenWindow();
         else if(int.Parse(itemLevel.text)> ProfileManager.GetRankFromServer()) 
         {
             print(ProfileManager.GetRankFromServer());
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[5].OpenWindow();
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[5].OpenWindow();
         }
             
         else if (price > FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems))
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[1].OpenWindow();
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[1].OpenWindow();
         else 
         {
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[2].OpenWindow();
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[2].OpenWindow();
             ImClicked =true;
         }
              

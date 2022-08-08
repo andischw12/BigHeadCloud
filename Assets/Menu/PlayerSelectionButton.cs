@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Michsky;
 using Michsky.UI.ModernUIPack;
+ 
 using TMPro;
  
 
@@ -14,8 +15,9 @@ public class PlayerSelectionButton : MonoBehaviour
         
         [SerializeField] int PlayerNumber;
         bool DeleteButtonIsClicked;
+        bool HoverIsOn;
         [SerializeField] Button DeleteButton;
-        ModalWindowManager deleteNotificationWindow;
+        public ModalWindowManager deleteNotificationWindow;
         public KidAvatarSelector PlayerAvatar;
         public RawImage PlayerAvatarImage;
         public TextMeshProUGUI PlayerName;
@@ -24,10 +26,12 @@ public class PlayerSelectionButton : MonoBehaviour
 
         private void Start()
         {
-            deleteNotificationWindow = FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[LoginScreenNotificationList.DeleteUser.GetHashCode()];
-            OnHoverExit();
-            FindObjectOfType<ModalWindowManager>().confirmButton.onClick.AddListener(DeleteThisPlayer);
-            FindObjectOfType<ModalWindowManager>().cancelButton.onClick.AddListener(() => SetDeleteButtonIsClicked(false));
+            deleteNotificationWindow = FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[LoginScreenNotificationList.DeleteUser.GetHashCode()];
+        //OnHoverExit();
+             DeleteButton.gameObject.SetActive(false);
+            
+             deleteNotificationWindow.confirmButton.onClick.AddListener(DeleteThisPlayer);
+            deleteNotificationWindow.cancelButton.onClick.AddListener(() => SetDeleteButtonIsClicked(false));
             DeleteButton.onClick.AddListener(() => SetDeleteButtonIsClicked(true));
             PlayerAvatarImage = FindObjectOfType<RawImage>();
            // PlayerAvatar = LoginScreenManager.instance.AvatarInstances[PlayerNumber].GetComponentInChildren<KidAvatarSelector>();
@@ -36,13 +40,23 @@ public class PlayerSelectionButton : MonoBehaviour
         
         public void OnHoverEnter()
         {
-         PlayerAvatar.GetComponentInChildren<Animator>().SetBool("Waving", true);
-
-        DeleteButton.gameObject.SetActive(true);
+         HoverIsOn = true;
+         StartCoroutine(OnHoverEnterHelper());
         }
 
+
+        IEnumerator OnHoverEnterHelper() 
+        {
+            yield return new WaitForSeconds(0.3f);
+            if (HoverIsOn) 
+            {
+                PlayerAvatar.GetComponentInChildren<Animator>().SetBool("Waving", true);
+                DeleteButton.gameObject.SetActive(true);
+            }
+        }
         public void OnHoverExit()
         {
+            HoverIsOn = false;
             PlayerAvatar.GetComponentInChildren<Animator>().SetBool("Waving", false);
             DeleteButton.gameObject.SetActive(false);
         }
@@ -54,6 +68,7 @@ public class PlayerSelectionButton : MonoBehaviour
 
         public void DeleteThisPlayer() 
         {
+             print("Trying to delete player");
             if (DeleteButtonIsClicked) 
             {
                 FamilyManager.instance.DeleteKidUser(PlayerNumber);

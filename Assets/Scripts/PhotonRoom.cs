@@ -161,7 +161,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         yield return new WaitForSecondsRealtime(time);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תוינש המכ דועב בוש הסנמ .תרשה לע בר סמוע";
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תוינש המכ דועב בוש הסנמ .תרשה לע בר סמוע";
         }
         yield return new WaitForSecondsRealtime(4f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
@@ -177,7 +177,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         yield return new WaitForSecondsRealtime(time);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = ".תינש וסנ .לשכנ רוביחה";
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = ".תינש וסנ .לשכנ רוביחה";
         }
         yield return new WaitForSecondsRealtime(4f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
@@ -192,7 +192,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         yield return new WaitForSecondsRealtime(time);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תעכ קחשמל יונפ וניא שמתשמה";
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "תעכ קחשמל יונפ וניא שמתשמה";
         }
         yield return new WaitForSecondsRealtime(4f);
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))

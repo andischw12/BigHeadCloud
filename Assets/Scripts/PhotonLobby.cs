@@ -49,17 +49,17 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     IEnumerator AutoStartGameFunction() 
     {
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "בוש רבחתמ";
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "בוש רבחתמ";
         yield return new WaitUntil(() => Buttons.activeInHierarchy);
         OnRandomBattleButtonClicked();
     }
     IEnumerator PlayAgainWithFriend(string roomName)
     {
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...רבחתמ";
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...רבחתמ";
         yield return new WaitUntil(() => Buttons.activeInHierarchy);
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...ינשה שמתשמהמ הבושתל הכחמ";
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...ינשה שמתשמהמ הבושתל הכחמ";
 
         
         PhotonRoom.room.SelecetSubject(PlayerPrefs.GetInt("LastTopicPlayed"));
@@ -156,23 +156,23 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     IEnumerator OnPlayWithFriendMasterClickHelper() 
     {
        // Debug.Log("i am in");
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...קחשמ רצוי";
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...קחשמ רצוי";
         PlayWithFriendMode = true;
         CreateRoom();
         yield return new WaitUntil(() => PhotonNetwork.InRoom);
         PhotonNetwork.CurrentRoom.IsVisible = false;
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "ינשה ןקחשל ריבעהל שי " + PhotonNetwork.CurrentRoom.Name + " :םכלש קחשמה רפסמ";
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "ינשה ןקחשל ריבעהל שי " + PhotonNetwork.CurrentRoom.Name + " :םכלש קחשמה רפסמ";
     }
 
     public void OnPlayWithFriendSlaveClick()
     {
         if (roomNumCode.text != "") // check the input box is not empty
         {
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[4].GetComponent<ModalWindowManager>().CloseWindow();
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[4].GetComponent<ModalWindowManager>().CloseWindow();
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(18f));
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " קחשמל ףרטצמ";
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " קחשמל ףרטצמ";
             PhotonNetwork.JoinRoom(roomNumCode.text);
         }
     }
@@ -195,8 +195,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             connectedToMaster = false;
             PhotonNetwork.OfflineMode = true;
         }
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-        FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
+        FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
         if(PhotonRoom.room.enviorment == EnviormentList.Purim || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
         {
             PhotonNetwork.JoinRandomRoom(new Hashtable {{"env", (byte)PhotonRoom.room.enviorment.GetHashCode()}},2);

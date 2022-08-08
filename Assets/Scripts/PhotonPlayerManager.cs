@@ -168,7 +168,7 @@ public class PhotonPlayerManager : MonoBehaviour
         _myScoreIsUpdated = false;
     }
 
-    public void ShowEmote(string str) 
+    public virtual void ShowEmote(string str) 
     {
         if (PV.IsMine)
             PV.RPC("ShowEmoteRPC", RpcTarget.All, str);
