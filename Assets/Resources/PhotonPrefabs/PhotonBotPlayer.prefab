@@ -2447,9 +2447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Avatar: {fileID: 2155893987807552585, guid: 9118161dfa026cd43981f3c725268fe5, type: 3}
-  myPopupEmote: {fileID: 0}
+  myPopupEmote: {fileID: 655812806764450753}
   PV: {fileID: 0}
-  myEmote: {fileID: 655812806764450753}
   BotArr: []
   SelectedBot: {fileID: 0}
 --- !u!114 &-4738180253071103953

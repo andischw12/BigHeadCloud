@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playerAI : MonoBehaviour
 {
-    public void startAiSesseion() { StartCoroutine(startAiSesseionHelper()); }
+    public void startAiSesseion() { StartCoroutine(startAiSesseionHelper()); StartCoroutine(startAiEmote()); }
     int _howSmartAmI; 
     public int HowSmartAmI {get{return _howSmartAmI; } set { _howSmartAmI = value;}} //0-100
     IEnumerator startAiSesseionHelper()
@@ -38,5 +38,21 @@ public class playerAI : MonoBehaviour
         }
         return toReturn;
     }
- 
+
+
+
+    IEnumerator startAiEmote()
+    {
+        int time = Random.Range(4, 20);
+        if (time < 12) 
+        {
+            yield return new WaitForSecondsRealtime(time);
+
+            string[] options = { "Smile", "Pokerface", "Wink", "Angel" };
+            GetComponent<Player>().myEmojiesGuiButton.EmojieClicked(options[Random.Range(0,options.Length)]);
+        }
+           
+    }
+
+
 }

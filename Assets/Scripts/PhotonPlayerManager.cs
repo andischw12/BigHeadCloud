@@ -8,7 +8,7 @@ using System.IO;
 public class PhotonPlayerManager : MonoBehaviour
 {
     [SerializeField] protected GameObject Avatar;
-    [SerializeField] PopupEmote myPopupEmote;
+    [SerializeField] protected PopupEmote myPopupEmote;
     public PhotonView PV;
     protected Player myPlayerAvatar;
     public virtual bool ReadyToStartGame { get; set; }

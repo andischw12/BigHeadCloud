@@ -13,7 +13,7 @@ public class PhotonPlayerManagerBot : PhotonPlayerManager
 
     public override bool ReadyToStartTimer { get { return true; } }
 
-    [SerializeField] PopupEmote myEmote;
+    //[SerializeField] PopupEmote myEmote;
     [SerializeField] BotConfiguration[] BotArr;
     [SerializeField] BotConfiguration SelectedBot;
     protected override void LateStart()
@@ -26,25 +26,18 @@ public class PhotonPlayerManagerBot : PhotonPlayerManager
         //CreatePhotonPlayer(Avatar.GetComponent<KidAvatarSelector>().GetBotAvatar(SelectedBot), SelectedBot.BotName, SelectedBot.BotSmartness) ;
         CreatePhotonPlayer(Avatar.GetComponent<KidAvatarSelector>().GetRandomBotLook(SelectedBot),SelectedBot.BotName, SelectedBot.BotPoints(), SelectedBot.BotSmartness);
         // CreatePhotonPlayer(new int[]{0,0,0,0,0,0,0,0,0,0,0}, SelectedBot.BotName, SelectedBot.BotPoints(), SelectedBot.BotSmartness);
-        StartCoroutine(DoEmote());
+         
     }
 
     public override void UpdateScore(int _newScore)
     {
         myPlayerAvatar.TotalScore = _newScore;
     }
-
-    IEnumerator DoEmote() 
-    {
-        yield return new WaitForSeconds(2);
-        GameManager.instance.player2.myEmojiesGuiButton.EmojieClicked("Angel");
-        StartCoroutine(DoEmote());
-        yield break;
-    }
+ 
 
     public override void ShowEmote(string str)
     {
-        StartCoroutine(DoEmote());
+        myPopupEmote.ShowEmote(str);
     }
 
 

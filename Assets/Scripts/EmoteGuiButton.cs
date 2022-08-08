@@ -41,13 +41,15 @@ public class EmoteGuiButton : MonoBehaviour
     public void HideButton() 
     {
          
-        GetComponent<Image>().enabled = false;
+        
+        HideIcons();
     }
 
     public void ShowButton()
     {
          
-        GetComponent<Image>().enabled = true;
+         
+        ShowIcons();
     }
 
 
