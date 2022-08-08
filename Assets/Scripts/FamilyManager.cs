@@ -332,7 +332,8 @@ public class FamilyManager : MonoBehaviour
 
     public bool ActiveAvatarIsGirl()
     {
-        if (GetInfoValForActiveKid(UserArrayEnum.Number) > 15)
+        print("return number is: "+ GetAvatarForActiveKid()[AvatarArrayEnum.AvatarPrefab.GetHashCode()]);
+        if (GetAvatarForActiveKid()[AvatarArrayEnum.AvatarPrefab.GetHashCode()] > 15)
             return true;
         return false;
     }

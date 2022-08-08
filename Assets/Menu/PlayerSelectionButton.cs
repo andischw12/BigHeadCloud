@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Michsky;
 using Michsky.UI.ModernUIPack;
-
+using TMPro;
  
 
 
@@ -18,13 +18,14 @@ public class PlayerSelectionButton : MonoBehaviour
         ModalWindowManager deleteNotificationWindow;
         public KidAvatarSelector PlayerAvatar;
         public RawImage PlayerAvatarImage;
-        public int PlayerRank;
+        public TextMeshProUGUI PlayerName;
+        public TextMeshProUGUI Rank;
         
 
         private void Start()
         {
             deleteNotificationWindow = FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[LoginScreenNotificationList.DeleteUser.GetHashCode()];
-            HideDeleteIcon();
+            OnHoverExit();
             FindObjectOfType<ModalWindowManager>().confirmButton.onClick.AddListener(DeleteThisPlayer);
             FindObjectOfType<ModalWindowManager>().cancelButton.onClick.AddListener(() => SetDeleteButtonIsClicked(false));
             DeleteButton.onClick.AddListener(() => SetDeleteButtonIsClicked(true));
@@ -33,13 +34,16 @@ public class PlayerSelectionButton : MonoBehaviour
         }
 
         
-        public void ShowDeleteIcon()
+        public void OnHoverEnter()
         {
-            DeleteButton.gameObject.SetActive(true);
+         PlayerAvatar.GetComponentInChildren<Animator>().SetBool("Waving", true);
+
+        DeleteButton.gameObject.SetActive(true);
         }
 
-        public void HideDeleteIcon()
+        public void OnHoverExit()
         {
+            PlayerAvatar.GetComponentInChildren<Animator>().SetBool("Waving", false);
             DeleteButton.gameObject.SetActive(false);
         }
 

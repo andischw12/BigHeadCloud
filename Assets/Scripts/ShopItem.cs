@@ -37,6 +37,12 @@ public class ShopItem : MonoBehaviour
        
         if (FamilyManager.instance.GetStoreItemState(type, shopItemNum) == 1)
             FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[0].OpenWindow();
+        else if(int.Parse(itemLevel.text)> ProfileManager.GetRankFromServer()) 
+        {
+            print(ProfileManager.GetRankFromServer());
+            FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[5].OpenWindow();
+        }
+            
         else if (price > FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Gems))
             FindObjectOfType<NotificationsManager>().CurrentSceneNotifications[1].OpenWindow();
         else 

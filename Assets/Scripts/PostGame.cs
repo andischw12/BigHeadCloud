@@ -169,7 +169,7 @@ public class PostGame : MonoBehaviour
         if(tmp)
         {
             FindObjectOfType<WindowManager>().OpenPanel(2);
-            Rank.text = FindObjectOfType<ProfileManager>().GetRank(NewPoints).ToString();
+            Rank.text = ProfileManager.GetRank(NewPoints).ToString();
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
             FindObjectOfType<StarsEffect>().Play();
             SoundManager.instance.PlaySoundEffect(SoundEffectsList.WinGame);
@@ -208,7 +208,7 @@ public class PostGame : MonoBehaviour
             FindObjectOfType<ProfileManager>().AnimateSliderOverTime(1f);
             yield return new WaitForSecondsRealtime(1f);
             FindObjectOfType<WindowManager>().OpenPanel(2);
-            Rank.text = FindObjectOfType<ProfileManager>().GetRank(NewPoints).ToString();
+            Rank.text = ProfileManager.GetRank(NewPoints).ToString();
             FindObjectsOfType<StarsEffect>()[1].Play();
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
         }

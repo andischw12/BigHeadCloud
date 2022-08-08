@@ -11,7 +11,7 @@ using AG_WebGLFPSAccelerator;
 public class LoginScreenManager : MonoBehaviour
 {
     public static LoginScreenManager instance;
-    [SerializeField] PlayerSelectionButton[] AllPlayers;
+    [SerializeField] public PlayerSelectionButton[] AllPlayers;
     [SerializeField] Button AddPlayerButton;
     [SerializeField] Button EnterNameNextButton;
     [SerializeField] TextMeshProUGUI NameTxtInput;
@@ -114,7 +114,9 @@ public class LoginScreenManager : MonoBehaviour
         {
             if (FamilyManager.instance.IsKidActive(i))
             {
-                AllPlayers[i].GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>().text = FamilyManager.instance.GetKidFirstName(i);
+                AllPlayers[i].GetComponent<PlayerSelectionButton>().PlayerName.text  = FamilyManager.instance.GetKidFirstName(i);
+                AllPlayers[i].GetComponent<PlayerSelectionButton>().Rank.text = ProfileManager.GetRank(FamilyManager.instance._kidsUserArr[i].UserGeneralInfoArr[UserArrayEnum.Points.GetHashCode()]).ToString();
+
                 ShowPlayerButton(i);
                 tmp++;
             }
@@ -212,7 +214,7 @@ public class LoginScreenManager : MonoBehaviour
         PrevAvatarButton.interactable = false;
         float fade = 1f;
         AvatarImage.material.SetFloat("_Brightness", fade);
-        while (fade <= 2 && fade >= 1)
+        while (fade <= 1.7f && fade >= 1)
         {
             fade += 0.45f;
             AvatarImage.material.SetFloat("_Brightness", fade);

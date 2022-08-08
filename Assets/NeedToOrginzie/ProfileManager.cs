@@ -43,17 +43,17 @@ public class ProfileManager : MonoBehaviour
     }
 
 
-    public int GetRankFromServer() 
+    public static int GetRankFromServer() 
     {
         return GetRank(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points));  
     }
 
-    public int GetRank(int points)
+    public static int GetRank(int points)
     {
         return GetRankByPoints(points);  
     }
 
-    int GetRankByPoints(int points) // for inner calculation - do not use from outside
+    static int  GetRankByPoints(int points) // for inner calculation - do not use from outside
     {
         return (int)Mathf.Sqrt((float)points/FIRST_RANK_POINTS);
     }

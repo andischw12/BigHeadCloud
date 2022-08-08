@@ -47,7 +47,7 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         
-        if(FindObjectOfType<KidAvatarSelector>().GetActivePrefabNum()>15)
+        if(FamilyManager.instance.ActiveAvatarIsGirl())
             isGirl = true;
         SetMustHaveItems();
         SetShopPanels();
