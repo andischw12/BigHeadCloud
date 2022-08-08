@@ -22,6 +22,9 @@ public class KidAvatarSelector : MonoBehaviour
         SetAccesories();
     }
 
+
+    
+
     public void SetAccesories()
     {
         for (int i = 0; i < AvatarsArray.Length; i++)

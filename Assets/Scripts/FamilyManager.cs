@@ -330,7 +330,12 @@ public class FamilyManager : MonoBehaviour
         return toReturn;
     }
 
-
+    public bool ActiveAvatarIsGirl()
+    {
+        if (GetInfoValForActiveKid(UserArrayEnum.Number) > 15)
+            return true;
+        return false;
+    }
 
     public int GetNextFreeUserSlot() 
     {
