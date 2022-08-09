@@ -167,11 +167,18 @@ public class GameManager : MonoBehaviour
         UI_Effects.instance.PlayStartEffect(0);
         SoundManager.instance.PlayMusic(0);
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.Clapping);
-        host.talking(host.GetComponent<NarrationHolder>().Opening);
         Cameras.instance.SelectCamera(4);
-        yield return new WaitForSecondsRealtime(1.75f);
-        Cameras.instance.SelectCamera(5);
+         
+       
+        yield return new WaitForSecondsRealtime(2f);
+        host.talking(host.GetComponent<NarrationHolder>().Opening);
+        
+        player1.GetComponentInChildren<Animator>().SetBool("Waving", false);
+        player2.GetComponentInChildren<Animator>().SetBool("Waving", false);
+        player1.Dancing(20);
+        player2.Dancing(20);
         yield return new WaitUntil(() => !host.IsTalkingInProgress);
+        Cameras.instance.SelectCamera(0);
         thisComputerPlayer.myEmojiesGuiButton.MakeButtonNotAvaliable();
         LightsController.instance.LightsOn();
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.Clapping);
@@ -180,9 +187,8 @@ public class GameManager : MonoBehaviour
         //---CountDownSession
 
         UIManager.instance.startCountDown(3);
-        Cameras.instance.SelectCamera(3);
-        player1.GetComponentInChildren<Animator>().SetBool("Waving", false);
-        player2.GetComponentInChildren<Animator>().SetBool("Waving", false);
+         
+       
         EveryBodyDance(3);
         yield return new WaitForSecondsRealtime(1);
         

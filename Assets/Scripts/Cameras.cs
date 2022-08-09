@@ -33,7 +33,7 @@ public class Cameras : MonoBehaviour
     {
         for (int i = 0; i < gameObject.transform.childCount; i++)
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
-        CameraArray = GetComponentsInChildren<CinemachineVirtualCamera>();
+        CameraArray = GetComponentsInChildren<CinemachineVirtualCamera>(true);
     }
 
     public void SelectRandomCamera(float time)
