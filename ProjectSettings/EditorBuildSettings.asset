@@ -20,7 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PostGame.unity
     guid: f7a3ab11803a7a74c975352923b2ac65
-  - enabled: 1
-    path: Assets/Scenes/InternetConnection.unity
-    guid: 1336db5b3700ee44ba833cc64110076b
   m_configObjects: {}
