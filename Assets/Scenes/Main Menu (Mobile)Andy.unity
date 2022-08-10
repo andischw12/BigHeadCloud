@@ -30360,7 +30360,7 @@ MonoBehaviour:
   SpecialPointsText: {fileID: 0}
   AvatarTransform: {fileID: 1238290915}
   AvatarPrefab: {fileID: 2155893987807552585, guid: 9118161dfa026cd43981f3c725268fe5, type: 3}
-  MainMenuWindowsManager: {fileID: 0}
+  MainMenuWindowsManager: {fileID: 1900440276}
 --- !u!1 &913479589
 GameObject:
   m_ObjectHideFlags: 0

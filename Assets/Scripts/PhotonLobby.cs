@@ -18,7 +18,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     public static PhotonLobby lobby;
     public GameObject Buttons;
     public GameObject ConnectingGM;
-    public GameObject JoinAFriendButton;
+    //public GameObject JoinAFriendButton;
     [SerializeField] TMP_InputField roomNumCode;
     public bool PlayWithFriendMode { get; set; }
     bool waitingTimeIsOver;
@@ -32,7 +32,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     void Start()
     {
         Buttons.SetActive(false);
-        JoinAFriendButton.SetActive(false);
+        //JoinAFriendButton.SetActive(false);
         PhotonNetwork.OfflineMode = false;
         PlayWithFriendMode = false;
         ConnectToPhoton();
@@ -138,7 +138,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
         connectedToMaster = true;
         Buttons.SetActive(true);
-        JoinAFriendButton.SetActive(true);
+       // JoinAFriendButton.SetActive(true);
         ConnectingGM.SetActive(false);
     }
 
