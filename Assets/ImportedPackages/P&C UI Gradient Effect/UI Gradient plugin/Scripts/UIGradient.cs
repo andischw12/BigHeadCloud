@@ -1010,7 +1010,7 @@ namespace PolyAndCode.UI.effect
             }
             else
             {
-                _gradientMap.Resize(resolution, _texHeight);
+                _gradientMap.Reinitialize(resolution, _texHeight);
             }
 
             if (gradient == null)

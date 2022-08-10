@@ -6,6 +6,7 @@ using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine.SceneManagement;
 using AG_WebGLFPSAccelerator;
+using UnityEditor;
 
 
 public class LoginScreenManager : MonoBehaviour
@@ -41,6 +42,7 @@ public class LoginScreenManager : MonoBehaviour
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
             GameManager.pushWinnersJS();
 #endif
+        
         loginWindowManager = FindObjectOfType<WindowManager>();
         loginWindowManager.OpenFirstTab();
         FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = false;

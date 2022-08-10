@@ -5,8 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 using  Michsky.UI.ModernUIPack;
 using Michsky.UI.Zone;
- 
-//[ExecuteInEditMode]
+using UnityEditor;
+
+[ExecuteInEditMode]
 public class FontChanger : MonoBehaviour
 {
 
@@ -20,9 +21,12 @@ public class FontChanger : MonoBehaviour
 
     void Start()
     {
-        TMProFontchange();
-       // ButtonChanger();
+        // TMProFontchange();
+        // ButtonChanger();
+        //WebGLWditor();
     }  
+
+     
 
     void ButtonChanger() 
     {

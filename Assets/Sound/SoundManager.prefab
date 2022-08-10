@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6805875136923367587}
   m_RootOrder: 0
@@ -43,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -154,6 +155,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1138.3097, y: 182.27818, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6805875136011559128}
   - {fileID: 6805875137881209556}
@@ -197,7 +199,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a61f2b5220c54674a98f7b75a1551c8b, type: 3}
   - {fileID: 8300000, guid: e7ab0c4e6519577409893381e99dd20a, type: 3}
   MenuMusic:
-  - {fileID: 8300000, guid: 7dd13a58a3c983d458b1b21a92e2b5ae, type: 3}
+  - {fileID: 8300000, guid: e83408c4722ddda47b441c51d6ba8285, type: 3}
   effctsAC: {fileID: 6805875137881209557}
   musicAC: {fileID: 6805875136011559129}
   timerAC: {fileID: 6805875137375363040}
@@ -228,6 +230,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6805875136923367587}
   m_RootOrder: 2
@@ -355,6 +358,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6805875136923367587}
   m_RootOrder: 1

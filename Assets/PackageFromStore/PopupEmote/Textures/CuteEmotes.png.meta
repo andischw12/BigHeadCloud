@@ -416,6 +416,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -424,9 +425,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -1881,6 +1882,72 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Grin: 21300004
+      Sigh: 21300112
+      SmileTongue: 21300022
+      AsleepDrool: 21300116
+      CrazyKiss: 21300126
+      CrazyTongue: 21300128
+      Heart: 21300028
+      UpsetUnsure: 21300078
+      Kitty: 21300124
+      Hermph: 21300074
+      Awe: 21300092
+      SmileBlink: 21300024
+      Kiss: 21300034
+      Brooding: 21300066
+      TongueWink: 21300038
+      Shock: 21300086
+      Zombie: 21300104
+      Yawn: 21300110
+      Sky: 21300048
+      PukeRainbows: 21300122
+      Sick: 21300118
+      Astonished: 21300088
+      Sunglasses: 21300044
+      Nervous: 21300090
+      PokerfaceAstonished: 21300056
+      Unsure: 21300002
+      PokerfaceBlink: 21300052
+      Surprised: 21300084
+      Smile: 21300020
+      Pokerface: 21300050
+      Confused: 21300094
+      Happy: 21300000
+      Dead: 21300108
+      CryMore: 21300098
+      Upset: 21300076
+      KissHeart: 21300032
+      Stars: 21300026
+      HeartBreak: 21300030
+      LaughHard: 21300012
+      Rage: 21300070
+      SadBlink: 21300072
+      VeryHappy: 21300006
+      CryHappy: 21300102
+      KissHappy: 21300036
+      NervousLaugh: 21300010
+      UpsetSaddest: 21300082
+      Cry: 21300096
+      Asleep: 21300114
+      SmileCheeks: 21300018
+      CryHardest: 21300100
+      Puke: 21300120
+      ConfusedMore: 21300106
+      Annoyed: 21300062
+      SunglassesPointy: 21300046
+      AnnoyedMore: 21300064
+      Pout: 21300060
+      Laugh: 21300008
+      PokerfaceAnnoyed: 21300054
+      Wink: 21300016
+      Sad: 21300058
+      UpsetSad: 21300080
+      TongueLaugh: 21300040
+      TongueHappy: 21300042
+      BroodingTongue: 21300068
+      Angel: 21300014
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

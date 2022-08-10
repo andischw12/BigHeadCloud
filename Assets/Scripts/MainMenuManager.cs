@@ -7,6 +7,7 @@ using System;
 using Photon.Pun;
 using Michsky.UI.Zone;
 using Michsky.UI.ModernUIPack;
+using UnityEditor;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class MainMenuManager : MonoBehaviour
     
     void Start()
     {
+         
         //int[] currentAvatar = FamilyManager.instance.GetAvatarForActiveKid();
         MainMenuWindowsManager = GetComponentInChildren<WindowManager>();
         //MainMenuWindowsManager.OpenPanel(0);

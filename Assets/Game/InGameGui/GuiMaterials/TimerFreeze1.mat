@@ -2,15 +2,20 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TimerFreeze1
   m_Shader: {fileID: 4800000, guid: 0803c241834332942abfcbd27c498b46, type: 3}
-  m_ShaderKeywords: _ENABLEFROZEN_ON _ENABLESINEGLOW_ON _SHADERSPACE_UV _TIMESETTINGS_LINEAR_DEFAULT
-    _UBERFADING_NONE
+  m_ValidKeywords:
+  - _ENABLEFROZEN_ON
+  - _ENABLESINEGLOW_ON
+  - _SHADERSPACE_UV
+  - _TIMESETTINGS_LINEAR_DEFAULT
+  - _UBERFADING_NONE
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -112,6 +117,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - PixelSnap: 0
     - _AddColorContrast: 0.5
@@ -313,8 +319,8 @@ Material:
     - _ShineSpeed: 0.3
     - _ShineWidth: 0.05
     - _SineGlowContrast: 1
-    - _SineGlowFade: 1
-    - _SineGlowFrequency: 25
+    - _SineGlowFade: 0.1
+    - _SineGlowFrequency: 4
     - _SineGlowMax: 1
     - _SineGlowMin: 0
     - _SineMoveFade: 1
@@ -460,7 +466,7 @@ Material:
     - _RecolorRedTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _RecolorYellowTint: {r: 1, g: 1, b: 1, a: 0.5019608}
     - _ShineColor: {r: 0, g: 8.658911, b: 15.999997, a: 0}
-    - _SineGlowColor: {r: 1, g: 0, b: 0, a: 1}
+    - _SineGlowColor: {r: 1, g: 1, b: 1, a: 1}
     - _SineMoveFrequency: {r: 1, g: 1, b: 0, a: 0}
     - _SineMoveOffset: {r: 0, g: 0.5, b: 0, a: 0}
     - _SineRotatePivot: {r: 0.5, g: 0.5, b: 0, a: 0}
