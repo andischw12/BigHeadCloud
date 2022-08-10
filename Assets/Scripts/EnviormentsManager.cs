@@ -7,9 +7,9 @@ public enum EnviormentList {Random = -1,Bereshit,ShmotVaikra,BamidbarDvarim,Tana
 public class EnviormentsManager : MonoBehaviour
 {
     public static EnviormentsManager instance;
-    [SerializeField] GameObject[] enviorments;
+    //[SerializeField] GameObject[] enviorments;
     int _chosen = 1;
-    public int EnviormentsCount {get{return enviorments.Length;}} 
+    //public int EnviormentsCount {get{return enviorments.Length;}} 
     // Start is called before the first frame update
     void Awake()
     {
