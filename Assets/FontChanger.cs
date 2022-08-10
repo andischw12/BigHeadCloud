@@ -11,7 +11,10 @@ public class FontChanger : MonoBehaviour
 {
 
      [SerializeField] TMP_FontAsset Source;
+    [SerializeField] Font sourceFont;
     [SerializeField] TextMeshProUGUI[] AllTextArr;
+    [SerializeField] Text[] AllTextArr2;
+
     [SerializeField] Button[] AllButtontArr;
 
     [SerializeField] GameObject ButtonPrefab;
@@ -20,7 +23,8 @@ public class FontChanger : MonoBehaviour
 
     void Start()
     {
-        TMProFontchange();
+        Fontchange();
+        //TMProFontchange();
        // ButtonChanger();
     }  
 
@@ -82,8 +86,17 @@ public class FontChanger : MonoBehaviour
         }
     }
 
+    void Fontchange()
+    {
+        AllTextArr2 = FindObjectsOfType<Text>(true);
 
-    
+        foreach (Text component in AllTextArr2)
+            component.font = sourceFont;
+
+    }
+
+
+
 
 
 }

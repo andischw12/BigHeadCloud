@@ -106,7 +106,7 @@ public class KidUser
     {
 
 
-#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
+#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD )
         UserName = FirstName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
         int player = GetInfoVal(UserInfoList.Number);
         int points = GetInfoVal(UserInfoList.Points);
