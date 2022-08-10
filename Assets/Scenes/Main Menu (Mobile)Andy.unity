@@ -31209,7 +31209,6 @@ GameObject:
   - component: {fileID: 939650977}
   - component: {fileID: 939650976}
   - component: {fileID: 939650975}
-  - component: {fileID: 939650974}
   m_Layer: 5
   m_Name: Dust Motes Big
   m_TagString: Untagged
@@ -31236,27 +31235,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &939650974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 939650972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2be204e84711f0f4ba1509d6c8df6cbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 9de1ffc75f08af04ab2e2a97be5f60df, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  fixedTime: 1
 --- !u!222 &939650975
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -53611,7 +53589,7 @@ GameObject:
   - component: {fileID: 1386775397}
   - component: {fileID: 1386775398}
   m_Layer: 0
-  m_Name: Main Camera (1)
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56433,7 +56411,6 @@ GameObject:
   - component: {fileID: 1465400508}
   - component: {fileID: 1465400507}
   - component: {fileID: 1465400506}
-  - component: {fileID: 1465400505}
   m_Layer: 5
   m_Name: Dust Motes Small
   m_TagString: Untagged
@@ -56460,27 +56437,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1465400505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465400503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2be204e84711f0f4ba1509d6c8df6cbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 9de1ffc75f08af04ab2e2a97be5f60df, type: 2}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  fixedTime: 1
 --- !u!222 &1465400506
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -96745,7 +96701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Buttons: {fileID: 1900440274}
   ConnectingGM: {fileID: 1928823760}
-  JoinAFriendButton: {fileID: 0}
   roomNumCode: {fileID: 653509538}
 --- !u!4 &4764088224471331425
 Transform:

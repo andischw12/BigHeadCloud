@@ -48,7 +48,7 @@ public class playerAI : MonoBehaviour
         {
             yield return new WaitForSecondsRealtime(time);
 
-            string[] options = { "Smile", "Pokerface", "Wink", "Angel" };
+            string[] options = { "Smile", "Pokerface", "Angel" };
             GetComponent<Player>().myEmojiesGuiButton.EmojieClicked(options[Random.Range(0,options.Length)]);
         }
            
