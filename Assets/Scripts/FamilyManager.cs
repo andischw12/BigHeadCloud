@@ -29,6 +29,7 @@ public class KidUser
 
     //user properties
     public string UserName;
+    public string FirstName;
     public int[] UserGeneralInfoArr = new int[Enum.GetNames(typeof(UserArrayEnum)).Length];
     public int[] UserAvatarArr = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
     public int[,] UserStoreMatrix = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length,100];
@@ -108,11 +109,11 @@ public class KidUser
 
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD )
         UserName = FirstName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
-        int player = GetInfoVal(UserInfoList.Number);
-        int points = GetInfoVal(UserInfoList.Points);
-        //int shabbatPointsToSave = GetShabbatPoints();
+        int player = GetInfoVal(UserArrayEnum.Number);
+        int points = GetInfoVal(UserArrayEnum.Points);
+        //int shabbatPointsToSave = 0;
         sendJson = JsonPrefer();
-        saveDataJS(sendJson, player,points,ShabbatPoints, HanukkaPoints, PurimPoints);
+        saveDataJS(sendJson, player,points,0, 0, 0);
 #endif
 
     }
@@ -122,7 +123,7 @@ public class KidUser
     {
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
  
-        int player = GetInfoVal(UserInfoList.Number); ;
+        int player = GetInfoVal(UserArrayEnum.Number); ;
         getJson = loadDataJS(player);
         if (getJson != null && getJson != "" && getJson != "undefined")
         {
@@ -255,15 +256,17 @@ public class FamilyManager : MonoBehaviour
     {
         _kidsUserArr[i] = new KidUser(i);
         _kidsUserArr[i].SetInfoVal(UserArrayEnum.Gems, 300000000);
-        
+        _kidsUserArr[i].SetInfoVal(UserArrayEnum.Points, 300000000);
+
 
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
  
-            _kidsUserArr[i].SetInfoVal(UserInfoList.Gems, 3000);
+            _kidsUserArr[i].SetInfoVal(UserArrayEnum.Gems, 300000000);
+             _kidsUserArr[i].SetInfoVal(UserArrayEnum.Points, ProfileManager.FIRST_RANK_POINTS);
 #endif
 
-        _kidsUserArr[i].SetInfoVal(UserArrayEnum.Points, ProfileManager.FIRST_RANK_POINTS);
-       
+
+
         //  _kidsUserArr[i].SetInfoVal(UserInfoList.Points, 80000);
         /*
          _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.ChestGM.GetHashCode(), 5] = 1;
@@ -274,7 +277,7 @@ public class FamilyManager : MonoBehaviour
          _kidsUserArr[i].UserStoreMatrix[AvatarArrayEnum.Glasses.GetHashCode(), 0] = 1;
         */
     }
-    
+
     public void DeleteKidUser(int kidUserNum)
     {
         _kidsUserArr[kidUserNum].IsActive = false;
@@ -354,45 +357,45 @@ public class FamilyManager : MonoBehaviour
 
     }
 
-    /*
+    
 
     public void SetShabbatPoints(int val) 
     {
-        ActiveKid.shabbatPoints = val;
+        //ActiveKid.shabbatPoints = val;
         print("shabat point is updated. points now: " + GetShabbatPoints()); ;
     }
 
 
     public int GetShabbatPoints()
     {
-        return ActiveKid.shabbatPoints;
+        return 0;
     }
 
     public void SetHanukkaPoints(int val)
     {
-        ActiveKid.hanukkaPoints = val;
+        //ActiveKid.hanukkaPoints = val;
         print("Hanuka points is updated. points now: " + GetHanukkaPoints()); ;
     }
 
 
     public int GetHanukkaPoints()
     {
-        return ActiveKid.hanukkaPoints;
+        return 0;
     }
 
 
     public void SetPurimPoints(int val)
     {
-        ActiveKid.purimPoints = val;
+        //ActiveKid.purimPoints = val;
         print("Hanuka points is updated. points now: " + GetPurimPoints()); ;
     }
 
 
     public int GetPurimPoints()
     {
-        return ActiveKid.purimPoints;
+        return 0;
     }
 
-    */
+    
 
 }
