@@ -106,7 +106,7 @@ public class KidUser
     {
 
 
-#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD&&!UNITY_WEBGL)
+#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
         UserName = FirstName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
         int player = GetInfoVal(UserInfoList.Number);
         int points = GetInfoVal(UserInfoList.Points);
@@ -120,7 +120,7 @@ public class KidUser
     //Getting all data of player (by player-num) from server
     public void loadPlayerData()
     {
-#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD &&!UNITY_WEBGL)
+#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
  
         int player = GetInfoVal(UserInfoList.Number); ;
         getJson = loadDataJS(player);
@@ -228,7 +228,7 @@ public class FamilyManager : MonoBehaviour
     }
     public void CreateEmptyUsers()
     {
-#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD&&!UNITY_WEBGL)
+#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
         int playersCount = getPlayersCountJS();
 #endif
 
@@ -236,7 +236,7 @@ public class FamilyManager : MonoBehaviour
         {
             SetValsForEmptyUser(i);
 
-#if   (!UNITY_EDITOR && !DEVELOPMENT_BUILD&&!UNITY_WEBGL)
+#if   (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
 
             if (playersCount > 0)
             {
@@ -257,7 +257,7 @@ public class FamilyManager : MonoBehaviour
         _kidsUserArr[i].SetInfoVal(UserArrayEnum.Gems, 300000000);
 
 
-#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD && !UNITY_WEBGL)
+#if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
  
             _kidsUserArr[i].SetInfoVal(UserInfoList.Gems, 3000);
 #endif

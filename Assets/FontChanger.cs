@@ -7,7 +7,7 @@ using  Michsky.UI.ModernUIPack;
 using Michsky.UI.Zone;
 using UnityEditor;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class FontChanger : MonoBehaviour
 {
 
@@ -23,10 +23,16 @@ public class FontChanger : MonoBehaviour
     {
         // TMProFontchange();
         // ButtonChanger();
-        //WebGLWditor();
-    }  
+        WebGLWditor();
+    }
 
-     
+    void WebGLWditor() 
+    {
+#if(UNITY_EDITOR)
+        PlayerSettings.WebGL.memorySize = 1024;
+#endif
+    }
+
 
     void ButtonChanger() 
     {
