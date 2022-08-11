@@ -9,12 +9,12 @@ mergeInto(LibraryManager.library, {
         var PersonIDDB = getPersonID();
         var playersCountCheck = 0;
         if(parseInt(PersonIDDB)>0){
-            playersCountCheck = getGamePlayers(PersonIDDB);
+            playersCountCheck = getGamePlayers(PersonIDDB,2);
         } 
         if(playersCountCheck>0){
             PersonID = PersonIDDB;
         } else {
-            var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
+            var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
 
             if( LSPersonID != undefined && LSPersonID >0 ){
                 PersonID = LSPersonID;
@@ -28,21 +28,21 @@ mergeInto(LibraryManager.library, {
         }
         var DBplayers = 0;
             if(PersonID>0){
-                DBplayers = parseInt(getGamePlayers(PersonID));
+                DBplayers = parseInt(getGamePlayers(PersonID,2));
             }
         
         //var userCookie = getCookie("UserSettings");
         //if ((userCookie != null && userCookie != "undefined" && userCookie != "") && DBplayers > 0) {
-            baseData = loadGameBasaData(player, PersonID);
+            baseData = loadGameBasaData(player, PersonID, 2);
             if (baseData != "" && baseData != null && baseData != "undefined") {
                 getdata = JSON.stringify(baseData)
                 console.log("getdata: " + getdata)
             }
             if (getdata == null || getdata == "undefined" || getdata == "") {
-                getdata = localStorage.getItem("BigHead" + player)
+                getdata = localStorage.getItem("BigHead_2" + player)
             }
         //} else {
-        //    getdata = localStorage.getItem("BigHead" + player)
+        //    getdata = localStorage.getItem("BigHead_2" + player)
         //}
         if (getdata != "" && getdata != null && getdata != "undefined") {
             var bufferSize = lengthBytesUTF8(getdata) + 1;
@@ -58,23 +58,23 @@ mergeInto(LibraryManager.library, {
 
         //var userCookie = getCookie("UserSettings");
         var PersonID = getPersonID();
-        var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
+        var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
         if (PersonID == undefined || PersonID == null || PersonID == 0 && LSPersonID != undefined){
             PersonID = LSPersonID;
         } else {
-            localStorage.setItem("BigHeadPersonID"+getIdxNumber(),PersonID)
+            localStorage.setItem("BigHead_2_PersonID"+getIdxNumber(),PersonID)
         }
             if(PersonID>0){
-            saveGameBaseData(jsonToSend, player, PersonID, points, shabbatPoints,hanukkaPoints, purimPoints)
+            saveGameBaseData(jsonToSend, player, PersonID, points, shabbatPoints,hanukkaPoints, purimPoints, 2)
             }
-            localStorage.setItem("BigHead" + player, jsonToSend)
+            localStorage.setItem("BigHead_2" + player, jsonToSend)
     },
 
     getPlayersCountJS: function() {
 
         //PersonID;
         var PersonID = 0;
-        var LSPersonID = parseInt(localStorage.getItem("BigHeadPersonID"+getIdxNumber()));
+        var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
         
             if(LSPersonID != undefined && LSPersonID >0 ){
                 PersonID = LSPersonID;
@@ -88,13 +88,13 @@ mergeInto(LibraryManager.library, {
         
         var playersCount = 0;
             if(PersonID>0){
-                playersCount = parseInt(getGamePlayers(PersonID));
+                playersCount = parseInt(getGamePlayers(PersonID,2));
             }
 
         console.log("Players from DB: " + playersCount)
         //console.log("players * 2 :"+playersCount*2)
         if (playersCount == 0) {
-            var BHlocalStorage = localStorage.getItem("BigHead0")
+            var BHlocalStorage = localStorage.getItem("BigHead0_2")
             if (BHlocalStorage != null && BHlocalStorage != undefined && BHlocalStorage != "") {
                 playersCount = 4;
                 console.log("players from LS: " + playersCount)
@@ -114,19 +114,18 @@ mergeInto(LibraryManager.library, {
             var winnerToSent = Pointer_stringify(winner);
             var loserToSent = Pointer_stringify(loser);
 		$.ajax({
-            type: "POST",
+         /*   type: "POST",
             cache: false,
-            //contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             url: "https://meirkids.co.il/asp/BigHeadOneWinner.asp",
             data: "FirstName=BigHeadWinners&LastName=AAA&Phone=080808&Address=AAA&Email=AAA@AAA.AAA&Winner="+winnerToSent+"&Loser="+loserToSent,
             success: function (value) {
 			
-			}
+			}*/
         }) 
 
     },
 
     pushWinnersJS: function(){
-        localStorage.setItem("pushWinners",1);
+        localStorage.setItem("pushWinners_2",1);
     },
 })
