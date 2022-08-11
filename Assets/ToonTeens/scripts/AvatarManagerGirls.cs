@@ -86,7 +86,7 @@ public class AvatarManagerGirls : AvatarManager
             else 
             {
                 Nextchestcolor(1);
-                print("i am working");
+                //print("i am working");
             }
                 
         }
