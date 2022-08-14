@@ -6,7 +6,12 @@ using UnityEngine;
 
 public class QualityDepended : MonoBehaviour
 {
-    public QualityOptionsRG2 MinimumQualityNeeded; 
+    public QualityOptionsRG2 MinimumQualityNeeded;
+    public bool ChangeMat;
     // Start is called before the first frame update
-     
+ 
+    
+
+
+    
 }
