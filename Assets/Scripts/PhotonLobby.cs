@@ -184,8 +184,10 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     IEnumerator OnRandomeBattleButtonClickedHelper() 
     {
-        float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
+        //this is checking fps in the moment clicking on game - if its lower than 18 user will play offline.
+       // float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
         //Debug.Log("FPS is: " + CurrentFps);
+        /*
         if (CurrentFps < 18)
         {
             print("FPS is Low.Playing in offline mode");
@@ -195,6 +197,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             connectedToMaster = false;
             PhotonNetwork.OfflineMode = true;
         }
+        */
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
         if(PhotonRoom.room.enviorment == EnviormentList.Purim || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
@@ -204,6 +207,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         else
             PhotonNetwork.JoinRandomRoom(new Hashtable{{"cla",(byte)1}},2);
         StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
+        yield return new WaitForSeconds(0);// remove
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)

@@ -43,7 +43,7 @@ public class LoginScreenManager : MonoBehaviour
 #endif
         loginWindowManager = FindObjectOfType<WindowManager>();
         loginWindowManager.OpenFirstTab();
-        FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = false;
+        //FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = false;
         AddPlayerButton.onClick.AddListener(AddKidUserButton);
         EnterNameNextButton.onClick.AddListener(OnEnterNameNextClick);
         PrevAvatarButton.onClick.AddListener(ChangeAvatarColorEffect);
@@ -53,7 +53,7 @@ public class LoginScreenManager : MonoBehaviour
         SoundManager.instance.PlayMenuMusic();
         PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
         PlayerPrefs.SetString("LastRoomName", "");// sets enmpty roomname for not playing again
-        StartCoroutine(CheckAndStartGLAccelerator(4f));
+       // StartCoroutine(CheckAndStartGLAccelerator(4f));
         // GameObject Avatar[] = new GameObject[AllPlayers.Length];
          
         for (int i =0;i<AllPlayers.Length;i++)
