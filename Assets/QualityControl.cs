@@ -31,43 +31,47 @@ public class QualityControl : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G)) 
+        if (Input.GetKeyDown(KeyCode.G))
         {
             GoodQuality();
         }
 
         if (Input.GetKeyDown(KeyCode.B))
         {
-            BadQuality();
+            LowQuality();
         }
     }
 
 
-    
 
 
-    void GoodQuality() 
+
+    void GoodQuality()
     {
-        QualitySettings.SetQualityLevel(QualityLevel.Fantastic.GetHashCode());
+        //SetMeshArr();
+       // ChangeShader(HighShader);
+        QualitySettings.SetQualityLevel((int)QualityLevel.Fantastic);
 
     }
 
-    void BadQuality()
+    void LowQuality()
     {
-        QualitySettings.SetQualityLevel(QualityLevel.Simple.GetHashCode());
+        //SetMeshArr();
+        //ChangeShader(LowShader);
+        QualitySettings.SetQualityLevel((int)QualityLevel.Fastest);
 
     }
 
     void SetMeshArr()
     {
-        AllMeshes = FindObjectsOfType<MeshRenderer>();
-        AllSkinedMeshes = FindObjectsOfType<SkinnedMeshRenderer>();
+        AllMeshes = FindObjectsOfType<MeshRenderer>(true);
+        AllSkinedMeshes = FindObjectsOfType<SkinnedMeshRenderer>(true);
     }
 
     void ChangeShader(Shader s)
@@ -75,14 +79,14 @@ public class QualityControl : MonoBehaviour
         foreach (MeshRenderer m in AllMeshes)
         {
 
-            if (m.sharedMaterial.shader == HighShader || m.sharedMaterial.shader == LowShader)
-                m.sharedMaterial.shader = Shader.Find(s.name);
+            //if (m.sharedMaterial.shader == HighShader || m.sharedMaterial.shader == LowShader)
+            m.sharedMaterial.shader = Shader.Find(s.name);
         }
 
         foreach (SkinnedMeshRenderer m in AllSkinedMeshes)
         {
-            if (m.sharedMaterial.shader == HighShader || m.sharedMaterial.shader == LowShader)
-                m.sharedMaterial.shader = Shader.Find(s.name);
+            // if (m.sharedMaterial.shader == HighShader || m.sharedMaterial.shader == LowShader)
+            m.sharedMaterial.shader = Shader.Find(s.name);
         }
     }
 }
