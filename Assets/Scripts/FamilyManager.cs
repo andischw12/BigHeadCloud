@@ -28,8 +28,8 @@ public class KidUser
     
 
     //user properties
-    public string UserName;
-    public string FirstName;
+    public string UserName = "";
+    public string FirstName = "";
     public int[] UserGeneralInfoArr = new int[Enum.GetNames(typeof(UserArrayEnum)).Length];
     public int[] UserAvatarArr = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
     public int[,] UserStoreMatrix = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length,100];
@@ -108,10 +108,12 @@ public class KidUser
 
 
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD )
-        UserName = FirstName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
+    
+       // UserName = FirstName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
+        UserName = UserName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
         int player = GetInfoVal(UserArrayEnum.Number);
         int points = GetInfoVal(UserArrayEnum.Points);
-        //int shabbatPointsToSave = 0;
+        
         sendJson = JsonPrefer();
         saveDataJS(sendJson, player,points,0, 0, 0);
 #endif
