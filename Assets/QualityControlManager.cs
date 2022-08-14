@@ -94,14 +94,9 @@ public class QualityControlManager : MonoBehaviour
     {
         foreach (QualityDepended Q in AllQualityDependedARR)
         {
-            if (Q.MinimumQualityNeeded == QualityOptionsRG2.GoodQuality)
+            if (Q.ChangeMat) 
             {
-                ChangeShaders(Q.gameObject,HighShader);
-            }
-
-            else 
-            {
-                ChangeShaders(Q.gameObject, LowShader);
+                ChangeShaders(Q.gameObject);
             }
 
         }
@@ -134,16 +129,31 @@ public class QualityControlManager : MonoBehaviour
         
     }
 
-    void ChangeShaders(GameObject parentGM,Shader s)
+    void ChangeShaders(GameObject parentGM)
     {
-        Material[] AllMeshes = parentGM.GetComponentsInChildren<Material>();
+       MeshRenderer[] AllMeshes = parentGM.GetComponentsInChildren<MeshRenderer>(true);
           
         
-        foreach (Material m in AllMeshes)
+        foreach (MeshRenderer m in AllMeshes)
         {
 
             //if (m.sharedMaterial.shader == HighShader || m.sharedMaterial.shader == LowShader)
-            m.shader = Shader.Find(s.name);
+            foreach(Material mat in m.materials) 
+            {
+                if(mat.shader == LowShader || mat.shader == HighShader) 
+                {
+                    if(currentQuality == QualityOptionsRG2.BadQuality) 
+                    {
+                        mat.shader = Shader.Find(LowShader.name);
+                    }
+
+                    
+                    else 
+                    {
+                        mat.shader = Shader.Find(HighShader.name);
+                    }
+                }
+            }
         }
         /*
         foreach (SkinnedMeshRenderer m in AllSkinedMeshes)
