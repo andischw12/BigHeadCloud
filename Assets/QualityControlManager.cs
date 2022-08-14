@@ -8,14 +8,16 @@ using System.Runtime.InteropServices;
 using Unity.Collections;
 using UnityEngine.Rendering;
 
-
-public class QualityControl : MonoBehaviour
+public enum QualityOptionsRG2 {BadQuality,GoodQuality }
+public class QualityControlManager : MonoBehaviour
 {
-    public static QualityControl instance;
+    public static QualityControlManager instance;
     [SerializeField] MeshRenderer[] AllMeshes;
     [SerializeField] SkinnedMeshRenderer[] AllSkinedMeshes;
+    [SerializeField] QualityDepended[] AllQualityDependedARR;
     [SerializeField] Shader LowShader;
     [SerializeField] Shader HighShader;
+    [SerializeField] QualityOptionsRG2 currentQuality;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -55,8 +57,11 @@ public class QualityControl : MonoBehaviour
     void GoodQuality()
     {
         //SetMeshArr();
-       // ChangeShader(HighShader);
+        // ChangeShader(HighShader);
+        SetQualityDependedArr();
         QualitySettings.SetQualityLevel((int)QualityLevel.Fantastic);
+        currentQuality =QualityOptionsRG2.GoodQuality;
+        SetAllQualityDepended();
 
     }
 
@@ -64,7 +69,11 @@ public class QualityControl : MonoBehaviour
     {
         //SetMeshArr();
         //ChangeShader(LowShader);
+        SetQualityDependedArr();
         QualitySettings.SetQualityLevel((int)QualityLevel.Fastest);
+        currentQuality = QualityOptionsRG2.BadQuality;
+        SetAllQualityDepended();
+
 
     }
 
@@ -72,6 +81,36 @@ public class QualityControl : MonoBehaviour
     {
         AllMeshes = FindObjectsOfType<MeshRenderer>(true);
         AllSkinedMeshes = FindObjectsOfType<SkinnedMeshRenderer>(true);
+    }
+
+    void SetQualityDependedArr() 
+    {
+        AllQualityDependedARR = FindObjectsOfType<QualityDepended>(true);
+    }
+
+
+
+    void SetAllQualityDepended() 
+    {
+        if (currentQuality == QualityOptionsRG2.BadQuality)
+        {
+            foreach (QualityDepended Q in AllQualityDependedARR)
+            {
+                if (Q.MinimumQualityNeeded == QualityOptionsRG2.GoodQuality)
+                    Q.gameObject.SetActive(false);
+                else
+                    Q.gameObject.SetActive(true);
+            }
+        }
+        else 
+        {
+            foreach (QualityDepended Q in AllQualityDependedARR)
+            {
+                Q.gameObject.SetActive(true);
+
+            }
+        }
+        
     }
 
     void ChangeShader(Shader s)

@@ -12,6 +12,8 @@ public class LoginScreenManager : MonoBehaviour
 {
     public static LoginScreenManager instance;
     [SerializeField] public PlayerSelectionButton[] AllPlayers;
+    [SerializeField] GameObject[] All3DScene;
+    [SerializeField] GameObject GameSelector3DScene;
     [SerializeField] Button AddPlayerButton;
     [SerializeField] Button EnterNameNextButton;
     [SerializeField] TextMeshProUGUI NameTxtInput;
@@ -118,10 +120,15 @@ public class LoginScreenManager : MonoBehaviour
                 AllPlayers[i].GetComponent<PlayerSelectionButton>().Rank.text = ProfileManager.GetRank(FamilyManager.instance._kidsUserArr[i].UserGeneralInfoArr[UserArrayEnum.Points.GetHashCode()]).ToString();
 
                 ShowPlayerButton(i);
+                All3DScene[i].SetActive(true);
                 tmp++;
             }
-            else
+            else 
+            {
                 HidePlayerButton(i);
+                All3DScene[i].SetActive(false);
+            }
+                
         }
         if (tmp > 0)
             LogoGM.SetActive(false);
@@ -141,6 +148,9 @@ public class LoginScreenManager : MonoBehaviour
 
         loginWindowManager.OpenPanel(1);
         NameTxtInput.GetComponentInParent<TMP_InputField>().text = "";
+        GameSelector3DScene.SetActive(true);
+        foreach (GameObject gm in All3DScene)
+            gm.SetActive(false);
         FindObjectOfType<LoginMenuAvatarSelectManager>().ChooseBoys();
     }
 
@@ -151,7 +161,9 @@ public class LoginScreenManager : MonoBehaviour
 
        
         ShowActiveKidsButtons();
+        GameSelector3DScene.SetActive(false);
         loginWindowManager.OpenPanel(0);
+        
        // for (int i = 0; i < AvatarInstances.Length; i++)
            // AvatarInstances[i].SetActive(true);
        

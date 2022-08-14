@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public EnviormentList enviorment;
     [SerializeField] public GameObject VsCanvas;
     [SerializeField] GameObject PostGameGM;
+    [SerializeField] GameObject Scene3D;
      
     bool isGameOver;
     public bool IsGameOver{get{return isGameOver;}}
@@ -143,6 +144,7 @@ public class GameManager : MonoBehaviour
 
         // turn vs screen off and start game
         Assignment.instance.VSCanvas.SetActive(false);
+        Scene3D.SetActive(false);
         StartCoroutine(Opening());
     }
 
