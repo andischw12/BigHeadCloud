@@ -8,6 +8,10 @@ using System.Runtime.InteropServices;
 using Unity.Collections;
 using UnityEngine.Rendering;
 
+#if USING_URP
+using UnityEngine.Rendering.Universal;
+#endif
+
 namespace AG_WebGLFPSAccelerator
 {
     public class WebGLFPSAccelerator : MonoBehaviour
@@ -15,7 +19,7 @@ namespace AG_WebGLFPSAccelerator
 
 #if UNITY_WEBGL && !UNITY_EDITOR
     [DllImport("__Internal")]
-    private static extern void _getDefaultDPR();
+    private static extern float getDefaultDPR();
 
     [DllImport("__Internal")]
     private static extern void _setDPR(float float1);
@@ -66,7 +70,7 @@ namespace AG_WebGLFPSAccelerator
         [HideInInspector]
         public float m_FpsNextPeriod = 1.5f;
 
-        [HideInInspector]
+        //[HideInInspector]
         public float defaultDPR = 0f;
 
         [HideInInspector]
@@ -81,18 +85,15 @@ namespace AG_WebGLFPSAccelerator
         [HideInInspector]
         public bool urp;
 
-        private bool waitForRenderPipelineReady;
+#if USING_URP
+        private UniversalRenderPipelineAsset urpAsset;
+#endif
 
-        public void Awake()
+        private bool wait = true;
+
+        void Awake()
         {
-            if (instance != null && instance != this)
-            {
-                Destroy(this.gameObject);
-                return;
-            }
-
             instance = this;
-            DontDestroyOnLoad(transform.parent.gameObject);
         }
 
         void Start()
@@ -103,9 +104,12 @@ namespace AG_WebGLFPSAccelerator
             Toggle2.isOn = useRenderScaleURP;
             webglFpsAcceleratorInGameUI.transform.parent.gameObject.GetComponent<Canvas>().enabled = ShowHideUI;
 
+            Invoke("waitForOneSecond", 1);
+
 #if USING_URP
-            waitForRenderPipelineReady = true;
-            Invoke("makeWaitForRenderPipelineReadyFalse", 0);
+            var rpAsset = GraphicsSettings.renderPipelineAsset;
+            urpAsset = (UniversalRenderPipelineAsset)rpAsset;
+
             urp = true;
             Toggle2.transform.parent.gameObject.SetActive(true);
             RectTransform rt = webglFpsAcceleratorInGameUI.GetComponent<RectTransform>();
@@ -120,15 +124,10 @@ namespace AG_WebGLFPSAccelerator
 #endif
         }
 
-        public void getDefaultDPR(float float1)
-        {
-            defaultDPR = float1;
-        }
-
         public void requestDefaultDPR()
         {
 #if UNITY_WEBGL && !UNITY_EDITOR
-        _getDefaultDPR();
+        defaultDPR = getDefaultDPR();
 #endif
         }
 
@@ -149,7 +148,6 @@ namespace AG_WebGLFPSAccelerator
             {
                 fps = (int)(m_FpsAccumulator / measurePeriod);
                 m_FpsAccumulator = 0;
-                //m_FpsNextPeriod += measurePeriod;
                 m_FpsNextPeriod = Time.realtimeSinceStartup + measurePeriod;
 
                 dynamicResolutionSystemMethod();
@@ -174,10 +172,8 @@ namespace AG_WebGLFPSAccelerator
 
                 if (dpr != lastDPR)
                 {
-                    var rpAsset = UnityEngine.Rendering.GraphicsSettings.renderPipelineAsset;
 #if USING_URP
-                            var urpAsset = (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset)rpAsset;
-                            urpAsset.renderScale = dpr;
+                    urpAsset.renderScale = dpr;
 #endif
                 }
             }
@@ -196,8 +192,7 @@ namespace AG_WebGLFPSAccelerator
 
         void Update()
         {
-            
-            if (defaultDPR != 0 && !waitForRenderPipelineReady)
+            if (defaultDPR != 0 && !wait)
             {
                 if (!dynamicResolutionSystem)
                 {
@@ -219,9 +214,7 @@ namespace AG_WebGLFPSAccelerator
 
                         if (dpr != lastDPR)
                         {
-                            var rpAsset = UnityEngine.Rendering.GraphicsSettings.renderPipelineAsset;
 #if USING_URP
-                            var urpAsset = (UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset)rpAsset;
                             urpAsset.renderScale = dpr;
 #endif
                         }
@@ -245,6 +238,7 @@ namespace AG_WebGLFPSAccelerator
                     {
                         lastDynamicResolutionSystem = dynamicResolutionSystem;
                         m_FpsNextPeriod = Time.realtimeSinceStartup + measurePeriod;
+                        m_FpsAccumulator = 0;
 
                         fixedDPIUIElement.SetActive(false);
                         dpiUIElement.SetActive(true);
@@ -322,9 +316,9 @@ namespace AG_WebGLFPSAccelerator
                 AG_inputManager2_fixedDPI.changeValue(fixedDPI);
         }
 
-        public void makeWaitForRenderPipelineReadyFalse()
+        public void waitForOneSecond()
         {
-            waitForRenderPipelineReady = false;
+            wait = false;
         }
     }
 }

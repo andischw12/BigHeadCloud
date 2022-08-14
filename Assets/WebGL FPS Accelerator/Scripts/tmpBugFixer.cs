@@ -9,9 +9,16 @@ namespace AG_WebGLFPSAccelerator
     [ExecuteInEditMode]
     public class tmpBugFixer : MonoBehaviour
     {
+        [HideInInspector]
         public List<TMP_Text> TMP_Text_List;
+
+        [HideInInspector]
         public List<TMP_Text> fixedDpi_List;
+
+        [HideInInspector]
         public Vector2 Vector21;
+
+        [HideInInspector]
         public Vector2 Vector22;
 
         public void m1()

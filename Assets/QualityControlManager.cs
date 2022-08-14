@@ -7,6 +7,10 @@ using System;
 using System.Runtime.InteropServices;
 using Unity.Collections;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using OmniSARTechnologies.Helper;
+using OmniSARTechnologies.LiteFPSCounter;
+using BeautifyEffect;
 
 public enum QualityOptionsRG2 {BadQuality,GoodQuality }
 public class QualityControlManager : MonoBehaviour
@@ -17,7 +21,18 @@ public class QualityControlManager : MonoBehaviour
     [SerializeField] QualityDepended[] AllQualityDependedARR;
     [SerializeField] Shader LowShader;
     [SerializeField] Shader HighShader;
-    [SerializeField] QualityOptionsRG2 currentQuality;
+    [SerializeField] public QualityOptionsRG2 currentQuality;
+
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        [DllImport("__Internal")]
+        private static extern float getDefaultDPR();
+
+        [DllImport("__Internal")]
+        private static extern void _setDPR(float float1);
+#endif
+
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -31,14 +46,66 @@ public class QualityControlManager : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
     }
-    void Start()
+    
+
+    void OnEnable()
     {
+        Debug.Log("OnEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
     }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("OnSceneLoaded: " + scene.name);
+        Debug.Log(mode);
+        if (scene.buildIndex > 0) 
+        {
+            SetQuality();
+        }
+        else
+        StartCoroutine(CheckAndSetFPS(5, 25f));
+    }
+
+    IEnumerator CheckAndSetFPS(int timestoCheck, float minFrameRate)
+    {
+        Application.targetFrameRate = 60;
+        currentQuality = QualityOptionsRG2.BadQuality;
+        SetQuality();
+        yield return new WaitUntil (()=> GetComponentInChildren<LiteFPSCounter>().frameRate>5);
+        float sum = 0;
+        // yield return new WaitForSeconds(2);
+        for (int i = 0; i < timestoCheck; i++)
+        {
+            sum+=GetComponentInChildren<LiteFPSCounter>().frameRate;
+            print("WebGlInstance.fps is :" + GetComponentInChildren<LiteFPSCounter>().frameRate);
+            yield return new WaitForSecondsRealtime(0.3f);
+        }
+        float AvarageResult = sum / timestoCheck;
+        print("avarage fps is: " + AvarageResult);
+        if (AvarageResult < minFrameRate)
+            currentQuality= QualityOptionsRG2.BadQuality;
+        else
+            currentQuality = QualityOptionsRG2.GoodQuality;
+        SetQuality();
+
+
+    }
+
+    void SetQuality() 
+    {
+        if (currentQuality == QualityOptionsRG2.GoodQuality)
+            GoodQuality();
+        else
+            LowQuality();
+    }
+    
+
 
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.G))
         {
             GoodQuality();
@@ -48,9 +115,17 @@ public class QualityControlManager : MonoBehaviour
         {
             LowQuality();
         }
+        */
     }
 
-
+    public void __setDPR(float float1)
+    {
+        
+            #if UNITY_WEBGL && !UNITY_EDITOR
+                            _setDPR(float1);
+            #endif
+        
+    }
 
 
 
@@ -60,8 +135,10 @@ public class QualityControlManager : MonoBehaviour
         // ChangeShader(HighShader);
         SetQualityDependedArr();
         QualitySettings.SetQualityLevel((int)QualityLevel.Fantastic);
-        currentQuality =QualityOptionsRG2.GoodQuality;
+        
         SetAllQualityDepended();
+        __setDPR(1f);
+        Camera.main.GetComponent<Beautify>().enabled = true;
 
     }
 
@@ -71,8 +148,11 @@ public class QualityControlManager : MonoBehaviour
         //ChangeShader(LowShader);
         SetQualityDependedArr();
         QualitySettings.SetQualityLevel((int)QualityLevel.Fastest);
-        currentQuality = QualityOptionsRG2.BadQuality;
+         
         SetAllQualityDepended();
+        __setDPR(0.7f);
+        Camera.main.GetComponent<Beautify>().enabled = false;
+
 
 
     }

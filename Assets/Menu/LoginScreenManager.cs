@@ -210,7 +210,7 @@ public class LoginScreenManager : MonoBehaviour
     // private methods:
     private IEnumerator CheckAndStartGLAccelerator(float timeToWait)
     {
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
         yield return new WaitForSeconds(timeToWait);
         if (FindObjectOfType<FPSCounter>().m_CurrentFps < 40)
             FindObjectOfType<WebGLFPSAccelerator>().dynamicResolutionSystem = true;

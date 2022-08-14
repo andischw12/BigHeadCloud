@@ -8,7 +8,7 @@ namespace AG_WebGLFPSAccelerator
     public class FPSCounter : MonoBehaviour
     {
         const float fpsMeasurePeriod = 1f;
-        private float m_FpsAccumulator = 0;
+        public float m_FpsAccumulator = 0;
         private float m_FpsNextPeriod = 0;
         public float m_CurrentFps;
         const string display = "FPS: " + "{0} ";
@@ -24,7 +24,6 @@ namespace AG_WebGLFPSAccelerator
 
         private void Update()
         {
-
             // measure average frames per second
             m_FpsAccumulator++;
             if (Time.realtimeSinceStartup > m_FpsNextPeriod)

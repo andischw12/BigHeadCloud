@@ -187,8 +187,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         //this is checking fps in the moment clicking on game - if its lower than 18 user will play offline.
        // float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
         //Debug.Log("FPS is: " + CurrentFps);
-        /*
-        if (CurrentFps < 18)
+        
+        if (QualityControlManager.instance.currentQuality == QualityOptionsRG2.BadQuality)
         {
             print("FPS is Low.Playing in offline mode");
             PhotonNetwork.Disconnect();
@@ -197,7 +197,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             connectedToMaster = false;
             PhotonNetwork.OfflineMode = true;
         }
-        */
+        
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
         if(PhotonRoom.room.enviorment == EnviormentList.Purim || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)

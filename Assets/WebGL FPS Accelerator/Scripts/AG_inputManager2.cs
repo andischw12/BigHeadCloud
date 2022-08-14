@@ -82,16 +82,15 @@ namespace AG_WebGLFPSAccelerator
         {
             labelHelper.text = label.text;
 
-            if (value - float1 < minValue)
+            float nextValue = (float)Math.Round((value - float1) * 100f) / 100f;
+
+            if (nextValue < minValue)
             {
                 value = maxValue;
             }
             else
             {
-                float v = value;
-                v -= float1;
-                float v2 = (float)Math.Round(v * 100f) / 100f;
-                value = v2;
+                value = nextValue;
             }
 
             onValueChanged.Invoke();

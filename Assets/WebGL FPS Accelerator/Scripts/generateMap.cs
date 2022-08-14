@@ -11,6 +11,8 @@ namespace AG_WebGLFPSAccelerator
 {
     public class generateMap : MonoBehaviour
     {
+        public static generateMap instance;
+
         private float spacing = 21f;
 
         [HideInInspector]
@@ -29,47 +31,29 @@ namespace AG_WebGLFPSAccelerator
         [HideInInspector]
         public Transform parent;
 
-        private bool receivedPlatform;
-        private bool generated;
         private bool useColor;
 
-        void Update()
+        private void Awake()
         {
-            if (wfa_Demo.instance.receivedPlatform && !generated)
+            instance = this;
+        }
+
+        public void m1()
+        {
+            if (wfa_Demo.instance.isiOS)
             {
-                if(wfa_Demo.instance.isiOS)
-                {
-                    size_x = 7;
-                    size_z = 7;
-
-                    Slider.value = 7;
-
-                    useColor = true;
-                }
-                else if (wfa_Demo.instance.isAndroid)
-                {
-                    size_x = 5;
-                    size_z = 5;
-
-                    Slider.value = 5;
-
-                    useColor = true;
-                }
-                else
-                {
-                    size_x = 5;
-                    size_z = 5;
-
-                    Slider.value = 5;
-
-                    useColor = false;
-                }
-
-                generated = true;
-
-                receivedPlatform = true;
-                generate();
+                useColor = true;
             }
+            else if (wfa_Demo.instance.isAndroid)
+            {
+                useColor = true;
+            }
+            else
+            {
+                useColor = false;
+            }
+
+            sliderEvent();
         }
 
         public void sliderEvent()
@@ -77,7 +61,6 @@ namespace AG_WebGLFPSAccelerator
             size_x = (int)Slider.value;
             size_z = (int)Slider.value;
 
-            if(receivedPlatform)
             generate();
         }
 
@@ -121,7 +104,6 @@ namespace AG_WebGLFPSAccelerator
                     }
                 }
             }
-
         }
     }
 }

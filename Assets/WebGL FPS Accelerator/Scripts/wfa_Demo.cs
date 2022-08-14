@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering;
-using UnityEditor;
 using System.Runtime.InteropServices;
+using UnityEditor;
 
 namespace AG_WebGLFPSAccelerator
 {
@@ -35,65 +35,17 @@ namespace AG_WebGLFPSAccelerator
         public bool isiOS;
         [HideInInspector]
         public bool isAndroid;
-        [HideInInspector]
-        public bool receivedPlatform;
-
-        private bool completed1;
-
-#if UNITY_2021_1_OR_NEWER && USING_URP
-        [HideInInspector]
-        public VolumeProfile VolumeProfile1;
-#endif
-
-        void Update()
-        {
-            if (receivedPlatform && !completed1)
-            {
-                if (isiOS)
-                {
-                    WebGLFPSAccelerator.instance.fpsMin = 45;
-                    WebGLFPSAccelerator.instance.fpsMax = 50;
-
-                    WebGLFPSAccelerator.instance.dpiMin = 0.6f;
-                }
-                else if (isAndroid)
-                {
-                    WebGLFPSAccelerator.instance.fpsMin = 10;
-                    WebGLFPSAccelerator.instance.fpsMax = 15;
-
-                    WebGLFPSAccelerator.instance.dpiMin = 0.5f;
-                }
-                else
-                {
-                    WebGLFPSAccelerator.instance.fpsMin = 28;
-                    WebGLFPSAccelerator.instance.fpsMax = 33;
-
-                    WebGLFPSAccelerator.instance.dpiMin = 0.5f;
-                }
-
-                completed1 = true;
-            }
-        }
 
         void Awake()
         {
             instance = this;
         }
 
-        public void isAndroid3()
-        {
-            if(isAndroid)
-            {
-#if USING_URP
-                postProcessVolume.SetActive(false);
-#endif
-            }
-        }
-
         void Start()
         {
 
 #if UNITY_2021_1_OR_NEWER && USING_URP
+            VolumeProfile VolumeProfile1 = Resources.Load<VolumeProfile>("URP Volume Profile 2");
             postProcessVolume.GetComponent<Volume>().profile = VolumeProfile1;
 #endif
 
@@ -101,16 +53,18 @@ namespace AG_WebGLFPSAccelerator
             isiOS = isiOS2();
             isAndroid = isAndroid2();
 
-            receivedPlatform = true;
+            if (isiOS || isAndroid)
+            {
+                GameObject webglFpsAcceleratorInGameUI = WebGLFPSAccelerator.instance.webglFpsAcceleratorInGameUI;
+                RectTransform rt = webglFpsAcceleratorInGameUI.GetComponent<RectTransform>();
+                rt.localScale = new Vector3(0.85f, 0.85f, 1);
+            }
 #endif
-
-            isAndroid3();
 
 #if UNITY_EDITOR
             EditorApplication.playModeStateChanged += playModeStateChanged;
 #endif
 
-            QualitySettings.SetQualityLevel(3);
             QualitySettings.vSyncCount = 0;
             QualitySettings.shadowDistance = 300f;
 
@@ -123,6 +77,7 @@ namespace AG_WebGLFPSAccelerator
 #endif
 
             m1();
+            generateMap.instance.m1();
         }
 
 #if UNITY_EDITOR

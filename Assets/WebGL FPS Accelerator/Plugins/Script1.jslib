@@ -16,13 +16,10 @@ mergeInto(LibraryManager.library, {
         window.devicePixelRatio = float1;
     },
 
-    _getDefaultDPR: function () {
+    getDefaultDPR: function () {
         var defaultDPR = window.devicePixelRatio;
-        
-        if(unity_instance != null)
-        {
-            unity_instance.SendMessage("webglFpsAcceleratorManager", "getDefaultDPR", defaultDPR);
-        }
+
+        return defaultDPR;
     }
 
 });
