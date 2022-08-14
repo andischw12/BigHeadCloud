@@ -47,8 +47,8 @@ MonoBehaviour:
   AllMeshes: []
   AllSkinedMeshes: []
   AllQualityDependedARR: []
-  LowShader: {fileID: 0}
-  HighShader: {fileID: 0}
+  LowShader: {fileID: 10703, guid: 0000000000000000f000000000000000, type: 0}
+  HighShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   currentQuality: 0
 --- !u!1001 &320330009309809121
 PrefabInstance:

@@ -92,40 +92,65 @@ public class QualityControlManager : MonoBehaviour
 
     void SetAllQualityDepended() 
     {
+        foreach (QualityDepended Q in AllQualityDependedARR)
+        {
+            if (Q.MinimumQualityNeeded == QualityOptionsRG2.GoodQuality)
+            {
+                ChangeShaders(Q.gameObject,HighShader);
+            }
+
+            else 
+            {
+                ChangeShaders(Q.gameObject, LowShader);
+            }
+
+        }
+
+
         if (currentQuality == QualityOptionsRG2.BadQuality)
         {
             foreach (QualityDepended Q in AllQualityDependedARR)
             {
-                if (Q.MinimumQualityNeeded == QualityOptionsRG2.GoodQuality)
+                if (Q.MinimumQualityNeeded == QualityOptionsRG2.GoodQuality) 
+                {
                     Q.gameObject.SetActive(false);
-                else
+                }
+
+                else 
+                {
                     Q.gameObject.SetActive(true);
+                }
+                   
             }
         }
-        else 
+        else
         {
             foreach (QualityDepended Q in AllQualityDependedARR)
             {
                 Q.gameObject.SetActive(true);
-
+                 
             }
         }
         
     }
 
-    void ChangeShader(Shader s)
+    void ChangeShaders(GameObject parentGM,Shader s)
     {
-        foreach (MeshRenderer m in AllMeshes)
+        Material[] AllMeshes = parentGM.GetComponentsInChildren<Material>();
+          
+        
+        foreach (Material m in AllMeshes)
         {
 
             //if (m.sharedMaterial.shader == HighShader || m.sharedMaterial.shader == LowShader)
-            m.sharedMaterial.shader = Shader.Find(s.name);
+            m.shader = Shader.Find(s.name);
         }
-
+        /*
         foreach (SkinnedMeshRenderer m in AllSkinedMeshes)
         {
             // if (m.sharedMaterial.shader == HighShader || m.sharedMaterial.shader == LowShader)
             m.sharedMaterial.shader = Shader.Find(s.name);
         }
+        */
     }
 }
