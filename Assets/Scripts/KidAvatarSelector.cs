@@ -131,9 +131,9 @@ public class KidAvatarSelector : MonoBehaviour
         GameObject tmp = Instantiate(this.gameObject);
         tmp.GetComponent<KidAvatarSelector>().SelectAvatarPrafab(bot.BotPrefab);
         int[] toReturn = tmp.GetComponent<KidAvatarSelector>().GetActiveAvatarLook();
-        toReturn[AvatarArrayEnum.Hats.GetHashCode()] = UnityEngine.Random.Range(0, tmp.GetComponent<KidAvatarSelector>().ActiveAvatarManager.Hats.Length);
-        toReturn[AvatarArrayEnum.Glasses.GetHashCode()] = UnityEngine.Random.Range(0, tmp.GetComponent<KidAvatarSelector>().ActiveAvatarManager.Glasses.Length);
-        toReturn[AvatarArrayEnum.Signates.GetHashCode()] = UnityEngine.Random.Range(0, tmp.GetComponent<KidAvatarSelector>().ActiveAvatarManager.Signates.Length);
+        toReturn[AvatarArrayEnum.Hats.GetHashCode()] = UnityEngine.Random.Range(0, 1);
+        toReturn[AvatarArrayEnum.Glasses.GetHashCode()] = UnityEngine.Random.Range(0, 1);
+        toReturn[AvatarArrayEnum.Signates.GetHashCode()] = UnityEngine.Random.Range(0, 1);
         Destroy(tmp.gameObject);
         return toReturn;
     }
