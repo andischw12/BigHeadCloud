@@ -519,6 +519,53 @@ public class GameManager : MonoBehaviour
             return "םירופ";
         }
 
+        if (chosen == EnviormentList.tfila.GetHashCode())
+        {
+            return "הליפת";
+        }
+
+        if (chosen == EnviormentList.mizvot.GetHashCode())
+        {
+            return "םיגהנמו תווצמ";
+        }
+
+        
+
+        if (chosen == EnviormentList.shirim.GetHashCode())
+        {
+            return "םידלי יריש";
+        }
+
+        if (chosen == EnviormentList.numbers.GetHashCode())
+        {
+            return "תודהיב םירפסמ";
+        }
+
+        if (chosen == EnviormentList.israelHistory.GetHashCode())
+        {
+            return "תילארשי הירוטסה";
+        }
+
+        if (chosen == EnviormentList.PlacesInIsrael.GetHashCode())
+        {
+            return "ץראב תומוקמ";
+        }
+
+        if (chosen == EnviormentList.geography.GetHashCode())
+        {
+            return "היפרגואיג";
+        }
+
+        if (chosen == EnviormentList.Biology.GetHashCode())
+        {
+            return "היגולויב";
+        }
+
+        if (chosen == EnviormentList.food.GetHashCode())
+        {
+            return "לכוא";
+        }
+
         else return "יללכ עדי";
     }
 }
