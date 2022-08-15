@@ -69,9 +69,9 @@ public class QualityControlManager : MonoBehaviour
 
     IEnumerator CheckAndSetFPS(int timestoCheck, float minFrameRate)
     {
-        Application.targetFrameRate = 60;
-        currentQuality = QualityOptionsRG2.BadQuality;
-        SetQuality();
+        
+       // currentQuality = QualityOptionsRG2.BadQuality;
+       // SetQuality();
         yield return new WaitUntil (()=> GetComponentInChildren<LiteFPSCounter>().frameRate>5);
         float sum = 0;
         // yield return new WaitForSeconds(2);
