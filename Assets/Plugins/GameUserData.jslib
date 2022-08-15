@@ -114,13 +114,13 @@ mergeInto(LibraryManager.library, {
             var winnerToSent = Pointer_stringify(winner);
             var loserToSent = Pointer_stringify(loser);
 		$.ajax({
-         /*   type: "POST",
+            type: "POST",
             cache: false,
-            url: "https://meirkids.co.il/asp/BigHeadOneWinner.asp",
-            data: "FirstName=BigHeadWinners&LastName=AAA&Phone=080808&Address=AAA&Email=AAA@AAA.AAA&Winner="+winnerToSent+"&Loser="+loserToSent,
+            url: "https://meirkids.co.il/asp/BigHeadOneWinner2.asp",
+            data: "FirstName=BigHeadWinners2&LastName=AAA&Phone=080808&Address=AAA&Email=AAA@AAA.AAA&Winner="+winnerToSent+"&Loser="+loserToSent,
             success: function (value) {
 			
-			}*/
+			}
         }) 
 
     },

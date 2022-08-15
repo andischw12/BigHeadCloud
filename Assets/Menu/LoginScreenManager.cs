@@ -196,7 +196,7 @@ public class LoginScreenManager : MonoBehaviour
         if (NameTxtInput.text.Length > 2)
         {
             loginWindowManager.OpenPanel(2);
-            newName = NameTxtInput.text.Replace("'","").Replace("\"","");
+            newName = NameTxtInput.text.Replace("'","").Replace("\"", "").Replace("?", "");
         }
     }
     public void SelectPlayer(int player) 
