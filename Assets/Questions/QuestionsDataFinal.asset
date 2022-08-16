@@ -25881,18 +25881,6 @@ MonoBehaviour:
       - "\u05EA\u05D5\u05DB\u05D5\u05E1\u05DC \u05D4\u05E0\u05E9\u05D4 \u05E9\u05D0\u05E8
         \u05DF\u05D9\u05D1"
       correctAns: 1
-    - questionInfo: "?\u05D4\u05E4\u05D5\u05D7\u05DC \u05EA\u05D7\u05EA\u05DE \u05DD\u05D9\u05DB\u05E8\u05D1\u05DE
-        \u05EA\u05D5\u05DB\u05E8\u05D1 \u05D4\u05DE\u05DB"
-      questionType: 0
-      questionImage: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoClip: {fileID: 0}
-      options:
-      - "\u05EA\u05D5\u05DB\u05E8\u05D1 \u05E9\u05D5\u05DC\u05E9"
-      - "\u05EA\u05D5\u05DB\u05E8\u05D1 \u05E9\u05DE\u05D7"
-      - "\u05EA\u05D5\u05DB\u05E8\u05D1 \u05E2\u05D1\u05E9"
-      - "\u05EA\u05D5\u05DB\u05E8\u05D1 \u05E2\u05E9\u05EA"
-      correctAns: 3
     - questionInfo: "?\u05DD\u05D9\u05DC\u05D2\u05E8 \u05E9\u05D5\u05DC\u05E9\u05DE
         \u05D3\u05D7\u05D0 \u05D5\u05E0\u05D9\u05D0 \u05D2\u05D7 \u05D4\u05D6\u05D9\u05D0"
       questionType: 0
@@ -25994,19 +25982,6 @@ MonoBehaviour:
       - "\u05DD\u05D9\u05D2\u05D3"
       - "\u05DD\u05D9\u05E8\u05D5\u05D1\u05E8\u05D1"
       correctAns: 1
-    - questionInfo: "\u05DF\u05D1 \u05D0\u05D5\u05D4 \u05E8\u05DE\u05D5\u05DC\u05DB
-        ,\"\u05DA\u05D5\u05E0\u05D9\u05D7 \u05DC\u05D9\u05D2\"\u05DC \u05E2\u05D9\u05D2\u05D4
-        \u05D9\u05DC\u05E9 \u05DF\u05D1\u05D4"
-      questionType: 0
-      questionImage: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoClip: {fileID: 0}
-      options:
-      - "\u05E9\u05D5\u05DC\u05E9"
-      - "\u05E9\u05DE\u05D7"
-      - "\u05E2\u05D1\u05E9"
-      - "\u05E2\u05E9\u05EA"
-      correctAns: 4
     - questionInfo: "?\u05D4\u05E8\u05D5\u05EA\u05D1 \u05D1\u05DC\u05D5\u05DC\u05D4
         \u05D0\u05E8\u05E7\u05E0 \u05D3\u05E6\u05D9\u05DB"
       questionType: 0
@@ -26028,8 +26003,8 @@ MonoBehaviour:
       videoClip: {fileID: 0}
       options:
       - "\u05E2\u05D5\u05D1\u05E9\u05D4 \u05EA\u05E9\u05E8\u05E4"
-      - "\u05DD\u05D9\u05DC\u05DB \u05EA\u05DC\u05E2\u05D2\u05D4"
-      - "\u05EA\u05D5\u05E8\u05E9\u05DB \u05EA\u05D5\u05DB\u05DC\u05D4"
+      - "\u05EA\u05D5\u05DB\u05E8\u05D1 \u05EA\u05D5\u05DB\u05DC\u05D4"
+      - "\u05DD\u05D9\u05E0\u05D9\u05DE\u05D4 \u05EA\u05E2\u05D1\u05E8\u05D0 \u05EA\u05D5\u05DB\u05DC\u05D4"
       - "\u05EA\u05D1\u05E9 \u05EA\u05D5\u05DB\u05DC\u05D4"
       correctAns: 4
     - questionInfo: "\"....\u05D4\u05E9\u05DE \u05D5\u05E0\u05DC \u05D4\u05D5\u05D5\u05D9\u05E6
@@ -26145,7 +26120,7 @@ MonoBehaviour:
       - "\u05D4\u05E2\u05E9 \u05D9\u05E6\u05D7"
       - "\u05DD\u05D5\u05D9\u05D4 \u05DC\u05DB"
       - "\u05EA\u05D1\u05E9 \u05D3\u05E2"
-      correctAns: 4
+      correctAns: 3
     - questionInfo: "\"...\u05EA\u05D1 \u05DC\u05DB\u05D5 \u05DF\u05D1 \u05DC\u05DB\u05E9
         \u05D3\u05DE\u05D7\u05E0 \u05D4\u05DE\u05D5 \u05DD\u05D9\u05E2\u05E0 \u05D4\u05DE\"
         :\u05D5\u05DE\u05D9\u05DC\u05E9\u05D4"
@@ -26221,8 +26196,8 @@ MonoBehaviour:
       audioClip: {fileID: 0}
       videoClip: {fileID: 0}
       options:
-      - "\u05E8\u05D5\u05E0\u05D9\u05DB\u05D4 \u05DD\u05E2 \u05D5\u05E9\u05D9\u05E2\u05E8\u05D4
-        \u05DD\u05D4 \u05D9\u05DB"
+      - "\u05E3\u05D5\u05EA\u05D1 \u05D5\u05E9\u05D9\u05E2\u05E8\u05D4 \u05DD\u05D4
+        \u05D9\u05DB"
       - "\u05DC\u05D5\u05D3\u05D2 \u05DC\u05D5\u05E7\u05D1 \u05D5\u05D8\u05E4\u05D8\u05E4
         \u05DD\u05D4 \u05D9\u05DB"
       - "\u05DD\u05D9\u05E0\u05D9\u05E1 \u05D0\u05E0\u05D5\u05E9 \u05D0\u05D5\u05D4
@@ -26245,19 +26220,6 @@ MonoBehaviour:
       - "\u05DD\u05D9\u05DE\u05D4 \u05EA\u05D5\u05E4\u05D9\u05D8 \u05DF\u05D5\u05DE\u05D4
         \u05DC\u05D5\u05E7"
       correctAns: 4
-    - questionInfo: "?\"\u05E8\u05D5\u05D1\u05D9\u05D2 \u05D9\u05E0\u05D3\" \u05E8\u05D9\u05E9\u05D1
-        \u05D9\u05E0\u05D3 \u05D4\u05DC \u05DF\u05EA\u05E0\u05E9 \u05D7\u05E8\u05E4\u05D1
-        \u05EA\u05D9\u05E8\u05D5\u05E0 \u05D4\u05EA\u05E9\u05E2 \u05D4\u05DE"
-      questionType: 0
-      questionImage: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoClip: {fileID: 0}
-      options:
-      - "\u05D5\u05EA\u05D5\u05D0 \u05D4\u05DC\u05DB\u05D0"
-      - "\u05E8\u05E6\u05D7\u05D1 \u05D4\u05E7\u05E8\u05D6"
-      - "\u05D4\u05E0\u05D9\u05D2\u05D1 \u05D4\u05DC\u05EA\u05E9"
-      - "\u05E8\u05D7\u05D0 \u05D3\u05DC\u05D9\u05DC \u05D4\u05E0\u05EA\u05E0"
-      correctAns: 2
     - questionInfo: "?\"\u05EA\u05D9\u05D1 \u05E3\u05DC\u05D0\" \u05E8\u05D9\u05E9\u05D1
         '\u05D7\u05D5 '\u05D6 \u05EA\u05D5\u05D9\u05EA\u05D5\u05D0\u05D4 \u05EA\u05D5\u05D2\u05E6\u05D9\u05D9\u05DE
         \u05D4\u05DE"
@@ -26280,7 +26242,7 @@ MonoBehaviour:
       options:
       - "\u05DC\u05D9\u05D4\u05D1\u05DE \u05DF\u05D9\u05E0\u05EA"
       - "\u05DC\u05D9\u05E4 \u05D0\u05D1\u05D0"
-      - "\u05DC\u05D9\u05E2\u05D2\u05DE \u05DD\u05D8\u05D5\u05E4\u05D5\u05E4\u05D9\u05D4"
+      - "\u05DC\u05D9\u05D1\u05E9\u05D1 \u05DD\u05D8\u05D5\u05E4\u05D5\u05E4\u05D9\u05D4"
       - "\u05DC\u05D9\u05D8 \u05DC\u05E2 \u05E9\u05D7\u05E0"
       correctAns: 2
     - questionInfo: "?\u05D0\u05D1\u05DB\u05D5\u05DB \u05E8\u05D1 \u05D0\u05E8\u05E7
@@ -26414,19 +26376,6 @@ MonoBehaviour:
       - 6
       - 7
       correctAns: 3
-    - questionInfo: "?\u05E7\u05D7\u05E6\u05D9 \u05EA\u05D3\u05DC\u05D5\u05D4 \u05DC\u05E2
-        \u05DD\u05D4\u05E8\u05D1\u05D0\u05DC \u05E8\u05E9\u05D1\u05DC \u05D5\u05D0\u05D1
-        \u05DD\u05D9\u05DB\u05D0\u05DC\u05DE \u05D4\u05DE\u05DB"
-      questionType: 0
-      questionImage: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoClip: {fileID: 0}
-      options:
-      - "\u05D3\u05D7\u05D0 \u05DA\u05D0\u05DC\u05DE"
-      - "\u05DD\u05D9\u05DB\u05D0\u05DC\u05DE \u05D9\u05E0\u05E9"
-      - "\u05DD\u05D9\u05DB\u05D0\u05DC\u05DE \u05D4\u05E9\u05D5\u05DC\u05E9"
-      - "\u05DD\u05D9\u05DB\u05D0\u05DC\u05DE \u05D4\u05E2\u05D1\u05E8\u05D0"
-      correctAns: 2
     - questionInfo: "?\u05D1\u05DC\u05D5\u05DC \u05DC\u05D5\u05D8\u05D9\u05DC \u05DC\u05DB\u05D5\u05D0\u05E9
         \u05D9\u05D3\u05DB \u05DA\u05D9\u05E8\u05E6 \u05D9\u05E0\u05D0 \u05DD\u05D9\u05E1\u05D3\u05D4
         \u05D4\u05DE\u05DB"
@@ -26439,7 +26388,7 @@ MonoBehaviour:
       - 3
       - 4
       - 5
-      correctAns: 3
+      correctAns: 2
     - questionInfo: "?\u05D5\u05E0\u05D1\u05E8 \u05D4\u05E9\u05DE \u05E8\u05D8\u05E4\u05E0
         \u05DC\u05D9\u05D2 \u05D4\u05D6\u05D9\u05D0\u05D1"
       questionType: 0
@@ -26553,7 +26502,8 @@ MonoBehaviour:
       - "\u05DF\u05DE\u05D6 \u05EA\u05DC\u05D1\u05D2\u05D4 \u05DF\u05D9\u05D0"
       correctAns: 2
     - questionInfo: "?\u05D4\u05E8\u05D5\u05EA\u05D1 \u05DD\u05D9\u05DC\u05E9\u05D5\u05E8\u05D9
-        \u05EA\u05E8\u05DB\u05D6\u05D5\u05DE \u05DD\u05D9\u05DE\u05E2\u05E4 \u05D4\u05DE\u05DB"
+        \u05D4\u05DC\u05D9\u05DE\u05D4 \u05EA\u05E8\u05DB\u05D6\u05D5\u05DE \u05DD\u05D9\u05DE\u05E2\u05E4
+        \u05D4\u05DE\u05DB"
       questionType: 0
       questionImage: {fileID: 0}
       audioClip: {fileID: 0}
@@ -26602,18 +26552,6 @@ MonoBehaviour:
       - 4
       - 5
       correctAns: 3
-    - questionInfo: "?\u05DA\"\u05E0\u05EA\u05D1 \u05DD\u05D9\u05E2\u05D9\u05E4\u05D5\u05DE
-        \u05DD\u05D9\u05DE\u05D5\u05D0\u05EA \u05EA\u05D5\u05D2\u05D5\u05D6 \u05D4\u05DE\u05DB"
-      questionType: 0
-      questionImage: {fileID: 0}
-      audioClip: {fileID: 0}
-      videoClip: {fileID: 0}
-      options:
-      - 1
-      - 2
-      - 3
-      - 4
-      correctAns: 2
     - questionInfo: "?\u05DD\u05D9\u05D9\u05E7\u05DC \u05D9\u05DC\u05E2 \u05EA\u05D5\u05D5\u05E6\u05DE
         \u05D4\u05DE\u05DB ,\u05D7\u05D5\u05E0 \u05D9\u05E0\u05D1\u05DE \u05D9\u05E0\u05D0
         \u05DD\u05D0"
