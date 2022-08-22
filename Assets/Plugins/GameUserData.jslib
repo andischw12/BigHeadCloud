@@ -14,7 +14,9 @@ mergeInto(LibraryManager.library, {
         if(playersCountCheck>0){
             PersonID = PersonIDDB;
         } else {
-            var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
+     
+     //local storage count. canceled
+     /*       var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
 
             if( LSPersonID != undefined && LSPersonID >0 ){
                 PersonID = LSPersonID;
@@ -25,6 +27,7 @@ mergeInto(LibraryManager.library, {
             if (PersonID == undefined || PersonID == null){
                 PersonID = 0;
             }
+            */
         }
         var DBplayers = 0;
             if(PersonID>0){
@@ -33,17 +36,22 @@ mergeInto(LibraryManager.library, {
         
         //var userCookie = getCookie("UserSettings");
         //if ((userCookie != null && userCookie != "undefined" && userCookie != "") && DBplayers > 0) {
+            
             baseData = loadGameBasaData(player, PersonID, 2);
             if (baseData != "" && baseData != null && baseData != "undefined") {
                 getdata = JSON.stringify(baseData)
                 console.log("getdata: " + getdata)
             }
-            if (getdata == null || getdata == "undefined" || getdata == "") {
+            ///local storage getting data. canceled
+            /*if (getdata == null || getdata == "undefined" || getdata == "") {
                 getdata = localStorage.getItem("BigHead_2" + player)
             }
+            */
+        
         //} else {
         //    getdata = localStorage.getItem("BigHead_2" + player)
         //}
+        
         if (getdata != "" && getdata != null && getdata != "undefined") {
             var bufferSize = lengthBytesUTF8(getdata) + 1;
             var buffer = _malloc(bufferSize);
@@ -75,16 +83,16 @@ mergeInto(LibraryManager.library, {
         //PersonID;
         var PersonID = 0;
         var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
-        
-            if(LSPersonID != undefined && LSPersonID >0 ){
-                PersonID = LSPersonID;
-            } else {
+        //local storage canceled
+            /*if(LSPersonID != undefined && LSPersonID >0 ){
+            //    PersonID = LSPersonID;
+            } else {*/
                 PersonID = getPersonID();
-            }
+            /*}
 
             if (PersonID == undefined || PersonID == null){
                 PersonID = 0;
-            }
+            }*/
         
         var playersCount = 0;
             if(PersonID>0){
@@ -93,13 +101,15 @@ mergeInto(LibraryManager.library, {
 
         console.log("Players from DB: " + playersCount)
         //console.log("players * 2 :"+playersCount*2)
-        if (playersCount == 0) {
+        
+        //canceled localstorage
+        /*if (playersCount == 0) {
             var BHlocalStorage = localStorage.getItem("BigHead0_2")
             if (BHlocalStorage != null && BHlocalStorage != undefined && BHlocalStorage != "") {
                 playersCount = 4;
                 console.log("players from LS: " + playersCount)
             }
-        }
+        }*/
         return playersCount;
     },
     getLastNameJS: function() {

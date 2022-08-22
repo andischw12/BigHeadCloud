@@ -16,7 +16,7 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
     int currentQuestioNumber = -1;
     public  int chosenEnviorment = -1;
     public int chosenEnviormentForRandom = -1;
-    public readonly static int[] randomArr = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22, 14, 15, 16, 17, 18, 19, 20, 21, 22 };
+    public readonly static int[] randomArr = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22};
     void Awake()
     {
         PV = GetComponent<PhotonView>();

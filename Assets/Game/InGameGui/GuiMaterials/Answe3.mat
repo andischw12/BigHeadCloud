@@ -296,7 +296,7 @@ Material:
     - _RainbowNoiseFactor: 0.2
     - _RainbowSaturation: 1
     - _RainbowSpeed: 0.4
-    - _RecolorFade: 1
+    - _RecolorFade: 0
     - _RectHeight: 100
     - _RectWidth: 100
     - _Saturation: 1

@@ -543,7 +543,7 @@ public class GameManager : MonoBehaviour
 
         if (chosen == EnviormentList.israelHistory.GetHashCode())
         {
-            return "תילארשי הירוטסה";
+            return "תידוהי הירוטסיה";
         }
 
         if (chosen == EnviormentList.PlacesInIsrael.GetHashCode())
