@@ -5,22 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Login.unity
     guid: 4dd672308fbf2b44ea567686f3ff62c1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Menu (Mobile)Andy.unity
     guid: cab48f861c2e6084ca39b86e7a84b504
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Photon_Menu.unity
     guid: f74eb06a16ec0a04da0671acbdd90e20
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameMultiPlayer.unity
     guid: 8bb61d8b9f21355448c5418c442975a0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PostGame.unity
     guid: f7a3ab11803a7a74c975352923b2ac65
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/InternetConnection.unity
     guid: 1336db5b3700ee44ba833cc64110076b
+  - enabled: 1
+    path: Assets/Scenes/GameMultiPlayer_Hagim.unity
+    guid: 0ff4f2b31fc67e448a0e3b1e028a1945
   m_configObjects: {}

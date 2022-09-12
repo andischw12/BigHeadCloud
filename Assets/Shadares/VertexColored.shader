@@ -6,7 +6,14 @@ Shader "Custom/VertexColored"
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+             _Emission("Emission", float) = 0
     }
+        CGINCLUDE
+            //@TODO: should this be pulled into a shader_feature, to be able to turn it off?
+#define _GLOSSYENV 1
+#define UNITY_SETUP_BRDF_INPUT SpecularSetup
+            ENDCG
+
     SubShader
     {
         Tags { "RenderType"="Opaque" }
@@ -15,7 +22,7 @@ Shader "Custom/VertexColored"
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
         #pragma surface surf Standard fullforwardshadows
-
+        #include "UnityPBSLighting.cginc"
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
@@ -25,10 +32,11 @@ Shader "Custom/VertexColored"
         {
             float2 uv_MainTex;
         };
-
+        sampler2D _SpecGlossMap;
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
+        float _Emission;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -41,11 +49,13 @@ Shader "Custom/VertexColored"
         {
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            fixed4 sg = tex2D(_SpecGlossMap, IN.uv_MainTex);
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
+            o.Emission = c.rgb *  _Emission;
         }
         ENDCG
     }

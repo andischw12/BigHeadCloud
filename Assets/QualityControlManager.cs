@@ -150,7 +150,7 @@ public class QualityControlManager : MonoBehaviour
         QualitySettings.SetQualityLevel((int)QualityLevel.Fastest);
          
         SetAllQualityDepended();
-        __setDPR(0.7f);
+        __setDPR(0.9f);
         Camera.main.GetComponent<Beautify>().enabled = false;
 
 

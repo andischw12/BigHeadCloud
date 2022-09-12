@@ -3,12 +3,172 @@ guid: e7416f3386e9d1f4b8a0ea6532a6e1ac
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass
+    second: {fileID: 2100000, guid: ad54337a754828f4180295b7d00bb260, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_FloorTiles
+    second: {fileID: 2100000, guid: f0f3a6d768f48d840b8802dc1d5e732a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_FloorTilesBlue
+    second: {fileID: 2100000, guid: 9aff4d8fc5cf52045a4e3f12e9063147, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_FloorTilesDarkBlue
+    second: {fileID: 2100000, guid: da4e4a5239e09754695d0f4b3a9c1837, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_FloorTilesOrange
+    second: {fileID: 2100000, guid: ea3b7af757563824c8ad412522332986, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_FloorTilesPurple
+    second: {fileID: 2100000, guid: bc4c6374889c0a94b8edd101e621c1ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_FloorTilesRed
+    second: {fileID: 2100000, guid: ad289d44923206e49a81d5ee50158eea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_GlowBlue
+    second: {fileID: 2100000, guid: b9ef615b17390ea4cb8913920d1b8af5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_GlowBlueDark
+    second: {fileID: 2100000, guid: f46917bded217314bab18c2e4834ced9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_GlowBlueLight
+    second: {fileID: 2100000, guid: b457336f2635da3448c5d12ef031f537, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_GlowGren
+    second: {fileID: 2100000, guid: 60ae126010eccfd4ba376180ee781176, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_GlowOrange
+    second: {fileID: 2100000, guid: 5f35f977f68a2554f983939112fc41c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_GlowRedM
+    second: {fileID: 2100000, guid: 3d4949f6fb0db564e9181d258be0ff16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_GlowWhite
+    second: {fileID: 2100000, guid: 6e6b673e95abbb444876f096594859fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_GlowYellowLight
+    second: {fileID: 2100000, guid: 363a43b6e6906ef4f969aa8389b3eb25, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_OrangeNoGlow
+    second: {fileID: 2100000, guid: 96bb70bf4b217d74faad9ddcb07e33a1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PlasticBlue
+    second: {fileID: 2100000, guid: 75d99b463f18c3141a7fdd80c70264ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PlasticGreen
+    second: {fileID: 2100000, guid: 3a82f6a37ed7d404e8a77aa99c0c090e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PlasticOrange
+    second: {fileID: 2100000, guid: e0d61b9cff62be345b338c0d91f136bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PlasticPink
+    second: {fileID: 2100000, guid: 3aa889a653a1a3e44a13f374a9ad551a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PlasticWhite
+    second: {fileID: 2100000, guid: 953490f937d2752419550b789e3d2670, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PlasticYellow
+    second: {fileID: 2100000, guid: 0cec577714c9b26488cc272253801d7b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PlasticYellowLight
+    second: {fileID: 2100000, guid: 82024e58b75a6bb4da4e193ef1db00a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_PosterLogo_2
+    second: {fileID: 2100000, guid: 7b67e8edf2f270348913bb84de6b16b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Spot
+    second: {fileID: 2100000, guid: c1d11c9669044fc41a5d6d3c67b0999b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MI_Wood
+    second: {fileID: 2100000, guid: f2dd64971a8947f45bcda086481fc51e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Mirror_Ball
+    second: {fileID: 2100000, guid: 9241c71d2ace5d64a83cd4004b05c145, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal1Chrome
+    second: {fileID: 2100000, guid: a63898c9658c7c8498b85292560b4647, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MetalGold
+    second: {fileID: 2100000, guid: 003d38aa80db08b4bac615ecd3522868, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ScreenEmpty
+    second: {fileID: 2100000, guid: ed85ed32a1b6c374784d41a537e9ae22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: panel08b_diff
+    second: {fileID: 2100000, guid: fe2f4eebd2f19194994d71a0b4a513e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rim01_diff
+    second: {fileID: 2100000, guid: 00312426b37e20e44bb58edf0a208507, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
-    materialSearch: 1
-    materialLocation: 0
+    materialSearch: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -39,7 +199,7 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
