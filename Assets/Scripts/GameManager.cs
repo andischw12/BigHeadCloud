@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Player thisComputerPlayer;
     [SerializeField] public Player otherPlayer;
     [SerializeField] GameObject Cover;
-    [SerializeField] public EnviormentList enviorment;
+    [SerializeField] public QuestionSubject enviorment;
     [SerializeField] public GameObject VsCanvas;
     [SerializeField] GameObject PostGameGM;
     [SerializeField] GameObject Scene3D;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Saftey());
         Assignment.instance.VSCanvas.transform.GetChild(2).gameObject.SetActive(true);
         Assignment.instance.VSCanvas.transform.GetChild(3).gameObject.SetActive(false);
-        enviorment = PhotonRoom.room.enviorment;
+        enviorment = PhotonRoom.room.CurrentQuestionSubject;
         yield return new WaitUntil(() => player1 != null && player2 != null);
         yield return new WaitUntil(() => EnviormentIsReady());
         if (IsNewRandomMode())
@@ -102,10 +102,9 @@ public class GameManager : MonoBehaviour
         CalculationsManager.instance.LastGameTimePerQuestion = timePerQuestion;
         CalculationsManager.instance.LastGameTotalNumOfQuestions = totalNumOfQuestions;
         CalculationsManager.instance.LastGamePointsPerQuestion = PointsPerQuestion;
-
-        UlpanScreenManager.instance.SetVsPic();
-        UlpanScreenManager.instance.SetText("םיאבה םיכורב");
-
+        EnviormentsManager.instance.ChooseEnviorment(PhotonRoom.room.Enviorment);
+        FindObjectOfType<UlpanScreenManager>().SetVsPic();
+        FindObjectOfType<UlpanScreenManager>().SetText("םיאבה םיכורב");
         Assignment.instance.TechMassage.text = "רבוחמ";
         //
     }
@@ -327,8 +326,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameOver(Player winner)
     {
         isGameOver = true;
-        UlpanScreenManager.instance.SetDefultPic();
-        UlpanScreenManager.instance.SetText("");
+        FindObjectOfType<UlpanScreenManager>().SetDefultPic();
+        FindObjectOfType<UlpanScreenManager>().SetText("");
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.GameOver);
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.Clapping);
         LightsController.instance.LightsOn();
@@ -407,7 +406,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetString("LastRoomName", PhotonNetwork.CurrentRoom.Name);
         if(IsNewRandomMode())
-            PlayerPrefs.SetInt("LastTopicPlayed",(int)EnviormentList.Random);
+            PlayerPrefs.SetInt("LastTopicPlayed",(int)QuestionSubject.Random);
         else
             PlayerPrefs.SetInt("LastTopicPlayed", MultiPlayerQuestionRandomizer.instance.chosenEnviorment);
         Destroy(PhotonRoom.room.gameObject);
@@ -428,7 +427,7 @@ public class GameManager : MonoBehaviour
         if (MultiPlayerQuestionRandomizer.instance.SetEnviorment(enviorment) < 0)
             return false;
         int chosenEnv = MultiPlayerQuestionRandomizer.instance.SetEnviorment(enviorment);
-        EnviormentsManager.instance.ChooseEnviorment(chosenEnv);
+        QuestionSubjectManager.instance.ChooseQuestionSubject(chosenEnv);
         SetQuiz(chosenEnv);
         Assignment.instance.QuizSubjectText.text = GetSubjectText(chosenEnv);
         return true;
@@ -439,7 +438,7 @@ public class GameManager : MonoBehaviour
         byte b = 0;
 
         try {b=(byte)PhotonNetwork.CurrentRoom.CustomProperties["env"];} catch{ }
-        return (PhotonRoom.room.IsSinglePlayer && PhotonRoom.room.enviorment == EnviormentList.Random) ||
+        return (PhotonRoom.room.IsSinglePlayer && PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Random) ||
             (!PhotonRoom.room.IsSinglePlayer && b== 255);
     }
 
@@ -450,118 +449,118 @@ public class GameManager : MonoBehaviour
 
     public  string GetSubjectText (int chosen)
     {
-        if (chosen == EnviormentList.Bereshit.GetHashCode())
+        if (chosen == QuestionSubject.Bereshit.GetHashCode())
         {
              return "תישארב שמוח";
         }
 
-        if (chosen == EnviormentList.ShmotVaikra.GetHashCode())
+        if (chosen == QuestionSubject.ShmotVaikra.GetHashCode())
         {
             return "ארקיו-תומש ישמוח";
         }
 
-        if (chosen == EnviormentList.BamidbarDvarim.GetHashCode())
+        if (chosen == QuestionSubject.BamidbarDvarim.GetHashCode())
         {
             return  "םירבד-רבדמב ישמוח";
         }
 
-        if (chosen == EnviormentList.Tanak.GetHashCode())
+        if (chosen == QuestionSubject.Tanak.GetHashCode())
         {
             return "םינושאר םיאיבנ";
         }
 
-        if (chosen == EnviormentList.Avot.GetHashCode())
+        if (chosen == QuestionSubject.Avot.GetHashCode())
         {
             return "תובא יקרפ";
         }
 
-        if (chosen == EnviormentList.Israel.GetHashCode())
+        if (chosen == QuestionSubject.Israel.GetHashCode())
         {
             return "לארשי ץרא";
         }
 
-        if (chosen == EnviormentList.Mada.GetHashCode())
+        if (chosen == QuestionSubject.Mada.GetHashCode())
         {
             return "עדמו עבט";
         }
-        if (chosen == EnviormentList.Tarbut.GetHashCode())
+        if (chosen == QuestionSubject.Tarbut.GetHashCode())
         {
             return "ץורעה תוינכות";
         }
 
-        if (chosen == EnviormentList.RoshHashana.GetHashCode())
+        if (chosen == QuestionSubject.RoshHashana.GetHashCode())
         {
             return "הנשה  שאר";
         }
 
-        if (chosen == EnviormentList.Kippur.GetHashCode())
+        if (chosen == QuestionSubject.Kippur.GetHashCode())
         {
             return "םירופיכה םוי";
         }
 
-        if (chosen == EnviormentList.Sukkot.GetHashCode())
+        if (chosen == QuestionSubject.Sukkot.GetHashCode())
         {
             return "תוכוס";
         }
 
-        if (chosen == EnviormentList.Shabat.GetHashCode())
+        if (chosen == QuestionSubject.Shabat.GetHashCode())
         {
             return "ימלועה תבשה ןודיח";
         }
 
-        if (chosen == EnviormentList.Hanuka.GetHashCode())
+        if (chosen == QuestionSubject.Hanuka.GetHashCode())
         {
             return "הכונח";
         }
 
-        if (chosen == EnviormentList.Purim.GetHashCode())
+        if (chosen == QuestionSubject.Purim.GetHashCode())
         {
             return "םירופ";
         }
 
-        if (chosen == EnviormentList.tfila.GetHashCode())
+        if (chosen == QuestionSubject.tfila.GetHashCode())
         {
             return "הליפת";
         }
 
-        if (chosen == EnviormentList.mizvot.GetHashCode())
+        if (chosen == QuestionSubject.mizvot.GetHashCode())
         {
             return "םיגהנמו תווצמ";
         }
 
         
 
-        if (chosen == EnviormentList.shirim.GetHashCode())
+        if (chosen == QuestionSubject.shirim.GetHashCode())
         {
             return "םידלי יריש";
         }
 
-        if (chosen == EnviormentList.numbers.GetHashCode())
+        if (chosen == QuestionSubject.numbers.GetHashCode())
         {
             return "תודהיב םירפסמ";
         }
 
-        if (chosen == EnviormentList.israelHistory.GetHashCode())
+        if (chosen == QuestionSubject.israelHistory.GetHashCode())
         {
             return "תידוהי הירוטסיה";
         }
 
-        if (chosen == EnviormentList.PlacesInIsrael.GetHashCode())
+        if (chosen == QuestionSubject.PlacesInIsrael.GetHashCode())
         {
             return "ץראב תומוקמ";
         }
 
-        if (chosen == EnviormentList.geography.GetHashCode())
+        if (chosen == QuestionSubject.geography.GetHashCode())
         {
             return "היפרגואיג";
         }
 
-        if (chosen == EnviormentList.Biology.GetHashCode())
+        if (chosen == QuestionSubject.Biology.GetHashCode())
         {
             return "היגולויב";
         }
 
-        if (chosen == EnviormentList.food.GetHashCode())
+        if (chosen == QuestionSubject.food.GetHashCode())
         {
             return "לכוא";
         }

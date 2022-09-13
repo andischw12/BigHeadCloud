@@ -822,9 +822,9 @@ public class GalleryLevelSelectionManager : MonoBehaviour
 
         UpdateGalleryStateOnIndicator();
         if (GetCurrentNearestItemIndex() == 0)
-            FindObjectOfType<PhotonRoom>().enviorment = EnviormentList.Random;
+            FindObjectOfType<PhotonRoom>().CurrentQuestionSubject = QuestionSubject.Random;
         else
-            FindObjectOfType<PhotonRoom>().enviorment = (EnviormentList)(GetCurrentNearestItemIndex()-1);
+            FindObjectOfType<PhotonRoom>().CurrentQuestionSubject = (QuestionSubject)(GetCurrentNearestItemIndex()-1);
     }
     
     private void UpdateTextIndicator(float scroll, int centerIndex)

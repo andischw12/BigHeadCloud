@@ -28,11 +28,11 @@ public class MultiPlayerQuestionRandomizer : MonoBehaviour
     /// <summary>
     /// This method get a chosen enviorment and set it up over the network for both players.
     /// </summary>
-    public int SetEnviorment(EnviormentList env)
+    public int SetEnviorment(QuestionSubject env)
     {
         if (PhotonNetwork.IsMasterClient && chosenEnviorment < 0) 
         {
-            if (env == EnviormentList.Random) 
+            if (env == QuestionSubject.Random) 
             {
                
                 int chosen = Random.Range(0, randomArr.Length);

@@ -93,7 +93,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             RoomOptions roomOps = new RoomOptions() { IsVisible = false, IsOpen = true, MaxPlayers = 2 };
             string[] s = { "env" };
             roomOps.CustomRoomPropertiesForLobby = s;
-            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } };
+            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.CurrentQuestionSubject.GetHashCode() } };
             PhotonNetwork.JoinOrCreateRoom(roomName, roomOps, TypedLobby.Default);
             PlayWithFriendMode = true;
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(18f));
@@ -200,9 +200,9 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
-        if(PhotonRoom.room.enviorment == EnviormentList.Purim || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
+        if(PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Purim || PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Shabat || PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Random)
         {
-            PhotonNetwork.JoinRandomRoom(new Hashtable {{"env", (byte)PhotonRoom.room.enviorment.GetHashCode()}},2);
+            PhotonNetwork.JoinRandomRoom(new Hashtable {{"env", (byte)PhotonRoom.room.CurrentQuestionSubject.GetHashCode()}},2);
         }
         else
             PhotonNetwork.JoinRandomRoom(new Hashtable{{"cla",(byte)1}},2);
@@ -225,11 +225,11 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         Debug.Log("your code is:" + randomRoomName);
          
         RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
-        if (PhotonRoom.room.enviorment == EnviormentList.Purim || PhotonRoom.room.enviorment == EnviormentList.Shabat || PhotonRoom.room.enviorment == EnviormentList.Random)
+        if (PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Purim || PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Shabat || PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Random)
         {
             string[] s = { "env" };
             roomOps.CustomRoomPropertiesForLobby = s;
-            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.enviorment.GetHashCode() } };
+            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.CurrentQuestionSubject.GetHashCode() } };
         }
         else 
         {

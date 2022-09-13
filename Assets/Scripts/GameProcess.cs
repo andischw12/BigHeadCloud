@@ -33,7 +33,7 @@ public class GameProcess : MonoBehaviour
     }
     IEnumerator LoadQuestionHelper() 
     {
-        UlpanScreenManager.instance.SetVsPic();
+        FindObjectOfType<UlpanScreenManager>().SetVsPic();
         // Assignment.instance.TechMassage.text = "...רבחתמ";
         if (GameManager.instance.IsNewRandomMode()) 
         {
@@ -42,13 +42,13 @@ public class GameProcess : MonoBehaviour
                 MultiPlayerQuestionRandomizer.instance.SetEnvOnRandomMode();
                 yield return new WaitUntil(() => MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom > -1);
                 int chosen = MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom;
-                UlpanScreenManager.instance.SetText(GameManager.instance.GetSubjectText(chosen));
-                EnviormentsManager.instance.ChooseEnviorment(chosen);
+                FindObjectOfType<UlpanScreenManager>().SetText(GameManager.instance.GetSubjectText(chosen));
+                QuestionSubjectManager.instance.ChooseQuestionSubject(chosen);
                 GameManager.instance.SetQuiz(chosen);
                 MultiPlayerQuestionRandomizer.instance.chosenEnviormentForRandom = -1;
             }
         }
-        UlpanScreenManager.instance.SetText(GameManager.instance.GetSubjectText(EnviormentsManager.instance.GetActiveEnv()));
+        FindObjectOfType<UlpanScreenManager>().SetText(GameManager.instance.GetSubjectText(QuestionSubjectManager.instance.GetActiveQuestionSubject()));
         GameManager.instance.thisComputerPlayer.myPhotonPlayer.SetReadyForNewQuestion();
         yield return new WaitUntil(() => GameManager.instance.otherPlayer.myPhotonPlayer.ReadyForNewQuestion);
         GameManager.instance.player1.myPhotonPlayer.ReadyForNewQuestion = false;

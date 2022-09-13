@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4607779427759386984}
   - component: {fileID: 7989569567134264590}
   - component: {fileID: 7214175685594423736}
+  - component: {fileID: 5065509907334865168}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -60,6 +61,7 @@ MonoBehaviour:
   enviorment: 100
   VsCanvas: {fileID: 0}
   PostGameGM: {fileID: 0}
+  Scene3D: {fileID: 0}
 --- !u!114 &-3783533166277457692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +135,15 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!114 &5065509907334865168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521547436064142100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b75575eaa63f67488bf376e590f6f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

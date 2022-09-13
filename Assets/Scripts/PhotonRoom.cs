@@ -20,7 +20,8 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     bool WaitingTimeIsOver;
     bool _isSinglePlayer = false;
     public bool flag;
-    public EnviormentList enviorment;
+    public QuestionSubject CurrentQuestionSubject;
+    public int Enviorment;
     public bool CancelButtonClicked { get; set;}
     public bool IsSinglePlayer{get{ return _isSinglePlayer;}}
 
@@ -205,15 +206,21 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     public void SelecetSubject(int i) 
     {
-        enviorment = (EnviormentList)i;
+        CurrentQuestionSubject = (QuestionSubject)i;
 
     }
 
     public void SelecetRandomSubject()
     {
         int i = UnityEngine.Random.Range(0, MultiPlayerQuestionRandomizer.randomArr.Length);
-        enviorment = (EnviormentList)i;
+        CurrentQuestionSubject = (QuestionSubject)i;
 
+    }
+
+
+    public void SelecetEnviorment(int i)
+    {
+        Enviorment = i;
     }
 }
 

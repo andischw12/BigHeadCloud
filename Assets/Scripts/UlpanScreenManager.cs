@@ -8,13 +8,14 @@ using TMPro;
 public class UlpanScreenManager : MonoBehaviour
 {
 
-    public static UlpanScreenManager instance;
+    //public static UlpanScreenManager instance;
     [SerializeField] Material defult;
     [SerializeField] TextMeshPro Tvtxt;
     [SerializeField] Material EmptyBackground;
+    [SerializeField] int ScreenMaterialInMeshArr;
 
     // Start is called before the first frame update
-
+    /*
     void Awake()
     {
         if (instance == null)
@@ -22,8 +23,9 @@ public class UlpanScreenManager : MonoBehaviour
             instance = this;
             //DontDestroyOnLoad(gameObject);
         }
+        
     }
-
+    */
     void Start()
     {
         SetDefultPic();
@@ -34,13 +36,13 @@ public class UlpanScreenManager : MonoBehaviour
     public void SetDefultPic() 
     {
         if (GetComponent<MeshRenderer>() != null)
-            GetComponent<MeshRenderer>().material = defult;
+            GetComponent<MeshRenderer>().materials[ScreenMaterialInMeshArr] = defult;
     }
 
     public void SetVsPic()
     {
         if (GetComponent<MeshRenderer>() != null)
-            GetComponent<MeshRenderer>().material = EmptyBackground;
+            GetComponent<MeshRenderer>().materials[ScreenMaterialInMeshArr] = EmptyBackground;
     }
 
     public void SetText(string s) 
