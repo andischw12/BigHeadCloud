@@ -25,7 +25,7 @@ public class LightsController : MonoBehaviour
     private void Start()
     {
         _tempMainLight = MainLight.GetComponent<Light>().intensity;
-        LightsOff();
+       // LightsOff();
         
 
     }
@@ -34,9 +34,9 @@ public class LightsController : MonoBehaviour
     {
         foreach(GameObject Gm in SpotLights) 
         {
-            Gm.SetActive(true);
+          //  Gm.SetActive(true);
         }
-        MainLight.GetComponent<Animator>().enabled = true;
+       // MainLight.GetComponent<Animator>().enabled = true;
          
 
 

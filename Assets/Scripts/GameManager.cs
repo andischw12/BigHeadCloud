@@ -181,7 +181,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitUntil(() => !host.IsTalkingInProgress);
         Cameras.instance.SelectCamera(0);
         thisComputerPlayer.myEmojiesGuiButton.MakeButtonNotAvaliable();
-        LightsController.instance.LightsOn();
+       // LightsController.instance.LightsOn();
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.Clapping);
 
        
@@ -197,7 +197,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(1);
         Cameras.instance.SelectCamera(3);
         yield return new WaitForSecondsRealtime(1);
-        LightsController.instance.LightsOff();
+        //LightsController.instance.LightsOff();
         // end
         GameProcess.instance.LoadQuestion();
     }
@@ -330,7 +330,7 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<UlpanScreenManager>().SetText("");
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.GameOver);
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.Clapping);
-        LightsController.instance.LightsOn();
+        //LightsController.instance.LightsOn();
         EveryBodyDance(2.5f);
         host.talking(host.GetComponent<NarrationHolder>().GameOver);
         yield return new WaitUntil(() => !host.IsTalkingInProgress);
@@ -360,7 +360,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(2.5f);
         }
 
-        LightsController.instance.LightsOff();
+       // LightsController.instance.LightsOff();
         UIManager.instance.HideQuestionAndPrizePannel();
         host.talking(host.GetComponent<NarrationHolder>().Ending);
         yield return new WaitUntil(() => !host.IsTalkingInProgress);
@@ -385,7 +385,7 @@ public class GameManager : MonoBehaviour
         host.talking(host.GetComponent<NarrationHolder>().TechnicalWin);
         yield return new WaitUntil(() => !host.IsTalkingInProgress);
         UIManager.instance.CloseAllPanels();
-        LightsController.instance.LightsOn();
+        //LightsController.instance.LightsOn();
         Cameras.instance.SelectCamera(thisComputerPlayer);
         thisComputerPlayer.WinGame();
         CalculationsManager.instance.TechnicalWIn = true;
