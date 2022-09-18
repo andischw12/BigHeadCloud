@@ -35,7 +35,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         //JoinAFriendButton.SetActive(false);
         PhotonNetwork.OfflineMode = false;
         PlayWithFriendMode = false;
-        ConnectToPhoton();
+        ConnectToPhoton(2);
         if (PlayerPrefs.GetInt("AutoConnectAndSearch")==1) 
         {
             StartCoroutine(AutoStartGameFunction());
@@ -63,7 +63,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
         
         PhotonRoom.room.SelecetSubject(PlayerPrefs.GetInt("LastTopicPlayed"));
-        if(roomName == "offline room") // if last game was against bot
+        PhotonRoom.room.SelecetEnviorment(PlayerPrefs.GetInt("LastEvPlayed"));
+        if (roomName == "offline room") // if last game was against bot
         {
             //print("if was against bot in room: " +  roomName);
             //StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(2f));
@@ -93,7 +94,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             RoomOptions roomOps = new RoomOptions() { IsVisible = false, IsOpen = true, MaxPlayers = 2 };
             string[] s = { "env" };
             roomOps.CustomRoomPropertiesForLobby = s;
-            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.CurrentQuestionSubject.GetHashCode() } };
+            roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.Enviorment.GetHashCode() } };
             PhotonNetwork.JoinOrCreateRoom(roomName, roomOps, TypedLobby.Default);
             PlayWithFriendMode = true;
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(18f));
@@ -103,12 +104,12 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     }
 
-    public void ConnectToPhoton()
+    public void ConnectToPhoton(int Sessions)
     {
-          StartCoroutine(ConnectToPhotonHelper());
+          StartCoroutine(ConnectToPhotonHelper(Sessions));
     }
  
-    IEnumerator ConnectToPhotonHelper() 
+    IEnumerator ConnectToPhotonHelper(int Sessions) 
     {
         //disconnecting
         PhotonNetwork.OfflineMode = false;
@@ -119,15 +120,25 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             yield return null;
         PhotonNetwork.ConnectUsingSettings();
         ConnectingGM.SetActive(true);
-        StartCoroutine(ConnectToPhotonSaftey(10f));
+        StartCoroutine(ConnectToPhotonSaftey(10f, Sessions));
     }
-    IEnumerator ConnectToPhotonSaftey(float time)
+    IEnumerator ConnectToPhotonSaftey(float SessionTime,int Sessions)
     {
-        yield return new WaitForSecondsRealtime(time);
+        yield return new WaitForSecondsRealtime(SessionTime);
         if (!connectedToMaster)
         {
             Debug.Log("Trying to connect photon again");
-            ConnectToPhoton();
+            if(Sessions - 1 > 0)
+                ConnectToPhoton(Sessions-1);
+            else 
+            {
+                PhotonNetwork.Disconnect();
+                while (PhotonNetwork.IsConnected)
+                    yield return null;
+                connectedToMaster = false;
+                PhotonNetwork.OfflineMode = true;
+                ConnectingGM.SetActive(false);
+            }
         }
     }
  
@@ -159,6 +170,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...קחשמ רצוי";
         PlayWithFriendMode = true;
+        PhotonRoom.room.SelecetEnviorment(0);
+        PhotonRoom.room.SelecetRandomSubject();
         CreateRoom();
         yield return new WaitUntil(() => PhotonNetwork.InRoom);
         PhotonNetwork.CurrentRoom.IsVisible = false;
@@ -169,6 +182,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     {
         if (roomNumCode.text != "") // check the input box is not empty
         {
+            PhotonRoom.room.SelecetEnviorment(0);
             FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[4].GetComponent<ModalWindowManager>().CloseWindow();
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(18f));
             FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
@@ -184,11 +198,12 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     IEnumerator OnRandomeBattleButtonClickedHelper() 
     {
-        //this is checking fps in the moment clicking on game - if its lower than 18 user will play offline.
-       // float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
-        //Debug.Log("FPS is: " + CurrentFps);
-        
-        if (QualityControlManager.instance.currentQuality == QualityOptionsRG2.BadQuality)
+        yield return new WaitUntil(() => PhotonRoom.room.Enviorment > -1);
+                                           //this is checking fps in the moment clicking on game - if its lower than 18 user will play offline.
+                                           // float CurrentFps = FindObjectOfType<FPSCounter>().m_CurrentFps;
+                                           //Debug.Log("FPS is: " + CurrentFps);
+         
+        if (QualityControlManager.instance.GetFPS() < 15f)
         {
             print("FPS is Low.Playing in offline mode");
             PhotonNetwork.Disconnect();
@@ -197,17 +212,20 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             connectedToMaster = false;
             PhotonNetwork.OfflineMode = true;
         }
-        
+         
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...דדומתמ שפחמ";
+        /*
         if(PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Purim || PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Shabat || PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Random)
         {
             PhotonNetwork.JoinRandomRoom(new Hashtable {{"env", (byte)PhotonRoom.room.CurrentQuestionSubject.GetHashCode()}},2);
         }
         else
             PhotonNetwork.JoinRandomRoom(new Hashtable{{"cla",(byte)1}},2);
-        StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromRandomButtonClick(18f));
-        yield return new WaitForSeconds(0);// remove
+        */
+        PhotonNetwork.JoinRandomRoom(new Hashtable { { "env", (byte)PhotonRoom.room.Enviorment.GetHashCode() } }, 2);
+        StartCoroutine(PhotonRoom.room.SafetyFromRandomButtonClick(20f));
+       
     }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -216,7 +234,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         CreateRoom();
     }
 
-
+    /*
 
     void CreateRoom()
     {
@@ -240,7 +258,37 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
       
         PhotonNetwork.CreateRoom(randomRoomName.ToString(),roomOps,TypedLobby.Default);
     }
+*/
 
+    void CreateRoom()
+    {
+        Debug.Log("trying to create a new room");
+        int randomRoomName = Random.Range(1000, 10000);
+        Debug.Log("your code is:" + randomRoomName);
+
+        RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 2 };
+
+        string[] s = { "env" };
+        roomOps.CustomRoomPropertiesForLobby = s;
+        roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.Enviorment.GetHashCode() } };
+        /*
+                if (PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Purim || PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Shabat || PhotonRoom.room.CurrentQuestionSubject == QuestionSubject.Random)
+                {
+                    string[] s = { "env" };
+                    roomOps.CustomRoomPropertiesForLobby = s;
+                    roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.CurrentQuestionSubject.GetHashCode() } };
+                }
+
+                else
+                {
+                    string[] s = { "cla" };
+                    roomOps.CustomRoomPropertiesForLobby = s;
+                    roomOps.CustomRoomProperties = new Hashtable { { "cla", (byte)1 } };
+                }
+        */
+         
+        PhotonNetwork.CreateRoom(randomRoomName.ToString(), roomOps, TypedLobby.Default);
+    }
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {

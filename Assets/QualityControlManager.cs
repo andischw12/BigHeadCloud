@@ -22,6 +22,7 @@ public class QualityControlManager : MonoBehaviour
     [SerializeField] Shader LowShader;
     [SerializeField] Shader HighShader;
     [SerializeField] public QualityOptionsRG2 currentQuality;
+    [SerializeField] public float SessionFPS;
 
 
 #if UNITY_WEBGL && !UNITY_EDITOR
@@ -50,6 +51,9 @@ public class QualityControlManager : MonoBehaviour
 
     void OnEnable()
     {
+
+       
+
         Debug.Log("OnEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
 
@@ -63,13 +67,27 @@ public class QualityControlManager : MonoBehaviour
         {
             SetQuality();
         }
-        else
-        StartCoroutine(CheckAndSetFPS(5, 25f));
+        else 
+        {
+            
+            StartCoroutine(CheckAndSetFPS(5, 25f));
+        }
+       
     }
 
     IEnumerator CheckAndSetFPS(int timestoCheck, float minFrameRate)
     {
-        
+        if (SystemInfo.operatingSystem.Contains("Windows 7") || SystemInfo.operatingSystem.Contains("Windows 8")) 
+        {
+            currentQuality = QualityOptionsRG2.BadQuality;
+            SetQuality();
+            Debug.Log("operating system is : " + SystemInfo.operatingSystem);
+            yield break;
+        }
+            
+
+       
+         
        // currentQuality = QualityOptionsRG2.BadQuality;
        // SetQuality();
         yield return new WaitUntil (()=> GetComponentInChildren<LiteFPSCounter>().frameRate>5);
@@ -82,15 +100,44 @@ public class QualityControlManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.3f);
         }
         float AvarageResult = sum / timestoCheck;
-        print("avarage fps is: " + AvarageResult);
-        if (AvarageResult < minFrameRate)
-            currentQuality= QualityOptionsRG2.BadQuality;
+         
+
+       
+
+         if (AvarageResult < minFrameRate)
+            currentQuality = QualityOptionsRG2.BadQuality;
         else
             currentQuality = QualityOptionsRG2.GoodQuality;
         SetQuality();
+        print("Current fps is: " + GetFPS());
+ 
 
 
     }
+
+    /*
+    IEnumerator LowerFPS() 
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        while (getDefaultDPR() > 0.75f && GetFPS() <20f  ) 
+        {
+            _setDPR(getDefaultDPR()-0.01f);
+            yield return new WaitForSecondsRealtime(0.2f);
+        }
+         Debug.Log("Current fps after lowering process is: " + GetFPS()+ " current DPR is: " + getDefaultDPR());
+#endif
+
+        yield return null;
+       
+
+    }
+    */
+    public float GetFPS() 
+    {
+        return GetComponentInChildren<LiteFPSCounter>().frameRate;
+    }
+
+
 
     void SetQuality() 
     {
@@ -121,9 +168,9 @@ public class QualityControlManager : MonoBehaviour
     public void __setDPR(float float1)
     {
         
-            #if UNITY_WEBGL && !UNITY_EDITOR
+#if UNITY_WEBGL && !UNITY_EDITOR
                             _setDPR(float1);
-            #endif
+#endif
         
     }
 
@@ -150,7 +197,8 @@ public class QualityControlManager : MonoBehaviour
         QualitySettings.SetQualityLevel((int)QualityLevel.Fastest);
          
         SetAllQualityDepended();
-        __setDPR(0.9f);
+        //StartCoroutine( LowerFPS());
+        __setDPR(0.75f);
         Camera.main.GetComponent<Beautify>().enabled = false;
 
 

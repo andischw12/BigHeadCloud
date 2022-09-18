@@ -406,9 +406,11 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetString("LastRoomName", PhotonNetwork.CurrentRoom.Name);
         if(IsNewRandomMode())
-            PlayerPrefs.SetInt("LastTopicPlayed",(int)QuestionSubject.Random);
+            PlayerPrefs.SetInt("LastEvPlayed",(int)QuestionSubject.Random);
         else
             PlayerPrefs.SetInt("LastTopicPlayed", MultiPlayerQuestionRandomizer.instance.chosenEnviorment);
+
+        PlayerPrefs.SetInt("LastEvPlayed", (int)PhotonRoom.room.Enviorment);
         Destroy(PhotonRoom.room.gameObject);
         StartCoroutine(DisconnectAndLoad());
     }

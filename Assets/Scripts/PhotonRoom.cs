@@ -40,6 +40,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     void Start()
     {
         PV = GetComponent<PhotonView>();
+        Enviorment = -1;
     }
 
     public override void OnEnable()
@@ -78,7 +79,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         //Debug.Log("We are in a room");
         if (!PhotonNetwork.IsMasterClient)
             return;
-
+        
         StartGame();
     }
 

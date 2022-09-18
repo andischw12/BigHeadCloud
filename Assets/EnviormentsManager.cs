@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnviormentsManager : MonoBehaviour
 {
     [SerializeField] GameObject[] EnviormentsArr;
+    [SerializeField] GameObject[] HostArr;
     public static EnviormentsManager instance;
 
     private void Awake()
@@ -18,9 +19,9 @@ public class EnviormentsManager : MonoBehaviour
         for(int i = 0; i < EnviormentsArr.Length; i++) 
         {
             if (i == env)
-                EnviormentsArr[i].SetActive(true);
+            { EnviormentsArr[i].SetActive(true); HostArr[i].SetActive(true); } 
             else
-                EnviormentsArr[i].SetActive(false);
+            { EnviormentsArr[i].SetActive(false); HostArr[i].SetActive(false); }
         }
     }
 }
