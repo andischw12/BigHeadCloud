@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LayerLab
+namespace LayerLab.CasualGame
 {
     public class PanelCasualGame : MonoBehaviour
     {

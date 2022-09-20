@@ -61,6 +61,7 @@ public class PostGame : MonoBehaviour
         CalculationsManager.instance.PostGame = true;
         int thisRoundGems = 0;
         int NewPoints = 0;
+        float roomMulti = StudioButtonManager.BonusMulti[PlayerPrefs.GetInt("LastEvPlayed")];
         if (!CalculationsManager.instance.TechnicalWIn)
         {
             if (CalculationsManager.instance.GetCaluclatedScore() > 1)
@@ -121,8 +122,11 @@ public class PostGame : MonoBehaviour
 
             
            
-            thisRoundGems = CalculationsManager.instance.CalculateGems();
-            NewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + CalculationsManager.instance.GetCaluclatedBonus();
+            thisRoundGems = (int)(CalculationsManager.instance.CalculateGems()*roomMulti/100);
+            print("old gems is: " + CalculationsManager.instance.CalculateGems() + " new gems is: " + thisRoundGems);
+
+            NewPoints = (int)(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + CalculationsManager.instance.GetCaluclatedBonus()*roomMulti / 100);
+            print("old points is: " + FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + CalculationsManager.instance.GetCaluclatedBonus() + " new points is: " + NewPoints);
             yield return new WaitForSecondsRealtime(1f);
 
         }

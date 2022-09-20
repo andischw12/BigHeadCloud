@@ -11,6 +11,7 @@ public class StudioMenuButton : MonoBehaviour
     [SerializeField] TextMeshProUGUI RankNeededText;
     [SerializeField] TextMeshProUGUI StudioNameText;
     [SerializeField] Image RankBackGround;
+    [SerializeField] TextMeshProUGUI BonusText;
     public int EnviormentNum { get; set; }
     public Button button;
 
@@ -36,11 +37,15 @@ public class StudioMenuButton : MonoBehaviour
 
     }
 
-    public void SetStudioButton(Sprite sprite, string name, int rank) 
+    public void SetStudioButton(Sprite sprite, string name, int rank, float bonusMultiplayer) 
     {
         transform.GetChild(0).GetComponent<Image>().sprite = sprite;
         RankNeededText.text = rank.ToString();
         StudioNameText.text = name;
+        if (bonusMultiplayer > 100)
+            BonusText.text = bonusMultiplayer+ "% сереб" ;
+        else
+            BonusText.transform.parent.gameObject.SetActive(false);
     }
 
 

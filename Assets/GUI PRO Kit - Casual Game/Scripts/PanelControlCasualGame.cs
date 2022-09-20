@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-namespace LayerLab
+namespace LayerLab.CasualGame
 {
     public class PanelControlCasualGame : MonoBehaviour
     {

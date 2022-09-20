@@ -9,6 +9,7 @@ public class StudioButtonManager : MonoBehaviour
     [SerializeField] StudioMenuButton[] StudioArr;
     [SerializeField] string[] StudioNames;
     [SerializeField] int[] NeededRanks;
+    [SerializeField] public static float[] BonusMulti = {100f,150f,200f};
     [SerializeField] Sprite[] StudioSprites;
 
     void Start()
@@ -23,7 +24,7 @@ public class StudioButtonManager : MonoBehaviour
         for(int i = 0; i < StudioNames.Length; i++) 
         {
             StudioArr[i] = Instantiate(ButtonPrefab,this.transform).GetComponent<StudioMenuButton>();
-            StudioArr[i].SetStudioButton(StudioSprites[i],StudioNames[i],NeededRanks[i]);
+            StudioArr[i].SetStudioButton(StudioSprites[i],StudioNames[i],NeededRanks[i],BonusMulti[i]);
             StudioArr[i].EnviormentNum = i;
             if (ProfileManager.GetRankFromServer() < NeededRanks[i]) 
             {
