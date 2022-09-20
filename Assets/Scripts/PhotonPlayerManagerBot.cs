@@ -20,10 +20,22 @@ public class PhotonPlayerManagerBot : PhotonPlayerManager
     {
         BotArr = GetComponentsInChildren<BotConfiguration>();
         //CreatePhotonPlayer(new int[]{0,0,3,0,6,1,0,6,3,3,8});
-        if(LastBotChosen==-1)
-            LastBotChosen = Random.Range(0, BotArr.Length);
+        if (LastBotChosen == -1)
+        {
+            int tmp = Random.Range(0, BotArr.Length);
+            while (BotArr[tmp].BotPoints() < ProfileManager.GetPointsByRank(StudioButtonManager.NeededRanks[PhotonRoom.room.Enviorment])) 
+            {
+                LastBotChosen = Random.Range(0, BotArr.Length);
+            }
+           
+
+
+        }
+           
         SelectedBot = BotArr[LastBotChosen];
         //CreatePhotonPlayer(Avatar.GetComponent<KidAvatarSelector>().GetBotAvatar(SelectedBot), SelectedBot.BotName, SelectedBot.BotSmartness) ;
+
+
         CreatePhotonPlayer(Avatar.GetComponent<KidAvatarSelector>().GetRandomBotLook(SelectedBot),SelectedBot.BotName, SelectedBot.BotPoints(), SelectedBot.BotSmartness);
         // CreatePhotonPlayer(new int[]{0,0,0,0,0,0,0,0,0,0,0}, SelectedBot.BotName, SelectedBot.BotPoints(), SelectedBot.BotSmartness);
          

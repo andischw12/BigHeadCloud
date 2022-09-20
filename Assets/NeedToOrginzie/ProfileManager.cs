@@ -58,7 +58,7 @@ public class ProfileManager : MonoBehaviour
         return (int)Mathf.Sqrt((float)points/FIRST_RANK_POINTS);
     }
 
-    int GetPointsByRank(int rank) 
+    public static int GetPointsByRank(int rank) 
     {
         return rank * rank * FIRST_RANK_POINTS;
     }

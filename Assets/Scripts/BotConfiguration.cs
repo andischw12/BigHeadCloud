@@ -21,7 +21,7 @@ public class BotConfiguration : MonoBehaviour
     public int BotPoints() 
     {
 
-        return ProfileManager.FIRST_RANK_POINTS +  BotSmartness*10 ;
+        return ProfileManager.FIRST_RANK_POINTS +  BotSmartness*10* _botPrefab;
         //return ProfileManager.FIRST_RANK_POINTS + (int)Mathf.Pow(BotSmartness + BotPrefab,2) ;
     }
 }

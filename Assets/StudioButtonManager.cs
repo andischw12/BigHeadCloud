@@ -8,7 +8,7 @@ public class StudioButtonManager : MonoBehaviour
     [SerializeField] GameObject ButtonPrefab;
     [SerializeField] StudioMenuButton[] StudioArr;
     [SerializeField] string[] StudioNames;
-    [SerializeField] int[] NeededRanks;
+    [SerializeField] public static int[] NeededRanks = { 1, 20, 35 };
     [SerializeField] public static float[] BonusMulti = {100f,150f,200f};
     [SerializeField] Sprite[] StudioSprites;
 
