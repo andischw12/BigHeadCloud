@@ -22,8 +22,8 @@ public class PhotonPlayerManagerBot : PhotonPlayerManager
         //CreatePhotonPlayer(new int[]{0,0,3,0,6,1,0,6,3,3,8});
         if (LastBotChosen == -1)
         {
-            int tmp = Random.Range(0, BotArr.Length);
-            while (BotArr[tmp].BotPoints() < ProfileManager.GetPointsByRank(StudioButtonManager.NeededRanks[PhotonRoom.room.Enviorment])) 
+            LastBotChosen = Random.Range(0, BotArr.Length);
+            while (BotArr[LastBotChosen].BotPoints() < ProfileManager.GetPointsByRank(StudioButtonManager.NeededRanks[PhotonRoom.room.Enviorment])) 
             {
                 LastBotChosen = Random.Range(0, BotArr.Length);
             }
