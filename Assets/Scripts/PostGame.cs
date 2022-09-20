@@ -60,7 +60,9 @@ public class PostGame : MonoBehaviour
         try { UserGemsAmmount.GetComponentInParent<Animator>().enabled = false; } catch { }
         CalculationsManager.instance.PostGame = true;
         int thisRoundGems = 0;
-        int NewPoints = 0;
+        int TotalNewPoints = 0;
+        int thisRoundPoints = 0;
+
         float roomMulti = StudioButtonManager.BonusMulti[PlayerPrefs.GetInt("LastEvPlayed")];
         if (!CalculationsManager.instance.TechnicalWIn)
         {
@@ -125,15 +127,17 @@ public class PostGame : MonoBehaviour
             thisRoundGems = (int)(CalculationsManager.instance.CalculateGems()*roomMulti/100);
             print("old gems is: " + CalculationsManager.instance.CalculateGems() + " new gems is: " + thisRoundGems);
 
-            NewPoints = (int)(FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + CalculationsManager.instance.GetCaluclatedBonus()*roomMulti / 100);
-            print("old points is: " + FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + CalculationsManager.instance.GetCaluclatedBonus() + " new points is: " + NewPoints);
+
+            thisRoundPoints = (int)(CalculationsManager.instance.GetCaluclatedBonus() * roomMulti / 100);
+            TotalNewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + thisRoundPoints;
+            print("old points is: " + CalculationsManager.instance.GetCaluclatedBonus() + " new points is: " + thisRoundPoints + "total new is: " + TotalNewPoints);
             yield return new WaitForSecondsRealtime(1f);
 
         }
 
         else
         {
-            NewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + Random.Range(50, 150);
+            TotalNewPoints = FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Points) + Random.Range(50, 150);
             thisRoundGems = Random.Range(350, 500);
             FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Wins, FamilyManager.instance.GetInfoValForActiveKid(UserArrayEnum.Wins) + 1); //update tech win
         }
@@ -154,7 +158,7 @@ public class PostGame : MonoBehaviour
        
         yield return new WaitForSecondsRealtime(2f);
         SoundManager.instance.PlaySoundEffect(SoundEffectsList.reavelAnswer);
-        bool tmp = FindObjectOfType<ProfileManager>().IsNewRank(NewPoints);
+        bool tmp = FindObjectOfType<ProfileManager>().IsNewRank(TotalNewPoints);
         if (tmp) 
         {
             FindObjectOfType<ProfileManager>().AnimateSliderOverTime(0.99f,2f);
@@ -164,7 +168,7 @@ public class PostGame : MonoBehaviour
 
         else
         {
-            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(NewPoints),2);
+            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(TotalNewPoints),2);
             yield return new WaitForSecondsRealtime(1.3f);
         }
            
@@ -173,19 +177,19 @@ public class PostGame : MonoBehaviour
         if(tmp)
         {
             FindObjectOfType<WindowManager>().OpenPanel(2);
-            Rank.text = ProfileManager.GetRank(NewPoints).ToString();
+            Rank.text = ProfileManager.GetRank(TotalNewPoints).ToString();
             FindObjectOfType<KidAvatarSelector>().GetComponentInChildren<Animator>().SetTrigger("Happy");
             FindObjectOfType<StarsEffect>().Play();
             SoundManager.instance.PlaySoundEffect(SoundEffectsList.WinGame);
-            FindObjectOfType<ProfileManager>().SetUserRank(NewPoints);
+            FindObjectOfType<ProfileManager>().SetUserRank(TotalNewPoints);
             //print("next line is resetingggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg");
             FindObjectOfType<ProfileManager>().ResetSlider();
             yield return new WaitForSecondsRealtime(1f);
-            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(NewPoints),1);
+            FindObjectOfType<ProfileManager>().AnimateSliderOverTime(FindObjectOfType<ProfileManager>().GetSliderState(TotalNewPoints),1);
             yield return new WaitForSecondsRealtime(2f);
 
         }
-        FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Points, NewPoints);
+        FamilyManager.instance.SetActiveKidInfoValue(UserArrayEnum.Points, TotalNewPoints);
 
 
 
