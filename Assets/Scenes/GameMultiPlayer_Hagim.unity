@@ -131552,7 +131552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 376b1fd1733b63d49ab1044b9cb67670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allOptions: 1
+  allOptions: 0
   tieactive: 1
   tieactivecolor: 0
   glassesactive: 0

@@ -46,6 +46,7 @@ MonoBehaviour:
   _botSmarness: 79
   _BotName: "\u05E8\u05D1\u05D2\u05D4 \u05DD\u05D5\u05DC\u05E9"
   _botPrefab: 2
+  _botRank: 17
 --- !u!1 &69763708486559884
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +93,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05D9\u05D0\u05DC\u05D5\u05D6\u05D0 \u05D9\u05E0\u05D7"
   _botPrefab: 8
+  _botRank: 55
 --- !u!1 &70998189678449591
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,6 +140,7 @@ MonoBehaviour:
   _botSmarness: 71
   _BotName: "\u05D9\u05E1\u05D0\u05D2\u05D5\u05DC \u05EA\u05D9\u05D1\u05D9\u05D1\u05D0"
   _botPrefab: 11
+  _botRank: 77
 --- !u!1 &235752131364722895
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +187,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05D1\u05DB\u05D5\u05DB \u05D4\u05DC\u05D9\u05D0"
   _botPrefab: 11
+  _botRank: 79
 --- !u!1 &278548132299698856
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +234,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05EA\u05E4\u05E8\u05E6\u05DE \u05D4\u05E8\u05D5\u05E4\u05D9\u05E6"
   _botPrefab: 11
+  _botRank: 78
 --- !u!1 &321309662245980880
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +281,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05DC\u05D0\u05D9\u05EA\u05DC\u05D0\u05E9 \u05E8\u05DE\u05EA"
   _botPrefab: 11
+  _botRank: 87
 --- !u!1 &437138706127629180
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +328,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05D9\u05E1\u05D0\u05D2\u05D5\u05DC \u05DC\u05D0\u05E4\u05E8"
   _botPrefab: 1
+  _botRank: 24
 --- !u!1 &463663097680467007
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,6 +375,7 @@ MonoBehaviour:
   _botSmarness: 65
   _BotName: "\u05DD\u05D9\u05DE\u05D7\u05E8 \u05D9\u05D1\u05D0"
   _botPrefab: 4
+  _botRank: 27
 --- !u!1 &613769571357307983
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +422,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05DF\u05DE\u05D3\u05D9\u05E8\u05E4 \u05D9\u05E9\u05D9"
   _botPrefab: 2
+  _botRank: 5
 --- !u!1 &807707608825571856
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +469,7 @@ MonoBehaviour:
   _botSmarness: 76
   _BotName: "\u05DA\u05DC\u05DE\u05D9\u05DC\u05D0 \u05D3\u05D5\u05D3"
   _botPrefab: 1
+  _botRank: 30
 --- !u!1 &814006852820740020
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,6 +516,7 @@ MonoBehaviour:
   _botSmarness: 71
   _BotName: "\u05E5\u05D9\u05D1\u05D5\u05DC\u05D9\u05DE\u05E9 \u05D4\u05DC\u05D9\u05D4"
   _botPrefab: 6
+  _botRank: 37
 --- !u!1 &1138927025679542573
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +563,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05D9\u05EA\u05E9\u05D9\u05E0\u05D1 \u05EA\u05D9\u05E8\u05D5\u05D3"
   _botPrefab: 10
+  _botRank: 73
 --- !u!1 &1182341418920950285
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +610,7 @@ MonoBehaviour:
   _botSmarness: 74
   _BotName: "\u05DD\u05D9\u05D1\u05DB\u05D5\u05DB\u05D4 \u05EA\u05DB\u05DC\u05DE"
   _botPrefab: 9
+  _botRank: 59
 --- !u!1 &1199189192092465067
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +657,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05D9\u05D0\u05DE\u05E9 \u05DF\u05D1 \u05D4\u05E0\u05DE\u05EA"
   _botPrefab: 6
+  _botRank: 82
 --- !u!1 &1203505108639584600
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +704,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D7\u05E4\u05E7 \u05DF\u05E8\u05D9\u05E9"
   _botPrefab: 11
+  _botRank: 76
 --- !u!1 &1413275517585420375
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,6 +751,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05D4\u05D9\u05D1\u05E8\u05D5\u05DE \u05D4\u05DB\u05E8\u05D1"
   _botPrefab: 6
+  _botRank: 33
 --- !u!1 &1757291444821043320
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,6 +798,7 @@ MonoBehaviour:
   _botSmarness: 87
   _BotName: "\u05D4\u05E9\u05DE \u05D9\u05D0\u05DE\u05E9"
   _botPrefab: 3
+  _botRank: 28
 --- !u!1 &1842202446395172406
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +845,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05EA\u05D1\u05E9 \u05D4\u05D9\u05E4\u05D5\u05E6"
   _botPrefab: 9
+  _botRank: 64
 --- !u!1 &1919719319497719487
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +892,7 @@ MonoBehaviour:
   _botSmarness: 74
   _BotName: "\u05DF\u05D4\u05DB \u05E8\u05D3\u05DE\u05E1"
   _botPrefab: 7
+  _botRank: 43
 --- !u!1 &2069640214858522069
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +939,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D3\u05E7\u05E9 \u05D9\u05E7\u05D1\u05E8"
   _botPrefab: 8
+  _botRank: 52
 --- !u!1 &2131605710759764742
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,6 +986,7 @@ MonoBehaviour:
   _botSmarness: 60
   _BotName: "\u05E8\u05D9\u05D0\u05DE \u05DC\u05D0\u05D5\u05DE\u05E9"
   _botPrefab: 4
+  _botRank: 3
 --- !u!1 &2166264334509409310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1033,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05D9\u05E0\u05D5\u05DE\u05E8\u05D4 \u05D4\u05D9\u05D1\u05D0"
   _botPrefab: 9
+  _botRank: 58
 --- !u!1 &2294165669958945779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1080,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05DF\u05DE\u05DC\u05D3\u05E0\u05DE \u05E2\u05D1\u05E9\u05D9\u05DC\u05D0"
   _botPrefab: 10
+  _botRank: 68
 --- !u!1 &2463359104005740923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1127,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05DF\u05D5\u05DE\u05DB\u05D7 \u05D4\u05D1\u05D5\u05D8"
   _botPrefab: 7
+  _botRank: 48
 --- !u!1 &2478394510366132986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1174,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05DC\u05D0\u05D9\u05E0\u05D1\u05D9 \u05EA\u05D9\u05DE\u05DC\u05D5\u05E9"
   _botPrefab: 7
+  _botRank: 47
 --- !u!1 &2519788347526337269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1221,7 @@ MonoBehaviour:
   _botSmarness: 75
   _BotName: "\u05DF\u05D9\u05D1\u05D5\u05E8 \u05D9\u05DE\u05E2\u05E0"
   _botPrefab: 6
+  _botRank: 1
 --- !u!1 &2562063464248818375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1268,7 @@ MonoBehaviour:
   _botSmarness: 75
   _BotName: "\u05DC\u05D2\u05E1 \u05D3\u05D5\u05D3"
   _botPrefab: 5
+  _botRank: 2
 --- !u!1 &2575632725213950481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1315,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05DF\u05D4\u05DB \u05DF\u05D9\u05DE\u05E1\u05D9"
   _botPrefab: 6
+  _botRank: 36
 --- !u!1 &2631413719559350465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1362,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05EA\u05D5\u05E8\u05D3\u05E9\u05DE \u05D4\u05E7\u05D1\u05E8"
   _botPrefab: 11
+  _botRank: 81
 --- !u!1 &2646889135693203582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1380,6 +1409,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D9\u05D7\u05E8\u05D6\u05DE \u05DC\u05D8\u05D9\u05DC"
   _botPrefab: 7
+  _botRank: 44
 --- !u!1 &2683751897627316426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1456,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05DD\u05D9\u05DC\u05E9\u05D5\u05E8\u05D9\u05DE \u05DF\u05DE\u05D7\u05E0"
   _botPrefab: 3
+  _botRank: 16
 --- !u!1 &2706737833706531589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,6 +1503,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05DD\u05D9\u05DE\u05E9\u05D4 \u05EA\u05D9\u05E1\u05DB\u05D5\u05D3"
   _botPrefab: 9
+  _botRank: 60
 --- !u!1 &2864652638488990086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1518,6 +1550,7 @@ MonoBehaviour:
   _botSmarness: 77
   _BotName: "\u05DF\u05D9\u05D1\u05D5\u05D8 \u05DF\u05D1 \u05E8\u05D5\u05D0\u05D9\u05DC"
   _botPrefab: 5
+  _botRank: 26
 --- !u!1 &3028036099464796048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,6 +1597,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05E9\u05D3\u05D9\u05D5\u05DC \u05D9\u05DC\u05E9"
   _botPrefab: 8
+  _botRank: 57
 --- !u!1 &3159404496442061373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,6 +1881,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D9\u05D3\u05E2\u05DC\u05D2 \u05DC\u05D8\u05E8\u05D5\u05D0"
   _botPrefab: 10
+  _botRank: 72
 --- !u!1 &3438199149559440374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1928,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05E5\u05D9\u05D1\u05D5\u05E0\u05D9\u05D1\u05E8 \u05D4\u05DC\u05E2\u05D9"
   _botPrefab: 11
+  _botRank: 74
 --- !u!1 &3537084930685622960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1939,6 +1975,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05D9\u05E0\u05D5\u05DC\u05D9\u05E9 \u05D4\u05D9\u05D7 \u05D4\u05E8\u05E9"
   _botPrefab: 8
+  _botRank: 50
 --- !u!1 &3578798478799806804
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,6 +2022,7 @@ MonoBehaviour:
   _botSmarness: 71
   _BotName: "\u05E5\u05D9\u05D5\u05D5\u05D3\u05D9\u05D5\u05D3  \u05D9\u05D3\u05E2"
   _botPrefab: 8
+  _botRank: 53
 --- !u!1 &3638004867889340881
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,6 +2069,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05DA\u05DC\u05DE\u05D4 \u05D9\u05D3\u05D3"
   _botPrefab: 3
+  _botRank: 10
 --- !u!1 &3648257046775572188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2077,6 +2116,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D4\u05DB\u05DC\u05DE\u05D4 \u05D4\u05D1\u05DB\u05D5\u05DB"
   _botPrefab: 10
+  _botRank: 86
 --- !u!1 &3854143997815105840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,6 +2163,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05DF\u05E0\u05D5\u05D2 \u05DC\u05D1\u05E0\u05E2"
   _botPrefab: 6
+  _botRank: 38
 --- !u!1 &3944098128969053152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2169,6 +2210,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05E8\u05D3\u05DE \u05D4\u05D9\u05E8\u05D5\u05DE"
   _botPrefab: 10
+  _botRank: 66
 --- !u!1 &3994696494020633953
 GameObject:
   m_ObjectHideFlags: 0
@@ -2215,6 +2257,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05EA\u05D1\u05E9 \u05DF\u05D1 \u05D4\u05D9\u05DC\u05D3"
   _botPrefab: 8
+  _botRank: 84
 --- !u!1 &4129926190546150685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2261,6 +2304,7 @@ MonoBehaviour:
   _botSmarness: 71
   _BotName: "\u05E5\u05D5\u05E8\u05E2\u05D4 \u05EA\u05DB\u05D9\u05E1\u05E0"
   _botPrefab: 9
+  _botRank: 85
 --- !u!1 &4361179064334033413
 GameObject:
   m_ObjectHideFlags: 0
@@ -2307,6 +2351,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05E8\u05D1\u05D2\u05D4 \u05D9\u05DE\u05E8"
   _botPrefab: 4
+  _botRank: 21
 --- !u!1 &4363194075846977038
 GameObject:
   m_ObjectHideFlags: 0
@@ -2353,6 +2398,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05D9\u05E0\u05D5\u05DE\u05D3\u05DE \u05D4\u05DC\u05D9\u05D4\u05EA"
   _botPrefab: 9
+  _botRank: 65
 --- !u!1 &4391011531402106643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,6 +2445,7 @@ MonoBehaviour:
   _botSmarness: 89
   _BotName: "\u05E5\u05D5\u05E8\u05E2\u05D4 \u05DA\u05DC\u05DE \u05D9\u05D3\u05E0\u05E2\u05DE"
   _botPrefab: 1
+  _botRank: 12
 --- !u!1 &4492296445730532107
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,7 +2517,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &4499820472760862667
@@ -2519,6 +2566,7 @@ MonoBehaviour:
   _botSmarness: 71
   _BotName: "\u05DF\u05D2\u05D5\u05E7 \u05D9\u05E8\u05E9"
   _botPrefab: 10
+  _botRank: 69
 --- !u!1 &4531029578335930481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,6 +2613,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05E5\u05E8\u05D0\u05D5\u05D5\u05E9 \u05DC\u05D0\u05E0\u05EA\u05DE"
   _botPrefab: 5
+  _botRank: 8
 --- !u!1 &4624837278760015564
 GameObject:
   m_ObjectHideFlags: 0
@@ -2611,6 +2660,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05DF\u05DE\u05DC\u05D3\u05D0 \u05DC\u05D9\u05D2\u05D9\u05D1\u05D0"
   _botPrefab: 8
+  _botRank: 54
 --- !u!1 &4754827953009864183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2657,6 +2707,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05E8\u05E0\u05D6\u05D5\u05E8 \u05DC\u05D0\u05E8\u05E9\u05D9"
   _botPrefab: 0
+  _botRank: 7
 --- !u!1 &4918680811860253059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2703,6 +2754,7 @@ MonoBehaviour:
   _botSmarness: 77
   _BotName: "\u05DF\u05E0\u05D5\u05D2 \u05E8\u05D9\u05D0\u05DE"
   _botPrefab: 4
+  _botRank: 15
 --- !u!1 &5011664788354155027
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,6 +2801,7 @@ MonoBehaviour:
   _botSmarness: 80
   _BotName: "\u05D3\u05D5\u05D3 \u05D4\u05E9\u05DE"
   _botPrefab: 3
+  _botRank: 4
 --- !u!1 &5056821243064693136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,6 +2848,7 @@ MonoBehaviour:
   _botSmarness: 75
   _BotName: "\u05DF\u05EA\u05E0 \u05DF\u05D1 \u05DC\u05D5\u05D0\u05E9"
   _botPrefab: 2
+  _botRank: 29
 --- !u!1 &5295968466122854199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,6 +2895,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05D9\u05D5\u05DC \u05D4\u05E0\u05D7"
   _botPrefab: 6
+  _botRank: 39
 --- !u!1 &5458290077951934705
 GameObject:
   m_ObjectHideFlags: 0
@@ -2887,6 +2942,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05EA\u05D5\u05E8\u05D3\u05E9\u05DE \u05E8\u05D6\u05E2\u05D9\u05DC\u05D0"
   _botPrefab: 5
+  _botRank: 14
 --- !u!1 &5540339202173984440
 GameObject:
   m_ObjectHideFlags: 0
@@ -2933,6 +2989,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D4\u05D9\u05E0\u05EA\u05E0\u05DE \u05EA\u05D0\u05D9\u05DC"
   _botPrefab: 11
+  _botRank: 80
 --- !u!1 &5734677888057774120
 GameObject:
   m_ObjectHideFlags: 0
@@ -2979,6 +3036,7 @@ MonoBehaviour:
   _botSmarness: 74
   _BotName: "\u05DF\u05D4\u05DB  \u05D4\u05E8\u05D5\u05D1\u05D3"
   _botPrefab: 6
+  _botRank: 35
 --- !u!1 &5810930894587614387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3025,6 +3083,7 @@ MonoBehaviour:
   _botSmarness: 74
   _BotName: "\u05D9\u05E7\u05E1\u05D1\u05DC\u05D9\u05E0\u05D9 \u05D9\u05E7\u05E9\u05D5\u05DE"
   _botPrefab: 8
+  _botRank: 51
 --- !u!1 &5886198928282700205
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,6 +3130,7 @@ MonoBehaviour:
   _botSmarness: 87
   _BotName: "\u05DF\u05D9\u05E0\u05E9\u05D0\u05D5\u05D6 \u05D9\u05D0\u05DE\u05E9"
   _botPrefab: 3
+  _botRank: 22
 --- !u!1 &5968630124154941327
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,6 +3177,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05EA\u05D5\u05D1\u05D5\u05D7\u05E8\u05DE \u05D4\u05E0\u05D9\u05E8"
   _botPrefab: 9
+  _botRank: 62
 --- !u!1 &6071294626035185423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3163,6 +3224,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05EA\u05E8\u05D5\u05E4 \u05D4\u05E8\u05D9\u05E9"
   _botPrefab: 6
+  _botRank: 32
 --- !u!1 &6342834710258760130
 GameObject:
   m_ObjectHideFlags: 0
@@ -3209,6 +3271,7 @@ MonoBehaviour:
   _botSmarness: 81
   _BotName: "\u05EA\u05E0\u05D9\u05D2 \u05E8\u05D9\u05D0\u05D9"
   _botPrefab: 0
+  _botRank: 25
 --- !u!1 &6398322705159856366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3255,6 +3318,7 @@ MonoBehaviour:
   _botSmarness: 84
   _BotName: "\u05DF\u05D5\u05D0\u05E8\u05E4 \u05E8\u05D6\u05E2\u05D9\u05DC\u05D0"
   _botPrefab: 1
+  _botRank: 31
 --- !u!1 &6449104852773190381
 GameObject:
   m_ObjectHideFlags: 0
@@ -3301,6 +3365,7 @@ MonoBehaviour:
   _botSmarness: 74
   _BotName: "\u05D1\u05D5\u05D7\u05E8\u05D6 \u05EA\u05E0\u05D1\u05D9\u05DC"
   _botPrefab: 10
+  _botRank: 67
 --- !u!1 &6527816472691633487
 GameObject:
   m_ObjectHideFlags: 0
@@ -3347,6 +3412,7 @@ MonoBehaviour:
   _botSmarness: 71
   _BotName: "\u05D4\u05DB\u05E8\u05D1 \u05D4\u05DB\u05DC\u05DE"
   _botPrefab: 9
+  _botRank: 61
 --- !u!1 &6592516934391944302
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,6 +3459,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D9\u05EA\u05D0\u05D9\u05D2 \u05EA\u05D9\u05DC\u05D2\u05D9\u05E1"
   _botPrefab: 6
+  _botRank: 40
 --- !u!1 &6595058753951608069
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,6 +3506,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05D7\u05D5\u05DC\u05D9\u05E9 \u05EA\u05D9\u05E8\u05E9"
   _botPrefab: 8
+  _botRank: 89
 --- !u!1 &6673763641609572445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,6 +3553,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05E5\u05D9\u05D1\u05D5\u05E8\u05DB\u05D6 \u05D9\u05E0\u05E9"
   _botPrefab: 10
+  _botRank: 70
 --- !u!1 &6697118031329815910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3531,6 +3600,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D4\u05DB\u05DC\u05DE \u05EA\u05D9\u05DE\u05D5\u05DC\u05E9"
   _botPrefab: 7
+  _botRank: 46
 --- !u!1 &6913294573259023115
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,6 +3647,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05DD\u05D5\u05DC\u05E9 \u05D4\u05E0\u05E4\u05D3"
   _botPrefab: 6
+  _botRank: 41
 --- !u!1 &6941349665838859968
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,6 +3694,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05D9\u05DB\u05D0\u05DC\u05DE \u05DC\u05D0\u05D9\u05D6\u05E8"
   _botPrefab: 0
+  _botRank: 19
 --- !u!1 &7495438229072410877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3669,6 +3741,7 @@ MonoBehaviour:
   _botSmarness: 95
   _BotName: "\u05E5\u05E8\u05D5\u05D5\u05E9 \u05E7\u05D7\u05E6\u05D9"
   _botPrefab: 1
+  _botRank: 6
 --- !u!1 &7553625789875674224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3715,6 +3788,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05DC\u05D0\u05E4\u05E8 \u05D4\u05E8\u05D9\u05E9"
   _botPrefab: 10
+  _botRank: 71
 --- !u!1 &7954544667054606405
 GameObject:
   m_ObjectHideFlags: 0
@@ -3761,6 +3835,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05D9\u05E8\u05D6\u05D9\u05E0\u05D1 \u05DC\u05D8"
   _botPrefab: 6
+  _botRank: 34
 --- !u!1 &8029871121778363312
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,6 +3882,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05D9\u05D0\u05D1\u05D2 \u05D4\u05D1\u05D4\u05D6"
   _botPrefab: 6
+  _botRank: 88
 --- !u!1 &8050236599199936103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,6 +3929,7 @@ MonoBehaviour:
   _botSmarness: 74
   _BotName: "\u05E5\u05D9\u05D1\u05DC\u05D5\u05DE\u05E9 \u05DC\u05E2\u05D9"
   _botPrefab: 11
+  _botRank: 75
 --- !u!114 &764725221491971634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3911,6 +3988,7 @@ MonoBehaviour:
   _botSmarness: 71
   _BotName: "\u05D2\u05E8\u05D5\u05DE \u05D9\u05DC\u05D7\u05E8"
   _botPrefab: 7
+  _botRank: 45
 --- !u!1 &8340661355756999237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3957,6 +4035,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05D1\u05D9\u05E0\u05D2\u05DE\u05D4 \u05D9\u05DC\u05D0"
   _botPrefab: 2
+  _botRank: 11
 --- !u!1 &8398346055023024828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,6 +4082,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05D9\u05D5\u05DC \u05DD\u05D3\u05D0"
   _botPrefab: 5
+  _botRank: 20
 --- !u!1 &8519279218344826280
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,6 +4129,7 @@ MonoBehaviour:
   _botSmarness: 67
   _BotName: "\u05EA\u05D1\u05E9 \u05DF\u05D1 \u05E8\u05DE\u05EA"
   _botPrefab: 9
+  _botRank: 63
 --- !u!1 &8589922968029889945
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,6 +4176,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05D3\u05D5\u05DC\u05DE \u05DC\u05D3\u05E0\u05DE \u05DD\u05D7\u05E0\u05DE"
   _botPrefab: 4
+  _botRank: 9
 --- !u!1 &8702182283566420337
 GameObject:
   m_ObjectHideFlags: 0
@@ -4141,6 +4223,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05DD\u05D5\u05DC\u05E9 \u05DC\u05E2\u05D9"
   _botPrefab: 7
+  _botRank: 49
 --- !u!1 &8901950017661748428
 GameObject:
   m_ObjectHideFlags: 0
@@ -4187,6 +4270,7 @@ MonoBehaviour:
   _botSmarness: 87
   _BotName: "\u05DF\u05D9\u05E0\u05E9\u05D0\u05D5\u05D6 \u05D9\u05E0\u05D1"
   _botPrefab: 2
+  _botRank: 23
 --- !u!1 &8950583784567699041
 GameObject:
   m_ObjectHideFlags: 0
@@ -4233,6 +4317,7 @@ MonoBehaviour:
   _botSmarness: 70
   _BotName: "\u05D9\u05E0\u05D5\u05DC\u05D9\u05E9 \u05EA\u05D9\u05D5\u05E8"
   _botPrefab: 7
+  _botRank: 42
 --- !u!1 &8977197404213214990
 GameObject:
   m_ObjectHideFlags: 0
@@ -4279,6 +4364,7 @@ MonoBehaviour:
   _botSmarness: 74
   _BotName: "\u05DF\u05D4\u05DB \u05EA\u05D9\u05E0\u05D5\u05D9"
   _botPrefab: 7
+  _botRank: 83
 --- !u!1 &9019068309775011736
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,6 +4411,7 @@ MonoBehaviour:
   _botSmarness: 68
   _BotName: "\u05DF\u05DE\u05E8\u05E1\u05D5 \u05DD\u05E2\u05D5\u05E0"
   _botPrefab: 1
+  _botRank: 18
 --- !u!1 &9118692340060143202
 GameObject:
   m_ObjectHideFlags: 0
@@ -4371,6 +4458,7 @@ MonoBehaviour:
   _botSmarness: 78
   _BotName: "\u05E8\u05E4\u05D9\u05D9\u05DC \u05E8\u05D1\u05E0\u05E2"
   _botPrefab: 8
+  _botRank: 56
 --- !u!1 &9141705123341553844
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,6 +4505,7 @@ MonoBehaviour:
   _botSmarness: 77
   _BotName: "\u05D9\u05E9\u05E7\u05D1 \u05D9\u05D3\u05D5\u05D3"
   _botPrefab: 0
+  _botRank: 13
 --- !u!1001 &8217406763896040026
 PrefabInstance:
   m_ObjectHideFlags: 0

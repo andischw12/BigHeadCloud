@@ -79,7 +79,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
                 FindObjectOfType<PhotonRoom>().flag = true;
                 PhotonNetwork.OfflineMode = true;
                 PhotonNetwork.JoinRandomRoom();
-                StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(18f));
+                StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(25f));
             }
             else 
             {
@@ -97,7 +97,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             roomOps.CustomRoomProperties = new Hashtable { { "env", (byte)PhotonRoom.room.Enviorment.GetHashCode() } };
             PhotonNetwork.JoinOrCreateRoom(roomName, roomOps, TypedLobby.Default);
             PlayWithFriendMode = true;
-            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(18f));
+            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayAgainWithFriend(25f));
         }
         PlayerPrefs.SetString("LastRoomName", "");
         
@@ -184,7 +184,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         {
             PhotonRoom.room.SelecetEnviorment(0);
             FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[4].GetComponent<ModalWindowManager>().CloseWindow();
-            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(18f));
+            StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(25f));
             FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
             FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " קחשמל ףרטצמ";
             PhotonNetwork.JoinRoom(roomNumCode.text);
@@ -224,7 +224,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
             PhotonNetwork.JoinRandomRoom(new Hashtable{{"cla",(byte)1}},2);
         */
         PhotonNetwork.JoinRandomRoom(new Hashtable { { "env", (byte)PhotonRoom.room.Enviorment.GetHashCode() } }, 2);
-        StartCoroutine(PhotonRoom.room.SafetyFromRandomButtonClick(20f));
+        StartCoroutine(PhotonRoom.room.SafetyFromRandomButtonClick(25f));
        
     }
 
