@@ -120,7 +120,7 @@ public class LoginScreenManager : MonoBehaviour
         if (FamilyManager.instance.GetNumberOfKidUsers() > 0) 
         {
             
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(3f);
             LogoGM.SetActive(false);
             ShowActiveKidsButtons();
             AddPlayerButton.gameObject.SetActive(true);

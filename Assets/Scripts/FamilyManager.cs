@@ -259,7 +259,7 @@ public class FamilyManager : MonoBehaviour
         _kidsUserArr[i] = new KidUser(i);
         _kidsUserArr[i].SetInfoVal(UserArrayEnum.Gems, 3000);
         _kidsUserArr[i].SetInfoVal(UserArrayEnum.Points, ProfileManager.FIRST_RANK_POINTS);
-        //return;
+        return;
         _kidsUserArr[i].SetInfoVal(UserArrayEnum.Gems, 300000000);
         _kidsUserArr[i].SetInfoVal(UserArrayEnum.Points, 7000000);
 

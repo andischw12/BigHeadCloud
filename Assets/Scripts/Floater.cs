@@ -6,12 +6,12 @@ public class Floater : MonoBehaviour
 {
     float originalY;
 
-    public float floatStrength = 1; // You can change this in the Unity Editor to 
+    public float floatStrength; // You can change this in the Unity Editor to 
                                     // change the range of y positions that are possible.
 
     void Start()
     {
-        floatStrength = 0.1f;
+        //floatStrength = 0.1f;
         this.originalY = this.transform.position.y;
     }
 

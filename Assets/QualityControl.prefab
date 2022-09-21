@@ -50,6 +50,7 @@ MonoBehaviour:
   LowShader: {fileID: 4800000, guid: 584484d3137c9ad4ab94ab1389375077, type: 3}
   HighShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   currentQuality: 1
+  SessionFPS: 0
 --- !u!1001 &320330009309809121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -60,6 +61,10 @@ PrefabInstance:
     - target: {fileID: 1813224598300294, guid: 95354847711d363408aebd57a0dc92ae, type: 3}
       propertyPath: m_Name
       value: LiteFPSCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1813224598300294, guid: 95354847711d363408aebd57a0dc92ae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4679105028047868, guid: 95354847711d363408aebd57a0dc92ae, type: 3}
       propertyPath: m_RootOrder
@@ -103,6 +108,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4679105028047868, guid: 95354847711d363408aebd57a0dc92ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 223440005529092374, guid: 95354847711d363408aebd57a0dc92ae, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
