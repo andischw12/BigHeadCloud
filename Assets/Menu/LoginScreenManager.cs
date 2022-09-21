@@ -74,7 +74,7 @@ public class LoginScreenManager : MonoBehaviour
         ChangeAvatarChoosinginstancewithCorrectClothes();
 
 
-        ShowActiveKidsButtons();
+        StartCoroutine(ShowOrHideLogoAtStart());
 
 
     }
@@ -108,6 +108,30 @@ public class LoginScreenManager : MonoBehaviour
         }
     }
 
+    IEnumerator ShowOrHideLogoAtStart() 
+    {
+        foreach (PlayerSelectionButton p in AllPlayers)
+        {
+            p.gameObject.SetActive(false);
+        }
+
+        AddPlayerButton.gameObject.SetActive(false);
+        LogoGM.SetActive(true);
+        if (FamilyManager.instance.GetNumberOfKidUsers() > 0) 
+        {
+            
+            yield return new WaitForSeconds(2.5f);
+            LogoGM.SetActive(false);
+            ShowActiveKidsButtons();
+            AddPlayerButton.gameObject.SetActive(true);
+        }
+
+        AddPlayerButton.gameObject.SetActive(true);
+
+
+
+    }
+
 
     public void ShowActiveKidsButtons( ) 
     {
@@ -130,10 +154,11 @@ public class LoginScreenManager : MonoBehaviour
             }
                 
         }
+
+        
         if (tmp > 0)
             LogoGM.SetActive(false);
-        else
-            LogoGM.SetActive(true);
+        
     }
 
     // on the first screen, clicking new user button
