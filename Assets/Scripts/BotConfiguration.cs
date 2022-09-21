@@ -22,6 +22,6 @@ public class BotConfiguration : MonoBehaviour
     public int BotPoints() 
     {
 
-        return ProfileManager.GetPointsByRank(_botRank)/2;
+        return Mathf.Max(ProfileManager.FIRST_RANK_POINTS, ProfileManager.GetPointsByRank(_botRank)/2);
      }
 }
