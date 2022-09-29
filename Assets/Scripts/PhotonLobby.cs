@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using Michsky.UI.ModernUIPack;
 using TMPro;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+ 
 
 
 
@@ -16,14 +17,18 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 {
     
     public static PhotonLobby lobby;
-    public GameObject Buttons;
-    public GameObject ConnectingGM;
-    //public GameObject JoinAFriendButton;
-    [SerializeField] TMP_InputField roomNumCode;
     public bool PlayWithFriendMode { get; set; }
-    bool waitingTimeIsOver;
     bool connectedToMaster;
+    TMP_InputField RoomNumberInputText;
     
+
+    [Header("Connect This Manualy:")]
+    public WindowManager MainMenuGM;
+    public GameObject ConnectingToPhotonGM;
+    
+
+    
+     
 
     private void Awake()
     {
@@ -31,8 +36,8 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     }
     void Start()
     {
-        Buttons.SetActive(false);
-        //JoinAFriendButton.SetActive(false);
+        SetReffrecneOnStart();
+        MainMenuGM.gameObject.SetActive(false);
         PhotonNetwork.OfflineMode = false;
         PlayWithFriendMode = false;
         ConnectToPhoton(2);
@@ -47,18 +52,26 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         }
     }
 
+    void SetReffrecneOnStart() 
+    {
+        MainMenuGM = MainMenuManager.instance.MainMenuWindowsManager;
+        RoomNumberInputText = FindObjectOfType<TMP_InputField>();
+
+    }
+
+
     IEnumerator AutoStartGameFunction() 
     {
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "בוש רבחתמ";
-        yield return new WaitUntil(() => Buttons.activeInHierarchy);
+        yield return new WaitUntil(() => MainMenuGM.gameObject.activeInHierarchy);
         OnRandomBattleButtonClicked();
     }
     IEnumerator PlayAgainWithFriend(string roomName)
     {
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...רבחתמ";
-        yield return new WaitUntil(() => Buttons.activeInHierarchy);
+        yield return new WaitUntil(() => MainMenuGM.gameObject.activeInHierarchy);
         FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = "...ינשה שמתשמהמ הבושתל הכחמ";
 
         
@@ -113,13 +126,13 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
     {
         //disconnecting
         PhotonNetwork.OfflineMode = false;
-        waitingTimeIsOver = false;
+        //waitingTimeIsOver = false;
         connectedToMaster = false;
         PhotonNetwork.Disconnect();
         while (PhotonNetwork.IsConnected)
             yield return null;
         PhotonNetwork.ConnectUsingSettings();
-        ConnectingGM.SetActive(true);
+        ConnectingToPhotonGM.SetActive(true);
         StartCoroutine(ConnectToPhotonSaftey(10f, Sessions));
     }
     IEnumerator ConnectToPhotonSaftey(float SessionTime,int Sessions)
@@ -137,7 +150,7 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
                     yield return null;
                 connectedToMaster = false;
                 PhotonNetwork.OfflineMode = true;
-                ConnectingGM.SetActive(false);
+                ConnectingToPhotonGM.SetActive(false);
             }
         }
     }
@@ -148,9 +161,9 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         Debug.Log("Player has connected to the Photon master server");
         PhotonNetwork.AutomaticallySyncScene = true;
         connectedToMaster = true;
-        Buttons.SetActive(true);
+        MainMenuGM.gameObject.SetActive(true);
        // JoinAFriendButton.SetActive(true);
-        ConnectingGM.SetActive(false);
+        ConnectingToPhotonGM.SetActive(false);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
@@ -180,14 +193,14 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
 
     public void OnPlayWithFriendSlaveClick()
     {
-        if (roomNumCode.text != "") // check the input box is not empty
+        if (RoomNumberInputText.text != "") // check the input box is not empty
         {
             PhotonRoom.room.SelecetEnviorment(0);
             FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[4].GetComponent<ModalWindowManager>().CloseWindow();
             StartCoroutine(FindObjectOfType<PhotonRoom>().SafetyFromPlayWithFriendSlave(25f));
             FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().OpenWindow();
-            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = roomNumCode.text + " קחשמל ףרטצמ";
-            PhotonNetwork.JoinRoom(roomNumCode.text);
+            FindObjectOfType<RGNotificationsManager>().CurrentSceneNotifications[3].GetComponent<ModalWindowManager>().windowDescription.text = RoomNumberInputText.text + " קחשמל ףרטצמ";
+            PhotonNetwork.JoinRoom(RoomNumberInputText.text);
         }
     }
     

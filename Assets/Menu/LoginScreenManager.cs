@@ -51,7 +51,7 @@ public class LoginScreenManager : MonoBehaviour
         PrevAvatarButton.onClick.AddListener(ChangeAvatarColorEffect);
         NextAvatarButton.onClick.AddListener(ChangeAvatarColorEffect);
         ShowHideAddNewPlayer();
-        FindObjectOfType<HorizontalSelector>().defaultIndex = 0;
+        //FindObjectOfType<HorizontalSelector>().defaultIndex = 0;
         SoundManager.instance.PlayMenuMusic();
         PlayerPrefs.SetInt("AutoConnectAndSearch", 0);
         PlayerPrefs.SetString("LastRoomName", "");// sets enmpty roomname for not playing again
