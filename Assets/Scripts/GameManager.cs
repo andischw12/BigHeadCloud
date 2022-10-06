@@ -507,7 +507,7 @@ public class GameManager : MonoBehaviour
 
         if (chosen == QuestionSubject.Shabat.GetHashCode())
         {
-            return "ימלועה תבשה ןודיח";
+            return "תבש";
         }
 
         if (chosen == QuestionSubject.Hanuka.GetHashCode())
