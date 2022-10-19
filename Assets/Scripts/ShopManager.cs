@@ -60,7 +60,7 @@ public class ShopManager : MonoBehaviour
     {
         FamilyManager.instance.SetStoreItemState(AvatarArrayEnum.Signates, 0, 1);
         FamilyManager.instance.SetStoreItemState(AvatarArrayEnum.Glasses, 0, 1);
-        if (!isGirl)
+        //if (!isGirl)
         FamilyManager.instance.SetStoreItemState(AvatarArrayEnum.Hats, 0, 1);
     }
 
@@ -68,7 +68,7 @@ public class ShopManager : MonoBehaviour
     {
         SignatePanel.transform.GetChild(0).gameObject.SetActive(false);
         GlassesPanel.transform.GetChild(0).gameObject.SetActive(false);
-        if(!isGirl)
+        //if(!isGirl)
         HatsPanel.transform.GetChild(0).gameObject.SetActive(false);
     }
 
