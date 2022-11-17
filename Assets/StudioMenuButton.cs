@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,7 +43,7 @@ public class StudioMenuButton : MonoBehaviour
         RankNeededText.text = rank.ToString();
         StudioNameText.text = name;
         if (bonusMultiplayer > 100)
-            BonusText.text = bonusMultiplayer+ "% ñåðåá" ;
+            BonusText.text = bonusMultiplayer+ "% ×¡×•× ×•×‘" ;
         else
             BonusText.transform.parent.gameObject.SetActive(false);
     }
