@@ -88,10 +88,21 @@ public class KidUser
     }
 
     //Update variables from JSON data (from the server)
-    public void loadParametersFromData(string jsonString)
+    public bool loadParametersFromData(string jsonString)
     {
-        JsonUtility.FromJsonOverwrite(jsonString, this);
-        MystoreUpdadeFromStoreInfoData();
+        try
+        {
+            JsonUtility.FromJsonOverwrite(jsonString, this);
+            if (StoreInfo == null)
+                StoreInfo = new string[0];
+            MystoreUpdadeFromStoreInfoData();
+            return true;
+        }
+        catch (Exception error)
+        {
+            Debug.LogWarning("Ignoring invalid saved player data: " + error.Message);
+            return false;
+        }
     }
 
     //Update Mystore by entering the data from StoreInfo (from JSON)
@@ -115,12 +126,12 @@ public class KidUser
 
 
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD)
-        UserName = FirstName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
+        UserName = (UserName ?? "").Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
         int player = GetInfoVal(UserInfoList.Number);
         int points = GetInfoVal(UserInfoList.Points);
         //int shabbatPointsToSave = GetShabbatPoints();
         sendJson = JsonPrefer();
-        saveDataJS(sendJson, player,points,ShabbatPoints, HanukkaPoints, PurimPoints);
+        saveDataJS(sendJson, player, points, shabbatPoints, hanukkaPoints, purimPoints);
 #endif
 
     }
@@ -134,8 +145,8 @@ public class KidUser
         getJson = loadDataJS(player);
         if (getJson != null && getJson != "" && getJson != "undefined")
         {
-            loadParametersFromData(getJson);
-            FirstName = UserName.Replace("?","");
+            if (loadParametersFromData(getJson))
+                UserName = (UserName ?? "").Replace("?","");
         }
 #endif
 
@@ -337,6 +348,7 @@ public class FamilyManager : MonoBehaviour
     public void SetShabbatPoints(int val) 
     {
         ActiveKid.shabbatPoints = val;
+        SaveActiveKidInfo();
         print("shabat point is updated. points now: " + GetShabbatPoints()); ;
     }
 
@@ -349,6 +361,7 @@ public class FamilyManager : MonoBehaviour
     public void SetHanukkaPoints(int val)
     {
         ActiveKid.hanukkaPoints = val;
+        SaveActiveKidInfo();
         print("Hanuka points is updated. points now: " + GetHanukkaPoints()); ;
     }
 
@@ -362,6 +375,7 @@ public class FamilyManager : MonoBehaviour
     public void SetPurimPoints(int val)
     {
         ActiveKid.purimPoints = val;
+        SaveActiveKidInfo();
         print("Hanuka points is updated. points now: " + GetPurimPoints()); ;
     }
 
