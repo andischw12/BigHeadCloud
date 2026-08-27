@@ -1,141 +1,257 @@
 mergeInto(LibraryManager.library, {
+    $BigHeadStorage: {
+        endpoint: "/asp/BigHeadGameData.asp",
+        gameKey: 2,
+        prefix: "meirkids.bighead2.",
+        queues: {},
 
-    loadDataJS: function(player) {
-        var baseData = "";
-        var getdata = ""
-        
+        pointerToString: function (pointer) {
+            if (typeof UTF8ToString === "function") return UTF8ToString(pointer);
+            return Pointer_stringify(pointer);
+        },
 
-        var PersonID = 0;
-        var PersonIDDB = getPersonID();
-        var playersCountCheck = 0;
-        if(parseInt(PersonIDDB)>0){
-            playersCountCheck = getGamePlayers(PersonIDDB,2);
-        } 
-        if(playersCountCheck>0){
-            PersonID = PersonIDDB;
-        } else {
-     
-     //local storage count. canceled
-     /*       var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
-
-            if( LSPersonID != undefined && LSPersonID >0 ){
-                PersonID = LSPersonID;
-            } else {
-                PersonID = getPersonID();
-            }
-
-            if (PersonID == undefined || PersonID == null){
-                PersonID = 0;
-            }
-            */
-        }
-        var DBplayers = 0;
-            if(PersonID>0){
-                DBplayers = parseInt(getGamePlayers(PersonID,2));
-            }
-        
-        //var userCookie = getCookie("UserSettings");
-        //if ((userCookie != null && userCookie != "undefined" && userCookie != "") && DBplayers > 0) {
-            
-            baseData = loadGameBasaData(player, PersonID, 2);
-            if (baseData != "" && baseData != null && baseData != "undefined") {
-                getdata = JSON.stringify(baseData)
-                console.log("getdata: " + getdata)
-            }
-            ///local storage getting data. canceled
-            /*if (getdata == null || getdata == "undefined" || getdata == "") {
-                getdata = localStorage.getItem("BigHead_2" + player)
-            }
-            */
-        
-        //} else {
-        //    getdata = localStorage.getItem("BigHead_2" + player)
-        //}
-        
-        if (getdata != "" && getdata != null && getdata != "undefined") {
-            var bufferSize = lengthBytesUTF8(getdata) + 1;
+        returnString: function (value) {
+            if (!value) return 0;
+            var bufferSize = lengthBytesUTF8(value) + 1;
             var buffer = _malloc(bufferSize);
-            stringToUTF8(getdata, buffer, bufferSize);
+            stringToUTF8(value, buffer, bufferSize);
             return buffer;
+        },
+
+        cookieOid: function () {
+            var match = document.cookie.match(/(?:^|;\s*)UserSettings=([^;]*)/i);
+            if (!match) return "browser";
+            var value = match[1].replace(/\+/g, " ");
+            for (var i = 0; i < 2; i++) {
+                try { value = decodeURIComponent(value); } catch (ignore) { break; }
+            }
+            var oidMatch = value.match(/"OID"\s*:\s*"([A-Za-z0-9_-]{1,200})"/i);
+            return oidMatch ? oidMatch[1] : "browser";
+        },
+
+        playerKey: function (player) {
+            return this.prefix + this.cookieOid() + ".player." + player;
+        },
+
+        readEnvelope: function (player) {
+            var key = this.playerKey(player);
+            var raw = localStorage.getItem(key);
+            if (!raw) raw = localStorage.getItem("BigHead_2" + player);
+            if (!raw) raw = localStorage.getItem("BigHead" + player + "_2");
+            if (!raw) raw = localStorage.getItem("BigHead" + player);
+            if (!raw) return null;
+
+            try {
+                var parsed = JSON.parse(raw);
+                if (parsed && typeof parsed.data === "string") return parsed;
+
+                var migrated = {
+                    data: raw,
+                    points: 0,
+                    shabbatPoints: 0,
+                    hanukkaPoints: 0,
+                    purimPoints: 0,
+                    savedAt: Date.now(),
+                    dirty: true,
+                    legacy: true
+                };
+                localStorage.setItem(key, JSON.stringify(migrated));
+                return migrated;
+            } catch (error) {
+                console.warn("BigHead 2: invalid local data for player " + player, error);
+                return null;
+            }
+        },
+
+        writeEnvelope: function (player, envelope) {
+            try {
+                localStorage.setItem(this.playerKey(player), JSON.stringify(envelope));
+                return true;
+            } catch (error) {
+                console.warn("BigHead 2: local save failed", error);
+                return false;
+            }
+        },
+
+        requestSync: function (action, query) {
+            try {
+                var xhr = new XMLHttpRequest();
+                var url = this.endpoint + "?action=" + encodeURIComponent(action) +
+                    "&gameKey=" + this.gameKey + (query ? "&" + query : "");
+                xhr.open("GET", url, false);
+                xhr.withCredentials = true;
+                xhr.setRequestHeader("Accept", "application/json");
+                xhr.send(null);
+                if (xhr.status < 200 || xhr.status >= 300) return null;
+                return JSON.parse(xhr.responseText);
+            } catch (error) {
+                console.warn("BigHead 2: server load unavailable", error);
+                return null;
+            }
+        },
+
+        postForm: function (formBody) {
+            var options = {
+                method: "POST",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "X-BigHead-Request": "1"
+                },
+                body: formBody,
+                keepalive: formBody.length < 60000
+            };
+            if (typeof fetch === "function") {
+                return fetch(this.endpoint, options).then(function (response) {
+                    if (!response.ok) throw new Error("HTTP " + response.status);
+                    return response.json();
+                });
+            }
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", BigHeadStorage.endpoint, true);
+                xhr.withCredentials = true;
+                xhr.setRequestHeader("Content-Type", options.headers["Content-Type"]);
+                xhr.setRequestHeader("X-BigHead-Request", "1");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState !== 4) return;
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        try { resolve(JSON.parse(xhr.responseText)); }
+                        catch (error) { reject(error); }
+                    } else {
+                        reject(new Error("HTTP " + xhr.status));
+                    }
+                };
+                xhr.send(formBody);
+            });
+        },
+
+        enqueueSave: function (player, envelope) {
+            var self = this;
+            var queueKey = String(player);
+            self.queues[queueKey] = envelope;
+            if (self.queues[queueKey + ":running"]) return;
+            self.queues[queueKey + ":running"] = true;
+
+            var pump = function () {
+                var job = self.queues[queueKey];
+                if (!job) {
+                    self.queues[queueKey + ":running"] = false;
+                    return;
+                }
+                self.queues[queueKey] = null;
+                var body = "action=save&gameKey=" + self.gameKey +
+                    "&player=" + encodeURIComponent(player) +
+                    "&data=" + encodeURIComponent(job.data) +
+                    "&points=" + encodeURIComponent(job.points || 0) +
+                    "&shabbatPoints=" + encodeURIComponent(job.shabbatPoints || 0) +
+                    "&hanukkaPoints=" + encodeURIComponent(job.hanukkaPoints || 0) +
+                    "&purimPoints=" + encodeURIComponent(job.purimPoints || 0);
+                self.postForm(body).then(function (response) {
+                    if (response && response.success) {
+                        var current = self.readEnvelope(player);
+                        if (current && current.savedAt === job.savedAt) {
+                            current.dirty = false;
+                            current.legacy = false;
+                            self.writeEnvelope(player, current);
+                        }
+                    }
+                    pump();
+                }).catch(function (error) {
+                    console.warn("BigHead 2: server save deferred; local copy is safe", error);
+                    self.queues[queueKey + ":running"] = false;
+                });
+            };
+            pump();
+        },
+
+        localPlayerCount: function () {
+            var count = 0;
+            for (var player = 0; player < 4; player++) {
+                if (this.readEnvelope(player)) count++;
+            }
+            return count;
         }
     },
 
-    saveDataJS: function(data, player, points, shabbatPoints, hanukkaPoints, purimPoints) {
-        var jsonToSend = Pointer_stringify(data);
-        console.log("sendData: " + jsonToSend)
+    loadDataJS__deps: ["$BigHeadStorage"],
+    loadDataJS: function (player) {
+        var local = BigHeadStorage.readEnvelope(player);
+        var server = BigHeadStorage.requestSync("load", "player=" + encodeURIComponent(player));
 
-        //var userCookie = getCookie("UserSettings");
-        var PersonID = getPersonID();
-        var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
-        if (PersonID == undefined || PersonID == null || PersonID == 0 && LSPersonID != undefined){
-            PersonID = LSPersonID;
-        } else {
-            localStorage.setItem("BigHead_2_PersonID"+getIdxNumber(),PersonID)
+        if (local && local.dirty && !local.legacy) {
+            BigHeadStorage.enqueueSave(player, local);
+            return BigHeadStorage.returnString(local.data);
         }
-            if(PersonID>0){
-            saveGameBaseData(jsonToSend, player, PersonID, points, shabbatPoints,hanukkaPoints, purimPoints, 2)
+
+        if (server && server.success && server.found && server.data) {
+            var serverEnvelope = {
+                data: JSON.stringify(server.data),
+                points: server.points || 0,
+                shabbatPoints: server.shabbatPoints || 0,
+                hanukkaPoints: server.hanukkaPoints || 0,
+                purimPoints: server.purimPoints || 0,
+                savedAt: Date.now(),
+                dirty: false,
+                legacy: false
+            };
+            BigHeadStorage.writeEnvelope(player, serverEnvelope);
+            return BigHeadStorage.returnString(serverEnvelope.data);
+        }
+
+        if (local) {
+            if (server && server.success && !server.found) {
+                local.dirty = true;
+                local.legacy = false;
+                BigHeadStorage.writeEnvelope(player, local);
+                BigHeadStorage.enqueueSave(player, local);
             }
-            localStorage.setItem("BigHead_2" + player, jsonToSend)
+            return BigHeadStorage.returnString(local.data);
+        }
+        return 0;
     },
 
-    getPlayersCountJS: function() {
-
-        //PersonID;
-        var PersonID = 0;
-        var LSPersonID = parseInt(localStorage.getItem("BigHead_2_PersonID"+getIdxNumber()));
-        //local storage canceled
-            /*if(LSPersonID != undefined && LSPersonID >0 ){
-            //    PersonID = LSPersonID;
-            } else {*/
-                PersonID = getPersonID();
-            /*}
-
-            if (PersonID == undefined || PersonID == null){
-                PersonID = 0;
-            }*/
-        
-        var playersCount = 0;
-            if(PersonID>0){
-                playersCount = parseInt(getGamePlayers(PersonID,2));
-            }
-
-        console.log("Players from DB: " + playersCount)
-        //console.log("players * 2 :"+playersCount*2)
-        
-        //canceled localstorage
-        /*if (playersCount == 0) {
-            var BHlocalStorage = localStorage.getItem("BigHead0_2")
-            if (BHlocalStorage != null && BHlocalStorage != undefined && BHlocalStorage != "") {
-                playersCount = 4;
-                console.log("players from LS: " + playersCount)
-            }
-        }*/
-        return playersCount;
-    },
-    getLastNameJS: function() {
-        var userName = getUserName();
-        var bufferSize = lengthBytesUTF8(userName) + 1;
-        var buffer = _malloc(bufferSize);
-        stringToUTF8(userName, buffer, bufferSize);
-        return buffer;
+    saveDataJS__deps: ["$BigHeadStorage"],
+    saveDataJS: function (data, player, points, shabbatPoints, hanukkaPoints, purimPoints) {
+        var envelope = {
+            data: BigHeadStorage.pointerToString(data),
+            points: points,
+            shabbatPoints: shabbatPoints,
+            hanukkaPoints: hanukkaPoints,
+            purimPoints: purimPoints,
+            savedAt: Date.now(),
+            dirty: true,
+            legacy: false
+        };
+        BigHeadStorage.writeEnvelope(player, envelope);
+        BigHeadStorage.enqueueSave(player, envelope);
     },
 
-        saveWinnersJS: function(winner,loser) {
-            var winnerToSent = Pointer_stringify(winner);
-            var loserToSent = Pointer_stringify(loser);
-		$.ajax({
-            type: "POST",
-            cache: false,
-            url: "https://meirkids.co.il/asp/BigHeadOneWinner2.asp",
-            data: "FirstName=BigHeadWinners2&LastName=AAA&Phone=080808&Address=AAA&Email=AAA@AAA.AAA&Winner="+winnerToSent+"&Loser="+loserToSent,
-            success: function (value) {
-			
-			}
-        }) 
-
+    getPlayersCountJS__deps: ["$BigHeadStorage"],
+    getPlayersCountJS: function () {
+        var server = BigHeadStorage.requestSync("count", "");
+        var localCount = BigHeadStorage.localPlayerCount();
+        if (server && server.success && server.count > 0) return server.count;
+        return localCount;
     },
 
-    pushWinnersJS: function(){
-        localStorage.setItem("pushWinners_2",1);
+    getLastNameJS__deps: ["$BigHeadStorage"],
+    getLastNameJS: function () {
+        var userName = (typeof getUserName === "function" ? getUserName() : "") || "";
+        return BigHeadStorage.returnString(userName);
     },
-})
+
+    saveWinnersJS__deps: ["$BigHeadStorage"],
+    saveWinnersJS: function (winner, loser) {
+        var body = "action=result&gameKey=" + BigHeadStorage.gameKey +
+            "&winner=" + encodeURIComponent(BigHeadStorage.pointerToString(winner)) +
+            "&loser=" + encodeURIComponent(BigHeadStorage.pointerToString(loser));
+        BigHeadStorage.postForm(body).catch(function (error) {
+            console.warn("BigHead 2: result log was not saved", error);
+        });
+    },
+
+    pushWinnersJS: function () {
+        localStorage.setItem("pushWinners_2", "1");
+    }
+});

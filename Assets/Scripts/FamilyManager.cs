@@ -55,6 +55,7 @@ public class KidUser
     public void ResetAllInfo() 
     {
         UserName= "";
+        FirstName = "";
         UserGeneralInfoArr = new int[Enum.GetNames(typeof(UserArrayEnum)).Length];
         UserAvatarArr = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length];
         UserStoreMatrix = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length, 100];
@@ -81,20 +82,36 @@ public class KidUser
     }
 
     //Update variables from JSON data (from the server)
-    public void loadParametersFromData(string jsonString)
+    public bool loadParametersFromData(string jsonString)
     {
-        JsonUtility.FromJsonOverwrite(jsonString, this);
-        MystoreUpdadeFromStoreInfoData();
+        try
+        {
+            JsonUtility.FromJsonOverwrite(jsonString, this);
+            if (StoreInfo == null)
+                StoreInfo = new string[0];
+            MystoreUpdadeFromStoreInfoData();
+            return true;
+        }
+        catch (Exception error)
+        {
+            Debug.LogWarning("Ignoring invalid saved player data: " + error.Message);
+            return false;
+        }
     }
 
     //Update Mystore by entering the data from StoreInfo (from JSON)
     public void MystoreUpdadeFromStoreInfoData()
     {
+        UserStoreMatrix = new int[Enum.GetNames(typeof(AvatarArrayEnum)).Length, 100];
         for (int i = 0; i < StoreInfo.Length; i++)
         {
             string[] itemInfo = StoreInfo[i].Split('-');
-            int XItem = Convert.ToInt32(itemInfo[0]);
-            int YItem = Convert.ToInt32(itemInfo[1]);
+            int XItem;
+            int YItem;
+            if (itemInfo.Length != 2 || !Int32.TryParse(itemInfo[0], out XItem) || !Int32.TryParse(itemInfo[1], out YItem))
+                continue;
+            if (XItem < 0 || XItem >= UserStoreMatrix.GetLength(0) || YItem < 0 || YItem >= UserStoreMatrix.GetLength(1))
+                continue;
             UserStoreMatrix[XItem, YItem] = 1;
             //Debug.Log(Mystore[XItem,YItem]);
            // Debug.Log(XItem.ToString() + "/" + YItem.ToString());
@@ -110,7 +127,7 @@ public class KidUser
 #if (!UNITY_EDITOR && !DEVELOPMENT_BUILD )
     
        // UserName = FirstName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
-        UserName = UserName.Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
+        UserName = (UserName ?? "").Replace("?","").Replace(":","").Replace("(","").Replace(")","").Replace("{","").Replace("}","").Replace("[","").Replace("]","");
         int player = GetInfoVal(UserArrayEnum.Number);
         int points = GetInfoVal(UserArrayEnum.Points);
         
@@ -129,8 +146,8 @@ public class KidUser
         getJson = loadDataJS(player);
         if (getJson != null && getJson != "" && getJson != "undefined")
         {
-            loadParametersFromData(getJson);
-            FirstName = UserName.Replace("?","");
+            if (loadParametersFromData(getJson))
+                FirstName = (UserName ?? "").Replace("?","");
         }
 #endif
 
