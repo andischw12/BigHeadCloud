@@ -1,4 +1,4 @@
-mergeInto(LibraryManager.library, {
+﻿mergeInto(LibraryManager.library, {
     $BigHeadStorage: {
         endpoint: "/asp/BigHeadGameData.asp",
         gameKey: 2,
@@ -33,27 +33,74 @@ mergeInto(LibraryManager.library, {
             return this.prefix + this.cookieOid() + ".player." + player;
         },
 
+        parseData: function (rawData) {
+            try {
+                var data = typeof rawData === "string" ? JSON.parse(rawData) : rawData;
+                return data && Array.isArray(data.UserGeneralInfoArr) ? data : null;
+            } catch (ignore) {
+                return null;
+            }
+        },
+
+        pointsFrom: function (data, fallback) {
+            var points = data && data.UserGeneralInfoArr ? parseInt(data.UserGeneralInfoArr[4], 10) : NaN;
+            return isFinite(points) ? points : (parseInt(fallback, 10) || 0);
+        },
+
+        normalizedName: function (data) {
+            return String(data && data.UserName || "").toLowerCase()
+                .replace(/[?"'\t\r\n]/g, "").replace(/^\s+|\s+$/g, "");
+        },
+
+        backupConflict: function (player, envelope) {
+            try {
+                localStorage.setItem(this.playerKey(player) + ".conflict." +
+                    (envelope.savedAt || Date.now()), JSON.stringify(envelope));
+            } catch (ignore) { }
+        },
+
         readEnvelope: function (player) {
             var key = this.playerKey(player);
             var raw = localStorage.getItem(key);
+            var cameFromLegacyKey = false;
             if (!raw) raw = localStorage.getItem("BigHead_2" + player);
             if (!raw) raw = localStorage.getItem("BigHead" + player + "_2");
-            if (!raw) raw = localStorage.getItem("BigHead" + player);
+            if (raw && !localStorage.getItem(key)) cameFromLegacyKey = true;
             if (!raw) return null;
 
             try {
                 var parsed = JSON.parse(raw);
-                if (parsed && typeof parsed.data === "string") return parsed;
+                var data;
+                if (parsed && typeof parsed.data === "string") {
+                    data = this.parseData(parsed.data);
+                    if (!data) {
+                        this.backupConflict(player, parsed);
+                        console.warn("BigHead 2: rejected local data with a different game layout");
+                        return null;
+                    }
+                    parsed.points = this.pointsFrom(data, parsed.points);
+                    parsed.savedAt = parseInt(parsed.savedAt, 10) || Date.now();
+                    parsed.dirty = parsed.dirty === true;
+                    parsed.legacy = cameFromLegacyKey || parsed.legacy === true;
+                    localStorage.setItem(key, JSON.stringify(parsed));
+                    return parsed;
+                }
+
+                data = this.parseData(parsed);
+                if (!data) {
+                    console.warn("BigHead 2: ignored a BigHead 1 local-storage record");
+                    return null;
+                }
 
                 var migrated = {
-                    data: raw,
-                    points: 0,
+                    data: JSON.stringify(data),
+                    points: this.pointsFrom(data, 0),
                     shabbatPoints: 0,
                     hanukkaPoints: 0,
                     purimPoints: 0,
                     savedAt: Date.now(),
-                    dirty: true,
-                    legacy: true
+                    dirty: !cameFromLegacyKey,
+                    legacy: cameFromLegacyKey
                 };
                 localStorage.setItem(key, JSON.stringify(migrated));
                 return migrated;
@@ -171,6 +218,32 @@ mergeInto(LibraryManager.library, {
                 if (this.readEnvelope(player)) count++;
             }
             return count;
+        },
+
+        serverEnvelope: function (server) {
+            var data = this.parseData(server && server.data);
+            if (!data) return null;
+            return {
+                data: JSON.stringify(data),
+                points: this.pointsFrom(data, server.points),
+                shabbatPoints: server.shabbatPoints || 0,
+                hanukkaPoints: server.hanukkaPoints || 0,
+                purimPoints: server.purimPoints || 0,
+                savedAt: Date.now(),
+                dirty: false,
+                legacy: false
+            };
+        },
+
+        chooseLocalOverServer: function (local, serverEnvelope) {
+            if (!local || !local.dirty || local.legacy) return false;
+            var localData = this.parseData(local.data);
+            var serverData = this.parseData(serverEnvelope.data);
+            var localName = this.normalizedName(localData);
+            var serverName = this.normalizedName(serverData);
+            if (!localName || !serverName || localName !== serverName) return null;
+            return this.pointsFrom(localData, local.points) >
+                this.pointsFrom(serverData, serverEnvelope.points);
         }
     },
 
@@ -179,24 +252,21 @@ mergeInto(LibraryManager.library, {
         var local = BigHeadStorage.readEnvelope(player);
         var server = BigHeadStorage.requestSync("load", "player=" + encodeURIComponent(player));
 
-        if (local && local.dirty && !local.legacy) {
-            BigHeadStorage.enqueueSave(player, local);
-            return BigHeadStorage.returnString(local.data);
-        }
-
         if (server && server.success && server.found && server.data) {
-            var serverEnvelope = {
-                data: JSON.stringify(server.data),
-                points: server.points || 0,
-                shabbatPoints: server.shabbatPoints || 0,
-                hanukkaPoints: server.hanukkaPoints || 0,
-                purimPoints: server.purimPoints || 0,
-                savedAt: Date.now(),
-                dirty: false,
-                legacy: false
-            };
-            BigHeadStorage.writeEnvelope(player, serverEnvelope);
-            return BigHeadStorage.returnString(serverEnvelope.data);
+            var serverEnvelope = BigHeadStorage.serverEnvelope(server);
+            if (serverEnvelope) {
+                var choice = BigHeadStorage.chooseLocalOverServer(local, serverEnvelope);
+                if (choice === true) {
+                    BigHeadStorage.enqueueSave(player, local);
+                    return BigHeadStorage.returnString(local.data);
+                }
+                if (choice === null) {
+                    BigHeadStorage.backupConflict(player, local);
+                    console.warn("BigHead 2: different local player preserved as a conflict backup; server was loaded");
+                }
+                BigHeadStorage.writeEnvelope(player, serverEnvelope);
+                return BigHeadStorage.returnString(serverEnvelope.data);
+            }
         }
 
         if (local) {
@@ -204,6 +274,8 @@ mergeInto(LibraryManager.library, {
                 local.dirty = true;
                 local.legacy = false;
                 BigHeadStorage.writeEnvelope(player, local);
+                BigHeadStorage.enqueueSave(player, local);
+            } else if (local.dirty && !local.legacy) {
                 BigHeadStorage.enqueueSave(player, local);
             }
             return BigHeadStorage.returnString(local.data);
@@ -231,7 +303,7 @@ mergeInto(LibraryManager.library, {
     getPlayersCountJS: function () {
         var server = BigHeadStorage.requestSync("count", "");
         var localCount = BigHeadStorage.localPlayerCount();
-        if (server && server.success && server.count > 0) return server.count;
+        if (server && server.success && server.count > 0) return Math.max(server.count, localCount);
         return localCount;
     },
 
