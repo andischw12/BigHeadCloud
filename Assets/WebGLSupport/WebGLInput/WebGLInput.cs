@@ -9,6 +9,7 @@ using System;
 using AOT;
 using System.Runtime.InteropServices; // for DllImport
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace WebGLSupport
 {
@@ -61,6 +62,9 @@ namespace WebGLSupport
         public static extern bool WebGLInputIsFocus(int id);
 
         [DllImport("__Internal")]
+        public static extern bool WebGLInputIsMobile();
+
+        [DllImport("__Internal")]
         public static extern void WebGLInputDelete(int id);
 
 #if WEBGLINPUT_TAB
@@ -84,6 +88,7 @@ namespace WebGLSupport
         public static void WebGLInputMaxLength(int id, int maxlength) { }
         public static void WebGLInputText(int id, string text) { }
         public static bool WebGLInputIsFocus(int id) { return false; }
+        public static bool WebGLInputIsMobile() { return Application.isMobilePlatform; }
         public static void WebGLInputDelete(int id) { }
 
 #if WEBGLINPUT_TAB
@@ -116,6 +121,7 @@ namespace WebGLSupport
         internal int id = -1;
         IInputField input;
         bool blurBlock = false;
+        bool isMobileBrowser = false;
 
         [TooltipAttribute("show input element on canvas. this will make you select text by drag.")]
         public bool showHtmlElement = false;
@@ -136,11 +142,22 @@ namespace WebGLSupport
             // WebGL 以外、更新メソッドは動作しないようにします
             enabled = false;
 #endif
-            // モバイルの入力対応
-            if (Application.isMobilePlatform)
+            // A WebGL build reports WebGLPlayer as its runtime platform. Detect
+            // the browser so iOS can focus the HTML input during the touch event.
+            isMobileBrowser = IsMobileBrowser();
+            if (isMobileBrowser && !GetComponent<WebGLInputMobile>())
             {
                 gameObject.AddComponent<WebGLInputMobile>();
             }
+        }
+
+        private static bool IsMobileBrowser()
+        {
+#if UNITY_WEBGL && !UNITY_EDITOR
+            return WebGLInputPlugin.WebGLInputIsMobile();
+#else
+            return Application.isMobilePlatform;
+#endif
         }
 
         /// <summary>
@@ -155,7 +172,7 @@ namespace WebGLSupport
             var fontSize = Mathf.Max(14, input.fontSize); // limit font size : 14 !!
 
             // モバイルの場合、強制表示する
-            if (showHtmlElement || Application.isMobilePlatform)
+            if (showHtmlElement || isMobileBrowser)
             {
                 var x = (int)(rect.x);
                 var y = (int)(Screen.height - (rect.y + rect.height));
@@ -326,7 +343,7 @@ namespace WebGLSupport
             // 未登録の場合、選択する
             if (!instances.ContainsKey(id))
             {
-                if (Application.isMobilePlatform) return;
+                if (isMobileBrowser) return;
                 OnSelect();
 
             }
@@ -408,6 +425,59 @@ namespace WebGLSupport
                 if (index < 0) index = inputs.Count - 1;
                 else if (index >= inputs.Count) index = 0;
                 inputs[index].input.ActivateInputField();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Adds the HTML-input bridge to every game input field in WebGL builds,
+    /// including fields that start inactive and are displayed later by a menu.
+    /// </summary>
+    public static class WebGLInputAutoAttach
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+#endif
+        private static void Initialize()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            AttachToScene(SceneManager.GetActiveScene());
+        }
+
+        private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            AttachToScene(scene);
+        }
+
+        private static void AttachToScene(Scene scene)
+        {
+            if (!scene.IsValid() || !scene.isLoaded)
+            {
+                return;
+            }
+
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+#if TMP_WEBGL_SUPPORT
+                foreach (TMPro.TMP_InputField field in root.GetComponentsInChildren<TMPro.TMP_InputField>(true))
+                {
+                    AddBridge(field.gameObject);
+                }
+#endif
+
+                foreach (InputField field in root.GetComponentsInChildren<InputField>(true))
+                {
+                    AddBridge(field.gameObject);
+                }
+            }
+        }
+
+        private static void AddBridge(GameObject inputObject)
+        {
+            if (!inputObject.GetComponent<WebGLInput>())
+            {
+                inputObject.AddComponent<WebGLInput>();
             }
         }
     }

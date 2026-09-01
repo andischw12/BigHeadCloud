@@ -40,9 +40,13 @@ var WebGLInput = {
 		input.style.cursor = "default";
 
 		input.spellcheck = false;
+		input.autocomplete = "off";
+		input.dir = "auto";
 		input.value = Pointer_stringify(text);
 		input.placeholder = Pointer_stringify(placeholder);
-		input.style.fontSize = fontsize + "px";
+		var mobileBrowser = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "") ||
+			(/Macintosh/i.test(navigator.userAgent || "") && navigator.maxTouchPoints > 1);
+		input.style.fontSize = (mobileBrowser ? Math.max(16, fontsize) : fontsize) + "px";
 		//input.setSelectionRange(0, input.value.length);
 		
 		if(isPassword){
@@ -104,6 +108,12 @@ var WebGLInput = {
     },
 	WebGLInputIsFocus: function (id) {
 		return instances[id] === document.activeElement;
+	},
+	WebGLInputIsMobile: function() {
+		var userAgent = navigator.userAgent || "";
+		var mobileUserAgent = /Android|iPhone|iPad|iPod/i.test(userAgent);
+		var iPadDesktopMode = /Macintosh/i.test(userAgent) && navigator.maxTouchPoints > 1;
+		return mobileUserAgent || iPadDesktopMode;
 	},
 	WebGLInputOnValueChange:function(id, cb){
         var input = instances[id];
